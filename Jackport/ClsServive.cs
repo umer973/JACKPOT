@@ -106,8 +106,6 @@ namespace Jackport
                 purchase_tickets = getdata(ticketList, bidList)
             };
             var jsondata = JsonConvert.SerializeObject(body);
-            
-
             request.AddHeader("Content-Type", "application/json");
             request.AddParameter("application/json", jsondata, ParameterType.RequestBody);
             IRestResponse response = client.Execute(request);
@@ -150,6 +148,50 @@ namespace Jackport
 
 
 
+        }
+
+        public object GetTodaysPurchasedTickets(string token)
+        {
+            var client = new RestClient("https://api.welcomejk.com/v1/tickets/get-today");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("APP-KEY", "e76d8c85-979c-411a-89f6-f1dfe0dfa041");
+            request.AddHeader("AGENT-TOKEN", token);
+            request.AddHeader("MACHINE-ID","-hcaFK5rNlk8rFKhI2e-kStz04MpLGoCAqEIJAA7G30");
+            IRestResponse response = client.Execute(request);
+            var result = JsonConvert.DeserializeObject<PurvchasedTicketDetails>(response.Content);
+            if (result.success)
+            {
+                return result.data;
+            }
+            else
+            {
+                MessageBox.Show(result.message);
+                return null;
+            }
+
+        }
+
+        public object GetReportSummary(DateTime startTime, DateTime endDate, string token)
+        {
+            var client = new RestClient("https://api.welcomejk.com/v1/reports/get-report?start_date=2021-08-02&end_date=2021-11-19");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("APP-KEY", "e76d8c85-979c-411a-89f6-f1dfe0dfa041");
+            request.AddHeader("AGENT-TOKEN", token);
+            // request.AddHeader("MACHINE-ID", getMachineId().ToString().Trim());
+            request.AddHeader("MACHINE-ID", "-hcaFK5rNlk8rFKhI2e-kStz04MpLGoCAqEIJAA7G30");
+            IRestResponse response = client.Execute(request);
+            var result = JsonConvert.DeserializeObject<ReportData>(response.Content);
+            if (result.success)
+            {
+                return result.data;
+            }
+            else
+            {
+                MessageBox.Show(result.message);
+                return null;
+            }
         }
 
         public void BinddataSet()

@@ -893,7 +893,7 @@
             this.groupBox1.Controls.Add(this.Txt0);
             this.groupBox1.Location = new System.Drawing.Point(1, 197);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(805, 475);
+            this.groupBox1.Size = new System.Drawing.Size(805, 517);
             this.groupBox1.TabIndex = 253;
             this.groupBox1.TabStop = false;
             // 
@@ -3568,7 +3568,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(729, 672);
+            this.textBox2.Location = new System.Drawing.Point(819, 675);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(222, 25);

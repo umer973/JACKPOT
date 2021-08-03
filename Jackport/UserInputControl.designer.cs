@@ -36,7 +36,7 @@
             // 
             this.LabelName.AutoSize = true;
             this.LabelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelName.Location = new System.Drawing.Point(22, 2);
+            this.LabelName.Location = new System.Drawing.Point(17, 0);
             this.LabelName.Name = "LabelName";
             this.LabelName.Size = new System.Drawing.Size(21, 13);
             this.LabelName.TabIndex = 265;
@@ -45,13 +45,14 @@
             // TxtQty
             // 
             this.TxtQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtQty.Location = new System.Drawing.Point(4, 17);
+            this.TxtQty.Location = new System.Drawing.Point(0, 13);
             this.TxtQty.MaxLength = 2;
             this.TxtQty.Multiline = true;
             this.TxtQty.Name = "TxtQty";
-            this.TxtQty.Size = new System.Drawing.Size(58, 35);
+            this.TxtQty.Size = new System.Drawing.Size(50, 30);
             this.TxtQty.TabIndex = 264;
             this.TxtQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtQty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtQty_KeyPress);
             // 
             // UserInputControl
             // 
@@ -60,7 +61,7 @@
             this.Controls.Add(this.LabelName);
             this.Controls.Add(this.TxtQty);
             this.Name = "UserInputControl";
-            this.Size = new System.Drawing.Size(66, 60);
+            this.Size = new System.Drawing.Size(51, 43);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -508,8 +508,7 @@ namespace Jackport
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FrmBarcode ObjFrmBarcode = new FrmBarcode();
-            ObjFrmBarcode.Show();
+           
         }
 
         private void Txt6_TextChanged(object sender, EventArgs e)

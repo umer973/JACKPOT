@@ -12,9 +12,16 @@ namespace Jackport
 {
     public partial class FrmBarcode : Form
     {
-        public FrmBarcode()
+        public FrmBarcode(object data)
         {
             InitializeComponent();
+
+            LoadData(data);
+        }
+
+        private void LoadData(object data)
+        {
+            dataGridView1.DataSource = data;
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
