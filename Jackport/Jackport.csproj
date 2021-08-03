@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{868644A3-5E1E-4F57-B76B-2E780F9F195B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Jackport</RootNamespace>
+    <AssemblyName>Jackport</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DeviceId, Version=5.3.0.0, Culture=neutral, PublicKeyToken=f755c371b5c59c52, processorArchitecture=MSIL">
+      <HintPath>..\packages\DeviceId.5.3.0\lib\net40\DeviceId.dll</HintPath>
+    </Reference>
+    <Reference Include="Intersoft.Crosslight, Version=6.0.5000.1, Culture=neutral, PublicKeyToken=71f3e3261ac778b5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Intersoft.Crosslight.6.0.5000.975\lib\Intersoft.Crosslight.dll</HintPath>
+    </Reference>
+    <Reference Include="Intersoft.Crosslight.RestClient, Version=6.0.5000.1, Culture=neutral, PublicKeyToken=71f3e3261ac778b5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Intersoft.Crosslight.RestClient.6.0.5000.975\lib\Intersoft.Crosslight.RestClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.12.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.12.0\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClsServive.cs" />
+    <Compile Include="DataModel\ObjectDataModel.cs" />
+    <Compile Include="FrmActivationKey.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmActivationKey.designer.cs">
+      <DependentUpon>FrmActivationKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBarcode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBarcode.designer.cs">
+      <DependentUpon>FrmBarcode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmJackport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmJackport.designer.cs">
+      <DependentUpon>FrmJackport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmJackportDemo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmJackportDemo.designer.cs">
+      <DependentUpon>FrmJackportDemo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRegister.designer.cs">
+      <DependentUpon>FrmRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTMLPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTMLPrint.designer.cs">
+      <DependentUpon>FrmTMLPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListValueControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ListValueControl.designer.cs">
+      <DependentUpon>ListValueControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TicketContols.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TicketContols.designer.cs">
+      <DependentUpon>TicketContols.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserInputControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserInputControl.designer.cs">
+      <DependentUpon>UserInputControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FrmActivationKey.resx">
+      <DependentUpon>FrmActivationKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBarcode.resx">
+      <DependentUpon>FrmBarcode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmJackport.resx">
+      <DependentUpon>FrmJackport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmJackportDemo.resx">
+      <DependentUpon>FrmJackportDemo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRegister.resx">
+      <DependentUpon>FrmRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTMLPrint.resx">
+      <DependentUpon>FrmTMLPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListValueControl.resx">
+      <DependentUpon>ListValueControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="TicketContols.resx">
+      <DependentUpon>TicketContols.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserInputControl.resx">
+      <DependentUpon>UserInputControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
