@@ -164,6 +164,7 @@ namespace Jackport
                 agentToken = _root.data.AgentData.token;
 
                 UserAgent.AgenToken = agentToken;
+                UserAgent.AgentCode = _root.data.AgentData.agent_code;
 
 
 
@@ -1444,9 +1445,8 @@ namespace Jackport
 
         private void GetReportSummary()
         {
-            ReportSummary report = new ReportSummary();
-            report = clsService.GetReportSummary(DateTime.Now,DateTime.Now,agentToken);
-            FrmTMLPrint objReport = new FrmTMLPrint(report);
+          
+            FrmTMLPrint objReport = new FrmTMLPrint();
             objReport.Show();
         }
 
@@ -1498,6 +1498,11 @@ namespace Jackport
                 };
                 plist.Add(sl);
             }
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

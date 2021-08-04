@@ -460,7 +460,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(798, 572);
+            this.textBox1.Location = new System.Drawing.Point(135, 430);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(40, 41);
@@ -468,7 +468,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(798, 620);
+            this.button8.Location = new System.Drawing.Point(135, 473);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(40, 46);
             this.button8.TabIndex = 255;
@@ -536,7 +536,7 @@
             // 
             this.label146.AutoSize = true;
             this.label146.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label146.Location = new System.Drawing.Point(1181, 688);
+            this.label146.Location = new System.Drawing.Point(1181, 690);
             this.label146.Name = "label146";
             this.label146.Size = new System.Drawing.Size(14, 13);
             this.label146.TabIndex = 505;
@@ -544,7 +544,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(1218, 678);
+            this.textBox4.Location = new System.Drawing.Point(1218, 682);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(129, 25);
@@ -1048,7 +1048,9 @@
             this.groupBox1.Controls.Add(this.TxtE9);
             this.groupBox1.Controls.Add(this.TxtE1);
             this.groupBox1.Controls.Add(this.label134);
+            this.groupBox1.Controls.Add(this.button8);
             this.groupBox1.Controls.Add(this.label95);
+            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label135);
             this.groupBox1.Controls.Add(this.Txt1019);
             this.groupBox1.Controls.Add(this.Txt8089);
@@ -1091,7 +1093,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1364, 749);
+            this.ClientSize = new System.Drawing.Size(1360, 745);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.textBox4);
@@ -1102,11 +1104,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "FrmJackportDemo";
             this.Text = "Jackport";
             this.Load += new System.EventHandler(this.FrmJackport_Load);

@@ -198,7 +198,7 @@ namespace Jackport
 
 
 
-        public ReportSummary GetReportSummary(DateTime startTime, DateTime endDate, string token)
+        public ReportSummary GetReportSummary(DateTime startTime, DateTime endDate)
         {
 
             //var client = new RestClient("https://api.welcomejk.com/v1/reports/get-report?start_date=" + startTime + "&end_date=" + endDate);
@@ -206,7 +206,7 @@ namespace Jackport
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
             request.AddHeader("APP-KEY", "e76d8c85-979c-411a-89f6-f1dfe0dfa041");
-            request.AddHeader("AGENT-TOKEN", token);
+            request.AddHeader("AGENT-TOKEN", UserAgent.AgenToken);
             // request.AddHeader("MACHINE-ID", getMachineId().ToString().Trim());
             request.AddHeader("MACHINE-ID", deviceId);
             IRestResponse response = client.Execute(request);

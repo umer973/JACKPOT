@@ -13,21 +13,32 @@ namespace Jackport
 {
     public partial class FrmTMLPrint : Form
     {
-        public FrmTMLPrint(ReportSummary result)
+        ClsService clsService = new ClsService();
+        public FrmTMLPrint()
         {
             InitializeComponent();
-            loaddata(result);
+           
         }
 
-        private void loaddata(ReportSummary result)
+        private void LoadReport()
         {
-            dataGridView1.DataSource = result;
-            
+            ReportSummary report = new ReportSummary();
+            report = clsService.GetReportSummary(DateTime.Now, DateTime.Now);
+
+            lblAgentID.Text = UserAgent.AgentCode;
+            lblDate.Text = DateTime.Now.ToString();
+            lblGrosssaleAmt.Text = report.gross_sales_amount;
+
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void BtnTmlClaim_Click(object sender, EventArgs e)
+        {
+            LoadReport();
         }
     }
 }
