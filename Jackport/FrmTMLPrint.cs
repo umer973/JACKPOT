@@ -12,9 +12,16 @@ namespace Jackport
 {
     public partial class FrmTMLPrint : Form
     {
-        public FrmTMLPrint()
+        public FrmTMLPrint(object result)
         {
             InitializeComponent();
+            loaddata(result);
+        }
+
+        private void loaddata(object result)
+        {
+            dataGridView1.DataSource = result;
+            
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)

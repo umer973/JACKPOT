@@ -60,7 +60,7 @@ namespace Jackport
             request.AddParameter("password", password);
             // request.AddParameter("machine_id", getMachineId().ToString().Trim());
             request.AddParameter("machine_id", "-hcaFK5rNlk8rFKhI2e-kStz04MpLGoCAqEIJAA7G30");
-            IRestResponse response =  client.Execute(request);
+            IRestResponse response = client.Execute(request);
             var result = JsonConvert.DeserializeObject<Root>(response.Content);
             FrmLogin Login = new FrmLogin();
             if (result.success && result.code == 200)
@@ -68,8 +68,8 @@ namespace Jackport
                 FrmJackportDemo frmJackport = new FrmJackportDemo(result);
                 //FrmLogin.Visible = false;
                 Login.Hide();
-                
-               frmJackport.Show();
+
+                frmJackport.Show();
                 Login.Hide();
                 return true;
 
@@ -92,7 +92,7 @@ namespace Jackport
             return deviceId;
         }
 
-        public bool PurchaseSingleTicketAsync(string token, List<Bid> bidList, List<PurchaseTicket> ticketList)
+        public object PurchaseSingleTicketAsync(string token, List<Bid> bidList, List<PurchaseTicket> ticketList)
         {
             var client = new RestClient("https://api.welcomejk.com/v1/tickets/buy-all");
             client.Timeout = -1;
@@ -114,10 +114,10 @@ namespace Jackport
 
             if (result.success)
             {
-                return true;
+                return result.data;
 
             }
-            return false;
+            return null;
         }
 
         private static List<PurchaseTicket> getdata(List<PurchaseTicket> ticList, List<Bid> bidList)
@@ -157,7 +157,7 @@ namespace Jackport
             var request = new RestRequest(Method.GET);
             request.AddHeader("APP-KEY", "e76d8c85-979c-411a-89f6-f1dfe0dfa041");
             request.AddHeader("AGENT-TOKEN", token);
-            request.AddHeader("MACHINE-ID","-hcaFK5rNlk8rFKhI2e-kStz04MpLGoCAqEIJAA7G30");
+            request.AddHeader("MACHINE-ID", "-hcaFK5rNlk8rFKhI2e-kStz04MpLGoCAqEIJAA7G30");
             IRestResponse response = client.Execute(request);
             var result = JsonConvert.DeserializeObject<PurvchasedTicketDetails>(response.Content);
             if (result.success)
@@ -191,6 +191,27 @@ namespace Jackport
             {
                 MessageBox.Show(result.message);
                 return null;
+            }
+        }
+
+
+        public bool CancelTicket(string token, int slotId)
+        {
+            var client = new RestClient("https://api.welcomejk.com/v1/tickets/cancel/" + slotId);
+            client.Timeout = -1;
+            var request = new RestRequest(Method.DELETE);
+            request.AddHeader("APP-KEY", "e76d8c85-979c-411a-89f6-f1dfe0dfa041");
+            request.AddHeader("AGENT-TOKEN", token);
+            request.AddHeader("MACHINE-ID", "dd97c9da-f21f-11eb-9a03-0242ac130003");
+            IRestResponse response = client.Execute(request);
+            var result = JsonConvert.DeserializeObject<ApiResponse>(response.Content);
+            if (result.success)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 

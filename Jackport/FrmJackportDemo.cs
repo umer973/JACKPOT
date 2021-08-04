@@ -201,7 +201,16 @@ namespace Jackport
                 }
             }
 
-            clsService.PurchaseSingleTicketAsync(agentToken, bidList, plist);
+           var result= clsService.PurchaseSingleTicketAsync(agentToken, bidList, plist);
+
+            Print(result);
+
+
+        }
+
+        private void Print(object result)
+        {
+            //throw new NotImplementedException();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -1384,6 +1393,18 @@ namespace Jackport
 
 
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var result = clsService.GetTodaysPurchasedTickets(agentToken);
+            FrmTMLPrint objReport = new FrmTMLPrint(result);
+            objReport.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
