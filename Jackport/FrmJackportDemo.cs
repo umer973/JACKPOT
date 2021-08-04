@@ -1438,8 +1438,15 @@ namespace Jackport
 
         private void button5_Click(object sender, EventArgs e)
         {
-            var result = clsService.GetTodaysPurchasedTickets(agentToken);
-            FrmTMLPrint objReport = new FrmTMLPrint(result);
+            GetReportSummary();
+           
+        }
+
+        private void GetReportSummary()
+        {
+            ReportSummary report = new ReportSummary();
+            report = clsService.GetReportSummary(DateTime.Now,DateTime.Now,agentToken);
+            FrmTMLPrint objReport = new FrmTMLPrint(report);
             objReport.Show();
         }
 

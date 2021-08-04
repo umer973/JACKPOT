@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.BtnTmlClaim = new System.Windows.Forms.Button();
             this.BtnReprint = new System.Windows.Forms.Button();
             this.BtnTmlCancel = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -46,6 +46,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(768, 539);
             this.panel1.TabIndex = 0;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(44, 72);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(677, 161);
+            this.dataGridView1.TabIndex = 0;
             // 
             // BtnCancel
             // 
@@ -95,14 +103,6 @@
             this.BtnTmlCancel.TabIndex = 4;
             this.BtnTmlCancel.Text = "TML Cancel";
             this.BtnTmlCancel.UseVisualStyleBackColor = false;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(762, 161);
-            this.dataGridView1.TabIndex = 0;
             // 
             // FrmTMLPrint
             // 

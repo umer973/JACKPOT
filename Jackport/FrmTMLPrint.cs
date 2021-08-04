@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jackport.DataModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,13 +13,13 @@ namespace Jackport
 {
     public partial class FrmTMLPrint : Form
     {
-        public FrmTMLPrint(object result)
+        public FrmTMLPrint(ReportSummary result)
         {
             InitializeComponent();
             loaddata(result);
         }
 
-        private void loaddata(object result)
+        private void loaddata(ReportSummary result)
         {
             dataGridView1.DataSource = result;
             
