@@ -54,7 +54,7 @@
             this.label144 = new System.Windows.Forms.Label();
             this.LblCountDown2 = new System.Windows.Forms.Label();
             this.label142 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblSlotTime = new System.Windows.Forms.Label();
             this.label140 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -119,7 +119,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.YellowGreen;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.panel1.Controls.Add(this.cmbSlot);
             this.panel1.Controls.Add(this.LblTime);
             this.panel1.Controls.Add(this.LblDate);
@@ -369,7 +369,7 @@
             this.panel3.Controls.Add(this.label144);
             this.panel3.Controls.Add(this.LblCountDown2);
             this.panel3.Controls.Add(this.label142);
-            this.panel3.Controls.Add(this.label9);
+            this.panel3.Controls.Add(this.lblSlotTime);
             this.panel3.Controls.Add(this.label140);
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.label5);
@@ -418,15 +418,15 @@
             this.label142.TabIndex = 14;
             this.label142.Text = "LT  :";
             // 
-            // label9
+            // lblSlotTime
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(290, 5);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(84, 20);
-            this.label9.TabIndex = 13;
-            this.label9.Text = "12:06 PM";
+            this.lblSlotTime.AutoSize = true;
+            this.lblSlotTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSlotTime.Location = new System.Drawing.Point(290, 5);
+            this.lblSlotTime.Name = "lblSlotTime";
+            this.lblSlotTime.Size = new System.Drawing.Size(84, 20);
+            this.lblSlotTime.TabIndex = 13;
+            this.lblSlotTime.Text = "12:06 PM";
             // 
             // label140
             // 
@@ -1149,7 +1149,7 @@
         private System.Windows.Forms.Label label144;
         private System.Windows.Forms.Label LblCountDown2;
         private System.Windows.Forms.Label label142;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblSlotTime;
         private System.Windows.Forms.Label label140;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label5;

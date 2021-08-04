@@ -31,6 +31,7 @@ namespace Jackport
         int segundo = 360;
         DateTime dt = new DateTime();
         List<TimeSlot> timeSlots = new List<TimeSlot>();
+        List<TimeSlot> overSlots = new List<TimeSlot>();
 
         public FrmJackportDemo(Root data)
         {
@@ -52,17 +53,72 @@ namespace Jackport
 
             var list = data.data.TimeSlots.Where(x => x.slot_over == "0").ToList();
 
+            var over = data.data.TimeSlots.Where(x => x.slot_over == "1").ToList();
+
+            overSlots = over.Select(x => new TimeSlot
+            {
+                slot_id = x.slot_id,
+                slot_over = x.slot_over
+
+            }).ToList();
+
+
             timeSlots = list.Select(x => new TimeSlot
             {
-                slot_id = x.slot_id
+                slot_id = x.slot_id,
+                slot_over = x.slot_over
+
             }).ToList();
 
             cmbSlot.Text = "Current";
+
+
+
+            //panel1.BackColor=Color.
 
             // GetSlot(list);
 
 
         }
+
+        private void ScrollDown()
+        {
+            int flag = 0;
+            int winflag = 0;
+            foreach (ListValueControl ctr in flowLayoutPanel1.Controls)
+            {
+                flag++;
+
+                if (ctr.Tag.ToString() == "1")
+                {
+                    if (flag == 5)
+                    {
+                        Point current = flowLayoutPanel1.AutoScrollPosition;
+                        Point scrolled = new Point(current.X, -current.Y + 115);
+                        flowLayoutPanel1.AutoScrollPosition = scrolled;
+                        flag = 0;
+                    }
+                }
+
+                if(ctr.Tag.ToString()=="0" && winflag==0)
+                {
+                    winflag = 1;
+                    ctr.BackColor = Color.Green;
+                }
+
+                
+            }
+
+            //for (int i = 0; i <= 5; i++)
+            //{
+
+            //    Point current = flowLayoutPanel1.AutoScrollPosition;
+            //    Point scrolled = new Point(current.X, -current.Y + 50);
+            //    flowLayoutPanel1.AutoScrollPosition = scrolled;
+
+            //}
+        }
+
         //private void GetSlot(IEnumerable<TimeSlot> list)
         //{
         //    if (cmbSlot.SelectedText.Contains("Current"))
@@ -184,7 +240,11 @@ namespace Jackport
             {
                 Name = x.win_number,
                 Time = x.time_end,
-                Color = x.slot_over.ToString().Trim() == "1" ? Color.Red : Color.Blue
+
+                Color = x.slot_over.ToString().Trim() == "1" ? Color.Maroon : Color.BlueViolet,
+                ForeColor =Color.White,
+
+                Tag = x.slot_over
             });
 
             foreach (ListValueControl item in _timeSlot)
@@ -200,14 +260,19 @@ namespace Jackport
 
         private void FrmJackport_Load(object sender, EventArgs e)
         {
-
+            ScrollDown();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
 
             BuyTickets();
-           
+
+            
+
+            
+
+
         }
 
         private void BuyTickets()
@@ -1440,12 +1505,12 @@ namespace Jackport
         private void button5_Click(object sender, EventArgs e)
         {
             GetReportSummary();
-           
+
         }
 
         private void GetReportSummary()
         {
-          
+
             FrmTMLPrint objReport = new FrmTMLPrint();
             objReport.Show();
         }

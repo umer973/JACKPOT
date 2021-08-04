@@ -42,9 +42,23 @@ namespace Jackport
 
         public Color Color
         {
+            get { return lblName.BackColor; }
+            set { lblName.BackColor = value; }
+
+
+          
+        }
+
+        public Color ForeColor
+        {
             get { return lblName.ForeColor; }
             set { lblName.ForeColor = value; }
+
+
+
         }
+
+
 
     }
 }

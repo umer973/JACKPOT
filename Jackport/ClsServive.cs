@@ -229,9 +229,9 @@ namespace Jackport
         }
 
 
-        public bool CancelTicket(string token, int slotId)
+        public bool CancelTicket(string token, string barcode)
         {
-            var client = new RestClient("https://api.welcomejk.com/v1/tickets/cancel/" + slotId);
+            var client = new RestClient("https://api.welcomejk.com/v1/tickets/cancel/" + barcode);
             client.Timeout = -1;
             var request = new RestRequest(Method.DELETE);
             request.AddHeader("APP-KEY", "e76d8c85-979c-411a-89f6-f1dfe0dfa041");

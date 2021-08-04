@@ -33,7 +33,7 @@ namespace Jackport
                 dataGridView1.Rows[index].Cells[3].Value = "2.00";
                 dataGridView1.Rows[index].Cells[4].Value = tikcet[i].ticket_total_quantity;
                 dataGridView1.Rows[index].Cells[5].Value = tikcet[i].ticket_total_amount;
-                dataGridView1.Rows[index].Cells[6].Value = "NA";
+                dataGridView1.Rows[index].Cells[6].Value = tikcet[i].ticket_status;
                 dataGridView1.Rows[index].Cells[7].Value = "NA";
             }
 
@@ -57,8 +57,8 @@ namespace Jackport
             if (dataGridView1.SelectedRows.Count != 0)
             {
                 DataGridViewRow row = this.dataGridView1.SelectedRows[0];
-                int slotId = Convert.ToInt16(row.Cells[0].Value);
-                bool result = clsservice.CancelTicket(UserAgent.AgenToken, slotId);
+                string barccode = row.Cells[1].Value.ToString().Trim();
+                bool result = clsservice.CancelTicket(UserAgent.AgenToken, barccode);
                 if (result)
                 {
                     this.Hide();
