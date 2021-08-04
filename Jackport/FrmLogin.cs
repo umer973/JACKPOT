@@ -29,8 +29,7 @@ namespace Jackport
             var isValid = clsService.LoginAsync(TxtUser.Text.Trim(), TxtPassword.Text.Trim());
             if (isValid)
                 this.Hide();
-            else
-                this.Hide();
+            
 
         }
 

@@ -20,7 +20,11 @@ namespace Jackport
     public class ClsService
     {
         public static string apiBaseUrl = "";
-
+        public string deviceId;
+        public ClsService()
+        {
+            deviceId = getMachineId().ToString().Trim();
+        }
         public async void ActivateLicenceAsync(string licenceKey)
         {
             var client = new RestClient("https://api.welcomejk.com/v1/logins/activation");
@@ -29,7 +33,7 @@ namespace Jackport
             request.AddHeader("APP-KEY", "e76d8c85-979c-411a-89f6-f1dfe0dfa041");
             request.AlwaysMultipartFormData = true;
             request.AddParameter("license_key", licenceKey);
-            request.AddParameter("machine_id", getMachineId().ToString().Trim());
+            request.AddParameter("machine_id", deviceId);
             IRestResponse response = await client.ExecuteAsync(request);
             //JavaScriptSerializer js =  new
             var result = JsonConvert.DeserializeObject<ApiResponse>(response.Content);
@@ -59,7 +63,7 @@ namespace Jackport
             request.AddParameter("username", userName);
             request.AddParameter("password", password);
             // request.AddParameter("machine_id", getMachineId().ToString().Trim());
-            request.AddParameter("machine_id", "-hcaFK5rNlk8rFKhI2e-kStz04MpLGoCAqEIJAA7G30");
+            request.AddParameter("machine_id", deviceId);
             IRestResponse response = client.Execute(request);
             var result = JsonConvert.DeserializeObject<Root>(response.Content);
             FrmLogin Login = new FrmLogin();
@@ -99,7 +103,7 @@ namespace Jackport
             var request = new RestRequest(Method.POST);
             request.AddHeader("APP-KEY", "e76d8c85-979c-411a-89f6-f1dfe0dfa041");
             request.AddHeader("AGENT-TOKEN", token);
-            request.AddHeader("MACHINE-ID", getMachineId().ToString().Trim());
+            request.AddHeader("MACHINE-ID", deviceId);
 
             var body = new Ticket
             {
@@ -114,10 +118,16 @@ namespace Jackport
 
             if (result.success)
             {
-                return result.data;
+                MessageBox.Show(result.message);
+                return result.data.agent_balance;
 
             }
-            return null;
+            else
+            {
+                MessageBox.Show(result.message);
+                return null;
+            }
+
         }
 
         private static List<PurchaseTicket> getdata(List<PurchaseTicket> ticList, List<Bid> bidList)
@@ -150,19 +160,33 @@ namespace Jackport
 
         }
 
-        public object GetTodaysPurchasedTickets(string token)
+        public List<PurchasedTickets> GetTodaysPurchasedTickets(string token)
         {
+            List<PurvchasedTicketDetails> purvchasedTicketDetails = new List<DataModel.PurvchasedTicketDetails>();
             var client = new RestClient("https://api.welcomejk.com/v1/tickets/get-today");
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
             request.AddHeader("APP-KEY", "e76d8c85-979c-411a-89f6-f1dfe0dfa041");
             request.AddHeader("AGENT-TOKEN", token);
-            request.AddHeader("MACHINE-ID", "-hcaFK5rNlk8rFKhI2e-kStz04MpLGoCAqEIJAA7G30");
+            request.AddHeader("MACHINE-ID", deviceId);
             IRestResponse response = client.Execute(request);
             var result = JsonConvert.DeserializeObject<PurvchasedTicketDetails>(response.Content);
             if (result.success)
             {
-                return result.data;
+                return result.data.Select(x => new PurchasedTickets
+                {
+                    Barcode = x.Barcode,
+                    agent_code = x.agent_code,
+                    ticket_total_amount = x.ticket_total_amount,
+                    ticket_status = x.ticket_status,
+                    ticket_taken_time = x.ticket_taken_time,
+                    agent_id=x.agent_id,
+                    ticket_total_quantity=x.ticket_total_quantity,
+                    slot_id=x.slot_id
+
+
+                }).ToList();
+
             }
             else
             {
@@ -172,6 +196,8 @@ namespace Jackport
 
         }
 
+
+
         public object GetReportSummary(DateTime startTime, DateTime endDate, string token)
         {
             var client = new RestClient("https://api.welcomejk.com/v1/reports/get-report?start_date=2021-08-02&end_date=2021-11-19");
@@ -180,7 +206,7 @@ namespace Jackport
             request.AddHeader("APP-KEY", "e76d8c85-979c-411a-89f6-f1dfe0dfa041");
             request.AddHeader("AGENT-TOKEN", token);
             // request.AddHeader("MACHINE-ID", getMachineId().ToString().Trim());
-            request.AddHeader("MACHINE-ID", "-hcaFK5rNlk8rFKhI2e-kStz04MpLGoCAqEIJAA7G30");
+            request.AddHeader("MACHINE-ID", deviceId);
             IRestResponse response = client.Execute(request);
             var result = JsonConvert.DeserializeObject<ReportData>(response.Content);
             if (result.success)
@@ -202,15 +228,17 @@ namespace Jackport
             var request = new RestRequest(Method.DELETE);
             request.AddHeader("APP-KEY", "e76d8c85-979c-411a-89f6-f1dfe0dfa041");
             request.AddHeader("AGENT-TOKEN", token);
-            request.AddHeader("MACHINE-ID", "dd97c9da-f21f-11eb-9a03-0242ac130003");
+            request.AddHeader("MACHINE-ID", deviceId);
             IRestResponse response = client.Execute(request);
             var result = JsonConvert.DeserializeObject<ApiResponse>(response.Content);
             if (result.success)
             {
+                
                 return true;
             }
             else
             {
+                MessageBox.Show(result.message);
                 return false;
             }
         }

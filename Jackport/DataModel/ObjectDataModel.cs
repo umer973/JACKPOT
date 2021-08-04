@@ -148,7 +148,8 @@ namespace Jackport.DataModel
     {
         public string id { get; set; }
         public string slot_id { get; set; }
-        public string ticket_barcode { get; set; }
+        [JsonProperty("ticket_barcode")]
+        public string Barcode { get; set; }
         public string ticket_taken_time { get; set; }
         public string ticket_start_time { get; set; }
         public string ticket_end_time { get; set; }
@@ -196,6 +197,14 @@ namespace Jackport.DataModel
         public int code { get; set; }
         public string message { get; set; }
         public ReportSummary data { get; set; }
+    }
+
+
+    public static class Slots
+    {
+        public static int SlotId { get; set; }
+
+        public static string SlotNames { get; set; }
     }
 
 

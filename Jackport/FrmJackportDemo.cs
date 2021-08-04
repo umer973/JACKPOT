@@ -30,6 +30,7 @@ namespace Jackport
         private int count = 360;
         int segundo = 360;
         DateTime dt = new DateTime();
+        List<TimeSlot> timeSlots = new List<TimeSlot>();
 
         public FrmJackportDemo(Root data)
         {
@@ -38,7 +39,7 @@ namespace Jackport
             clsService = new ClsService();
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             InitializeComponent();
-             LoadProduct();
+            LoadProduct();
             LblDate.Text = DateTime.UtcNow.ToString("dd-MMM-yyyy");
 
             LblTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
@@ -51,31 +52,44 @@ namespace Jackport
 
             var list = data.data.TimeSlots.Where(x => x.slot_over == "0").ToList();
 
-
-            GetSlot(list);
-
-
-        }
-        private void GetSlot(IEnumerable<TimeSlot> list)
-        {
-
-
-            var slot = list.Select(x => new PurchaseTicket
+            timeSlots = list.Select(x => new TimeSlot
             {
-                slot_id = Convert.ToInt16(x.slot_id)
+                slot_id = x.slot_id
             }).ToList();
 
-            for (int i = 0; i < currentSlot; i++)
-            {
-                var sl = new PurchaseTicket
-                {
-                    slot_id = slot[i].slot_id
-                };
-                plist.Add(sl);
-            }
+            cmbSlot.Text = "Current";
+
+            // GetSlot(list);
 
 
         }
+        //private void GetSlot(IEnumerable<TimeSlot> list)
+        //{
+        //    if (cmbSlot.SelectedText.Contains("Current"))
+        //    {
+        //        currentSlot = 1;
+        //    }
+        //    else if (cmbSlot.SelectedText.Contains("5"))
+        //    {
+        //        currentSlot = 5;
+        //    }
+
+        //    var slot = list.Select(x => new PurchaseTicket
+        //    {
+        //        slot_id = Convert.ToInt16(x.slot_id)
+        //    }).ToList();
+
+        //    for (int i = 0; i < currentSlot; i++)
+        //    {
+        //        var sl = new PurchaseTicket
+        //        {
+        //            slot_id = slot[i].slot_id
+        //        };
+        //        plist.Add(sl);
+        //    }
+
+
+        //}
 
 
         private void LoadProduct()
@@ -83,8 +97,8 @@ namespace Jackport
             for (int i = 00; i < 100; i++)
             {
                 UserInputControl p1 = new UserInputControl();
-                string num =Convert.ToString(i);
-                if(i==0)
+                string num = Convert.ToString(i);
+                if (i == 0)
                 {
                     num = Convert.ToString(00);
                 }
@@ -135,7 +149,7 @@ namespace Jackport
 
 
 
-            
+
 
 
         }
@@ -145,9 +159,12 @@ namespace Jackport
             try
             {
                 LblAgentId.Text = _root.data.AgentData.agent_code;
-                LblBalance.Text= _root.data.AgentData.balance;
+                LblBalance.Text = _root.data.AgentData.balance;
                 LblCompanyName.Text = _root.data.ApplicationDetails.app_name;
                 agentToken = _root.data.AgentData.token;
+
+                UserAgent.AgenToken = agentToken;
+
 
 
                 loadWinPrizes(_root.data.TimeSlots);
@@ -166,7 +183,7 @@ namespace Jackport
             {
                 Name = x.win_number,
                 Time = x.time_end,
-                Color = Color.Red
+                Color = x.slot_over.ToString().Trim() == "1" ? Color.Red : Color.Blue
             });
 
             foreach (ListValueControl item in _timeSlot)
@@ -187,10 +204,21 @@ namespace Jackport
 
         private void button3_Click(object sender, EventArgs e)
         {
+
+            BuyTickets();
+           
+        }
+
+        private void BuyTickets()
+        {
+            int flag = 0;
+            GetSlots();
             foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
             {
+
                 if (!string.IsNullOrEmpty(ctr.TickeQty) && Convert.ToInt32(ctr.TickeQty) > 0)
                 {
+                    flag = 1;
                     var bids = new Bid
                     {
                         quantity = Convert.ToInt16(ctr.TickeQty),
@@ -201,11 +229,17 @@ namespace Jackport
                 }
             }
 
-           var result= clsService.PurchaseSingleTicketAsync(agentToken, bidList, plist);
-
-            Print(result);
-
-
+            if (flag == 1)
+            {
+                var result = clsService.PurchaseSingleTicketAsync(agentToken, bidList, plist);
+                LblBalance.Text = result.ToString();
+                ClearBoard();
+                Print(result);
+            }
+            else
+            {
+                MessageBox.Show("Please select ticket first");
+            }
         }
 
         private void Print(object result)
@@ -214,6 +248,11 @@ namespace Jackport
         }
 
         private void button2_Click(object sender, EventArgs e)
+        {
+            ClearBoard();
+        }
+
+        public void ClearBoard()
         {
             foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
             {
@@ -230,7 +269,7 @@ namespace Jackport
             if (count == 0)
                 timer1.Stop();
             //LblCountDown1.Text = counter.ToString();
-            LblCountDown1.Text = "00"+":"+count / 60 + ":" + ((count % 60) >= 10 ? (count % 60).ToString() : "0" + (count % 60));
+            LblCountDown1.Text = "00" + ":" + count / 60 + ":" + ((count % 60) >= 10 ? (count % 60).ToString() : "0" + (count % 60));
             //label1.Text = count / 60 + ":" + ((count % 60) >= 10 ? (count % 60).ToString() : "0" + (count % 60));
             int LeftTime1 = count;
             int LeftTime2 = segundo - LeftTime1;
@@ -240,59 +279,61 @@ namespace Jackport
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var result = clsService.GetTodaysPurchasedTickets(agentToken);
-            FrmBarcode ObjFrmBarcode = new FrmBarcode(result);
+            List<PurchasedTickets> purchasetikcet = new List<PurchasedTickets>();
+            purchasetikcet = clsService.GetTodaysPurchasedTickets(agentToken);
+
+            FrmBarcode ObjFrmBarcode = new FrmBarcode(purchasetikcet);
             ObjFrmBarcode.Show();
         }
 
         private void TxtE0_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void TxtE1_TextChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void TxtE2_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void TxtE3_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void TxtE4_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void textBox6_TextChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void TxtE5_TextChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void TxtE7_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void TxtE8_TextChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void TxtE9_TextChanged(object sender, EventArgs e)
         {
-          
+
         }
 
         private void TxtE0_KeyUp(object sender, KeyEventArgs e)
@@ -1405,6 +1446,51 @@ namespace Jackport
         private void button4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmbSlot_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GetSlots();
+        }
+
+        private void GetSlots()
+        {
+
+
+            if (cmbSlot.Text.Trim() == "Current")
+            {
+                currentSlot = 1;
+            }
+            else if (cmbSlot.Text.Trim() == "NEXT 5")
+            {
+                currentSlot = 5;
+            }
+            else if (cmbSlot.Text.Trim() == "NEXT 15")
+            {
+                currentSlot = 15;
+            }
+            else if (cmbSlot.Text.Trim() == "NEXT 20")
+            {
+                currentSlot = 20;
+            }
+            else if (cmbSlot.Text.Trim() == "ALL DRAW")
+            {
+                currentSlot = timeSlots.Count;
+            }
+
+            var slot = timeSlots.Select(x => new PurchaseTicket
+            {
+                slot_id = Convert.ToInt16(x.slot_id)
+            }).ToList();
+
+            for (int i = 0; i < currentSlot; i++)
+            {
+                var sl = new PurchaseTicket
+                {
+                    slot_id = slot[i].slot_id
+                };
+                plist.Add(sl);
+            }
         }
     }
 }
