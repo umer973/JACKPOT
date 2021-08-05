@@ -50,7 +50,7 @@
             this.LblBalance = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label143 = new System.Windows.Forms.Label();
+            this.lblWinRs = new System.Windows.Forms.Label();
             this.label144 = new System.Windows.Forms.Label();
             this.LblCountDown2 = new System.Windows.Forms.Label();
             this.label142 = new System.Windows.Forms.Label();
@@ -365,7 +365,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.LightGreen;
-            this.panel3.Controls.Add(this.label143);
+            this.panel3.Controls.Add(this.lblWinRs);
             this.panel3.Controls.Add(this.label144);
             this.panel3.Controls.Add(this.LblCountDown2);
             this.panel3.Controls.Add(this.label142);
@@ -378,15 +378,15 @@
             this.panel3.Size = new System.Drawing.Size(820, 30);
             this.panel3.TabIndex = 252;
             // 
-            // label143
+            // lblWinRs
             // 
-            this.label143.AutoSize = true;
-            this.label143.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label143.Location = new System.Drawing.Point(612, 4);
-            this.label143.Name = "label143";
-            this.label143.Size = new System.Drawing.Size(64, 20);
-            this.label143.TabIndex = 17;
-            this.label143.Text = "160.00";
+            this.lblWinRs.AutoSize = true;
+            this.lblWinRs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWinRs.Location = new System.Drawing.Point(612, 4);
+            this.lblWinRs.Name = "lblWinRs";
+            this.lblWinRs.Size = new System.Drawing.Size(64, 20);
+            this.lblWinRs.TabIndex = 17;
+            this.lblWinRs.Text = "160.00";
             // 
             // label144
             // 
@@ -1147,7 +1147,7 @@
         private System.Windows.Forms.Label LblCompanyName;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label143;
+        private System.Windows.Forms.Label lblWinRs;
         private System.Windows.Forms.Label label144;
         private System.Windows.Forms.Label LblCountDown2;
         private System.Windows.Forms.Label label142;

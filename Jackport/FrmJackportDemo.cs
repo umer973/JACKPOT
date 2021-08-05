@@ -65,6 +65,8 @@ namespace Jackport
             timer1.Interval = 1000; // 1 second
             timer1.Start();
 
+
+
             var list = data.data.TimeSlots.Where(x => x.slot_over == "0").ToList();
 
             var over = data.data.TimeSlots.Where(x => x.slot_over == "1").ToList();
@@ -92,10 +94,12 @@ namespace Jackport
 
         private void GetCurrentSlot(List<TimeSlot> Slotlist)
         {
-            timeSlots = data.data.TimeSlots.Where(x => x.slot_over == "0").ToList();
+            var list = data.data.TimeSlots.Where(x => x.slot_over == "0").ToList();
 
-            lblSlotTime.Text = timeSlots.Select(x => x.time_end).FirstOrDefault();
-           
+            var time = list.Select(x => x.time_end).FirstOrDefault();
+
+            lblSlotTime.Text = CommonHelper.GetdateFormat(time);
+
         }
 
         private void ScrollDown()
@@ -202,7 +206,7 @@ namespace Jackport
 
                 UserAgent.AgenToken = agentToken;
                 UserAgent.AgentCode = _root.data.AgentData.agent_code;
-
+               // lblWinRs.Text=_root.data.
 
 
                 loadWinPrizes(_root.data.TimeSlots);
@@ -239,14 +243,14 @@ namespace Jackport
             }
         }
 
-        
+
 
         private void button7_Click(object sender, EventArgs e)
         {
 
         }
 
-       
+
         private void button3_Click(object sender, EventArgs e)
         {
 
@@ -340,7 +344,7 @@ namespace Jackport
 
         private void RefreshSlots()
         {
-           
+
 
             timeSlots = clsService.GetUpdatedSlots();
 
