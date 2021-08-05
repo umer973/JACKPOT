@@ -171,19 +171,21 @@ namespace Jackport.DataModel
         public string bid_price { get; set; }
         public string bid_amount { get; set; }
     }
-    public class WinTicketDetails
+    public class WinTicket
+    {
+        public string slot_id { get; set; }
+        public string win_number { get; set; }
+        public string date_slot { get; set; }
+        public string time_start { get; set; }
+        public string time_end { get; set; }
+    }
+
+    public class WinTicketResponse
     {
         public bool success { get; set; }
         public int code { get; set; }
         public string message { get; set; }
-        public List<WinTicket> data { get; set; }
-    }
-    public class WinTicket
-    {
-        public string ticket_barcode { get; set; }
-        public string bid_amount { get; set; }
-        public string Agent_code { get; set; }
-        public string Time_Slot { get; set; }
+        public WinTicket data { get; set; }
     }
 
     // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 

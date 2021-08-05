@@ -114,6 +114,7 @@
     <Compile Include="FrmWinPrice.Designer.cs">
       <DependentUpon>FrmWinPrice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helper\CommonHelper.cs" />
     <Compile Include="ListValueControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

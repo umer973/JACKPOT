@@ -1,4 +1,5 @@
 ﻿using Jackport.DataModel;
+using Jackport.Helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -56,6 +57,7 @@ namespace Jackport
             LblDate.Text = DateTime.UtcNow.ToString("dd-MMM-yyyy");
 
             LblTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
+
             SetData(data);
 
             timer1 = new System.Windows.Forms.Timer();
@@ -106,7 +108,7 @@ namespace Jackport
 
                 if (ctr.Tag.ToString() == "1")
                 {
-                    if (flag == 5)
+                    if (flag == 4)
                     {
                         Point current = flowLayoutPanel1.AutoScrollPosition;
                         Point scrolled = new Point(current.X, -current.Y + 115);
@@ -222,8 +224,8 @@ namespace Jackport
 
             var _timeSlot = timeSlotList.Select(x => new ListValueControl()
             {
-                Name = x.win_number,
-                Time = x.time_end,
+                ControlName = x.win_number,
+                Time = CommonHelper.GetdateFormat(x.time_end).ToString(),
 
                 Color = x.slot_over.ToString().Trim() == "1" ? Color.Red : Color.White,
                 ForeColor = Color.Blue,
@@ -236,6 +238,8 @@ namespace Jackport
                 flowLayoutPanel1.Controls.Add(item);
             }
         }
+
+        
 
         private void button7_Click(object sender, EventArgs e)
         {
@@ -315,7 +319,10 @@ namespace Jackport
             count--;
             if (count == 0)
             {
-                FrmWinPrice ObjWinPrice = new FrmWinPrice(Convert.ToInt32(slotdId));
+                ClsService clsService = new ClsService();
+                var result = clsService.GetWinTickets(Convert.ToInt16(slotdId));
+
+                FrmWinPrice ObjWinPrice = new FrmWinPrice(result);
                 ObjWinPrice.Show();
                 RefreshSlots();
                 count = 360;

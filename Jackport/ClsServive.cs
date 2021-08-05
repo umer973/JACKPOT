@@ -207,14 +207,15 @@ namespace Jackport
             request.AddHeader("AGENT-TOKEN", UserAgent.AgenToken);
             request.AddHeader("MACHINE-ID", deviceId);
             IRestResponse response = client.Execute(request);
-            var result = JsonConvert.DeserializeObject<WinTicketDetails>(response.Content);
+            var result = JsonConvert.DeserializeObject<WinTicketResponse>(response.Content);
             if (result.success)
             {
-                return result.message;
+                return result.data.win_number;
 
             }
             else
             {
+               
                 return result.message;
 
             }
@@ -293,10 +294,12 @@ namespace Jackport
                 return result.data.Select(x => new TimeSlot
                 {
                     date_slot = x.date_slot,
-                    time_end=x.time_end,
-                    slot_over=x.slot_over,
-                    slot_id=x.slot_id,
-                    
+                    time_end = x.time_end,
+                    slot_over = x.slot_over,
+                    slot_id = x.slot_id,
+                    win_number = x.win_number != null ? x.win_number.ToString() : ""
+
+
 
                 }).ToList();
             }
