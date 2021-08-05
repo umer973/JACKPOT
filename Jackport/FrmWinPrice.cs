@@ -12,10 +12,11 @@ namespace Jackport
 {
     public partial class FrmWinPrice : Form
     {
-        public string ticketNo;
-        public FrmWinPrice()
+        public int slotId;
+        public FrmWinPrice(int _slotId)
         {
             InitializeComponent();
+            slotId = _slotId;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -26,7 +27,8 @@ namespace Jackport
         private void FrmWinPrice_Load(object sender, EventArgs e)
         {
             ClsService clsService = new ClsService();
-            clsService.GetWinTickets(ticketNo);
+            var result = clsService.GetWinTickets(slotId);
+            lblWinNumber.Text = result;
         }
     }
 }

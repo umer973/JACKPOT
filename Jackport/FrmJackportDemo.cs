@@ -27,21 +27,31 @@ namespace Jackport
 
         List<Bid> bidList = new List<Bid>();
         List<PurchaseTicket> plist = new List<PurchaseTicket>();
-      //  private int count = 360;
-       // int segundo = 360;
+        //  private int count = 360;
+        // int segundo = 360;
         private int count = 20;
         int segundo = 20;
         DateTime dt = new DateTime();
         List<TimeSlot> timeSlots = new List<TimeSlot>();
         List<TimeSlot> overSlots = new List<TimeSlot>();
+        Root data;
 
-        public FrmJackportDemo(Root data)
+        public FrmJackportDemo(Root _data)
         {
+            data = _data;
             FrmLogin objLogin = new FrmLogin();
             objLogin.Hide();
             clsService = new ClsService();
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             InitializeComponent();
+
+
+
+        }
+
+
+        private void FrmJackport_Load(object sender, EventArgs e)
+        {
             LoadProduct();
             LblDate.Text = DateTime.UtcNow.ToString("dd-MMM-yyyy");
 
@@ -74,21 +84,16 @@ namespace Jackport
 
             cmbSlot.Text = "Current";
 
-
-
-            //panel1.BackColor=Color.
-
-            // GetSlot(list);
-
-
             GetCurrentSlot(list);
-
-
+            ScrollDown();
         }
 
-        private void GetCurrentSlot(List<TimeSlot> list)
+        private void GetCurrentSlot(List<TimeSlot> Slotlist)
         {
-            lblSlotTime.Text = list.Select(x => x.time_end).FirstOrDefault();
+            timeSlots = data.data.TimeSlots.Where(x => x.slot_over == "0").ToList();
+
+            lblSlotTime.Text = timeSlots.Select(x => x.time_end).FirstOrDefault();
+           
         }
 
         private void ScrollDown()
@@ -110,53 +115,17 @@ namespace Jackport
                     }
                 }
 
-                if(ctr.Tag.ToString()=="0" && winflag==0)
+                if (ctr.Tag.ToString() == "0" && winflag == 0)
                 {
                     winflag = 1;
                     ctr.Color = Color.Green;
                 }
 
-                
+
             }
 
-            //for (int i = 0; i <= 5; i++)
-            //{
 
-            //    Point current = flowLayoutPanel1.AutoScrollPosition;
-            //    Point scrolled = new Point(current.X, -current.Y + 50);
-            //    flowLayoutPanel1.AutoScrollPosition = scrolled;
-
-            //}
         }
-
-        //private void GetSlot(IEnumerable<TimeSlot> list)
-        //{
-        //    if (cmbSlot.SelectedText.Contains("Current"))
-        //    {
-        //        currentSlot = 1;
-        //    }
-        //    else if (cmbSlot.SelectedText.Contains("5"))
-        //    {
-        //        currentSlot = 5;
-        //    }
-
-        //    var slot = list.Select(x => new PurchaseTicket
-        //    {
-        //        slot_id = Convert.ToInt16(x.slot_id)
-        //    }).ToList();
-
-        //    for (int i = 0; i < currentSlot; i++)
-        //    {
-        //        var sl = new PurchaseTicket
-        //        {
-        //            slot_id = slot[i].slot_id
-        //        };
-        //        plist.Add(sl);
-        //    }
-
-
-        //}
-
 
         private void LoadProduct()
         {
@@ -246,13 +215,18 @@ namespace Jackport
         private void loadWinPrizes(List<TimeSlot> timeSlotList)
         {
 
+            foreach (ListValueControl item in flowLayoutPanel1.Controls)
+            {
+                flowLayoutPanel1.Controls.Remove(item);
+            }
+
             var _timeSlot = timeSlotList.Select(x => new ListValueControl()
             {
                 Name = x.win_number,
                 Time = x.time_end,
 
                 Color = x.slot_over.ToString().Trim() == "1" ? Color.Red : Color.White,
-                ForeColor =Color.Blue,
+                ForeColor = Color.Blue,
 
                 Tag = x.slot_over
             });
@@ -268,20 +242,11 @@ namespace Jackport
 
         }
 
-        private void FrmJackport_Load(object sender, EventArgs e)
-        {
-            ScrollDown();
-        }
-
+       
         private void button3_Click(object sender, EventArgs e)
         {
 
             BuyTickets();
-
-            
-
-            
-
 
         }
 
@@ -340,14 +305,21 @@ namespace Jackport
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            FrmWinPrice ObjWinPrice = new FrmWinPrice();
+            ShowWinNumber();
+
+        }
+
+        private void ShowWinNumber()
+        {
+            slotdId = timeSlots.Select(x => x.slot_id).FirstOrDefault();
             count--;
             if (count == 0)
-            { 
-
-             ObjWinPrice.Show();
-             count = 360;
-            segundo = 360;
+            {
+                FrmWinPrice ObjWinPrice = new FrmWinPrice(Convert.ToInt32(slotdId));
+                ObjWinPrice.Show();
+                RefreshSlots();
+                count = 360;
+                segundo = 360;
             }
             //timer1.Stop();
             //LblCountDown1.Text = counter.ToString();
@@ -359,7 +331,27 @@ namespace Jackport
             LblCountDown2.Text = LeftTime / 60 + ":" + ((LeftTime % 60) >= 10 ? (LeftTime % 60).ToString() : "0" + (LeftTime % 60));
         }
 
+        private void RefreshSlots()
+        {
+           
+
+            timeSlots = clsService.GetUpdatedSlots();
+
+            GetCurrentSlot(timeSlots);
+            loadWinPrizes(timeSlots);
+
+
+
+        }
+
         private void button1_Click(object sender, EventArgs e)
+        {
+
+            PurchaseTickets();
+
+        }
+
+        private void PurchaseTickets()
         {
             List<PurchasedTickets> purchasetikcet = new List<PurchasedTickets>();
             purchasetikcet = clsService.GetTodaysPurchasedTickets(agentToken);
@@ -1588,17 +1580,23 @@ namespace Jackport
 
         private void button8_Click(object sender, EventArgs e)
         {
+            GenerateRondomTicketNumber();
+
+        }
+
+        private void GenerateRondomTicketNumber()
+        {
             Random rnd = new Random();
             int n = Convert.ToInt32(TxtLpNo.Text);
             int[] intArr = new int[n];
             int i = 0;
-                for ( i = 0; i < intArr.Length; i++)
-                {
-                    int num = rnd.Next(0, 99);
-                    intArr[i] = num;
+            for (i = 0; i < intArr.Length; i++)
+            {
+                int num = rnd.Next(0, 99);
+                intArr[i] = num;
                 //Console.WriteLine(num);
 
-                }
+            }
 
             for (int j = 0; j < intArr.Length; j++)
             {
@@ -1610,7 +1608,7 @@ namespace Jackport
                     {
                         ctr.TickeQty = "1";
                     }
-                  
+
                 }
 
             }

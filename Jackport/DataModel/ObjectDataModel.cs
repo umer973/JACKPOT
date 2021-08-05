@@ -222,6 +222,25 @@ namespace Jackport.DataModel
     }
 
 
+    public class SlotList
+    {
+        public string date_slot { get; set; }
+        public string time_start { get; set; }
+        public string time_end { get; set; }
+        public string slot_over { get; set; }
+        public object win_number { get; set; }
+        public string slot_id { get; set; }
+    }
+
+    public class UpdatedSlots
+    {
+        public bool success { get; set; }
+        public int code { get; set; }
+        public string message { get; set; }
+        public List<SlotList> data { get; set; }
+    }
+
+
 
 
 }

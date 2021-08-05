@@ -197,35 +197,26 @@ namespace Jackport
 
         }
 
-        public List<WinTicket> GetWinTickets(string TicketNo)
+        public string GetWinTickets(int slotId)
         {
             List<WinTicket> WinTicketDetails = new List<DataModel.WinTicket>();
-            var client = new RestClient("https://api.welcomejk.com/v1/tickets/get-win?slot_id=1");
+            var client = new RestClient("https://api.welcomejk.com/v1/tickets/get-win?slot_id=" + slotId);
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
             request.AddHeader("APP-KEY", "e76d8c85-979c-411a-89f6-f1dfe0dfa041");
-            request.AddHeader("AGENT-TOKEN", "n_w6-x_dzIVTfL0DS_X7fYLXzpesiYNpalAw18axphvEIPZBs_2mKMVK8J3dneh5f4ykK2qVWaPN2qQMmXk54QW853-v_gQkIPDNZ6W0lRfyjqPdrDJG6MK9HigiufNcIoR8bOb2vRYHRxbfe5FEY8WMZk-kXLqjEGQETBUrF0RvjKilsUQjZWII0WYdxlpfEQJguEysaAyQmT7sujG5BXcS0I7fVj7sGc42SKEjOETZKx5SfDOLWOeFDYDG5Qs");
-            request.AddHeader("MACHINE-ID", "dd97c9da-f21f-11eb-9a03-0242ac130003");
+            request.AddHeader("AGENT-TOKEN", UserAgent.AgenToken);
+            request.AddHeader("MACHINE-ID", deviceId);
             IRestResponse response = client.Execute(request);
             var result = JsonConvert.DeserializeObject<WinTicketDetails>(response.Content);
             if (result.success)
             {
-                return result.data.Select(x => new WinTicket
-                {
-                    ticket_barcode = x.ticket_barcode,
-                    Agent_code = x.Agent_code,
-                    Time_Slot=x.Time_Slot
-                    
-                    
-
-
-                }).ToList();
+                return result.message;
 
             }
             else
             {
-                MessageBox.Show(result.message);
-                return null;
+                return result.message;
+
             }
 
         }
@@ -283,6 +274,37 @@ namespace Jackport
                 MessageBox.Show(result.message);
                 return false;
             }
+        }
+
+
+        public List<TimeSlot> GetUpdatedSlots()
+        {
+
+            var client = new RestClient("https://api.welcomejk.com/v1/tickets/refresh-slots");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("APP-KEY", "e76d8c85-979c-411a-89f6-f1dfe0dfa041");
+            request.AddHeader("AGENT-TOKEN", UserAgent.AgenToken);
+            request.AddHeader("MACHINE-ID", deviceId);
+            IRestResponse response = client.Execute(request);
+            var result = JsonConvert.DeserializeObject<UpdatedSlots>(response.Content);
+            if (result.success)
+            {
+                return result.data.Select(x => new TimeSlot
+                {
+                    date_slot = x.date_slot,
+                    time_end=x.time_end,
+                    slot_over=x.slot_over,
+                    slot_id=x.slot_id,
+                    
+
+                }).ToList();
+            }
+            else
+            {
+                return null;
+            }
+
         }
 
         public void BinddataSet()
