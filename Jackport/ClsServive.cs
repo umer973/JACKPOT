@@ -23,7 +23,8 @@ namespace Jackport
         public string deviceId;
         public ClsService()
         {
-            deviceId = getMachineId().ToString().Trim();
+            //deviceId = getMachineId().ToString().Trim();
+            deviceId = "-hcaFK5rNlk8rFKhI2e-kStz04MpLGoCAqEIJAA7G30";
         }
         public async void ActivateLicenceAsync(string licenceKey)
         {
@@ -183,6 +184,39 @@ namespace Jackport
                     agent_id = x.agent_id,
                     ticket_total_quantity = x.ticket_total_quantity,
                     slot_id = x.slot_id
+
+
+                }).ToList();
+
+            }
+            else
+            {
+                MessageBox.Show(result.message);
+                return null;
+            }
+
+        }
+
+        public List<WinTicket> GetWinTickets(string TicketNo)
+        {
+            List<WinTicket> WinTicketDetails = new List<DataModel.WinTicket>();
+            var client = new RestClient("https://api.welcomejk.com/v1/tickets/get-win?slot_id=1");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("APP-KEY", "e76d8c85-979c-411a-89f6-f1dfe0dfa041");
+            request.AddHeader("AGENT-TOKEN", "n_w6-x_dzIVTfL0DS_X7fYLXzpesiYNpalAw18axphvEIPZBs_2mKMVK8J3dneh5f4ykK2qVWaPN2qQMmXk54QW853-v_gQkIPDNZ6W0lRfyjqPdrDJG6MK9HigiufNcIoR8bOb2vRYHRxbfe5FEY8WMZk-kXLqjEGQETBUrF0RvjKilsUQjZWII0WYdxlpfEQJguEysaAyQmT7sujG5BXcS0I7fVj7sGc42SKEjOETZKx5SfDOLWOeFDYDG5Qs");
+            request.AddHeader("MACHINE-ID", "dd97c9da-f21f-11eb-9a03-0242ac130003");
+            IRestResponse response = client.Execute(request);
+            var result = JsonConvert.DeserializeObject<WinTicketDetails>(response.Content);
+            if (result.success)
+            {
+                return result.data.Select(x => new WinTicket
+                {
+                    ticket_barcode = x.ticket_barcode,
+                    Agent_code = x.Agent_code,
+                    Time_Slot=x.Time_Slot
+                    
+                    
 
 
                 }).ToList();

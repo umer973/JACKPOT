@@ -58,7 +58,7 @@
             this.label140 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TxtLpNo = new System.Windows.Forms.TextBox();
             this.button8 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -458,13 +458,14 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "STARDIGIT    RS.";
             // 
-            // textBox1
+            // TxtLpNo
             // 
-            this.textBox1.Location = new System.Drawing.Point(135, 430);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(40, 41);
-            this.textBox1.TabIndex = 254;
+            this.TxtLpNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtLpNo.Location = new System.Drawing.Point(135, 430);
+            this.TxtLpNo.Multiline = true;
+            this.TxtLpNo.Name = "TxtLpNo";
+            this.TxtLpNo.Size = new System.Drawing.Size(40, 41);
+            this.TxtLpNo.TabIndex = 254;
             // 
             // button8
             // 
@@ -474,6 +475,7 @@
             this.button8.TabIndex = 255;
             this.button8.Text = "LP";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // panel4
             // 
@@ -1050,7 +1052,7 @@
             this.groupBox1.Controls.Add(this.label134);
             this.groupBox1.Controls.Add(this.button8);
             this.groupBox1.Controls.Add(this.label95);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.TxtLpNo);
             this.groupBox1.Controls.Add(this.label135);
             this.groupBox1.Controls.Add(this.Txt1019);
             this.groupBox1.Controls.Add(this.Txt8089);
@@ -1153,7 +1155,7 @@
         private System.Windows.Forms.Label label140;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TxtLpNo;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox textBox2;

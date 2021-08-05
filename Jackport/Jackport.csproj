@@ -108,6 +108,12 @@
     <Compile Include="FrmTMLPrint.designer.cs">
       <DependentUpon>FrmTMLPrint.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmWinPrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmWinPrice.Designer.cs">
+      <DependentUpon>FrmWinPrice.cs</DependentUpon>
+    </Compile>
     <Compile Include="ListValueControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -148,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTMLPrint.resx">
       <DependentUpon>FrmTMLPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmWinPrice.resx">
+      <DependentUpon>FrmWinPrice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListValueControl.resx">
       <DependentUpon>ListValueControl.cs</DependentUpon>

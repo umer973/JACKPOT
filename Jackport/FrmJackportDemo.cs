@@ -27,8 +27,10 @@ namespace Jackport
 
         List<Bid> bidList = new List<Bid>();
         List<PurchaseTicket> plist = new List<PurchaseTicket>();
-        private int count = 360;
-        int segundo = 360;
+      //  private int count = 360;
+       // int segundo = 360;
+        private int count = 20;
+        int segundo = 20;
         DateTime dt = new DateTime();
         List<TimeSlot> timeSlots = new List<TimeSlot>();
         List<TimeSlot> overSlots = new List<TimeSlot>();
@@ -79,6 +81,14 @@ namespace Jackport
             // GetSlot(list);
 
 
+            GetCurrentSlot(list);
+
+
+        }
+
+        private void GetCurrentSlot(List<TimeSlot> list)
+        {
+            lblSlotTime.Text = list.Select(x => x.time_end).FirstOrDefault();
         }
 
         private void ScrollDown()
@@ -103,7 +113,7 @@ namespace Jackport
                 if(ctr.Tag.ToString()=="0" && winflag==0)
                 {
                     winflag = 1;
-                    ctr.BackColor = Color.Green;
+                    ctr.Color = Color.Green;
                 }
 
                 
@@ -156,7 +166,7 @@ namespace Jackport
                 string num = Convert.ToString(i);
                 if (i == 0)
                 {
-                    num = Convert.ToString(00);
+                    num = "00";
                 }
                 if (i == 1)
                 {
@@ -241,8 +251,8 @@ namespace Jackport
                 Name = x.win_number,
                 Time = x.time_end,
 
-                Color = x.slot_over.ToString().Trim() == "1" ? Color.Maroon : Color.BlueViolet,
-                ForeColor =Color.White,
+                Color = x.slot_over.ToString().Trim() == "1" ? Color.Red : Color.White,
+                ForeColor =Color.Blue,
 
                 Tag = x.slot_over
             });
@@ -330,10 +340,16 @@ namespace Jackport
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-
+            FrmWinPrice ObjWinPrice = new FrmWinPrice();
             count--;
             if (count == 0)
-                timer1.Stop();
+            { 
+
+             ObjWinPrice.Show();
+             count = 360;
+            segundo = 360;
+            }
+            //timer1.Stop();
             //LblCountDown1.Text = counter.ToString();
             LblCountDown1.Text = "00" + ":" + count / 60 + ":" + ((count % 60) >= 10 ? (count % 60).ToString() : "0" + (count % 60));
             //label1.Text = count / 60 + ":" + ((count % 60) >= 10 ? (count % 60).ToString() : "0" + (count % 60));
@@ -1568,6 +1584,36 @@ namespace Jackport
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            int n = Convert.ToInt32(TxtLpNo.Text);
+            int[] intArr = new int[n];
+            int i = 0;
+                for ( i = 0; i < intArr.Length; i++)
+                {
+                    int num = rnd.Next(0, 99);
+                    intArr[i] = num;
+                //Console.WriteLine(num);
+
+                }
+
+            for (int j = 0; j < intArr.Length; j++)
+            {
+                foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
+                {
+                    string Data = Convert.ToString(ctr.Tag);
+                    int c = intArr[j];
+                    if (Data == Convert.ToString(intArr[j]))
+                    {
+                        ctr.TickeQty = "1";
+                    }
+                  
+                }
+
+            }
         }
     }
 }

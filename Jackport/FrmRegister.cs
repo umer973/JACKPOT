@@ -18,6 +18,7 @@ namespace Jackport
         public FrmRegister()
         {
             InitializeComponent();
+           
 
         }
 

@@ -34,14 +34,14 @@
             // 
             // lblName
             // 
-            this.lblName.BackColor = System.Drawing.Color.Maroon;
+            this.lblName.BackColor = System.Drawing.Color.White;
             this.lblName.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblName.Enabled = false;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.ForeColor = System.Drawing.Color.White;
+            this.lblName.ForeColor = System.Drawing.Color.Red;
             this.lblName.Location = new System.Drawing.Point(1, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(84, 84);
+            this.lblName.Size = new System.Drawing.Size(98, 78);
             this.lblName.TabIndex = 0;
             this.lblName.Text = "72";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -54,7 +54,7 @@
             this.LblTime.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.LblTime.Location = new System.Drawing.Point(0, 78);
             this.LblTime.Name = "LblTime";
-            this.LblTime.Size = new System.Drawing.Size(85, 27);
+            this.LblTime.Size = new System.Drawing.Size(100, 27);
             this.LblTime.TabIndex = 1;
             this.LblTime.Text = "00:00:10";
             this.LblTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -63,13 +63,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Maroon;
+            this.BackColor = System.Drawing.Color.White;
             this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Controls.Add(this.LblTime);
             this.Controls.Add(this.lblName);
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "ListValueControl";
-            this.Size = new System.Drawing.Size(83, 102);
+            this.Size = new System.Drawing.Size(97, 102);
             this.Load += new System.EventHandler(this.ListValueControl_Load);
             this.ResumeLayout(false);
 
