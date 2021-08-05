@@ -89,7 +89,7 @@ namespace Jackport
             cmbSlot.Text = "Current";
 
             GetCurrentSlot(list);
-            ScrollDown();
+            //ScrollDown();
         }
 
         private void GetCurrentSlot(List<TimeSlot> Slotlist)
@@ -112,7 +112,7 @@ namespace Jackport
 
                 if (ctr.Tag.ToString() == "1")
                 {
-                    if (flag == 4)
+                    if (flag == 5)
                     {
                         Point current = flowLayoutPanel1.AutoScrollPosition;
                         Point scrolled = new Point(current.X, -current.Y + 115);
@@ -125,6 +125,7 @@ namespace Jackport
                 {
                     winflag = 1;
                     ctr.Color = Color.Green;
+                   // ctr.ForeColor
                 }
 
 
@@ -223,7 +224,8 @@ namespace Jackport
 
             foreach (ListValueControl item in flowLayoutPanel1.Controls)
             {
-                flowLayoutPanel1.Controls.Remove(item);
+                //flowLayoutPanel1.Controls.Remove(item);
+                flowLayoutPanel1.Controls.Clear();
             }
 
             var _timeSlot = timeSlotList.Select(x => new ListValueControl()
@@ -232,7 +234,7 @@ namespace Jackport
                 Time = CommonHelper.GetdateFormat(x.time_end).ToString(),
 
                 Color = x.slot_over.ToString().Trim() == "1" ? Color.Red : Color.White,
-                ForeColor = Color.Blue,
+                ForeColor = Color.White,
 
                 Tag = x.slot_over
             });
@@ -241,6 +243,7 @@ namespace Jackport
             {
                 flowLayoutPanel1.Controls.Add(item);
             }
+            ScrollDown();
         }
 
 
@@ -423,6 +426,10 @@ namespace Jackport
 
         private void TxtE0_KeyUp(object sender, KeyEventArgs e)
         {
+            if(TxtE0.Text!="")
+            { 
+            TxtE0.BackColor = Color.YellowGreen;
+            }
             foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
@@ -478,6 +485,7 @@ namespace Jackport
 
         private void TxtE1_KeyUp(object sender, KeyEventArgs e)
         {
+            TxtE1.BackColor = Color.YellowGreen;
             foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
@@ -533,6 +541,7 @@ namespace Jackport
 
         private void TxtE2_KeyUp(object sender, KeyEventArgs e)
         {
+            TxtE2.BackColor = Color.YellowGreen;
             foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
@@ -588,6 +597,7 @@ namespace Jackport
 
         private void TxtE3_KeyUp(object sender, KeyEventArgs e)
         {
+            TxtE3.BackColor = Color.YellowGreen;
             foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
@@ -643,6 +653,7 @@ namespace Jackport
 
         private void TxtE4_KeyUp(object sender, KeyEventArgs e)
         {
+            TxtE4.BackColor = Color.YellowGreen;
             foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
@@ -698,6 +709,7 @@ namespace Jackport
 
         private void textBox6_KeyUp(object sender, KeyEventArgs e)
         {
+            textBox6.BackColor = Color.YellowGreen;
             foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
@@ -753,6 +765,8 @@ namespace Jackport
 
         private void TxtE5_KeyUp(object sender, KeyEventArgs e)
         {
+
+            TxtE5.BackColor = Color.YellowGreen;
             foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
@@ -808,6 +822,7 @@ namespace Jackport
 
         private void TxtE7_KeyUp(object sender, KeyEventArgs e)
         {
+            TxtE7.BackColor = Color.YellowGreen;
             foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
@@ -863,6 +878,7 @@ namespace Jackport
 
         private void TxtE8_KeyUp(object sender, KeyEventArgs e)
         {
+            TxtE8.BackColor = Color.YellowGreen;
             foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
@@ -918,6 +934,7 @@ namespace Jackport
 
         private void TxtE9_KeyUp(object sender, KeyEventArgs e)
         {
+            TxtE9.BackColor = Color.YellowGreen;
             foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
@@ -973,6 +990,7 @@ namespace Jackport
 
         private void Txt0009_KeyUp(object sender, KeyEventArgs e)
         {
+            Txt0009.BackColor = Color.YellowGreen;
             foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
@@ -1028,6 +1046,7 @@ namespace Jackport
 
         private void Txt1019_KeyUp(object sender, KeyEventArgs e)
         {
+            Txt1019.BackColor = Color.YellowGreen;
             foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
@@ -1083,6 +1102,7 @@ namespace Jackport
 
         private void Txt2029_KeyUp(object sender, KeyEventArgs e)
         {
+            Txt2029.BackColor = Color.YellowGreen;
             foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
@@ -1138,6 +1158,7 @@ namespace Jackport
 
         private void Txt3031_KeyUp(object sender, KeyEventArgs e)
         {
+            Txt3031.BackColor = Color.YellowGreen;
             foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
@@ -1193,6 +1214,7 @@ namespace Jackport
 
         private void Txt4049_KeyUp(object sender, KeyEventArgs e)
         {
+            Txt4049.BackColor = Color.YellowGreen;
             foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
@@ -1248,6 +1270,7 @@ namespace Jackport
 
         private void textBox5_KeyUp(object sender, KeyEventArgs e)
         {
+            textBox5.BackColor = Color.YellowGreen;
             foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
@@ -1303,6 +1326,7 @@ namespace Jackport
 
         private void Txt5051_KeyUp(object sender, KeyEventArgs e)
         {
+            Txt5051.BackColor = Color.YellowGreen;
             foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
@@ -1358,6 +1382,7 @@ namespace Jackport
 
         private void Txt7079_KeyUp(object sender, KeyEventArgs e)
         {
+            Txt7079.BackColor = Color.YellowGreen;
             foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
@@ -1413,6 +1438,7 @@ namespace Jackport
 
         private void Txt8089_KeyUp(object sender, KeyEventArgs e)
         {
+            Txt8089.BackColor = Color.YellowGreen;
             foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
@@ -1468,6 +1494,7 @@ namespace Jackport
 
         private void Txt9099_KeyUp(object sender, KeyEventArgs e)
         {
+            Txt9099.BackColor = Color.YellowGreen;
             foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);

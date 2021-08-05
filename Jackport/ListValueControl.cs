@@ -29,8 +29,8 @@ namespace Jackport
 
         public string ControlName
         {
-            get { return lblName.Text; }
-            set { lblName.Text = value; }
+            get { return BtnSubmit.Text; }
+            set { BtnSubmit.Text = value; }
         }
         //set and get value to lblprice
         public string Time
@@ -42,8 +42,8 @@ namespace Jackport
 
         public Color Color
         {
-            get { return lblName.BackColor; }
-            set { lblName.BackColor = value; }
+            get { return BtnSubmit.BackColor; }
+            set { BtnSubmit.BackColor = value; }
 
 
           
@@ -51,8 +51,8 @@ namespace Jackport
 
         public Color ForeColor
         {
-            get { return lblName.ForeColor; }
-            set { lblName.ForeColor = value; }
+            get { return BtnSubmit.ForeColor; }
+            set { BtnSubmit.ForeColor = value; }
 
 
 

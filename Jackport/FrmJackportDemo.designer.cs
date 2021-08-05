@@ -571,7 +571,7 @@
             // 
             this.Txt0009.BackColor = System.Drawing.Color.AliceBlue;
             this.Txt0009.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt0009.Location = new System.Drawing.Point(62, 18);
+            this.Txt0009.Location = new System.Drawing.Point(62, 19);
             this.Txt0009.MaxLength = 2;
             this.Txt0009.Multiline = true;
             this.Txt0009.Name = "Txt0009";
@@ -584,7 +584,7 @@
             // 
             this.TxtE0.BackColor = System.Drawing.Color.Magenta;
             this.TxtE0.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtE0.Location = new System.Drawing.Point(0, 17);
+            this.TxtE0.Location = new System.Drawing.Point(0, 18);
             this.TxtE0.MaxLength = 2;
             this.TxtE0.Multiline = true;
             this.TxtE0.Name = "TxtE0";
@@ -598,7 +598,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(66, 3);
+            this.label15.Location = new System.Drawing.Point(66, 4);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(39, 13);
             this.label15.TabIndex = 509;
@@ -608,7 +608,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(13, 3);
+            this.label14.Location = new System.Drawing.Point(13, 4);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(26, 13);
             this.label14.TabIndex = 508;
@@ -618,7 +618,7 @@
             // 
             this.Txt1019.BackColor = System.Drawing.Color.AliceBlue;
             this.Txt1019.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt1019.Location = new System.Drawing.Point(64, 70);
+            this.Txt1019.Location = new System.Drawing.Point(64, 69);
             this.Txt1019.MaxLength = 2;
             this.Txt1019.Multiline = true;
             this.Txt1019.Name = "Txt1019";
@@ -631,7 +631,7 @@
             // 
             this.TxtE1.BackColor = System.Drawing.Color.Magenta;
             this.TxtE1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtE1.Location = new System.Drawing.Point(0, 69);
+            this.TxtE1.Location = new System.Drawing.Point(0, 68);
             this.TxtE1.MaxLength = 2;
             this.TxtE1.Multiline = true;
             this.TxtE1.Name = "TxtE1";
@@ -665,7 +665,7 @@
             // 
             this.Txt2029.BackColor = System.Drawing.Color.AliceBlue;
             this.Txt2029.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt2029.Location = new System.Drawing.Point(62, 127);
+            this.Txt2029.Location = new System.Drawing.Point(62, 122);
             this.Txt2029.MaxLength = 2;
             this.Txt2029.Multiline = true;
             this.Txt2029.Name = "Txt2029";
@@ -678,7 +678,7 @@
             // 
             this.TxtE2.BackColor = System.Drawing.Color.Magenta;
             this.TxtE2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtE2.Location = new System.Drawing.Point(1, 126);
+            this.TxtE2.Location = new System.Drawing.Point(1, 121);
             this.TxtE2.MaxLength = 2;
             this.TxtE2.Multiline = true;
             this.TxtE2.Name = "TxtE2";
@@ -692,7 +692,7 @@
             // 
             this.label43.AutoSize = true;
             this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(68, 109);
+            this.label43.Location = new System.Drawing.Point(68, 105);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(39, 13);
             this.label43.TabIndex = 517;
@@ -702,7 +702,7 @@
             // 
             this.label44.AutoSize = true;
             this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.Location = new System.Drawing.Point(13, 107);
+            this.label44.Location = new System.Drawing.Point(13, 103);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(26, 13);
             this.label44.TabIndex = 516;
@@ -712,7 +712,7 @@
             // 
             this.Txt3031.BackColor = System.Drawing.Color.AliceBlue;
             this.Txt3031.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt3031.Location = new System.Drawing.Point(62, 177);
+            this.Txt3031.Location = new System.Drawing.Point(62, 172);
             this.Txt3031.MaxLength = 2;
             this.Txt3031.Multiline = true;
             this.Txt3031.Name = "Txt3031";
@@ -725,7 +725,7 @@
             // 
             this.TxtE3.BackColor = System.Drawing.Color.Magenta;
             this.TxtE3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtE3.Location = new System.Drawing.Point(1, 177);
+            this.TxtE3.Location = new System.Drawing.Point(1, 172);
             this.TxtE3.MaxLength = 2;
             this.TxtE3.Multiline = true;
             this.TxtE3.Name = "TxtE3";
@@ -739,7 +739,7 @@
             // 
             this.label56.AutoSize = true;
             this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label56.Location = new System.Drawing.Point(68, 162);
+            this.label56.Location = new System.Drawing.Point(68, 155);
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(39, 13);
             this.label56.TabIndex = 521;
@@ -749,7 +749,7 @@
             // 
             this.label57.AutoSize = true;
             this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label57.Location = new System.Drawing.Point(14, 161);
+            this.label57.Location = new System.Drawing.Point(14, 154);
             this.label57.Name = "label57";
             this.label57.Size = new System.Drawing.Size(26, 13);
             this.label57.TabIndex = 520;
@@ -759,7 +759,7 @@
             // 
             this.Txt4049.BackColor = System.Drawing.Color.AliceBlue;
             this.Txt4049.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt4049.Location = new System.Drawing.Point(62, 229);
+            this.Txt4049.Location = new System.Drawing.Point(62, 221);
             this.Txt4049.MaxLength = 2;
             this.Txt4049.Multiline = true;
             this.Txt4049.Name = "Txt4049";
@@ -772,7 +772,7 @@
             // 
             this.TxtE4.BackColor = System.Drawing.Color.Magenta;
             this.TxtE4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtE4.Location = new System.Drawing.Point(1, 228);
+            this.TxtE4.Location = new System.Drawing.Point(1, 221);
             this.TxtE4.MaxLength = 2;
             this.TxtE4.Multiline = true;
             this.TxtE4.Name = "TxtE4";
@@ -786,7 +786,7 @@
             // 
             this.label108.AutoSize = true;
             this.label108.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label108.Location = new System.Drawing.Point(68, 214);
+            this.label108.Location = new System.Drawing.Point(68, 205);
             this.label108.Name = "label108";
             this.label108.Size = new System.Drawing.Size(39, 13);
             this.label108.TabIndex = 525;
@@ -796,7 +796,7 @@
             // 
             this.label109.AutoSize = true;
             this.label109.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label109.Location = new System.Drawing.Point(14, 210);
+            this.label109.Location = new System.Drawing.Point(14, 205);
             this.label109.Name = "label109";
             this.label109.Size = new System.Drawing.Size(26, 13);
             this.label109.TabIndex = 524;
@@ -806,7 +806,7 @@
             // 
             this.Txt5051.BackColor = System.Drawing.Color.AliceBlue;
             this.Txt5051.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt5051.Location = new System.Drawing.Point(62, 338);
+            this.Txt5051.Location = new System.Drawing.Point(62, 323);
             this.Txt5051.MaxLength = 2;
             this.Txt5051.Multiline = true;
             this.Txt5051.Name = "Txt5051";
@@ -819,7 +819,7 @@
             // 
             this.TxtE5.BackColor = System.Drawing.Color.Magenta;
             this.TxtE5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtE5.Location = new System.Drawing.Point(0, 338);
+            this.TxtE5.Location = new System.Drawing.Point(0, 323);
             this.TxtE5.MaxLength = 2;
             this.TxtE5.Multiline = true;
             this.TxtE5.Name = "TxtE5";
@@ -833,7 +833,7 @@
             // 
             this.label82.AutoSize = true;
             this.label82.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label82.Location = new System.Drawing.Point(68, 322);
+            this.label82.Location = new System.Drawing.Point(68, 308);
             this.label82.Name = "label82";
             this.label82.Size = new System.Drawing.Size(39, 13);
             this.label82.TabIndex = 529;
@@ -843,7 +843,7 @@
             // 
             this.label83.AutoSize = true;
             this.label83.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label83.Location = new System.Drawing.Point(13, 318);
+            this.label83.Location = new System.Drawing.Point(13, 308);
             this.label83.Name = "label83";
             this.label83.Size = new System.Drawing.Size(26, 13);
             this.label83.TabIndex = 528;
@@ -853,7 +853,7 @@
             // 
             this.Txt7079.BackColor = System.Drawing.Color.AliceBlue;
             this.Txt7079.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt7079.Location = new System.Drawing.Point(62, 389);
+            this.Txt7079.Location = new System.Drawing.Point(62, 372);
             this.Txt7079.MaxLength = 2;
             this.Txt7079.Multiline = true;
             this.Txt7079.Name = "Txt7079";
@@ -866,7 +866,7 @@
             // 
             this.TxtE7.BackColor = System.Drawing.Color.Magenta;
             this.TxtE7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtE7.Location = new System.Drawing.Point(0, 389);
+            this.TxtE7.Location = new System.Drawing.Point(0, 372);
             this.TxtE7.MaxLength = 2;
             this.TxtE7.Multiline = true;
             this.TxtE7.Name = "TxtE7";
@@ -880,7 +880,7 @@
             // 
             this.label69.AutoSize = true;
             this.label69.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label69.Location = new System.Drawing.Point(68, 373);
+            this.label69.Location = new System.Drawing.Point(68, 357);
             this.label69.Name = "label69";
             this.label69.Size = new System.Drawing.Size(39, 13);
             this.label69.TabIndex = 533;
@@ -890,7 +890,7 @@
             // 
             this.label70.AutoSize = true;
             this.label70.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label70.Location = new System.Drawing.Point(10, 373);
+            this.label70.Location = new System.Drawing.Point(10, 357);
             this.label70.Name = "label70";
             this.label70.Size = new System.Drawing.Size(26, 13);
             this.label70.TabIndex = 532;
@@ -900,7 +900,7 @@
             // 
             this.Txt8089.BackColor = System.Drawing.Color.AliceBlue;
             this.Txt8089.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt8089.Location = new System.Drawing.Point(62, 441);
+            this.Txt8089.Location = new System.Drawing.Point(62, 422);
             this.Txt8089.MaxLength = 2;
             this.Txt8089.Multiline = true;
             this.Txt8089.Name = "Txt8089";
@@ -913,7 +913,7 @@
             // 
             this.TxtE8.BackColor = System.Drawing.Color.Magenta;
             this.TxtE8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtE8.Location = new System.Drawing.Point(0, 441);
+            this.TxtE8.Location = new System.Drawing.Point(0, 422);
             this.TxtE8.MaxLength = 2;
             this.TxtE8.Multiline = true;
             this.TxtE8.Name = "TxtE8";
@@ -927,7 +927,7 @@
             // 
             this.label134.AutoSize = true;
             this.label134.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label134.Location = new System.Drawing.Point(68, 425);
+            this.label134.Location = new System.Drawing.Point(68, 407);
             this.label134.Name = "label134";
             this.label134.Size = new System.Drawing.Size(39, 13);
             this.label134.TabIndex = 537;
@@ -937,7 +937,7 @@
             // 
             this.label135.AutoSize = true;
             this.label135.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label135.Location = new System.Drawing.Point(10, 425);
+            this.label135.Location = new System.Drawing.Point(10, 407);
             this.label135.Name = "label135";
             this.label135.Size = new System.Drawing.Size(26, 13);
             this.label135.TabIndex = 536;
@@ -947,7 +947,7 @@
             // 
             this.textBox5.BackColor = System.Drawing.Color.AliceBlue;
             this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(61, 284);
+            this.textBox5.Location = new System.Drawing.Point(61, 273);
             this.textBox5.MaxLength = 2;
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
@@ -960,7 +960,7 @@
             // 
             this.textBox6.BackColor = System.Drawing.Color.Magenta;
             this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(0, 284);
+            this.textBox6.Location = new System.Drawing.Point(0, 273);
             this.textBox6.MaxLength = 2;
             this.textBox6.Multiline = true;
             this.textBox6.Name = "textBox6";
@@ -974,7 +974,7 @@
             // 
             this.label95.AutoSize = true;
             this.label95.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label95.Location = new System.Drawing.Point(67, 270);
+            this.label95.Location = new System.Drawing.Point(67, 256);
             this.label95.Name = "label95";
             this.label95.Size = new System.Drawing.Size(39, 13);
             this.label95.TabIndex = 541;
@@ -984,7 +984,7 @@
             // 
             this.label96.AutoSize = true;
             this.label96.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label96.Location = new System.Drawing.Point(14, 267);
+            this.label96.Location = new System.Drawing.Point(14, 256);
             this.label96.Name = "label96";
             this.label96.Size = new System.Drawing.Size(26, 13);
             this.label96.TabIndex = 540;
@@ -994,7 +994,7 @@
             // 
             this.Txt9099.BackColor = System.Drawing.Color.AliceBlue;
             this.Txt9099.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt9099.Location = new System.Drawing.Point(62, 491);
+            this.Txt9099.Location = new System.Drawing.Point(62, 475);
             this.Txt9099.MaxLength = 2;
             this.Txt9099.Multiline = true;
             this.Txt9099.Name = "Txt9099";
@@ -1007,7 +1007,7 @@
             // 
             this.TxtE9.BackColor = System.Drawing.Color.Magenta;
             this.TxtE9.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtE9.Location = new System.Drawing.Point(0, 488);
+            this.TxtE9.Location = new System.Drawing.Point(0, 472);
             this.TxtE9.MaxLength = 2;
             this.TxtE9.Multiline = true;
             this.TxtE9.Name = "TxtE9";
@@ -1021,7 +1021,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(10, 475);
+            this.label3.Location = new System.Drawing.Point(10, 456);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(26, 13);
             this.label3.TabIndex = 544;
@@ -1031,7 +1031,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(68, 477);
+            this.label10.Location = new System.Drawing.Point(68, 458);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(39, 13);
             this.label10.TabIndex = 545;
@@ -1083,7 +1083,7 @@
             this.groupBox1.Controls.Add(this.label108);
             this.groupBox1.Controls.Add(this.TxtE5);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox1.Location = new System.Drawing.Point(594, 152);
+            this.groupBox1.Location = new System.Drawing.Point(584, 148);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(249, 522);
             this.groupBox1.TabIndex = 546;
