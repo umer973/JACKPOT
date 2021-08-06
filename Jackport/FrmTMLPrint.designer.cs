@@ -40,8 +40,8 @@
             this.BtnTmlClaim = new System.Windows.Forms.Button();
             this.BtnReprint = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtTo = new System.Windows.Forms.DateTimePicker();
+            this.dtfrom = new System.Windows.Forms.DateTimePicker();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label12 = new System.Windows.Forms.Label();
@@ -63,19 +63,19 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
+            this.netpay = new System.Windows.Forms.Label();
+            this.profitamt = new System.Windows.Forms.Label();
+            this.payoutincentive = new System.Windows.Forms.Label();
+            this.salesincentive = new System.Windows.Forms.Label();
+            this.retailerdis = new System.Windows.Forms.Label();
+            this.operatorbal = new System.Windows.Forms.Label();
+            this.lblnetsalesamt = new System.Windows.Forms.Label();
+            this.payoutamt = new System.Windows.Forms.Label();
+            this.lblcancelledamt = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
+            this.lblfrom = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
+            this.lblto = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
@@ -90,20 +90,20 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.label36);
+            this.panel1.Controls.Add(this.lblto);
             this.panel1.Controls.Add(this.label35);
-            this.panel1.Controls.Add(this.label34);
+            this.panel1.Controls.Add(this.lblfrom);
             this.panel1.Controls.Add(this.label39);
             this.panel1.Controls.Add(this.label33);
-            this.panel1.Controls.Add(this.label24);
-            this.panel1.Controls.Add(this.label25);
-            this.panel1.Controls.Add(this.label26);
-            this.panel1.Controls.Add(this.label27);
-            this.panel1.Controls.Add(this.label28);
-            this.panel1.Controls.Add(this.label29);
-            this.panel1.Controls.Add(this.label30);
-            this.panel1.Controls.Add(this.label31);
-            this.panel1.Controls.Add(this.label32);
+            this.panel1.Controls.Add(this.netpay);
+            this.panel1.Controls.Add(this.profitamt);
+            this.panel1.Controls.Add(this.payoutincentive);
+            this.panel1.Controls.Add(this.salesincentive);
+            this.panel1.Controls.Add(this.retailerdis);
+            this.panel1.Controls.Add(this.operatorbal);
+            this.panel1.Controls.Add(this.lblnetsalesamt);
+            this.panel1.Controls.Add(this.payoutamt);
+            this.panel1.Controls.Add(this.lblcancelledamt);
             this.panel1.Controls.Add(this.label17);
             this.panel1.Controls.Add(this.label16);
             this.panel1.Controls.Add(this.label15);
@@ -135,6 +135,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(955, 592);
             this.panel1.TabIndex = 0;
+            this.panel1.Visible = false;
             // 
             // lblGrosssaleAmt
             // 
@@ -248,9 +249,9 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Controls.Add(this.dateTimePicker2);
+            this.panel2.Controls.Add(this.dtTo);
             this.panel2.Controls.Add(this.label40);
-            this.panel2.Controls.Add(this.dateTimePicker1);
+            this.panel2.Controls.Add(this.dtfrom);
             this.panel2.Controls.Add(this.BtnCancel);
             this.panel2.Controls.Add(this.label38);
             this.panel2.Controls.Add(this.label37);
@@ -262,21 +263,21 @@
             this.panel2.Size = new System.Drawing.Size(955, 76);
             this.panel2.TabIndex = 5;
             // 
-            // dateTimePicker2
+            // dtTo
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(178, 26);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(104, 20);
-            this.dateTimePicker2.TabIndex = 5;
+            this.dtTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtTo.Location = new System.Drawing.Point(178, 26);
+            this.dtTo.Name = "dtTo";
+            this.dtTo.Size = new System.Drawing.Size(104, 20);
+            this.dtTo.TabIndex = 5;
             // 
-            // dateTimePicker1
+            // dtfrom
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(56, 26);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(92, 20);
-            this.dateTimePicker1.TabIndex = 4;
+            this.dtfrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtfrom.Location = new System.Drawing.Point(56, 26);
+            this.dtfrom.Name = "dtfrom";
+            this.dtfrom.Size = new System.Drawing.Size(92, 20);
+            this.dtfrom.TabIndex = 4;
             // 
             // panel3
             // 
@@ -339,9 +340,9 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(21, 272);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(128, 13);
+            this.label7.Size = new System.Drawing.Size(116, 13);
             this.label7.TabIndex = 14;
-            this.label7.Text = "Gross Sales Amount  ";
+            this.label7.Text = "Net Sales Amount  ";
             // 
             // label8
             // 
@@ -494,135 +495,135 @@
             this.label23.TabIndex = 13;
             this.label23.Text = ":";
             // 
-            // label24
+            // netpay
             // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(268, 511);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(71, 13);
-            this.label24.TabIndex = 29;
-            this.label24.Text = "Net To Pay";
+            this.netpay.AutoSize = true;
+            this.netpay.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.netpay.Location = new System.Drawing.Point(268, 511);
+            this.netpay.Name = "netpay";
+            this.netpay.Size = new System.Drawing.Size(71, 13);
+            this.netpay.TabIndex = 29;
+            this.netpay.Text = "Net To Pay";
             // 
-            // label25
+            // profitamt
             // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(266, 476);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(70, 13);
-            this.label25.TabIndex = 28;
-            this.label25.Text = "Total Profit";
+            this.profitamt.AutoSize = true;
+            this.profitamt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.profitamt.Location = new System.Drawing.Point(266, 476);
+            this.profitamt.Name = "profitamt";
+            this.profitamt.Size = new System.Drawing.Size(70, 13);
+            this.profitamt.TabIndex = 28;
+            this.profitamt.Text = "Total Profit";
             // 
-            // label26
+            // payoutincentive
             // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(266, 440);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(103, 13);
-            this.label26.TabIndex = 27;
-            this.label26.Text = "Payout Incentive";
+            this.payoutincentive.AutoSize = true;
+            this.payoutincentive.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.payoutincentive.Location = new System.Drawing.Point(266, 440);
+            this.payoutincentive.Name = "payoutincentive";
+            this.payoutincentive.Size = new System.Drawing.Size(103, 13);
+            this.payoutincentive.TabIndex = 27;
+            this.payoutincentive.Text = "Payout Incentive";
             // 
-            // label27
+            // salesincentive
             // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(266, 407);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(89, 13);
-            this.label27.TabIndex = 26;
-            this.label27.Text = "Sale Incentive";
+            this.salesincentive.AutoSize = true;
+            this.salesincentive.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salesincentive.Location = new System.Drawing.Point(266, 407);
+            this.salesincentive.Name = "salesincentive";
+            this.salesincentive.Size = new System.Drawing.Size(89, 13);
+            this.salesincentive.TabIndex = 26;
+            this.salesincentive.Text = "Sale Incentive";
             // 
-            // label28
+            // retailerdis
             // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(266, 374);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(105, 13);
-            this.label28.TabIndex = 25;
-            this.label28.Text = "Retailer Discount";
+            this.retailerdis.AutoSize = true;
+            this.retailerdis.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.retailerdis.Location = new System.Drawing.Point(266, 374);
+            this.retailerdis.Name = "retailerdis";
+            this.retailerdis.Size = new System.Drawing.Size(105, 13);
+            this.retailerdis.TabIndex = 25;
+            this.retailerdis.Text = "Retailer Discount";
             // 
-            // label29
+            // operatorbal
             // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(266, 336);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(106, 13);
-            this.label29.TabIndex = 24;
-            this.label29.Text = "Operator Balance";
+            this.operatorbal.AutoSize = true;
+            this.operatorbal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.operatorbal.Location = new System.Drawing.Point(266, 336);
+            this.operatorbal.Name = "operatorbal";
+            this.operatorbal.Size = new System.Drawing.Size(106, 13);
+            this.operatorbal.TabIndex = 24;
+            this.operatorbal.Text = "Operator Balance";
             // 
-            // label30
+            // lblnetsalesamt
             // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(268, 272);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(128, 13);
-            this.label30.TabIndex = 21;
-            this.label30.Text = "Gross Sales Amount  ";
+            this.lblnetsalesamt.AutoSize = true;
+            this.lblnetsalesamt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblnetsalesamt.Location = new System.Drawing.Point(268, 272);
+            this.lblnetsalesamt.Name = "lblnetsalesamt";
+            this.lblnetsalesamt.Size = new System.Drawing.Size(116, 13);
+            this.lblnetsalesamt.TabIndex = 21;
+            this.lblnetsalesamt.Text = "Net Sales Amount  ";
             // 
-            // label31
+            // payoutamt
             // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(268, 303);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(92, 13);
-            this.label31.TabIndex = 22;
-            this.label31.Text = "Payout Amount";
+            this.payoutamt.AutoSize = true;
+            this.payoutamt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.payoutamt.Location = new System.Drawing.Point(268, 303);
+            this.payoutamt.Name = "payoutamt";
+            this.payoutamt.Size = new System.Drawing.Size(92, 13);
+            this.payoutamt.TabIndex = 22;
+            this.payoutamt.Text = "Payout Amount";
             // 
-            // label32
+            // lblcancelledamt
             // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(268, 240);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(117, 13);
-            this.label32.TabIndex = 23;
-            this.label32.Text = "Cancelled Amount  ";
+            this.lblcancelledamt.AutoSize = true;
+            this.lblcancelledamt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblcancelledamt.Location = new System.Drawing.Point(268, 240);
+            this.lblcancelledamt.Name = "lblcancelledamt";
+            this.lblcancelledamt.Size = new System.Drawing.Size(117, 13);
+            this.lblcancelledamt.TabIndex = 23;
+            this.lblcancelledamt.Text = "Cancelled Amount  ";
             // 
             // label33
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(21, 181);
+            this.label33.Location = new System.Drawing.Point(21, 178);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(50, 13);
             this.label33.TabIndex = 30;
             this.label33.Text = "From :  ";
             // 
-            // label34
+            // lblfrom
             // 
-            this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(74, 181);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(50, 13);
-            this.label34.TabIndex = 31;
-            this.label34.Text = "From :  ";
+            this.lblfrom.AutoSize = true;
+            this.lblfrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblfrom.Location = new System.Drawing.Point(74, 178);
+            this.lblfrom.Name = "lblfrom";
+            this.lblfrom.Size = new System.Drawing.Size(50, 13);
+            this.lblfrom.TabIndex = 31;
+            this.lblfrom.Text = "From :  ";
             // 
             // label35
             // 
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(179, 181);
+            this.label35.Location = new System.Drawing.Point(179, 180);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(34, 13);
             this.label35.TabIndex = 32;
             this.label35.Text = "To : ";
             // 
-            // label36
+            // lblto
             // 
-            this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(235, 181);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(50, 13);
-            this.label36.TabIndex = 33;
-            this.label36.Text = "From :  ";
+            this.lblto.AutoSize = true;
+            this.lblto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblto.Location = new System.Drawing.Point(235, 180);
+            this.lblto.Name = "lblto";
+            this.lblto.Size = new System.Drawing.Size(50, 13);
+            this.lblto.TabIndex = 33;
+            this.lblto.Text = "From :  ";
             // 
             // label37
             // 
@@ -700,8 +701,8 @@
         private System.Windows.Forms.Label lblAgentID;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtTo;
+        private System.Windows.Forms.DateTimePicker dtfrom;
         private System.Windows.Forms.Label lblGrosssaleAmt;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label12;
@@ -723,18 +724,18 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label netpay;
+        private System.Windows.Forms.Label profitamt;
+        private System.Windows.Forms.Label payoutincentive;
+        private System.Windows.Forms.Label salesincentive;
+        private System.Windows.Forms.Label retailerdis;
+        private System.Windows.Forms.Label operatorbal;
+        private System.Windows.Forms.Label lblnetsalesamt;
+        private System.Windows.Forms.Label payoutamt;
+        private System.Windows.Forms.Label lblcancelledamt;
+        private System.Windows.Forms.Label lblto;
         private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label lblfrom;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Label label40;

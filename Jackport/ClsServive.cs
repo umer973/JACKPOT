@@ -215,7 +215,7 @@ namespace Jackport
             }
             else
             {
-               
+
                 return result.message;
 
             }
@@ -224,10 +224,10 @@ namespace Jackport
 
 
 
-        public ReportSummary GetReportSummary(DateTime startTime, DateTime endDate)
+        public ReportSummary GetReportSummary(DateTime startDate, DateTime endDate)
         {
 
-            //var client = new RestClient("https://api.welcomejk.com/v1/reports/get-report?start_date=" + startTime + "&end_date=" + endDate);
+           // var client = new RestClient("https://api.welcomejk.com/v1/reports/get-report?start_date=" + endDate + "&end_date=" + endDate);
             var client = new RestClient("https://api.welcomejk.com/v1/reports/get-report?start_date=2021-08-02&end_date=2021-11-19");
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
@@ -239,13 +239,8 @@ namespace Jackport
             var result = JsonConvert.DeserializeObject<ReportData>(response.Content);
             if (result.success)
             {
-                var report = new ReportSummary
-                {
-                    sale_incentive = result.data.sale_incentive,
-                    net_sales_amount = result.data.net_sales_amount,
-                    gross_sales_amount = result.data.gross_sales_amount
-                };
-                return report;
+
+                return result.data;
             }
             else
             {

@@ -17,17 +17,32 @@ namespace Jackport
         public FrmTMLPrint()
         {
             InitializeComponent();
-           
+            panel1.Visible = false;
+
         }
 
         private void LoadReport()
         {
             ReportSummary report = new ReportSummary();
-            report = clsService.GetReportSummary(DateTime.Now, DateTime.Now);
+            report = clsService.GetReportSummary(dtfrom.Value, dtTo.Value);
 
             lblAgentID.Text = UserAgent.AgentCode;
             lblDate.Text = DateTime.Now.ToString();
             lblGrosssaleAmt.Text = report.gross_sales_amount;
+            lblnetsalesamt.Text = report.gross_sales_amount;
+            payoutamt.Text = report.payout_amount;
+            netpay.Text = report.net_to_pay;
+            lblcancelledamt.Text = report.cancelled_sales_amount;
+            profitamt.Text = report.total_profit;
+            retailerdis.Text = report.retailer_discount;
+            operatorbal.Text = report.operator_balance;
+            salesincentive.Text = report.sale_incentive;
+            payoutincentive.Text = report.PayoutIncentive;
+            lblfrom.Text = dtfrom.Text;
+            lblto.Text = dtTo.Text;
+            panel1.Visible = true;
+
+
 
         }
 
@@ -38,6 +53,7 @@ namespace Jackport
 
         private void BtnTmlClaim_Click(object sender, EventArgs e)
         {
+
             LoadReport();
         }
 
