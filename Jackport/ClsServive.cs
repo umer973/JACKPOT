@@ -23,8 +23,8 @@ namespace Jackport
         public string deviceId;
         public ClsService()
         {
-            //deviceId = getMachineId().ToString().Trim();
-            deviceId = "-hcaFK5rNlk8rFKhI2e-kStz04MpLGoCAqEIJAA7G30";
+            deviceId = getMachineId().ToString().Trim();
+           // deviceId = "-hcaFK5rNlk8rFKhI2e-kStz04MpLGoCAqEIJAA7G30";
         }
         public async void ActivateLicenceAsync(string licenceKey)
         {
@@ -224,7 +224,7 @@ namespace Jackport
 
 
 
-        public ReportSummary GetReportSummary(DateTime startDate, DateTime endDate)
+        public ReportSummary GetReportSummary(string startDate, string endDate)
         {
 
            // var client = new RestClient("https://api.welcomejk.com/v1/reports/get-report?start_date=" + endDate + "&end_date=" + endDate);

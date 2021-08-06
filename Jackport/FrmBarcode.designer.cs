@@ -29,61 +29,34 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.BtnTmlClaim = new System.Windows.Forms.Button();
             this.BtnReprint = new System.Windows.Forms.Button();
             this.BtnTmlCancel = new System.Windows.Forms.Button();
-            this.SlotID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BarcodeNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DrawTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Mrp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cancelled = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Claimed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cancelled = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Mrp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DrawTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BarcodeNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SlotID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LawnGreen;
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(-1, -3);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(768, 539);
+            this.panel1.Size = new System.Drawing.Size(886, 592);
             this.panel1.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Location = new System.Drawing.Point(13, 15);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(744, 511);
-            this.panel2.TabIndex = 0;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.SlotID,
-            this.BarcodeNo,
-            this.DrawTime,
-            this.Mrp,
-            this.Qty,
-            this.Amount,
-            this.Cancelled,
-            this.Claimed});
-            this.dataGridView1.Location = new System.Drawing.Point(-2, -2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(743, 511);
-            this.dataGridView1.TabIndex = 0;
             // 
             // BtnCancel
             // 
@@ -135,46 +108,23 @@
             this.BtnTmlCancel.UseVisualStyleBackColor = false;
             this.BtnTmlCancel.Click += new System.EventHandler(this.BtnTmlCancel_Click);
             // 
-            // SlotID
+            // dataGridView1
             // 
-            this.SlotID.HeaderText = "SlotID";
-            this.SlotID.Name = "SlotID";
-            // 
-            // BarcodeNo
-            // 
-            this.BarcodeNo.HeaderText = "Barcode No";
-            this.BarcodeNo.Name = "BarcodeNo";
-            this.BarcodeNo.ReadOnly = true;
-            // 
-            // DrawTime
-            // 
-            this.DrawTime.HeaderText = "Draw Time";
-            this.DrawTime.Name = "DrawTime";
-            this.DrawTime.ReadOnly = true;
-            // 
-            // Mrp
-            // 
-            this.Mrp.HeaderText = "Mrp";
-            this.Mrp.Name = "Mrp";
-            this.Mrp.ReadOnly = true;
-            // 
-            // Qty
-            // 
-            this.Qty.HeaderText = "Qty";
-            this.Qty.Name = "Qty";
-            this.Qty.ReadOnly = true;
-            // 
-            // Amount
-            // 
-            this.Amount.HeaderText = "Amount";
-            this.Amount.Name = "Amount";
-            this.Amount.ReadOnly = true;
-            // 
-            // Cancelled
-            // 
-            this.Cancelled.HeaderText = "Cancelled";
-            this.Cancelled.Name = "Cancelled";
-            this.Cancelled.ReadOnly = true;
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SlotID,
+            this.BarcodeNo,
+            this.DrawTime,
+            this.Mrp,
+            this.Qty,
+            this.Amount,
+            this.Cancelled,
+            this.Claimed});
+            this.dataGridView1.Location = new System.Drawing.Point(4, 10);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(868, 511);
+            this.dataGridView1.TabIndex = 0;
             // 
             // Claimed
             // 
@@ -182,11 +132,63 @@
             this.Claimed.Name = "Claimed";
             this.Claimed.ReadOnly = true;
             // 
+            // Cancelled
+            // 
+            this.Cancelled.HeaderText = "Status";
+            this.Cancelled.Name = "Cancelled";
+            this.Cancelled.ReadOnly = true;
+            // 
+            // Amount
+            // 
+            this.Amount.HeaderText = "Amount";
+            this.Amount.Name = "Amount";
+            this.Amount.ReadOnly = true;
+            // 
+            // Qty
+            // 
+            this.Qty.HeaderText = "Qty";
+            this.Qty.Name = "Qty";
+            this.Qty.ReadOnly = true;
+            // 
+            // Mrp
+            // 
+            this.Mrp.HeaderText = "Mrp";
+            this.Mrp.Name = "Mrp";
+            this.Mrp.ReadOnly = true;
+            // 
+            // DrawTime
+            // 
+            this.DrawTime.HeaderText = "Draw Time";
+            this.DrawTime.Name = "DrawTime";
+            this.DrawTime.ReadOnly = true;
+            // 
+            // BarcodeNo
+            // 
+            this.BarcodeNo.HeaderText = "Barcode No";
+            this.BarcodeNo.Name = "BarcodeNo";
+            this.BarcodeNo.ReadOnly = true;
+            // 
+            // SlotID
+            // 
+            this.SlotID.HeaderText = "SlotID";
+            this.SlotID.Name = "SlotID";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(886, 592);
+            this.panel2.TabIndex = 0;
+            // 
             // FrmBarcode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(797, 592);
+            this.ClientSize = new System.Drawing.Size(886, 592);
             this.Controls.Add(this.BtnTmlCancel);
             this.Controls.Add(this.BtnReprint);
             this.Controls.Add(this.BtnTmlClaim);
@@ -197,8 +199,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBarcode";
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -206,12 +208,12 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.Button BtnTmlClaim;
         private System.Windows.Forms.Button BtnReprint;
         private System.Windows.Forms.Button BtnTmlCancel;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn SlotID;
         private System.Windows.Forms.DataGridViewTextBoxColumn BarcodeNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn DrawTime;

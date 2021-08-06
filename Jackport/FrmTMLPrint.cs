@@ -24,7 +24,7 @@ namespace Jackport
         private void LoadReport()
         {
             ReportSummary report = new ReportSummary();
-            report = clsService.GetReportSummary(dtfrom.Value, dtTo.Value);
+            report = clsService.GetReportSummary(dtfrom.Text, dtTo.Text);
 
             lblAgentID.Text = UserAgent.AgentCode;
             lblDate.Text = DateTime.Now.ToString();

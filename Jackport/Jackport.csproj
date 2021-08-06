@@ -170,6 +170,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="TicketContols.resx">
       <DependentUpon>TicketContols.cs</DependentUpon>
@@ -190,6 +191,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\84049517-progressive-jackpot-casino-gambling-games-banner-template-big-win.jpg" />
+    <Content Include="Images\download %281%29.jpg" />
+    <Content Include="Images\images.jpg" />
+    <None Include="Resources\images.jpg" />
+    <None Include="Resources\84049517-progressive-jackpot-casino-gambling-games-banner-template-big-win.jpg" />
+    <None Include="Resources\download %281%29.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

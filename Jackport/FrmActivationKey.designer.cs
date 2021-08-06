@@ -36,29 +36,31 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(43, 53);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(12, 53);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 25);
+            this.label1.Size = new System.Drawing.Size(131, 25);
             this.label1.TabIndex = 0;
-            this.label1.Text = "license_key";
+            this.label1.Text = "Licence Key";
             // 
             // TxtLicence
             // 
-            this.TxtLicence.Location = new System.Drawing.Point(231, 59);
+            this.TxtLicence.Location = new System.Drawing.Point(160, 53);
             this.TxtLicence.Multiline = true;
             this.TxtLicence.Name = "TxtLicence";
-            this.TxtLicence.Size = new System.Drawing.Size(375, 29);
+            this.TxtLicence.Size = new System.Drawing.Size(426, 29);
             this.TxtLicence.TabIndex = 1;
             // 
             // BtnSubmit
             // 
             this.BtnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSubmit.Location = new System.Drawing.Point(231, 113);
+            this.BtnSubmit.Location = new System.Drawing.Point(440, 104);
             this.BtnSubmit.Name = "BtnSubmit";
-            this.BtnSubmit.Size = new System.Drawing.Size(375, 36);
+            this.BtnSubmit.Size = new System.Drawing.Size(146, 36);
             this.BtnSubmit.TabIndex = 2;
-            this.BtnSubmit.Text = "Submit";
+            this.BtnSubmit.Text = "Activate";
             this.BtnSubmit.UseVisualStyleBackColor = true;
             this.BtnSubmit.Click += new System.EventHandler(this.BtnSubmit_Click);
             // 
@@ -66,11 +68,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 240);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.ClientSize = new System.Drawing.Size(605, 177);
             this.Controls.Add(this.BtnSubmit);
             this.Controls.Add(this.TxtLicence);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FrmActivationKey";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Activation";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -27,6 +27,7 @@ namespace Jackport.DataModel
         public string app_time_zone { get; set; }
         public string agent_ticket_price { get; set; }
         public string agent_ticket_price_format { get; set; }
+        public string agent_ticket_win_customer_share_amount { get; set; }
     }
 
     public class AgentData
@@ -100,7 +101,7 @@ namespace Jackport.DataModel
         public List<PurchaseTicket> purchase_tickets { get; set; }
     }
 
-    
+
     public class BidList
     {
         public int number { get; set; }

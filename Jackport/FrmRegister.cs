@@ -38,7 +38,7 @@ namespace Jackport
 
             /// ObjService.ActivateLicenceAsync();
             /// 
-            Hide();
+            //Hide();
             FrmActivationKey obj = new FrmActivationKey();
             obj.Show();
            

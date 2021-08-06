@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
@@ -207,9 +208,19 @@ namespace Jackport
 
                 UserAgent.AgenToken = agentToken;
                 UserAgent.AgentCode = _root.data.AgentData.agent_code;
-               // lblWinRs.Text=_root.data.
+                lblWinRs.Text = _root.data.ApplicationDetails.agent_ticket_win_customer_share_amount;
+                lblticketprice.Text = _root.data.ApplicationDetails.agent_ticket_price;
+                lblprice.Text = _root.data.ApplicationDetails.agent_ticket_price_format;
+                /// lblWinRs.Text=_root.data.
+                this.Text = _root.data.ApplicationDetails.app_name + "  " + " Licence Expiry  " + _root.data.LicenseData.license_end_date;
+                
+                var request = WebRequest.Create(_root.data.ApplicationDetails.app_logo);
 
-
+                using (var response = request.GetResponse())
+                using (var stream = response.GetResponseStream())
+                {
+                    pictureBox1.Image = Bitmap.FromStream(stream);
+                }
                 loadWinPrizes(_root.data.TimeSlots);
 
             }
@@ -1650,6 +1661,16 @@ namespace Jackport
                 }
 
             }
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button7_Click_1(object sender, EventArgs e)
+        {
+            GenerateRondomTicketNumber();
         }
     }
 }
