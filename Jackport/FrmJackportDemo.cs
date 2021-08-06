@@ -30,8 +30,8 @@ namespace Jackport
         List<PurchaseTicket> plist = new List<PurchaseTicket>();
         //  private int count = 360;
         // int segundo = 360;
-        private int count = 20;
-        int segundo = 20;
+        private int count = 360;
+        int segundo = 360;
         DateTime dt = new DateTime();
         List<TimeSlot> timeSlots = new List<TimeSlot>();
         List<TimeSlot> overSlots = new List<TimeSlot>();

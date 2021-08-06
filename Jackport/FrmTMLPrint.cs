@@ -40,5 +40,10 @@ namespace Jackport
         {
             LoadReport();
         }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
