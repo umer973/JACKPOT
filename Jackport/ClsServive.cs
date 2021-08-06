@@ -24,9 +24,9 @@ namespace Jackport
         public ClsService()
         {
             deviceId = getMachineId().ToString().Trim();
-           // deviceId = "-hcaFK5rNlk8rFKhI2e-kStz04MpLGoCAqEIJAA7G30";
+            // deviceId = "-hcaFK5rNlk8rFKhI2e-kStz04MpLGoCAqEIJAA7G30";
         }
-        public async void ActivateLicenceAsync(string licenceKey)
+        public bool ActivateLicenceAsync(string licenceKey)
         {
             var client = new RestClient("https://api.welcomejk.com/v1/logins/activation");
             client.Timeout = -1;
@@ -35,57 +35,63 @@ namespace Jackport
             request.AlwaysMultipartFormData = true;
             request.AddParameter("license_key", licenceKey);
             request.AddParameter("machine_id", deviceId);
-            IRestResponse response = await client.ExecuteAsync(request);
+            IRestResponse response = client.Execute(request);
             //JavaScriptSerializer js =  new
             var result = JsonConvert.DeserializeObject<ApiResponse>(response.Content);
 
-
-            //return result.message;
-
-            MessageBox.Show(result.message);
-
-            FrmRegister obj = new FrmRegister();
-            FrmActivationKey objActivation = new FrmActivationKey();
-            objActivation.Visible = false;
-            obj.Show();
-
-
-            //return true;
-        }
-
-
-        public bool LoginAsync(string userName, string password)
-        {
-            var client = new RestClient("https://api.welcomejk.com/v1/logins/do");
-            client.Timeout = -1;
-            var request = new RestRequest(Method.POST);
-            request.AddHeader("APP-KEY", "e76d8c85-979c-411a-89f6-f1dfe0dfa041");
-            request.AlwaysMultipartFormData = true;
-            request.AddParameter("username", userName);
-            request.AddParameter("password", password);
-            // request.AddParameter("machine_id", getMachineId().ToString().Trim());
-            request.AddParameter("machine_id", deviceId);
-            IRestResponse response = client.Execute(request);
-            var result = JsonConvert.DeserializeObject<Root>(response.Content);
-            FrmLogin Login = new FrmLogin();
-            if (result.success && result.code == 200)
+            if (result.success)
             {
-                FrmJackportDemo frmJackport = new FrmJackportDemo(result);
-                //FrmLogin.Visible = false;
-                Login.Hide();
-
-                frmJackport.Show();
-                Login.Hide();
+                MessageBox.Show(result.message);
                 return true;
-
             }
             else
             {
                 MessageBox.Show(result.message);
                 return false;
-
             }
 
+        }
+
+
+        public bool LoginAsync(string userName, string password)
+        {
+            try
+            {
+                var client = new RestClient("https://api.welcomejk.com/v1/logins/do");
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("APP-KEY", "e76d8c85-979c-411a-89f6-f1dfe0dfa041");
+                request.AlwaysMultipartFormData = true;
+                request.AddParameter("username", userName);
+                request.AddParameter("password", password);
+                // request.AddParameter("machine_id", getMachineId().ToString().Trim());
+                request.AddParameter("machine_id", deviceId);
+                IRestResponse response = client.Execute(request);
+                var result = JsonConvert.DeserializeObject<Root>(response.Content);
+                FrmLogin Login = new FrmLogin();
+                if (result.success && result.code == 200)
+                {
+                    FrmJackportDemo frmJackport = new FrmJackportDemo(result);
+                    //FrmLogin.Visible = false;
+                    Login.Hide();
+
+                    frmJackport.Show();
+                    Login.Hide();
+                    return true;
+
+                }
+                else
+                {
+                    MessageBox.Show(result.message);
+                    return false;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occured please try again or contact service provider!");
+            }
+            return false;
 
         }
 
@@ -227,7 +233,7 @@ namespace Jackport
         public ReportSummary GetReportSummary(string startDate, string endDate)
         {
 
-           // var client = new RestClient("https://api.welcomejk.com/v1/reports/get-report?start_date=" + endDate + "&end_date=" + endDate);
+            // var client = new RestClient("https://api.welcomejk.com/v1/reports/get-report?start_date=" + endDate + "&end_date=" + endDate);
             var client = new RestClient("https://api.welcomejk.com/v1/reports/get-report?start_date=2021-08-02&end_date=2021-11-19");
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);

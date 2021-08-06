@@ -2,6 +2,7 @@
 using Jackport.Helper;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -9,6 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +18,7 @@ using System.Windows.Forms;
 
 namespace Jackport
 {
+
     public partial class FrmJackportDemo : Form
     {
         List<ListValueControl> products;
@@ -37,9 +40,29 @@ namespace Jackport
         List<TimeSlot> timeSlots = new List<TimeSlot>();
         List<TimeSlot> overSlots = new List<TimeSlot>();
         Root data;
+        private static TimeZoneInfo timezone;
+
+        DateTime dateTime = DateTime.Now;
+        SYSTEMTIME updatedTime = new SYSTEMTIME();
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        public static extern bool SetSystemTime(ref SYSTEMTIME st);
+        [StructLayout(LayoutKind.Sequential)]
+        public struct SYSTEMTIME
+        {
+            public short wYear;
+            public short wMonth;
+            public short wDayOfWeek;
+            public short wDay;
+            public short wHour;
+            public short wMinute;
+            public short wSecond;
+            public short wMilliseconds;
+        }
 
         public FrmJackportDemo(Root _data)
         {
+
             data = _data;
             FrmLogin objLogin = new FrmLogin();
             objLogin.Hide();
@@ -49,23 +72,46 @@ namespace Jackport
 
 
 
+            SetSystemDate();
+
+
+
         }
 
-
-        private void FrmJackport_Load(object sender, EventArgs e)
+        private void SetSystemDate()
         {
-            LoadProduct();
-            LblDate.Text = DateTime.UtcNow.ToString("dd-MMM-yyyy");
+            dateTime = data.data.ApplicationDetails.app_time;
 
-            LblTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
+            updatedTime.wYear = (short)dateTime.Year;
+            updatedTime.wMonth = (short)dateTime.Month;
+            updatedTime.wDay = (short)dateTime.Day;
+            updatedTime.wHour = (short)dateTime.Hour;
+            updatedTime.wMinute = (short)dateTime.Minute;
+            updatedTime.wSecond = (short)dateTime.Second;
+            SetSystemTime(ref updatedTime);
+
+        }
+
+        public void FrmJackport_Load(object sender, EventArgs e)
+        {
+
+           
+            TimeZoneInfo tz = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
+
+            dateTime = TimeZoneInfo.ConvertTime(DateTime.UtcNow, tz);
+
+            LblDate.Text = dateTime.ToString();
+
+            LblTime.Text = dateTime.TimeOfDay.ToString();
 
             SetData(data);
+
 
             timer1 = new System.Windows.Forms.Timer();
             timer1.Tick += new EventHandler(timer1_Tick);
             timer1.Interval = 1000; // 1 second
             timer1.Start();
-
+            LoadProduct();
 
 
             var list = data.data.TimeSlots.Where(x => x.slot_over == "0").ToList();
@@ -83,7 +129,9 @@ namespace Jackport
             timeSlots = list.Select(x => new TimeSlot
             {
                 slot_id = x.slot_id,
-                slot_over = x.slot_over
+                slot_over = x.slot_over,
+                time_end = x.time_end
+
 
             }).ToList();
 
@@ -91,6 +139,8 @@ namespace Jackport
 
             GetCurrentSlot(list);
             //ScrollDown();
+
+           
         }
 
         private void GetCurrentSlot(List<TimeSlot> Slotlist)
@@ -98,6 +148,8 @@ namespace Jackport
             var list = data.data.TimeSlots.Where(x => x.slot_over == "0").ToList();
 
             var time = list.Select(x => x.time_end).FirstOrDefault();
+
+            TimeSpan counter = Convert.ToDateTime(CommonHelper.GetdateFormat(time)) - dateTime;
 
             lblSlotTime.Text = CommonHelper.GetdateFormat(time);
 
@@ -116,7 +168,7 @@ namespace Jackport
                     if (flag == 5)
                     {
                         Point current = flowLayoutPanel1.AutoScrollPosition;
-                        Point scrolled = new Point(current.X, -current.Y + 115);
+                        Point scrolled = new Point(current.X, -current.Y + 100);
                         flowLayoutPanel1.AutoScrollPosition = scrolled;
                         flag = 0;
                     }
@@ -126,7 +178,7 @@ namespace Jackport
                 {
                     winflag = 1;
                     ctr.Color = Color.Green;
-                   // ctr.ForeColor
+                    // ctr.ForeColor
                 }
 
 
@@ -213,8 +265,9 @@ namespace Jackport
                 lblprice.Text = _root.data.ApplicationDetails.agent_ticket_price_format;
                 /// lblWinRs.Text=_root.data.
                 this.Text = _root.data.ApplicationDetails.app_name + "  " + " Licence Expiry  " + _root.data.LicenseData.license_end_date;
-                
+
                 var request = WebRequest.Create(_root.data.ApplicationDetails.app_logo);
+
 
                 using (var response = request.GetResponse())
                 using (var stream = response.GetResponseStream())
@@ -334,8 +387,19 @@ namespace Jackport
         private void ShowWinNumber()
         {
             slotdId = timeSlots.Select(x => x.slot_id).FirstOrDefault();
+            var endtime = timeSlots.Select(x => x.time_end).FirstOrDefault();
+            // var datediff = Convert.ToDateTime(endtime) - (dateTime);
             count--;
-            if (count == 0)
+            TimeSpan datediff = Convert.ToDateTime(endtime).Subtract(DateTime.UtcNow);
+
+
+            //var datediff = Convert.ToInt64(GetTimeSpan(Convert.ToDateTime(endtime))) - Convert.ToInt64(GetTimeSpan(dateTime));
+            //DateTime d1 = new DateTime(1970, 1, 1);
+            //TimeSpan left = new TimeSpan(Convert.ToInt64(datediff));
+
+
+
+            if (datediff.Seconds.ToString().PadLeft(2, '0') == "0")
             {
                 ClsService clsService = new ClsService();
                 var result = clsService.GetWinTickets(Convert.ToInt16(slotdId));
@@ -348,12 +412,20 @@ namespace Jackport
             }
             //timer1.Stop();
             //LblCountDown1.Text = counter.ToString();
-            LblCountDown1.Text = "00" + ":" + count / 60 + ":" + ((count % 60) >= 10 ? (count % 60).ToString() : "0" + (count % 60));
+            string leftTime = string.Format("{0}:{1}:{2}", datediff.Hours.ToString().PadLeft(2, '0'), datediff.Minutes.ToString().PadLeft(2, '0'), datediff.Seconds.ToString().PadLeft(2, '0'));
+            //string leftTime = Convert.ToDateTime(GetTimeSpan( left));
+            //string leftTime = Convert.ToString(left.TotalMinutes+':'+left.TotalSeconds);
+            LblCountDown1.Text = leftTime.ToString();
             //label1.Text = count / 60 + ":" + ((count % 60) >= 10 ? (count % 60).ToString() : "0" + (count % 60));
             int LeftTime1 = count;
             int LeftTime2 = segundo - LeftTime1;
             int LeftTime = segundo - LeftTime2;
-            LblCountDown2.Text = LeftTime / 60 + ":" + ((LeftTime % 60) >= 10 ? (LeftTime % 60).ToString() : "0" + (LeftTime % 60));
+            LblCountDown2.Text = leftTime.ToString();
+        }
+
+        private string GetTimeSpan(DateTime value)
+        {
+            return value.ToString("yyyyMMddHHmmssffff");
         }
 
         private void RefreshSlots()
@@ -437,9 +509,9 @@ namespace Jackport
 
         private void TxtE0_KeyUp(object sender, KeyEventArgs e)
         {
-            if(TxtE0.Text!="")
-            { 
-            TxtE0.BackColor = Color.YellowGreen;
+            if (TxtE0.Text != "")
+            {
+                TxtE0.BackColor = Color.YellowGreen;
             }
             foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
             {

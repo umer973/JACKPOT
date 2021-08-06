@@ -20,7 +20,16 @@ namespace Jackport
         private void BtnSubmit_Click(object sender, EventArgs e)
         {
             ClsService ObjService = new ClsService();
-             ObjService.ActivateLicenceAsync(TxtLicence.Text.Trim());
+            bool result = ObjService.ActivateLicenceAsync(TxtLicence.Text.Trim());
+
+            if (result)
+            {
+                FrmRegister obj = new FrmRegister();
+
+                obj.Show();
+                this.Hide();
+            }
+
 
             //MessageBox.Show(message.ToString());
         }

@@ -26,16 +26,46 @@ namespace Jackport
         private void button1_Click(object sender, EventArgs e)
         {
             ClsService clsService = new ClsService();
-            var isValid = clsService.LoginAsync(TxtUser.Text.Trim(), TxtPassword.Text.Trim());
-            if (isValid)
-                this.Hide();
-            
+
+
+            if (!string.IsNullOrEmpty(TxtUser.Text) && !string.IsNullOrEmpty(TxtPassword.Text.Trim()))
+            {
+                var isValid = clsService.LoginAsync(TxtUser.Text.Trim(), TxtPassword.Text.Trim());
+                if (isValid)
+                    this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Please enter credentials");
+            }
+
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void TxtUser_MouseEnter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1.Focus();
+            }
+        }
+
+        private void TxtUser_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                TxtPassword.Focus();
+            }
         }
     }
 }

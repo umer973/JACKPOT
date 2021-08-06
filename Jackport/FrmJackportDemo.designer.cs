@@ -30,12 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lblprice = new System.Windows.Forms.Label();
+            this.lblWinRs = new System.Windows.Forms.Label();
+            this.label144 = new System.Windows.Forms.Label();
             this.cmbSlot = new System.Windows.Forms.ComboBox();
-            this.LblTime = new System.Windows.Forms.Label();
-            this.LblDate = new System.Windows.Forms.Label();
-            this.LblAgentId = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.LblCompanyName = new System.Windows.Forms.Label();
+            this.LblCountDown2 = new System.Windows.Forms.Label();
+            this.label142 = new System.Windows.Forms.Label();
+            this.lblSlotTime = new System.Windows.Forms.Label();
+            this.label140 = new System.Windows.Forms.Label();
+            this.lblticketprice = new System.Windows.Forms.Label();
+            this.lblpriceformat = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -45,18 +51,14 @@
             this.button1 = new System.Windows.Forms.Button();
             this.LblCountDown1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.LblTime = new System.Windows.Forms.Label();
+            this.LblDate = new System.Windows.Forms.Label();
+            this.LblAgentId = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.LblCompanyName = new System.Windows.Forms.Label();
             this.LblBalance = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lblprice = new System.Windows.Forms.Label();
-            this.lblWinRs = new System.Windows.Forms.Label();
-            this.label144 = new System.Windows.Forms.Label();
-            this.LblCountDown2 = new System.Windows.Forms.Label();
-            this.label142 = new System.Windows.Forms.Label();
-            this.lblSlotTime = new System.Windows.Forms.Label();
-            this.label140 = new System.Windows.Forms.Label();
-            this.lblticketprice = new System.Windows.Forms.Label();
-            this.lblpriceformat = new System.Windows.Forms.Label();
             this.TxtLpNo = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -107,22 +109,19 @@
             this.TxtE9 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.button7 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -134,7 +133,6 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.LblTime);
             this.panel1.Controls.Add(this.LblDate);
-            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.LblAgentId);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.LblCompanyName);
@@ -144,6 +142,66 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1360, 133);
             this.panel1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(309, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(225, 53);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 253;
+            this.pictureBox1.TabStop = false;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.lblprice);
+            this.panel3.Controls.Add(this.lblWinRs);
+            this.panel3.Controls.Add(this.label144);
+            this.panel3.Controls.Add(this.cmbSlot);
+            this.panel3.Controls.Add(this.LblCountDown2);
+            this.panel3.Controls.Add(this.label142);
+            this.panel3.Controls.Add(this.lblSlotTime);
+            this.panel3.Controls.Add(this.label140);
+            this.panel3.Controls.Add(this.lblticketprice);
+            this.panel3.Controls.Add(this.lblpriceformat);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.ForeColor = System.Drawing.Color.White;
+            this.panel3.Location = new System.Drawing.Point(0, 62);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1360, 29);
+            this.panel3.TabIndex = 252;
+            // 
+            // lblprice
+            // 
+            this.lblprice.AutoSize = true;
+            this.lblprice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblprice.Location = new System.Drawing.Point(125, 3);
+            this.lblprice.Name = "lblprice";
+            this.lblprice.Size = new System.Drawing.Size(44, 20);
+            this.lblprice.TabIndex = 18;
+            this.lblprice.Text = "RS :";
+            // 
+            // lblWinRs
+            // 
+            this.lblWinRs.AutoSize = true;
+            this.lblWinRs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWinRs.Location = new System.Drawing.Point(616, 4);
+            this.lblWinRs.Name = "lblWinRs";
+            this.lblWinRs.Size = new System.Drawing.Size(64, 20);
+            this.lblWinRs.TabIndex = 17;
+            this.lblWinRs.Text = "160.00";
+            // 
+            // label144
+            // 
+            this.label144.AutoSize = true;
+            this.label144.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label144.Location = new System.Drawing.Point(515, 4);
+            this.label144.Name = "label144";
+            this.label144.Size = new System.Drawing.Size(93, 20);
+            this.label144.TabIndex = 16;
+            this.label144.Text = "WIN :  RS.";
             // 
             // cmbSlot
             // 
@@ -167,55 +225,65 @@
             this.cmbSlot.TabIndex = 10;
             this.cmbSlot.SelectedIndexChanged += new System.EventHandler(this.cmbSlot_SelectedIndexChanged);
             // 
-            // LblTime
+            // LblCountDown2
             // 
-            this.LblTime.AutoSize = true;
-            this.LblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTime.Location = new System.Drawing.Point(982, 39);
-            this.LblTime.Name = "LblTime";
-            this.LblTime.Size = new System.Drawing.Size(47, 20);
-            this.LblTime.TabIndex = 9;
-            this.LblTime.Text = "Time";
+            this.LblCountDown2.AutoSize = true;
+            this.LblCountDown2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCountDown2.Location = new System.Drawing.Point(438, 4);
+            this.LblCountDown2.Name = "LblCountDown2";
+            this.LblCountDown2.Size = new System.Drawing.Size(54, 20);
+            this.LblCountDown2.TabIndex = 15;
+            this.LblCountDown2.Text = "02:08";
             // 
-            // LblDate
+            // label142
             // 
-            this.LblDate.AutoSize = true;
-            this.LblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDate.Location = new System.Drawing.Point(983, 11);
-            this.LblDate.Name = "LblDate";
-            this.LblDate.Size = new System.Drawing.Size(48, 20);
-            this.LblDate.TabIndex = 8;
-            this.LblDate.Text = "Date";
+            this.label142.AutoSize = true;
+            this.label142.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label142.Location = new System.Drawing.Point(390, 4);
+            this.label142.Name = "label142";
+            this.label142.Size = new System.Drawing.Size(44, 20);
+            this.label142.TabIndex = 14;
+            this.label142.Text = "LT  :";
             // 
-            // LblAgentId
+            // lblSlotTime
             // 
-            this.LblAgentId.AutoSize = true;
-            this.LblAgentId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblAgentId.Location = new System.Drawing.Point(1265, 10);
-            this.LblAgentId.Name = "LblAgentId";
-            this.LblAgentId.Size = new System.Drawing.Size(53, 17);
-            this.LblAgentId.TabIndex = 6;
-            this.LblAgentId.Text = "12345";
+            this.lblSlotTime.AutoSize = true;
+            this.lblSlotTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSlotTime.Location = new System.Drawing.Point(290, 4);
+            this.lblSlotTime.Name = "lblSlotTime";
+            this.lblSlotTime.Size = new System.Drawing.Size(84, 20);
+            this.lblSlotTime.TabIndex = 13;
+            this.lblSlotTime.Text = "12:06 PM";
             // 
-            // label6
+            // label140
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(1152, 10);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 17);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "AGENT ID :";
+            this.label140.AutoSize = true;
+            this.label140.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label140.Location = new System.Drawing.Point(216, 4);
+            this.label140.Name = "label140";
+            this.label140.Size = new System.Drawing.Size(75, 20);
+            this.label140.TabIndex = 12;
+            this.label140.Text = "PICK3 - ";
             // 
-            // LblCompanyName
+            // lblticketprice
             // 
-            this.LblCompanyName.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCompanyName.Location = new System.Drawing.Point(540, 1);
-            this.LblCompanyName.Name = "LblCompanyName";
-            this.LblCompanyName.Size = new System.Drawing.Size(266, 58);
-            this.LblCompanyName.TabIndex = 4;
-            this.LblCompanyName.Text = "JACKPOT";
-            this.LblCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblticketprice.AutoSize = true;
+            this.lblticketprice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblticketprice.Location = new System.Drawing.Point(171, 3);
+            this.lblticketprice.Name = "lblticketprice";
+            this.lblticketprice.Size = new System.Drawing.Size(19, 20);
+            this.lblticketprice.TabIndex = 11;
+            this.lblticketprice.Text = "2";
+            // 
+            // lblpriceformat
+            // 
+            this.lblpriceformat.AutoSize = true;
+            this.lblpriceformat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpriceformat.Location = new System.Drawing.Point(13, 3);
+            this.lblpriceformat.Name = "lblpriceformat";
+            this.lblpriceformat.Size = new System.Drawing.Size(110, 20);
+            this.lblpriceformat.TabIndex = 10;
+            this.lblpriceformat.Text = "STAR DIGIT";
             // 
             // panel2
             // 
@@ -341,6 +409,66 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Time Left  :";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(26, 8);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(145, 20);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Account Balance";
+            // 
+            // LblTime
+            // 
+            this.LblTime.AutoSize = true;
+            this.LblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTime.Location = new System.Drawing.Point(982, 39);
+            this.LblTime.Name = "LblTime";
+            this.LblTime.Size = new System.Drawing.Size(47, 20);
+            this.LblTime.TabIndex = 9;
+            this.LblTime.Text = "Time";
+            // 
+            // LblDate
+            // 
+            this.LblDate.AutoSize = true;
+            this.LblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblDate.Location = new System.Drawing.Point(983, 11);
+            this.LblDate.Name = "LblDate";
+            this.LblDate.Size = new System.Drawing.Size(48, 20);
+            this.LblDate.TabIndex = 8;
+            this.LblDate.Text = "Date";
+            // 
+            // LblAgentId
+            // 
+            this.LblAgentId.AutoSize = true;
+            this.LblAgentId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblAgentId.Location = new System.Drawing.Point(1265, 10);
+            this.LblAgentId.Name = "LblAgentId";
+            this.LblAgentId.Size = new System.Drawing.Size(53, 17);
+            this.LblAgentId.TabIndex = 6;
+            this.LblAgentId.Text = "12345";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(1152, 10);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(91, 17);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "AGENT ID :";
+            // 
+            // LblCompanyName
+            // 
+            this.LblCompanyName.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCompanyName.Location = new System.Drawing.Point(540, 1);
+            this.LblCompanyName.Name = "LblCompanyName";
+            this.LblCompanyName.Size = new System.Drawing.Size(266, 58);
+            this.LblCompanyName.TabIndex = 4;
+            this.LblCompanyName.Text = "JACKPOT";
+            this.LblCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // LblBalance
             // 
             this.LblBalance.AutoSize = true;
@@ -363,117 +491,6 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(510, 542);
             this.flowLayoutPanel1.TabIndex = 251;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.lblprice);
-            this.panel3.Controls.Add(this.lblWinRs);
-            this.panel3.Controls.Add(this.label144);
-            this.panel3.Controls.Add(this.cmbSlot);
-            this.panel3.Controls.Add(this.LblCountDown2);
-            this.panel3.Controls.Add(this.label142);
-            this.panel3.Controls.Add(this.lblSlotTime);
-            this.panel3.Controls.Add(this.label140);
-            this.panel3.Controls.Add(this.lblticketprice);
-            this.panel3.Controls.Add(this.lblpriceformat);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.ForeColor = System.Drawing.Color.White;
-            this.panel3.Location = new System.Drawing.Point(0, 62);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1360, 29);
-            this.panel3.TabIndex = 252;
-            // 
-            // lblprice
-            // 
-            this.lblprice.AutoSize = true;
-            this.lblprice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblprice.Location = new System.Drawing.Point(125, 3);
-            this.lblprice.Name = "lblprice";
-            this.lblprice.Size = new System.Drawing.Size(44, 20);
-            this.lblprice.TabIndex = 18;
-            this.lblprice.Text = "RS :";
-            // 
-            // lblWinRs
-            // 
-            this.lblWinRs.AutoSize = true;
-            this.lblWinRs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWinRs.Location = new System.Drawing.Point(616, 4);
-            this.lblWinRs.Name = "lblWinRs";
-            this.lblWinRs.Size = new System.Drawing.Size(64, 20);
-            this.lblWinRs.TabIndex = 17;
-            this.lblWinRs.Text = "160.00";
-            // 
-            // label144
-            // 
-            this.label144.AutoSize = true;
-            this.label144.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label144.Location = new System.Drawing.Point(515, 4);
-            this.label144.Name = "label144";
-            this.label144.Size = new System.Drawing.Size(93, 20);
-            this.label144.TabIndex = 16;
-            this.label144.Text = "WIN :  RS.";
-            // 
-            // LblCountDown2
-            // 
-            this.LblCountDown2.AutoSize = true;
-            this.LblCountDown2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCountDown2.Location = new System.Drawing.Point(438, 4);
-            this.LblCountDown2.Name = "LblCountDown2";
-            this.LblCountDown2.Size = new System.Drawing.Size(54, 20);
-            this.LblCountDown2.TabIndex = 15;
-            this.LblCountDown2.Text = "02:08";
-            // 
-            // label142
-            // 
-            this.label142.AutoSize = true;
-            this.label142.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label142.Location = new System.Drawing.Point(390, 4);
-            this.label142.Name = "label142";
-            this.label142.Size = new System.Drawing.Size(44, 20);
-            this.label142.TabIndex = 14;
-            this.label142.Text = "LT  :";
-            // 
-            // lblSlotTime
-            // 
-            this.lblSlotTime.AutoSize = true;
-            this.lblSlotTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSlotTime.Location = new System.Drawing.Point(290, 4);
-            this.lblSlotTime.Name = "lblSlotTime";
-            this.lblSlotTime.Size = new System.Drawing.Size(84, 20);
-            this.lblSlotTime.TabIndex = 13;
-            this.lblSlotTime.Text = "12:06 PM";
-            // 
-            // label140
-            // 
-            this.label140.AutoSize = true;
-            this.label140.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label140.Location = new System.Drawing.Point(216, 4);
-            this.label140.Name = "label140";
-            this.label140.Size = new System.Drawing.Size(75, 20);
-            this.label140.TabIndex = 12;
-            this.label140.Text = "PICK3 - ";
-            // 
-            // lblticketprice
-            // 
-            this.lblticketprice.AutoSize = true;
-            this.lblticketprice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblticketprice.Location = new System.Drawing.Point(171, 3);
-            this.lblticketprice.Name = "lblticketprice";
-            this.lblticketprice.Size = new System.Drawing.Size(19, 20);
-            this.lblticketprice.TabIndex = 11;
-            this.lblticketprice.Text = "2";
-            // 
-            // lblpriceformat
-            // 
-            this.lblpriceformat.AutoSize = true;
-            this.lblpriceformat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpriceformat.Location = new System.Drawing.Point(13, 3);
-            this.lblpriceformat.Name = "lblpriceformat";
-            this.lblpriceformat.Size = new System.Drawing.Size(110, 20);
-            this.lblpriceformat.TabIndex = 10;
-            this.lblpriceformat.Text = "STAR DIGIT";
             // 
             // TxtLpNo
             // 
@@ -589,6 +606,7 @@
             this.TxtE0.BackColor = System.Drawing.Color.Magenta;
             this.TxtE0.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtE0.Location = new System.Drawing.Point(6, 34);
+            this.TxtE0.Margin = new System.Windows.Forms.Padding(10);
             this.TxtE0.MaxLength = 2;
             this.TxtE0.Multiline = true;
             this.TxtE0.Name = "TxtE0";
@@ -1041,16 +1059,6 @@
             this.label10.TabIndex = 545;
             this.label10.Text = "90-99";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(26, 8);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(145, 20);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Account Balance";
-            // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Teal;
@@ -1069,16 +1077,6 @@
             this.groupBox2.Size = new System.Drawing.Size(1360, 51);
             this.groupBox2.TabIndex = 547;
             this.groupBox2.TabStop = false;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(1153, 27);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(26, 17);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "Tk";
             // 
             // groupBox3
             // 
@@ -1168,15 +1166,6 @@
             this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click_1);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(309, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(225, 53);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 253;
-            this.pictureBox1.TabStop = false;
-            // 
             // FrmJackportDemo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1195,17 +1184,17 @@
             this.Load += new System.EventHandler(this.FrmJackport_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1292,7 +1281,6 @@
         private System.Windows.Forms.Label lblprice;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox5;

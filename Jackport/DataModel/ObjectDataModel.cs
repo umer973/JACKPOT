@@ -28,6 +28,7 @@ namespace Jackport.DataModel
         public string agent_ticket_price { get; set; }
         public string agent_ticket_price_format { get; set; }
         public string agent_ticket_win_customer_share_amount { get; set; }
+        public DateTime app_time { get; set; }
     }
 
     public class AgentData
@@ -241,9 +242,10 @@ namespace Jackport.DataModel
         public int code { get; set; }
         public string message { get; set; }
         public List<SlotList> data { get; set; }
+
     }
 
-
+    
 
 
 }

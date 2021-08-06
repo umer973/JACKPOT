@@ -43,7 +43,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 54F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(501, 16);
+            this.label1.Location = new System.Drawing.Point(390, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(344, 82);
             this.label1.TabIndex = 0;
@@ -52,7 +52,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(596, 39);
+            this.button1.Location = new System.Drawing.Point(496, 39);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(127, 39);
             this.button1.TabIndex = 1;
@@ -64,7 +64,7 @@
             // 
             this.lblWinNumber.AutoSize = true;
             this.lblWinNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWinNumber.Location = new System.Drawing.Point(592, 139);
+            this.lblWinNumber.Location = new System.Drawing.Point(492, 139);
             this.lblWinNumber.Name = "lblWinNumber";
             this.lblWinNumber.Size = new System.Drawing.Size(121, 24);
             this.lblWinNumber.TabIndex = 2;
