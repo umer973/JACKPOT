@@ -140,7 +140,6 @@
             // 
             this.SlotID.HeaderText = "SlotID";
             this.SlotID.Name = "SlotID";
-            this.SlotID.Visible = false;
             // 
             // BarcodeNo
             // 

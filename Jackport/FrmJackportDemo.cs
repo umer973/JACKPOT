@@ -1,4 +1,4 @@
-﻿using Jackport.DataModel; 
+﻿using Jackport.DataModel;
 using Jackport.Helper;
 using System;
 using System.Collections.Generic;
@@ -73,7 +73,7 @@ namespace Jackport
 
 
 
-            SetSystemDate();
+          
 
 
 
@@ -83,13 +83,19 @@ namespace Jackport
         {
             dateTime = data.ApplicationDetails.app_time;
 
-            updatedTime.wYear = (short)dateTime.Year;
-            updatedTime.wMonth = (short)dateTime.Month;
-            updatedTime.wDay = (short)dateTime.Day;
-            updatedTime.wHour = (short)dateTime.Hour;
-            updatedTime.wMinute = (short)dateTime.Minute;
-            updatedTime.wSecond = (short)dateTime.Second;
-            SetSystemTime(ref updatedTime);
+            // Get time in local time zone 
+           // DateTime thisTime = DateTime.Now;
+           //Console.WriteLine("Time in {0} zone: {1}", TimeZoneInfo.Local.IsDaylightSavingTime(thisTime) ?
+           //                   TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName, thisTime);
+           // Console.WriteLine("   UTC Time: {0}", TimeZoneInfo.ConvertTimeToUtc(thisTime, TimeZoneInfo.Local));
+           
+
+           // TimeZoneInfo tst = TimeZoneInfo.FindSystemTimeZoneById("Indian Standard Time");
+
+           // DateTime tstTime = TimeZoneInfo.ConvertTime(thisTime, TimeZoneInfo.Local, tst);
+           // LblDate.Text= tst.IsDaylightSavingTime(tstTime) ? tst.DaylightName : tst.StandardName, tstTime);
+           // Console.WriteLine("   UTC Time: {0}", TimeZoneInfo.ConvertTimeToUtc(tstTime, tst));
+
 
         }
 
@@ -98,6 +104,9 @@ namespace Jackport
 
 
             DisplayData();
+
+
+            SetSystemDate();
 
 
 
@@ -181,12 +190,23 @@ namespace Jackport
 
 
 
-           // lblSlotTime.Text = CommonHelper.GetdateFormat(endtime);
+            // lblSlotTime.Text = CommonHelper.GetdateFormat(endtime);
             SetSlotTime(CommonHelper.GetdateFormat(endtime));
+
+            timeSlots = null;
+
+            timeSlots = list.Select(x => new TimeSlot
+            {
+                slot_id = x.slot_id,
+                slot_over = x.slot_over,
+                time_end = x.time_end
+
+
+            }).ToList();
 
         }
 
-      
+
 
         private void SetSlotTime(string text)
         {
@@ -479,7 +499,7 @@ namespace Jackport
                     }
                 }
 
-               
+
 
 
             });
@@ -560,7 +580,7 @@ namespace Jackport
             return value.ToString("yyyyMMddHHmmssffff");
         }
 
-        private  void RefreshSlots()
+        private void RefreshSlots()
         {
 
 
@@ -1742,10 +1762,12 @@ namespace Jackport
                 currentSlot = timeSlots.Count;
             }
 
+            plist.Clear();
             var slot = timeSlots.Select(x => new PurchaseTicket
             {
                 slot_id = Convert.ToInt16(x.slot_id)
             }).ToList();
+
 
             for (int i = 0; i < currentSlot; i++)
             {
@@ -1815,7 +1837,7 @@ namespace Jackport
 
         private void AllData()
         {
-          
+
 
             FrmAllData ObjFrmBarcode = new FrmAllData();
             ObjFrmBarcode.ShowDialog();
