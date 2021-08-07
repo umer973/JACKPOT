@@ -11,5 +11,7 @@ namespace Jackport.DataModel
         public static string AgentCode { get; set; }
 
         public static string AgenToken { get; set; }
+        
+        
     }
 }

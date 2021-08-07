@@ -23,8 +23,8 @@ namespace Jackport
         public string deviceId;
         public ClsService()
         {
-           // deviceId = getMachineId().ToString().Trim();
-           deviceId = "-hcaFK5rNlk8rFKhI2e-kStz04MpLGoCAqEIJAA7G30";
+            // deviceId = getMachineId().ToString().Trim();
+            deviceId = "-hcaFK5rNlk8rFKhI2e-kStz04MpLGoCAqEIJAA7G30";
         }
         public bool ActivateLicenceAsync(string licenceKey)
         {
@@ -53,8 +53,9 @@ namespace Jackport
         }
 
 
-        public bool LoginAsync(string userName, string password)
+        public LoginData LoginAsync(string userName, string password)
         {
+
             try
             {
                 var client = new RestClient("https://api.welcomejk.com/v1/logins/do");
@@ -71,19 +72,14 @@ namespace Jackport
                 FrmLogin Login = new FrmLogin();
                 if (result.success && result.code == 200)
                 {
-                    FrmJackportDemo frmJackport = new FrmJackportDemo(result);
-                    //FrmLogin.Visible = false;
-                    Login.Hide();
 
-                    frmJackport.Show();
-                    Login.Hide();
-                    return true;
-
+                    return result.data;
+                  
                 }
                 else
                 {
                     MessageBox.Show(result.message);
-                    return false;
+                    return null;
 
                 }
             }
@@ -91,7 +87,7 @@ namespace Jackport
             {
                 MessageBox.Show("An error occured please try again or contact service provider!");
             }
-            return false;
+            return null;
 
         }
 
@@ -233,8 +229,8 @@ namespace Jackport
         public ReportSummary GetReportSummary(string startDate, string endDate)
         {
 
-            // var client = new RestClient("https://api.welcomejk.com/v1/reports/get-report?start_date=" + endDate + "&end_date=" + endDate);
-            var client = new RestClient("https://api.welcomejk.com/v1/reports/get-report?start_date=2021-08-02&end_date=2021-11-19");
+             var client = new RestClient("https://api.welcomejk.com/v1/reports/get-report?start_date=" + endDate + "&end_date=" + endDate);
+           /// var client = new RestClient("https://api.welcomejk.com/v1/reports/get-report?start_date=2021-08-02&end_date=2021-11-19");
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
             request.AddHeader("APP-KEY", "e76d8c85-979c-411a-89f6-f1dfe0dfa041");
@@ -284,8 +280,8 @@ namespace Jackport
             client.Timeout = -1;
             var request = new RestRequest(Method.POST);
             request.AddHeader("APP-KEY", "e76d8c85-979c-411a-89f6-f1dfe0dfa041");
-            request.AddHeader("AGENT-TOKEN", "5OX9e4L8P3KW_i0Vk4rHY-RI5v7LHIc4RSXcSic-dX3fNtNAJyV55o8Imi0eFd_dE4xtwV1s_0IMpetC2fbFTR5ttprIzPOGZ8nKWcWEtEvH9NtuBqjKMfUKB0hEoO3KNKgHZyGTnqCwkrmTwJpRm5wQpYco1ScZeR0XBaF8wU4RajEWApKdMUFaAUHDY62RZV98IVwTAY7sQ8d9BpFS9SScTgCSWhVQXs5bmFbfviu3cuD8Lq1gDDltojmw77K");
-            request.AddHeader("MACHINE-ID", "dd97c9da-f21f-11eb-9a03-0242ac130003");
+            request.AddHeader("AGENT-TOKEN", UserAgent.AgenToken);
+            request.AddHeader("MACHINE-ID", deviceId);
             request.AlwaysMultipartFormData = true;
             request.AddParameter("ticket_barcode", "359");
             IRestResponse response = client.Execute(request);
@@ -351,8 +347,8 @@ namespace Jackport
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
             request.AddHeader("APP-KEY", "e76d8c85-979c-411a-89f6-f1dfe0dfa041");
-            request.AddHeader("AGENT-TOKEN", "Ocz-8IkZ57UOMMwRyvvwegn0pSBJ2Jea8_3tGeVZ71i2GLL3zQDjS4k4gcEEljdfYnHl045vqiVtS7CmByGGQYAqOE4CIcJPPF3scmX3HA2XbEDmlbNuUfFeYba8Wku6yYocH1_jTQii4-iocA0mIDg3HL6taC9QD-1TJ_s2oH3KLVqICFJSDyuKhjY4jyN43wI0E1qD8dhf9iZ4gJBIKoaa8P8_a27coOkvv6khWw_XgNA6NoTwlG2I5_HqtCw");
-            request.AddHeader("MACHINE-ID", "dd97c9da-f21f-11eb-9a03-0242ac130003");
+            request.AddHeader("AGENT-TOKEN", UserAgent.AgenToken);
+            request.AddHeader("MACHINE-ID", deviceId);
             IRestResponse response = client.Execute(request);
             var result = JsonConvert.DeserializeObject<WinTicketDetails>(response.Content);
             if (result.success)

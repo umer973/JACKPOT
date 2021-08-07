@@ -37,7 +37,7 @@ namespace Jackport
                     dataGridView1.Rows[index].Cells[2].Value = tikcet[i].time_start;
 
                     dataGridView1.Rows[index].Cells[3].Value = tikcet[i].win_number;
-                    dataGridView1.Rows[index].Cells[4].Value = "NA";
+                   // dataGridView1.Rows[index].Cells[4].Value = "NA";
                     //dataGridView1.Rows[index].Cells[5].Value = tikcet[i].ticket_total_amount;
                     //dataGridView1.Rows[index].Cells[6].Value = tikcet[i].ticket_status;
                     //dataGridView1.Rows[index].Cells[7].Value = "NA";

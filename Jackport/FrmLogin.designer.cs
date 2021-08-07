@@ -44,7 +44,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(324, 52);
+            this.label2.Location = new System.Drawing.Point(334, 212);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(132, 26);
             this.label2.TabIndex = 1;
@@ -55,7 +55,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(324, 102);
+            this.label3.Location = new System.Drawing.Point(334, 262);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(116, 26);
             this.label3.TabIndex = 2;
@@ -64,7 +64,7 @@
             // TxtPassword
             // 
             this.TxtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtPassword.Location = new System.Drawing.Point(478, 99);
+            this.TxtPassword.Location = new System.Drawing.Point(488, 259);
             this.TxtPassword.Name = "TxtPassword";
             this.TxtPassword.PasswordChar = '*';
             this.TxtPassword.Size = new System.Drawing.Size(225, 29);
@@ -76,7 +76,7 @@
             this.button1.BackColor = System.Drawing.Color.Green;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(736, 47);
+            this.button1.Location = new System.Drawing.Point(745, 204);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(148, 36);
             this.button1.TabIndex = 3;
@@ -89,7 +89,7 @@
             this.button2.BackColor = System.Drawing.Color.Maroon;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(736, 98);
+            this.button2.Location = new System.Drawing.Point(746, 258);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(148, 33);
             this.button2.TabIndex = 4;
@@ -119,15 +119,15 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 295);
+            this.panel2.Location = new System.Drawing.Point(0, 45);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1364, 280);
+            this.panel2.Size = new System.Drawing.Size(1364, 530);
             this.panel2.TabIndex = 7;
             // 
             // TxtUser
             // 
             this.TxtUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtUser.Location = new System.Drawing.Point(478, 47);
+            this.TxtUser.Location = new System.Drawing.Point(488, 207);
             this.TxtUser.Name = "TxtUser";
             this.TxtUser.Size = new System.Drawing.Size(225, 29);
             this.TxtUser.TabIndex = 5;

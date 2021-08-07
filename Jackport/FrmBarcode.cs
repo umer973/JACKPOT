@@ -35,7 +35,7 @@ namespace Jackport
                     dataGridView1.Rows[index].Cells[4].Value = tikcet[i].ticket_total_quantity;
                     dataGridView1.Rows[index].Cells[5].Value = tikcet[i].ticket_total_amount;
                     dataGridView1.Rows[index].Cells[6].Value = tikcet[i].ticket_status;
-                    dataGridView1.Rows[index].Cells[7].Value = "NA";
+                    //dataGridView1.Rows[index].Cells[7].Value = "NA";
                 }
             }
             catch (Exception ex)
@@ -83,7 +83,7 @@ namespace Jackport
 
         private void BtnTmlClaim_Click(object sender, EventArgs e)
         {
-
+            ClaimTicket();
         }
 
         private void ClaimTicket()

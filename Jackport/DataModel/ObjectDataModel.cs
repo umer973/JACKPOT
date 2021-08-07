@@ -60,7 +60,7 @@ namespace Jackport.DataModel
         public string slot_id { get; set; }
     }
 
-    public class Data
+    public class LoginData
     {
         [JsonProperty("application-details")]
         public ApplicationDetails ApplicationDetails { get; set; }
@@ -80,7 +80,7 @@ namespace Jackport.DataModel
         public bool success { get; set; }
         public int code { get; set; }
         public string message { get; set; }
-        public Data data { get; set; }
+        public LoginData data { get; set; }
     }
 
 

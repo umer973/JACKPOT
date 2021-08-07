@@ -23,24 +23,31 @@ namespace Jackport
 
         private void LoadReport()
         {
-            ReportSummary report = new ReportSummary();
-            report = clsService.GetReportSummary(dtfrom.Text, dtTo.Text);
+            try
+            {
+                ReportSummary report = new ReportSummary();
 
-            lblAgentID.Text = UserAgent.AgentCode;
-            lblDate.Text = DateTime.Now.ToString();
-            lblGrosssaleAmt.Text = report.gross_sales_amount;
-            lblnetsalesamt.Text = report.gross_sales_amount;
-            payoutamt.Text = report.payout_amount;
-            netpay.Text = report.net_to_pay;
-            lblcancelledamt.Text = report.cancelled_sales_amount;
-            profitamt.Text = report.total_profit;
-            retailerdis.Text = report.retailer_discount;
-            operatorbal.Text = report.operator_balance;
-            salesincentive.Text = report.sale_incentive;
-            payoutincentive.Text = report.PayoutIncentive;
-            lblfrom.Text = dtfrom.Text;
-            lblto.Text = dtTo.Text;
-            panel1.Visible = true;
+                DateTime dt1 = dtfrom.Value;
+                DateTime dt2 = dtTo.Value;
+                report = clsService.GetReportSummary(dt1.ToString("yyyy-MM-dd"), (dt2.ToString("yyyy-MM-dd")));
+
+                lblAgentID.Text = UserAgent.AgentCode;
+                lblDate.Text = DateTime.Now.ToString();
+                lblGrosssaleAmt.Text = report.gross_sales_amount;
+                lblnetsalesamt.Text = report.gross_sales_amount;
+                payoutamt.Text = report.payout_amount;
+                netpay.Text = report.net_to_pay;
+                lblcancelledamt.Text = report.cancelled_sales_amount;
+                profitamt.Text = report.total_profit;
+                retailerdis.Text = report.retailer_discount;
+                operatorbal.Text = report.operator_balance;
+                salesincentive.Text = report.sale_incentive;
+                payoutincentive.Text = report.PayoutIncentive;
+                lblfrom.Text = dtfrom.Text;
+                lblto.Text = dtTo.Text;
+                panel1.Visible = true;
+            }
+            catch { }
 
 
 

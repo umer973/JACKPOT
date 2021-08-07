@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jackport.DataModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,7 +17,7 @@ namespace Jackport
         {
             InitializeComponent();
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-           
+
         }
 
         private void FrmLogin_Load(object sender, EventArgs e)
@@ -26,20 +27,28 @@ namespace Jackport
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             ClsService clsService = new ClsService();
-
-
+            LoginData data = new LoginData();
+            FrmJackportDemo obj;
             if (!string.IsNullOrEmpty(TxtUser.Text) && !string.IsNullOrEmpty(TxtPassword.Text.Trim()))
             {
-                var isValid = clsService.LoginAsync(TxtUser.Text.Trim(), TxtPassword.Text.Trim());
-                if (isValid)
+                data = clsService.LoginAsync(TxtUser.Text.Trim(), TxtPassword.Text.Trim());
+                if (data != null)
+                {
+                    obj = new FrmJackportDemo(data);
                     this.Hide();
+                    obj.Show();
+                   
+                }
             }
             else
             {
                 MessageBox.Show("Please enter credentials");
             }
 
+            Cursor.Current = Cursors.Default;
+           
 
         }
 
