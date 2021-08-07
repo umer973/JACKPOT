@@ -74,7 +74,7 @@ namespace Jackport
                 {
 
                     return result.data;
-                  
+
                 }
                 else
                 {
@@ -229,8 +229,8 @@ namespace Jackport
         public ReportSummary GetReportSummary(string startDate, string endDate)
         {
 
-             var client = new RestClient("https://api.welcomejk.com/v1/reports/get-report?start_date=" + endDate + "&end_date=" + endDate);
-           /// var client = new RestClient("https://api.welcomejk.com/v1/reports/get-report?start_date=2021-08-02&end_date=2021-11-19");
+            var client = new RestClient("https://api.welcomejk.com/v1/reports/get-report?start_date=" + endDate + "&end_date=" + endDate);
+            /// var client = new RestClient("https://api.welcomejk.com/v1/reports/get-report?start_date=2021-08-02&end_date=2021-11-19");
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
             request.AddHeader("APP-KEY", "e76d8c85-979c-411a-89f6-f1dfe0dfa041");
@@ -341,9 +341,9 @@ namespace Jackport
             ds.Tables.Add(dt);
         }
 
-        public List<WinTicketData> GetWinData()
+        public List<WinTicketData> GetWinData(string fromdate, string enddate)
         {
-            var client = new RestClient("https://api.welcomejk.com/v1/reports/get-win-report?start_date=2021-08-05&end_date=2021-08-05");
+            var client = new RestClient("https://api.welcomejk.com/v1/reports/get-win-report?start_date=" + fromdate + "&end_date=" + enddate);
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
             request.AddHeader("APP-KEY", "e76d8c85-979c-411a-89f6-f1dfe0dfa041");

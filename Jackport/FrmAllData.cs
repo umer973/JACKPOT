@@ -1,33 +1,33 @@
-﻿using Jackport.DataModel;
+﻿using Jackport.DataModel;    
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
+using System.Windows.Forms;
+ 
 namespace Jackport
 {
     public partial class FrmAllData : Form
     {
         List<WinTicketData> Wintikcet = new List<WinTicketData>();
 
-        public FrmAllData(List<WinTicketData> Windata)
+        public FrmAllData()
         {
             InitializeComponent();
-            Wintikcet = Windata;
+          
         }
 
         private void LoadData(List<WinTicketData> tikcet)
         {
-
+           
+            DateTime dtf = dtfrom.Value;
+            DateTime dtt = dtTo.Value;
             try
             {
+                ClsService service = new ClsService();
+                
+                Wintikcet = service.GetWinData(dtf.ToString("yyyy-MM-dd"), dtt.ToString("yyyy-MM-dd"));
                 dataGridView1.DataSource = null;
-
+                dataGridView1.Rows.Clear();
                 // dataGridView1.DataSource = tikcet;
                 for (int i = 0; i < tikcet.Count; i++)
                 {

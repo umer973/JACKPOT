@@ -1,4 +1,4 @@
-﻿using Jackport.DataModel;
+﻿using Jackport.DataModel; 
 using Jackport.Helper;
 using System;
 using System.Collections.Generic;
@@ -181,8 +181,27 @@ namespace Jackport
 
 
 
-            lblSlotTime.Text = CommonHelper.GetdateFormat(endtime);
+           // lblSlotTime.Text = CommonHelper.GetdateFormat(endtime);
+            SetSlotTime(CommonHelper.GetdateFormat(endtime));
 
+        }
+
+      
+
+        private void SetSlotTime(string text)
+        {
+            // InvokeRequired required compares the thread ID of the
+            // calling thread to the thread ID of the creating thread.
+            // If these threads are different, it returns true.
+            if (lblSlotTime.InvokeRequired)
+            {
+                SetTextCallback d = new SetTextCallback(SetText);
+                this.Invoke(d, new object[] { text });
+            }
+            else
+            {
+                lblSlotTime.Text = text;
+            }
         }
 
         private void ScrollDown()
@@ -460,15 +479,19 @@ namespace Jackport
                     }
                 }
 
-                ClsService clsService = new ClsService();
-                var result = clsService.GetWinTickets(Convert.ToInt16(slotdId));
-
-                FrmWinPrice ObjWinPrice = new FrmWinPrice(result);
-                ObjWinPrice.ShowDialog();
-                RefreshSlots();
+               
 
 
             });
+
+            ClsService clsService = new ClsService();
+            var result = clsService.GetWinTickets(Convert.ToInt16(slotdId));
+
+            FrmWinPrice ObjWinPrice = new FrmWinPrice(result);
+            ObjWinPrice.ShowDialog();
+            RefreshSlots();
+
+            await RunCounter();
 
         }
 
@@ -1792,10 +1815,9 @@ namespace Jackport
 
         private void AllData()
         {
-            List<WinTicketData> Wintikcet = new List<WinTicketData>();
-            Wintikcet = clsService.GetWinData();
+          
 
-            FrmAllData ObjFrmBarcode = new FrmAllData(Wintikcet);
+            FrmAllData ObjFrmBarcode = new FrmAllData();
             ObjFrmBarcode.ShowDialog();
         }
     }
