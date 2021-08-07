@@ -23,8 +23,8 @@ namespace Jackport
         public string deviceId;
         public ClsService()
         {
-            // deviceId = getMachineId().ToString().Trim();
-            deviceId = "-hcaFK5rNlk8rFKhI2e-kStz04MpLGoCAqEIJAA7G30";
+            deviceId = getMachineId().ToString().Trim();
+            // deviceId = "-hcaFK5rNlk8rFKhI2e-kStz04MpLGoCAqEIJAA7G30";
         }
         public bool ActivateLicenceAsync(string licenceKey)
         {
@@ -201,6 +201,7 @@ namespace Jackport
 
         public string GetWinTickets(int slotId)
         {
+            bool flag = true;
             List<WinTicket> WinTicketDetails = new List<DataModel.WinTicket>();
             var client = new RestClient("https://api.welcomejk.com/v1/tickets/get-win?slot_id=" + slotId);
             client.Timeout = -1;
@@ -210,6 +211,7 @@ namespace Jackport
             request.AddHeader("MACHINE-ID", deviceId);
             IRestResponse response = client.Execute(request);
             var result = JsonConvert.DeserializeObject<WinTicketResponse>(response.Content);
+            flag = result.success;
             if (result.success)
             {
                 return result.data.win_number;
@@ -217,7 +219,15 @@ namespace Jackport
             }
             else
             {
+                for (int i = 0; i <= 60; i++)
+                {
+                    if (flag)
+                    {
+                        return result.data.win_number;
+                    }
+                    GetWinTickets(slotId);
 
+                }
                 return result.message;
 
             }
@@ -331,6 +341,21 @@ namespace Jackport
 
         }
 
+
+        public string GetUpdatedTime()
+        {
+
+            var client = new RestClient("https://api.welcomejk.com/v1/tickets/refresh-time");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("APP-KEY", "e76d8c85-979c-411a-89f6-f1dfe0dfa041");
+            request.AddHeader("AGENT-TOKEN", UserAgent.AgenToken);
+            request.AddHeader("MACHINE-ID", deviceId);
+            IRestResponse response = client.Execute(request);
+            var result = JsonConvert.DeserializeObject(response.Content);
+            return result.ToString();
+
+        }
         public void BinddataSet()
         {
             DataSet ds = new DataSet();

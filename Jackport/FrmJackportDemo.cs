@@ -43,6 +43,8 @@ namespace Jackport
         LoginData data;
         private static TimeZoneInfo timezone;
 
+        DateTime appTime;
+        DateTime slotitme;
         DateTime dateTime = DateTime.Now;
         SYSTEMTIME updatedTime = new SYSTEMTIME();
 
@@ -73,7 +75,7 @@ namespace Jackport
 
 
 
-          
+
 
 
 
@@ -81,20 +83,20 @@ namespace Jackport
 
         private void SetSystemDate()
         {
-            dateTime = data.ApplicationDetails.app_time;
+            appTime = Convert.ToDateTime(data.ApplicationDetails.app_time);
 
             // Get time in local time zone 
-           // DateTime thisTime = DateTime.Now;
-           //Console.WriteLine("Time in {0} zone: {1}", TimeZoneInfo.Local.IsDaylightSavingTime(thisTime) ?
-           //                   TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName, thisTime);
-           // Console.WriteLine("   UTC Time: {0}", TimeZoneInfo.ConvertTimeToUtc(thisTime, TimeZoneInfo.Local));
-           
+            DateTime thisTime = DateTime.Now;
+            Console.WriteLine("Time in {0} zone: {1}", TimeZoneInfo.Local.IsDaylightSavingTime(thisTime) ?
+                               TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName, thisTime);
+            Console.WriteLine("   UTC Time: {0}", TimeZoneInfo.ConvertTimeToUtc(thisTime, TimeZoneInfo.Local));
 
-           // TimeZoneInfo tst = TimeZoneInfo.FindSystemTimeZoneById("Indian Standard Time");
 
-           // DateTime tstTime = TimeZoneInfo.ConvertTime(thisTime, TimeZoneInfo.Local, tst);
-           // LblDate.Text= tst.IsDaylightSavingTime(tstTime) ? tst.DaylightName : tst.StandardName, tstTime);
-           // Console.WriteLine("   UTC Time: {0}", TimeZoneInfo.ConvertTimeToUtc(tstTime, tst));
+            TimeZoneInfo tst = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
+
+            DateTime tstTime = TimeZoneInfo.ConvertTime(thisTime, TimeZoneInfo.Local, tst);
+            //  LblDate.Text = tst.IsDaylightSavingTime(tstTime) ? tst.DaylightName : tst.StandardName, tstTime;
+            Console.WriteLine("   UTC Time: {0}", TimeZoneInfo.ConvertTimeToUtc(tstTime, tst));
 
 
         }
@@ -157,7 +159,7 @@ namespace Jackport
 
             SetLoading(false);
 
-            RunCounter();
+            // RunCounter();
         }
 
         private void SetLoading(bool displayLoader)
@@ -335,6 +337,9 @@ namespace Jackport
                 /// lblWinRs.Text=_root.data.
                 this.Text = _root.ApplicationDetails.app_name + "  " + " Licence Expiry  " + data.LicenseData.license_end_date;
 
+                appTime = Convert.ToDateTime(_root.ApplicationDetails.app_time.ToString());
+                //LblDate.Text=_root.ApplicationDetails.
+
                 var request = WebRequest.Create(_root.ApplicationDetails.app_logo);
 
 
@@ -471,28 +476,104 @@ namespace Jackport
 
             dateTime = TimeZoneInfo.ConvertTime(DateTime.UtcNow, tz);
 
-            LblDate.Text = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+            appTime = appTime.AddSeconds(1);
 
-            LblTime.Text = DateTime.Now.ToString("hh: mm tt");
+            int hh = appTime.Hour;
+            int mm = appTime.Minute;
+            int ss = appTime.Second;
 
-            // ShowWinNumber();
 
+            string time = "";
+
+            //padding leading zero
+            if (hh < 10)
+            {
+                time += "0" + hh;
+            }
+            else
+            {
+                time += hh;
+            }
+            time += ":";
+
+            if (mm < 10)
+            {
+                time += "0" + mm;
+            }
+            else
+            {
+                time += mm;
+            }
+            time += ":";
+
+            if (ss < 10)
+            {
+                time += "0" + ss;
+            }
+            else
+            {
+                time += ss;
+            }
+
+            //appTime = appTime - Convert.ToDate(time);
+
+
+            LblTime.Text = "Curent Time : " + time;
+
+            slotitme = Convert.ToDateTime(time);
+
+            TimeSpan datediff = Convert.ToDateTime(CommonHelper.GetdateFormat(endtime)).Subtract(slotitme);
+
+
+            string leftTime = string.Format("{0}:{1}:{2}", datediff.Hours.ToString().PadLeft(2, '0'), datediff.Minutes.ToString().PadLeft(2, '0'), datediff.Seconds.ToString().PadLeft(2, '0'));
+            LblCountDown1.Text = leftTime.ToString();
+            var remainintime = DateTime.Compare(Convert.ToDateTime(endtime), appTime);
+            if (remainintime == 0)
+            {
+
+                ClsService clsService = new ClsService();
+                var result = clsService.GetWinTickets(Convert.ToInt16(slotdId));
+
+                FrmWinPrice ObjWinPrice = new FrmWinPrice(result);
+                ObjWinPrice.ShowDialog();
+                RefreshSlots();
+            }
         }
+
+        //public void SetAppTime()
+        //{
+        //    while (true)
+        //    {
+        //        apptime = apptime + 1; 
+        //    }
+        //}
 
         public async Task RunCounter()
         {
+            ClsService service = new ClsService();
             await Task.Run(() =>
             {
 
                 bool flag = true;
                 while (flag)
                 {
-                    TimeSpan datediff = Convert.ToDateTime(endtime) - (DateTime.Now);
+                    TimeSpan datediff = Convert.ToDateTime(CommonHelper.GetdateFormat(endtime)).Subtract(slotitme);
+
+                    //TimeSpan datediff = DateTimeOffset.Parse(endtime).UtcDateTime.Subtract(DateTime.Parse(DateTime.UtcNoww));
+                    // int datediff1 = Convert.ToInt32(GetTimeSpan(Convert.ToDateTime(endtime))) - Convert.ToInt32(GetTimeSpan((Convert.ToDateTime(appTime))));
+
                     string leftTime = string.Format("{0}:{1}:{2}", datediff.Hours.ToString().PadLeft(2, '0'), datediff.Minutes.ToString().PadLeft(2, '0'), datediff.Seconds.ToString().PadLeft(2, '0'));
                     SetText(leftTime);
+                    // appTime = service.GetUpdatedTime();
+                    //LblTime.Text = CommonHelper.GetdateFormat(appTime);
+                    if (datediff.Minutes < 0 && datediff.Seconds < 0 && datediff.Hours <= 0)
+                    {
+                        SetText("00:00:00");
+                        flag = false;
+                    }
 
 
-                    if (datediff.Hours == 0 && datediff.Minutes == 0 && datediff.Seconds == 0)
+                    if (datediff.Hours == 0 && datediff.Minutes == 0 && datediff.Seconds == 0 && datediff.Minutes >= 0 && datediff.Seconds >= 0 && datediff.Hours >= 0)
                     {
                         flag = false;
 
@@ -511,7 +592,7 @@ namespace Jackport
             ObjWinPrice.ShowDialog();
             RefreshSlots();
 
-            await RunCounter();
+
 
         }
 
@@ -531,6 +612,9 @@ namespace Jackport
             {
                 LblCountDown1.Text = text;
             }
+
+
+            //LblTime.Text = appTime.tos;
         }
 
         private void ShowWinNumber()
