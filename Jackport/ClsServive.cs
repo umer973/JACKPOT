@@ -211,7 +211,15 @@ namespace Jackport
             request.AddHeader("MACHINE-ID", deviceId);
             IRestResponse response = client.Execute(request);
             var result = JsonConvert.DeserializeObject<WinTicketResponse>(response.Content);
-            flag = result.success;
+            if (result != null && result.success)
+            {
+                flag = true;
+            }
+            else
+            {
+                flag = false;
+            }
+
             if (result.success)
             {
                 return result.data.win_number;
