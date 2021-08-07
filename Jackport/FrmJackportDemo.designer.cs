@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblprice = new System.Windows.Forms.Label();
             this.lblWinRs = new System.Windows.Forms.Label();
@@ -114,14 +113,15 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.button7 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -142,15 +142,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1360, 133);
             this.panel1.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(309, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(225, 53);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 253;
-            this.pictureBox1.TabStop = false;
             // 
             // panel3
             // 
@@ -316,6 +307,7 @@
             this.button6.TabIndex = 5;
             this.button6.Text = "Upt. Rslt";
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 
@@ -576,11 +568,10 @@
             this.flowLayoutPanel2.AutoScroll = true;
             this.flowLayoutPanel2.BackColor = System.Drawing.Color.Navy;
             this.flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.ForeColor = System.Drawing.Color.White;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(838, 542);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(606, 542);
             this.flowLayoutPanel2.TabIndex = 507;
             // 
             // timer1
@@ -1147,9 +1138,9 @@
             this.groupBox5.Controls.Add(this.textBox5);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox5.ForeColor = System.Drawing.Color.White;
-            this.groupBox5.Location = new System.Drawing.Point(633, 133);
+            this.groupBox5.Location = new System.Drawing.Point(606, 133);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(211, 561);
+            this.groupBox5.Size = new System.Drawing.Size(238, 561);
             this.groupBox5.TabIndex = 550;
             this.groupBox5.TabStop = false;
             // 
@@ -1165,6 +1156,15 @@
             this.button7.Text = "LP";
             this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click_1);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(309, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(225, 53);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 253;
+            this.pictureBox1.TabStop = false;
             // 
             // FrmJackportDemo
             // 
@@ -1184,7 +1184,6 @@
             this.Load += new System.EventHandler(this.FrmJackport_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -1195,6 +1194,7 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -245,7 +245,23 @@ namespace Jackport.DataModel
 
     }
 
-    
+
+    public class WinTicketData
+    {
+        public string date_slot { get; set; }
+        public string time_start { get; set; }
+        public string time_end { get; set; }
+        public string win_number { get; set; }
+     
+    }
+
+    public class WinTicketDetails
+    {
+        public bool success { get; set; }
+        public int code { get; set; }
+        public string message { get; set; }
+        public List<WinTicket> data { get; set; }
+    }
 
 
 }

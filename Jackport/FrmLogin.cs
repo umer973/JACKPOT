@@ -16,11 +16,12 @@ namespace Jackport
         {
             InitializeComponent();
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+           
         }
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
-
+            TxtUser.Focus();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -57,7 +58,9 @@ namespace Jackport
             if (e.KeyCode == Keys.Enter)
             {
                 button1.Focus();
+
             }
+            // { if (e.KeyCode == Keys.Enter) { SendKeys.Send("{TAB}"); } }
         }
 
         private void TxtUser_KeyDown(object sender, KeyEventArgs e)
@@ -65,6 +68,18 @@ namespace Jackport
             if (e.KeyCode == Keys.Enter)
             {
                 TxtPassword.Focus();
+
+            }
+
+
+        }
+
+        private void TxtUser_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                TxtPassword.Focus();
+
             }
         }
     }

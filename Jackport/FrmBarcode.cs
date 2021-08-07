@@ -80,5 +80,36 @@ namespace Jackport
             }
 
         }
+
+        private void BtnTmlClaim_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ClaimTicket()
+        {
+            ClsService clsservice = new ClsService();
+
+            if (dataGridView1.SelectedRows.Count != 0)
+            {
+                DataGridViewRow row = this.dataGridView1.SelectedRows[0];
+                string barccode = row.Cells[1].Value.ToString().Trim();
+                bool result = clsservice.ClaimTicket(UserAgent.AgenToken, barccode);
+                if (result)
+                {
+                    this.Hide();
+                    MessageBox.Show("Ticket Claim Successfully");
+
+                }
+
+
+            }
+            else
+            {
+                MessageBox.Show("Please Select Barcode");
+            }
+
+        }
+
     }
 }

@@ -376,6 +376,16 @@ namespace Jackport
 
 
             }
+            TxtE0.Text = TxtE1.Text = TxtE2.Text = TxtE3.Text = TxtE4.Text = TxtE5.Text = TxtE7.Text = TxtE8.Text = TxtE9.Text =
+                textBox6.Text = "";
+            textBox5.Text = Txt0009.Text = Txt1019.Text = Txt2029.Text = Txt3031.Text = Txt4049.Text = Txt5051.Text = Txt7079.Text =
+                Txt8089.Text = Txt9099.Text = "";
+
+            TxtE0.BackColor = TxtE1.BackColor = TxtE2.BackColor = TxtE3.BackColor = TxtE4.BackColor = TxtE5.BackColor = TxtE7.BackColor = TxtE8.BackColor = TxtE9.BackColor =
+               textBox6.BackColor = Color.Magenta;
+
+            textBox5.BackColor = Txt0009.BackColor = Txt1019.BackColor = Txt2029.BackColor = Txt3031.BackColor = Txt4049.BackColor = Txt5051.BackColor = Txt7079.BackColor =
+               Txt8089.BackColor = Txt9099.BackColor = Color.AliceBlue;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -556,10 +566,7 @@ namespace Jackport
                 {
                     ctr.TickeQty = TxtE0.Text;
                 }
-                else
-                {
-                    ctr.TickeQty = "";
-                }
+              
 
 
 
@@ -612,11 +619,7 @@ namespace Jackport
                 {
                     ctr.TickeQty = TxtE1.Text;
                 }
-                else
-                {
-                    ctr.TickeQty = "";
-                }
-
+               
 
 
             }
@@ -668,10 +671,7 @@ namespace Jackport
                 {
                     ctr.TickeQty = TxtE2.Text;
                 }
-                else
-                {
-                    ctr.TickeQty = "";
-                }
+             
 
 
 
@@ -724,10 +724,7 @@ namespace Jackport
                 {
                     ctr.TickeQty = TxtE3.Text;
                 }
-                else
-                {
-                    ctr.TickeQty = "";
-                }
+              
 
 
 
@@ -780,10 +777,7 @@ namespace Jackport
                 {
                     ctr.TickeQty = TxtE4.Text;
                 }
-                else
-                {
-                    ctr.TickeQty = "";
-                }
+             
 
 
 
@@ -836,10 +830,7 @@ namespace Jackport
                 {
                     ctr.TickeQty = textBox6.Text;
                 }
-                else
-                {
-                    ctr.TickeQty = "";
-                }
+              
 
 
 
@@ -893,11 +884,7 @@ namespace Jackport
                 {
                     ctr.TickeQty = TxtE5.Text;
                 }
-                else
-                {
-                    ctr.TickeQty = "";
-                }
-
+             
 
 
             }
@@ -949,10 +936,7 @@ namespace Jackport
                 {
                     ctr.TickeQty = TxtE7.Text;
                 }
-                else
-                {
-                    ctr.TickeQty = "";
-                }
+            
 
 
 
@@ -1005,11 +989,7 @@ namespace Jackport
                 {
                     ctr.TickeQty = TxtE8.Text;
                 }
-                else
-                {
-                    ctr.TickeQty = "";
-                }
-
+              
 
 
             }
@@ -1061,10 +1041,7 @@ namespace Jackport
                 {
                     ctr.TickeQty = TxtE9.Text;
                 }
-                else
-                {
-                    ctr.TickeQty = "";
-                }
+             
 
 
 
@@ -1117,10 +1094,7 @@ namespace Jackport
                 {
                     ctr.TickeQty = Txt0009.Text;
                 }
-                else
-                {
-                    ctr.TickeQty = "";
-                }
+             
 
 
 
@@ -1173,10 +1147,7 @@ namespace Jackport
                 {
                     ctr.TickeQty = Txt1019.Text;
                 }
-                else
-                {
-                    ctr.TickeQty = "";
-                }
+             
 
 
 
@@ -1229,12 +1200,7 @@ namespace Jackport
                 {
                     ctr.TickeQty = Txt2029.Text;
                 }
-                else
-                {
-                    ctr.TickeQty = "";
-                }
-
-
+             
 
             }
         }
@@ -1285,10 +1251,7 @@ namespace Jackport
                 {
                     ctr.TickeQty = Txt3031.Text;
                 }
-                else
-                {
-                    ctr.TickeQty = "";
-                }
+             
 
 
 
@@ -1341,11 +1304,7 @@ namespace Jackport
                 {
                     ctr.TickeQty = Txt4049.Text;
                 }
-                else
-                {
-                    ctr.TickeQty = "";
-                }
-
+          
 
 
             }
@@ -1397,10 +1356,7 @@ namespace Jackport
                 {
                     ctr.TickeQty = textBox5.Text;
                 }
-                else
-                {
-                    ctr.TickeQty = "";
-                }
+            
 
 
 
@@ -1453,11 +1409,7 @@ namespace Jackport
                 {
                     ctr.TickeQty = Txt5051.Text;
                 }
-                else
-                {
-                    ctr.TickeQty = "";
-                }
-
+           
 
 
             }
@@ -1509,11 +1461,7 @@ namespace Jackport
                 {
                     ctr.TickeQty = Txt7079.Text;
                 }
-                else
-                {
-                    ctr.TickeQty = "";
-                }
-
+            
 
 
             }
@@ -1565,10 +1513,7 @@ namespace Jackport
                 {
                     ctr.TickeQty = Txt8089.Text;
                 }
-                else
-                {
-                    ctr.TickeQty = "";
-                }
+               
 
 
 
@@ -1621,11 +1566,7 @@ namespace Jackport
                 {
                     ctr.TickeQty = Txt9099.Text;
                 }
-                else
-                {
-                    ctr.TickeQty = "";
-                }
-
+              
 
 
             }
@@ -1743,6 +1684,20 @@ namespace Jackport
         private void button7_Click_1(object sender, EventArgs e)
         {
             GenerateRondomTicketNumber();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            AllData();
+        }
+
+        private void AllData()
+        {
+            List<WinTicketData> Wintikcet = new List<WinTicketData>();
+            Wintikcet = clsService.GetWinData();
+
+            FrmAllData ObjFrmBarcode = new FrmAllData(Wintikcet);
+            ObjFrmBarcode.Show();
         }
     }
 }
