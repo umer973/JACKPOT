@@ -1,4 +1,4 @@
-﻿
+﻿ 
 
 namespace Jackport
 {
@@ -18,6 +18,8 @@ namespace Jackport
     {
         public static string apiBaseUrl = "https://api.welcomejk.com/v1";
         public string deviceId;
+       // private RestClient client;
+
         public ClsService()
         {
             deviceId = getMachineId().ToString().Trim();

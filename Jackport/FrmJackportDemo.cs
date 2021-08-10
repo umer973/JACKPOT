@@ -9,10 +9,12 @@ namespace Jackport
     using Jackport.Security;
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.Data;
     using System.Drawing;
     using System.Linq;
     using System.Net;
+    using System.Threading;
     using System.Threading.Tasks;
     using System.Windows.Forms;
 
@@ -35,42 +37,136 @@ namespace Jackport
         DateTime slotitme;
         DateTime dateTime = DateTime.Now;
         int ticketPrice = 0;
-
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private ProgressBar progressbar;
+        private Label lblStatus;
+        int val = 0;
 
         public FrmJackportDemo(LoginData _data)
         {
+
+
+            InitializeComponent();
 
             data = _data;
             FrmLogin objLogin = new FrmLogin();
             objLogin.Hide();
             clsService = new ClsService();
+
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            InitializeComponent();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            backgroundWorker1.ProgressChanged += new ProgressChangedEventHandler
+                    (backgroundWorker1_ProgressChanged);
+            backgroundWorker1.WorkerReportsProgress = true;
 
         }
 
 
 
-        public void FrmJackport_Load(object sender, EventArgs e)
+        public async void FrmJackport_Load(object sender, EventArgs e)
         {
-            LoadData();
+            progressbar = new ProgressBar();
+            lblStatus = new Label();
+
+
+            lblStatus.Location = new Point(600, 150);
+
+            lblStatus.Font = new Font("Calibri", 18);
+            progressbar.Location = new System.Drawing.Point(600, 300);
+            progressbar.Name = "progressBar1";
+            progressbar.Width = 200;
+            progressbar.Height = 30;
+            progressbar.Maximum = 100;
+            progressbar.Step = 1;
+            progressbar.Style = ProgressBarStyle.Blocks;
+            this.Controls.Add(progressbar);
+
+            this.Controls.Add(lblStatus);
+
+            await LoadData();
+            //  backgroundWorker1.RunWorkerAsync();
+
+
+
+
+
         }
 
-        private void LoadData()
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            val++;
+            for (int i = 0; i <= 100; i++)
+            {
+                Thread.Sleep(100);
+                backgroundWorker1.ReportProgress(i);
+            }
+            backgroundWorker1.ReportProgress(100);
+
+
+        }
+
+
+        void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            // progressbar.Value = val;
+            // This function fires on the UI thread so it's safe to edit
+            // the UI control directly, no funny business with Control.Invoke :)
+            // Update the progressBar with the integer supplied to us from the
+            // ReportProgress() function.
+
+            this.Text = "Processing......" + progressbar.Value.ToString() + "%";
+
+            progressbar.Value = e.ProgressPercentage;
+        }
+        // Put all of background logic that is taking too much time      
+
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Cancelled) MessageBox.Show("Operation was canceled");
+            else if (e.Error != null) MessageBox.Show(e.Error.Message);
+            else MessageBox.Show(e.Result.ToString());
+        }
+
+        private async Task LoadData()
         {
             SetLoading(true);
 
-            LoadTickets();
+            await LoadTickets();
 
-            SetAppLicationData(data);
+            if (InvokeRequired)
+            {
+                this.Invoke(new MethodInvoker(delegate
+                {
+                    SetAppLicationData(data);
+                }));
+            }
+            else
+            {
+                SetAppLicationData(data);
+            }
 
             SetCurrentSlot(data.TimeSlots);
 
-            loadWinPrizes(timeSlots);
+            await loadWinPrizes(timeSlots);
 
             RunTimer();
 
-            SetLoading(false);
+            if (InvokeRequired)
+            {
+                this.Invoke(new MethodInvoker(delegate
+                {
+                    SetLoading(false);
+                }));
+            }
+            else
+            {
+                SetLoading(false);
+            }
+
+
+
 
 
 
@@ -78,7 +174,7 @@ namespace Jackport
 
         private void RunTimer()
         {
-            timer1 = new Timer();
+            timer1 = new System.Windows.Forms.Timer();
             timer1.Tick += new EventHandler(timer1_Tick);
             timer1.Interval = 1000;
             timer1.Start();
@@ -97,11 +193,14 @@ namespace Jackport
             }
             else
             {
-                grpfooter.Visible = true;
 
-                grpslots.Visible = true;
-                grptickets.Visible = true;
                 headerpanel.Visible = true;
+                pnlboxes.Visible = true;
+                pnlfooter.Visible = true;
+                pnlslots.Visible = true;
+                pnltickets.Visible = true;
+                panel2.Visible = true;
+                panel3.Visible = true;
                 this.Cursor = System.Windows.Forms.Cursors.Default;
 
                 ScrollDown();
@@ -216,7 +315,7 @@ namespace Jackport
 
         }
 
-        private void LoadTickets()
+        private async Task LoadTickets()
         {
             for (int i = 0; i < 100; i++)
             {
@@ -284,7 +383,6 @@ namespace Jackport
             {
 
                 LblAgentId.Text = data.AgentData.agent_code;
-                LblBalance.Text = data.AgentData.balance;
                 LblCompanyName.Text = data.ApplicationDetails.app_name;
                 agentToken = data.AgentData.token;
 
@@ -319,7 +417,7 @@ namespace Jackport
             }
         }
 
-        private void loadWinPrizes(List<TimeSlot> timeSlotList)
+        private async Task loadWinPrizes(List<TimeSlot> timeSlotList)
         {
             int i = 0;
 
@@ -2082,8 +2180,13 @@ namespace Jackport
 
         private void linkbalance_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FrmAgentBalance obj = new FrmAgentBalance(LblBalance.Text);
+            FrmAgentBalance obj = new FrmAgentBalance(data.AgentData.balance);
             obj.ShowDialog();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
