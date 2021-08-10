@@ -16,7 +16,7 @@ namespace Jackport
         public FrmLogin()
         {
             InitializeComponent();
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.WindowState = System.Windows.Forms.FormWindowState.Normal;
 
         }
 
@@ -26,6 +26,13 @@ namespace Jackport
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+            Login();
+           
+
+        }
+
+        private void Login()
         {
             Cursor.Current = Cursors.WaitCursor;
             ClsService clsService = new ClsService();
@@ -39,7 +46,7 @@ namespace Jackport
                     obj = new FrmJackportDemo(data);
                     this.Hide();
                     obj.Show();
-                   
+
                 }
             }
             else
@@ -48,8 +55,6 @@ namespace Jackport
             }
 
             Cursor.Current = Cursors.Default;
-           
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -67,6 +72,7 @@ namespace Jackport
             if (e.KeyCode == Keys.Enter)
             {
                 button1.Focus();
+                Login();
 
             }
             // { if (e.KeyCode == Keys.Enter) { SendKeys.Send("{TAB}"); } }

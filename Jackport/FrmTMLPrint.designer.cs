@@ -80,7 +80,7 @@
             this.label37 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.crptViwerprintInvoice = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+           // this.crptViwerprintInvoice = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -669,20 +669,20 @@
             // 
             // crptViwerprintInvoice
             // 
-            this.crptViwerprintInvoice.ActiveViewIndex = -1;
-            this.crptViwerprintInvoice.AutoSize = true;
-            this.crptViwerprintInvoice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crptViwerprintInvoice.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crptViwerprintInvoice.Location = new System.Drawing.Point(948, 3);
-            this.crptViwerprintInvoice.Name = "crptViwerprintInvoice";
-            this.crptViwerprintInvoice.ShowGotoPageButton = false;
-            this.crptViwerprintInvoice.ShowGroupTreeButton = false;
-            this.crptViwerprintInvoice.ShowParameterPanelButton = false;
-            this.crptViwerprintInvoice.ShowTextSearchButton = false;
-            this.crptViwerprintInvoice.Size = new System.Drawing.Size(874, 680);
-            this.crptViwerprintInvoice.TabIndex = 104;
-            this.crptViwerprintInvoice.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
-            // 
+            //this.crptViwerprintInvoice.ActiveViewIndex = -1;
+            //this.crptViwerprintInvoice.AutoSize = true;
+            //this.crptViwerprintInvoice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            //this.crptViwerprintInvoice.Cursor = System.Windows.Forms.Cursors.Default;
+            //this.crptViwerprintInvoice.Location = new System.Drawing.Point(948, 3);
+            //this.crptViwerprintInvoice.Name = "crptViwerprintInvoice";
+            //this.crptViwerprintInvoice.ShowGotoPageButton = false;
+            //this.crptViwerprintInvoice.ShowGroupTreeButton = false;
+            //this.crptViwerprintInvoice.ShowParameterPanelButton = false;
+            //this.crptViwerprintInvoice.ShowTextSearchButton = false;
+            //this.crptViwerprintInvoice.Size = new System.Drawing.Size(874, 680);
+            //this.crptViwerprintInvoice.TabIndex = 104;
+            //this.crptViwerprintInvoice.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
+            //// 
             // FrmTMLPrint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

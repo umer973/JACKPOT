@@ -23,8 +23,8 @@ namespace Jackport
         public string deviceId;
         public ClsService()
         {
-            //deviceId = getMachineId().ToString().Trim();
-            deviceId = "-hcaFK5rNlk8rFKhI2e-kStz04MpLGoCAqEIJAA7G30";
+            deviceId = getMachineId().ToString().Trim();
+            //deviceId = "-hcaFK5rNlk8rFKhI2e-kStz04MpLGoCAqEIJAA7G30";
         }
         public bool ActivateLicenceAsync(string licenceKey)
         {
@@ -53,13 +53,12 @@ namespace Jackport
         }
 
 
-        public async Task<LoginData> LoginAsync(string userName, string password)
+        public  LoginData LoginAsync(string userName, string password)
         {
 
             try
             {
-                await Task.Run(() =>
-                {
+               
                     var client = new RestClient("https://api.welcomejk.com/v1/logins/do");
                     client.Timeout = -1;
                     var request = new RestRequest(Method.POST);
@@ -84,7 +83,7 @@ namespace Jackport
                         return null;
 
                     }
-                });
+                
             }
             catch (Exception ex)
             {
@@ -217,23 +216,16 @@ namespace Jackport
             var result = JsonConvert.DeserializeObject<WinTicketResponse>(response.Content);
             if (result != null && result.success)
             {
-                flag = true;
-            }
-            else
-            {
                 flag = false;
-            }
-
-            if (result.success)
-            {
                 return result.data.win_number;
-
             }
+            
+           
             else
             {
                 for (int i = 0; i <= 60; i++)
                 {
-                    if (flag)
+                    if (!flag)
                     {
                         return result.data.win_number;
                     }
@@ -306,7 +298,7 @@ namespace Jackport
             request.AddHeader("AGENT-TOKEN", UserAgent.AgenToken);
             request.AddHeader("MACHINE-ID", deviceId);
             request.AlwaysMultipartFormData = true;
-            request.AddParameter("ticket_barcode", "359");
+            request.AddParameter("ticket_barcode", barcode);
             IRestResponse response = client.Execute(request);
             var result = JsonConvert.DeserializeObject<ApiResponse>(response.Content);
             if (result.success)
@@ -324,7 +316,7 @@ namespace Jackport
 
         public List<TimeSlot> GetUpdatedSlots()
         {
-            await Task.Run(() => { });
+            
             var client = new RestClient("https://api.welcomejk.com/v1/tickets/refresh-slots");
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);

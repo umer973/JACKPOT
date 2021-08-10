@@ -48,22 +48,9 @@ namespace Jackport
         DateTime appTime;
         DateTime slotitme;
         DateTime dateTime = DateTime.Now;
-        SYSTEMTIME updatedTime = new SYSTEMTIME();
 
-        [DllImport("kernel32.dll", SetLastError = true)]
-        public static extern bool SetSystemTime(ref SYSTEMTIME st);
-        [StructLayout(LayoutKind.Sequential)]
-        public struct SYSTEMTIME
-        {
-            public short wYear;
-            public short wMonth;
-            public short wDayOfWeek;
-            public short wDay;
-            public short wHour;
-            public short wMinute;
-            public short wSecond;
-            public short wMilliseconds;
-        }
+        int ticketPrice = 0;
+
 
         public FrmJackportDemo(LoginData _data)
         {
@@ -74,12 +61,6 @@ namespace Jackport
             clsService = new ClsService();
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             InitializeComponent();
-
-
-
-
-
-
 
         }
 
@@ -114,7 +95,6 @@ namespace Jackport
 
 
 
-
         }
 
         private void DisplayData()
@@ -128,9 +108,12 @@ namespace Jackport
             LoadProduct();
 
 
-            var list = data.TimeSlots.Where(x => x.slot_over == "0").ToList();
+            //   var list = data.TimeSlots.Where(x => x.slot_over == "0").ToList();
 
-            var over = data.TimeSlots.Where(x => x.slot_over == "1").ToList();
+            var over = data.TimeSlots.Where(x => x.slot_over == "1");
+
+            var last_end = over.LastOrDefault();
+
 
             overSlots = over.Select(x => new TimeSlot
             {
@@ -140,7 +123,7 @@ namespace Jackport
             }).ToList();
 
 
-            timeSlots = list.Select(x => new TimeSlot
+            timeSlots = data.TimeSlots.Select(x => new TimeSlot
             {
                 slot_id = x.slot_id,
                 slot_over = x.slot_over,
@@ -151,7 +134,10 @@ namespace Jackport
 
             cmbSlot.Text = "Current";
 
-            GetCurrentSlot(list);
+            GetCurrentSlot(data.TimeSlots);
+
+
+
             //ScrollDown();
 
             timer1 = new System.Windows.Forms.Timer();
@@ -173,44 +159,82 @@ namespace Jackport
                 //this.Visible = false;
                 this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
 
+
             }
             else
             {
                 grpfooter.Visible = true;
-                grppickticket.Visible = true;
+
                 grpslots.Visible = true;
                 grptickets.Visible = true;
                 headerpanel.Visible = true;
+
                 //this.Visible = true;
                 this.Cursor = System.Windows.Forms.Cursors.Default;
+                ScrollDown();
 
             }
         }
 
+        //private int GetOverSlot()
+        //{
 
-        private void GetCurrentSlot(List<TimeSlot> Slotlist)
+        //}
+        private bool GetCurrentSlot(List<TimeSlot> Slotlist)
         {
-            var list = Slotlist.Where(x => x.slot_over == "0").ToList();
-
-            endtime = list.Select(x => x.time_end).FirstOrDefault();
-
-            slotdId = list.Select(x => x.slot_id).FirstOrDefault();
-
-
-
-            // lblSlotTime.Text = CommonHelper.GetdateFormat(endtime);
-            SetSlotTime(CommonHelper.GetdateFormat(endtime));
-
-            timeSlots = null;
-
-            timeSlots = list.Select(x => new TimeSlot
+            bool flag = true;
+            try
             {
-                slot_id = x.slot_id,
-                slot_over = x.slot_over,
-                time_end = x.time_end
+                var l = Slotlist.OrderByDescending(x => x.time_end).ToList();
+                for (int i = l.Count - 1; i >= 0; i--)
+                {
+                    if (l[i].slot_over == "1")
+                    {
+                        slotdId = Convert.ToInt32(l[i - 1].slot_id).ToString();
+                        endtime = l[i - 1].time_end;
+
+                    }
 
 
-            }).ToList();
+                }
+                lblSlotTime.Text = CommonHelper.GetdateFormat(endtime);
+
+                var list = Slotlist.OrderByDescending(x => x.slot_id).ToList();
+
+                list = list.Where(x => x.slot_over == "0").ToList();
+
+
+                list = Slotlist.OrderBy(x => x.slot_id).ToList();
+
+
+
+                // lblSlotTime.Text = CommonHelper.GetdateFormat(endtime);
+                //SetSlotTime(CommonHelper.GetdateFormat(endtime));
+
+                timeSlots = null;
+
+                timeSlots = Slotlist.Select(x => new TimeSlot
+                {
+                    slot_id = x.slot_id,
+                    slot_over = x.slot_over,
+                    time_end = x.time_end,
+                    win_number = x.win_number
+
+
+                }).ToList();
+
+                if (timeSlots == null)
+                {
+                    flag = false;
+                }
+
+                loadWinPrizes(timeSlots);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return flag;
 
         }
 
@@ -240,33 +264,34 @@ namespace Jackport
             {
                 flag++;
 
-                if (ctr.Tag.ToString() == "1")
+                if (ctr.Tag.ToString() != slotdId)
                 {
-                    if (flag == 5)
+                    if (flag == 6)
                     {
                         Point current = flowLayoutPanel1.AutoScrollPosition;
-                        Point scrolled = new Point(current.X, -current.Y + 100);
+                        Point scrolled = new Point(current.X, -current.Y + 80);
                         flowLayoutPanel1.AutoScrollPosition = scrolled;
                         flag = 0;
                     }
                 }
 
-                if (ctr.Tag.ToString() == "0" && winflag == 0)
+                if (ctr.Tag.ToString() == slotdId && winflag == 0)
                 {
                     winflag = 1;
                     ctr.Color = Color.Green;
                     // ctr.ForeColor
                 }
 
-
+                Application.DoEvents();
             }
+
 
 
         }
 
         private void LoadProduct()
         {
-            for (int i = 00; i < 1; i++)
+            for (int i = 0; i < 100; i++)
             {
                 UserInputControl p1 = new UserInputControl();
                 string num = Convert.ToString(i);
@@ -340,10 +365,12 @@ namespace Jackport
                 lblWinRs.Text = _root.ApplicationDetails.agent_ticket_win_customer_share_amount;
                 lblticketprice.Text = _root.ApplicationDetails.agent_ticket_price;
                 lblprice.Text = _root.ApplicationDetails.agent_ticket_price_format;
+                ticketPrice = Convert.ToInt16(_root.ApplicationDetails.agent_ticket_price);
                 /// lblWinRs.Text=_root.data.
                 this.Text = _root.ApplicationDetails.app_name + "  " + " Licence Expiry  " + data.LicenseData.license_end_date;
 
                 appTime = Convert.ToDateTime(_root.ApplicationDetails.app_time.ToString());
+                LblDate.Text = _root.ApplicationDetails.app_date.ToString();
                 //LblDate.Text=_root.ApplicationDetails.
 
                 var request = WebRequest.Create(_root.ApplicationDetails.app_logo);
@@ -354,7 +381,8 @@ namespace Jackport
                 {
                     pictureBox1.Image = Bitmap.FromStream(stream);
                 }
-                loadWinPrizes(data.TimeSlots);
+
+
 
             }
             catch (Exception ex)
@@ -365,6 +393,7 @@ namespace Jackport
 
         private void loadWinPrizes(List<TimeSlot> timeSlotList)
         {
+            int i = 0;
 
             foreach (ListValueControl item in flowLayoutPanel1.Controls)
             {
@@ -372,15 +401,18 @@ namespace Jackport
                 flowLayoutPanel1.Controls.Clear();
             }
 
+
+
             var _timeSlot = timeSlotList.Select(x => new ListValueControl()
             {
                 ControlName = x.win_number,
                 Time = CommonHelper.GetdateFormat(x.time_end).ToString(),
 
-                Color = x.slot_over.ToString().Trim() == "1" ? Color.Red : Color.White,
-                ForeColor = Color.White,
+                Color = Color.White,
 
-                Tag = x.slot_over
+                ForeColor = Convert.ToInt16(x.slot_id) % 2 == 0 ? Color.Blue : Color.Red,
+
+                Tag = x.slot_id
             });
 
             foreach (ListValueControl item in _timeSlot)
@@ -454,9 +486,9 @@ namespace Jackport
         {
             //throw new NotImplementedException();
             ReportDocument cRep = new ReportDocument();
-           
+
             //cRep.Load(Application.StartupPath + "/Report/DsPurchase/CryPurchaseTicket.rpt");
-          cRep.Load("E:/Live Project/JackPot-master/Jackport/Jackport/Report/DsPurchase/CryPurchaseTicket.rpt");
+            cRep.Load("E:/Live Project/JackPot-master/Jackport/Jackport/Report/DsPurchase/CryPurchaseTicket.rpt");
             // CRPT.Wholesale.Challan.DsChallan.DsChallan ObjDsPo = new CRPT.Wholesale.Challan.DsChallan.DsChallan();
             Report.DsPurchase.DsPurchase ObjDsPo = new Report.DsPurchase.DsPurchase();
             DataTable dt = new DataTable();
@@ -470,7 +502,7 @@ namespace Jackport
                 dt.Rows.Add(item.date_slot, item.time_start, item.time_end, item.slot_id);
             }
             cRep.SetDataSource(dt);
-           // crptViwerprintInvoice.ReportSource = cRep;
+            // crptViwerprintInvoice.ReportSource = cRep;
             //try
             //{
             //    Popup objpop;
@@ -560,7 +592,7 @@ namespace Jackport
             //appTime = appTime - Convert.ToDate(time);
 
 
-            LblTime.Text = "Curent Time : " + time;
+            LblTime.Text = CommonHelper.GetdateFormat(time);
 
             slotitme = Convert.ToDateTime(time);
 
@@ -700,7 +732,7 @@ namespace Jackport
             int LeftTime1 = count;
             int LeftTime2 = segundo - LeftTime1;
             int LeftTime = segundo - LeftTime2;
-            LblCountDown2.Text = leftTime.ToString();
+            // LblCountDown2.Text = leftTime.ToString();
         }
 
         private string GetTimeSpan(DateTime value)
@@ -715,8 +747,10 @@ namespace Jackport
 
                 List<TimeSlot> timeSlot = clsService.GetUpdatedSlots();
 
-                GetCurrentSlot(timeSlot);
-                loadWinPrizes(timeSlot);
+                var result = GetCurrentSlot(timeSlot);
+
+                //else
+                //    timer1_Tick.stop
 
             }
             catch (Exception ex)
@@ -1869,7 +1903,7 @@ namespace Jackport
 
         private void cmbSlot_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GetSlots();
+            ///GetSlots();
         }
 
         private void GetSlots()
@@ -1894,24 +1928,52 @@ namespace Jackport
             }
             else if (cmbSlot.Text.Trim() == "ALL DRAW")
             {
-                currentSlot = timeSlots.Count;
+                currentSlot = timeSlots.Count - 1;
             }
 
             plist.Clear();
-            var slot = timeSlots.Select(x => new PurchaseTicket
-            {
-                slot_id = Convert.ToInt16(x.slot_id)
-            }).ToList();
+
+            var list = timeSlots.Where(x => x.slot_over == "0").ToList();
+
+            //string[] slots = new string[count];
+
+            //int position = 0;
+
+            //var l = timeSlots.OrderByDescending(x => x.time_end).ToList();
+
+            //for (int i = l.Count - 1; i >= 0; i--)
+            //{
+            //    if (l[i].slot_over == "1")
+            //    {
+            //        position = i;
 
 
-            for (int i = 0; i < currentSlot; i++)
+
+            //    }
+            //}
+
+            /// int j = 0;
+            /// 
+
+            list = list.Where(x => Convert.ToInt32(x.slot_id) >= Convert.ToInt32(slotdId)).ToList();
+
+            for (int i = 0; i < list.Count; i++)
             {
-                var sl = new PurchaseTicket
+                if (i != currentSlot)
                 {
-                    slot_id = slot[i].slot_id
-                };
-                plist.Add(sl);
+                    var sl = new PurchaseTicket
+                    {
+                        slot_id = Convert.ToInt32(list[i].slot_id)
+                    };
+                    plist.Add(sl);
+                }
+                else
+                    break;
+
+
             }
+
+           
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
@@ -1987,6 +2049,130 @@ namespace Jackport
 
             FrmAllData ObjFrmBarcode = new FrmAllData();
             ObjFrmBarcode.ShowDialog();
+        }
+
+        private void FrmJackportDemo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.M)
+            {
+                ClearBoard();
+            }
+            if (e.KeyCode == Keys.T)
+            {
+                PurchaseTickets();
+            }
+            if (e.KeyCode == Keys.F12)
+            {
+                BuyTickets();
+            }
+            if (e.KeyCode == Keys.R)
+            {
+                AllData();
+            }
+            if (e.KeyCode == Keys.S)
+            {
+                GetReportSummary();
+            }
+
+
+        }
+
+        private void flowLayoutPanel1_Scroll(object sender, ScrollEventArgs e)
+        {
+            Application.DoEvents();
+            flowLayoutPanel2.HorizontalScroll.Value = 0;
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTSN_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (!string.IsNullOrEmpty(txtTSN.Text.Trim()))
+                {
+                    ClaimTicket(txtTSN.Text.Trim());
+                }
+                else
+                {
+                    MessageBox.Show("Please eneter ticket barcode..");
+                }
+            }
+        }
+
+
+        private void ClaimTicket(string barcode)
+        {
+            ClsService clsservice = new ClsService();
+
+            bool result = clsservice.ClaimTicket(UserAgent.AgenToken, barcode);
+            if (result)
+            {
+                this.Hide();
+                MessageBox.Show("Ticket Claim Successfully");
+
+            }
+
+
+
+
+        }
+
+        private void txttickektsqty_TextChanged(object sender, EventArgs e)
+        {
+            int qty = 0;
+            int amount = 0;
+            try
+            {
+                if (!string.IsNullOrEmpty(txttickektsqty.Text.Trim()))
+                {
+                    qty = Convert.ToInt16(txttickektsqty.Text.Trim());
+                    amount = qty * ticketPrice;
+                    txttotalvalue.Text = amount.ToString();
+                }
+            }
+            catch
+            {
+                txttotalvalue.Text = "0.00";
+            }
+        }
+
+        private void grptickets_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_MouseClick(object sender, MouseEventArgs e)
+        {
+
+            if (label5.Text == "Show Balance")
+            {
+                LblBalance.Visible = true;
+                label5.Text = "Hide Balance";
+            }
+            else
+            {
+                LblBalance.Visible = false;
+            }
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            if (label5.Text == "Show Balance")
+            {
+                LblBalance.Visible = true;
+                label5.Text = "Hide Balance";
+            }
+            else
+            {
+                LblBalance.Visible = false;
+                label5.Text = "Show Balance";
+            }
+
         }
     }
 }

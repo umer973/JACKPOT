@@ -30,6 +30,7 @@ namespace Jackport.DataModel
         public string agent_ticket_price_format { get; set; }
         public string agent_ticket_win_customer_share_amount { get; set; }
         public string app_time { get; set; }
+        public string app_date { get; set; }
     }
 
     public class AgentData
@@ -209,7 +210,7 @@ namespace Jackport.DataModel
         public string total_profit { get; set; }
         public string net_to_pay { get; set; }
     }
- 
+
 
 
     public class ReportData
@@ -218,7 +219,7 @@ namespace Jackport.DataModel
         public int code { get; set; }
         public string message { get; set; }
         public ReportSummary data { get; set; }
-     
+
 
     }
 
@@ -259,7 +260,7 @@ namespace Jackport.DataModel
         public string time_start { get; set; }
         public string time_end { get; set; }
         public string win_number { get; set; }
-     
+
     }
 
     public class WinTicketDetails

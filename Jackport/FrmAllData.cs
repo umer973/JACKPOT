@@ -34,8 +34,8 @@ namespace Jackport
                 {
                     var index = dataGridView1.Rows.Add();
                     dataGridView1.Rows[index].Cells[0].Value = tikcet[i].date_slot;
-                    dataGridView1.Rows[index].Cells[1].Value = tikcet[i].time_start;
-                    dataGridView1.Rows[index].Cells[2].Value = tikcet[i].time_end;
+                    dataGridView1.Rows[index].Cells[1].Value =CommonHelper.GetdateFormat(tikcet[i].time_start);
+                    dataGridView1.Rows[index].Cells[2].Value = CommonHelper.GetdateFormat(tikcet[i].time_end);
 
                     dataGridView1.Rows[index].Cells[3].Value = tikcet[i].win_number;
                    // dataGridView1.Rows[index].Cells[4].Value = "NA";

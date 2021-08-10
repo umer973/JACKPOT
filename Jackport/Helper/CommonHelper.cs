@@ -12,7 +12,7 @@ namespace Jackport.Helper
         public static string GetdateFormat(string time)
         {
             
-            return ConvertFromToTime(time, "HH:mm:ss", "h:mm tt");
+            return ConvertFromToTime(time, "HH:mm:ss", "h:mm:ss tt");
         }
 
         public static string ConvertFromToTime(this string timeHour, string inputFormat, string outputFormat)

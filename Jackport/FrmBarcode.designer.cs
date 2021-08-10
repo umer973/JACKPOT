@@ -54,7 +54,7 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(-1, -3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(768, 539);
+            this.panel1.Size = new System.Drawing.Size(934, 539);
             this.panel1.TabIndex = 0;
             // 
             // panel2
@@ -64,7 +64,7 @@
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Location = new System.Drawing.Point(13, 15);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(744, 511);
+            this.panel2.Size = new System.Drawing.Size(921, 511);
             this.panel2.TabIndex = 0;
             // 
             // dataGridView1
@@ -82,7 +82,7 @@
             this.Claimed});
             this.dataGridView1.Location = new System.Drawing.Point(-2, -2);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(743, 511);
+            this.dataGridView1.Size = new System.Drawing.Size(916, 511);
             this.dataGridView1.TabIndex = 0;
             // 
             // BtnCancel
@@ -140,6 +140,7 @@
             // 
             this.SlotID.HeaderText = "SlotID";
             this.SlotID.Name = "SlotID";
+            this.SlotID.Visible = false;
             // 
             // BarcodeNo
             // 
@@ -188,7 +189,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(797, 592);
+            this.ClientSize = new System.Drawing.Size(945, 592);
             this.Controls.Add(this.BtnTmlCancel);
             this.Controls.Add(this.BtnReprint);
             this.Controls.Add(this.BtnTmlClaim);
