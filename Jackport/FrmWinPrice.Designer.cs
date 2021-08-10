@@ -53,7 +53,7 @@
             // 
             this.lblWinNumber.AutoSize = true;
             this.lblWinNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWinNumber.Location = new System.Drawing.Point(409, 69);
+            this.lblWinNumber.Location = new System.Drawing.Point(431, 64);
             this.lblWinNumber.Name = "lblWinNumber";
             this.lblWinNumber.Size = new System.Drawing.Size(223, 42);
             this.lblWinNumber.TabIndex = 2;

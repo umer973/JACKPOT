@@ -195,7 +195,7 @@ namespace Jackport
                     if (flag == 5)
                     {
                         Point current = flowLayoutPanel1.AutoScrollPosition;
-                        Point scrolled = new Point(current.X, -current.Y + 10);
+                        Point scrolled = new Point(current.X, -current.Y + 80);
                         flowLayoutPanel1.AutoScrollPosition = scrolled;
                         flag = 0;
                     }
@@ -206,9 +206,10 @@ namespace Jackport
                     winflag = 1;
                     ctr.Color = Color.Green;
                     // ctr.ForeColor
+                    break;
                 }
 
-               
+
             }
 
 
@@ -293,15 +294,13 @@ namespace Jackport
                 lblticketprice.Text = _root.ApplicationDetails.agent_ticket_price;
                 lblprice.Text = _root.ApplicationDetails.agent_ticket_price_format;
                 ticketPrice = Convert.ToInt16(_root.ApplicationDetails.agent_ticket_price);
-                /// lblWinRs.Text=_root.data.
+
                 this.Text = _root.ApplicationDetails.app_name + "  " + " Licence Expiry  " + data.LicenseData.license_end_date;
 
                 appTime = Convert.ToDateTime(_root.ApplicationDetails.app_time.ToString());
-                LblDate.Text = _root.ApplicationDetails.app_date.ToString();
-                //LblDate.Text=_root.ApplicationDetails.
+                LblDate.Text = CommonHelper.SetDateFormat(_root.ApplicationDetails.app_date.ToString());
 
                 var request = WebRequest.Create(_root.ApplicationDetails.app_logo);
-
 
                 using (var response = request.GetResponse())
                 using (var stream = response.GetResponseStream())
@@ -335,7 +334,7 @@ namespace Jackport
             var _timeSlot = timeSlotList.Select(x => new ListValueControl()
             {
                 ControlName = x.win_number,
-                Time = CommonHelper.GetdateFormat(x.time_end).ToString(),
+                Time = CommonHelper.SetTimeFormat(x.time_end).ToString(),
 
                 Color = Color.White,
 
@@ -2079,7 +2078,7 @@ namespace Jackport
 
         }
 
-            
+
 
         private void linkbalance_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {

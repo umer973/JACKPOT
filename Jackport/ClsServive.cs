@@ -1,25 +1,22 @@
-﻿using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Newtonsoft.Json;
-using DeviceId;
-
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using Jackport.DataModel;
-using RestSharp;
+﻿
 
 namespace Jackport
 {
+    using System.Linq;
+    using System.Threading.Tasks;
+    using System.Windows.Forms;
+    using Newtonsoft.Json;
+    using DeviceId;
 
+    using System;
+    using System.Collections.Generic;
+    using System.Data;
+    using Jackport.DataModel;
+    using RestSharp;
 
     public class ClsService
     {
-        public static string apiBaseUrl = "";
+        public static string apiBaseUrl = "https://api.welcomejk.com/v1";
         public string deviceId;
         public ClsService()
         {

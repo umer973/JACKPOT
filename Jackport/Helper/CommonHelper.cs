@@ -11,7 +11,7 @@ namespace Jackport.Helper
     {
         public static string GetdateFormat(string time)
         {
-            
+
             return ConvertFromToTime(time, "HH:mm:ss", "h:mm:ss tt");
         }
 
@@ -22,6 +22,20 @@ namespace Jackport.Helper
                 outputFormat,
                 CultureInfo.InvariantCulture);
             return timeOutput;
+        }
+
+        public static string SetTimeFormat(string time)
+        {
+
+            return ConvertFromToTime(time, "HH:mm:ss", "h:mm tt");
+        }
+
+
+        public static string SetDateFormat(string date)
+        {
+
+            return DateTime.ParseExact(date.ToString(), "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture).ToString("dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture);
+
         }
     }
 }

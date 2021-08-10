@@ -127,7 +127,7 @@
             // 
             // headerpanel
             // 
-            this.headerpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.headerpanel.BackColor = System.Drawing.Color.White;
             this.headerpanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.headerpanel.Controls.Add(this.groupBox1);
             this.headerpanel.Controls.Add(this.linkbalance);
@@ -419,7 +419,7 @@
             // 
             this.LblTime.AutoSize = true;
             this.LblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTime.Location = new System.Drawing.Point(134, 33);
+            this.LblTime.Location = new System.Drawing.Point(132, 34);
             this.LblTime.Name = "LblTime";
             this.LblTime.Size = new System.Drawing.Size(47, 20);
             this.LblTime.TabIndex = 9;
@@ -429,7 +429,7 @@
             // 
             this.LblDate.AutoSize = true;
             this.LblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDate.Location = new System.Drawing.Point(134, 9);
+            this.LblDate.Location = new System.Drawing.Point(132, 10);
             this.LblDate.Name = "LblDate";
             this.LblDate.Size = new System.Drawing.Size(48, 20);
             this.LblDate.TabIndex = 8;
@@ -438,9 +438,9 @@
             // LblCompanyName
             // 
             this.LblCompanyName.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCompanyName.Location = new System.Drawing.Point(509, 1);
+            this.LblCompanyName.Location = new System.Drawing.Point(509, 2);
             this.LblCompanyName.Name = "LblCompanyName";
-            this.LblCompanyName.Size = new System.Drawing.Size(266, 58);
+            this.LblCompanyName.Size = new System.Drawing.Size(266, 53);
             this.LblCompanyName.TabIndex = 4;
             this.LblCompanyName.Text = "JACKPOT";
             this.LblCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -568,9 +568,10 @@
             // 
             // grpslots
             // 
-            this.grpslots.BackColor = System.Drawing.Color.LightBlue;
+            this.grpslots.BackColor = System.Drawing.Color.Navy;
             this.grpslots.Controls.Add(this.flowLayoutPanel1);
             this.grpslots.Dock = System.Windows.Forms.DockStyle.Right;
+            this.grpslots.ForeColor = System.Drawing.Color.White;
             this.grpslots.Location = new System.Drawing.Point(978, 133);
             this.grpslots.Name = "grpslots";
             this.grpslots.Size = new System.Drawing.Size(382, 564);
@@ -1182,9 +1183,9 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.LblTime);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox1.Location = new System.Drawing.Point(1168, 0);
+            this.groupBox1.Location = new System.Drawing.Point(1170, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(188, 58);
+            this.groupBox1.Size = new System.Drawing.Size(186, 58);
             this.groupBox1.TabIndex = 257;
             this.groupBox1.TabStop = false;
             // 
