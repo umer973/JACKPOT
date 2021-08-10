@@ -195,12 +195,11 @@ namespace Jackport
             {
 
                 headerpanel.Visible = true;
-                pnlboxes.Visible = true;
-                pnlfooter.Visible = true;
-                pnlslots.Visible = true;
-                pnltickets.Visible = true;
+                
                 panel2.Visible = true;
                 panel3.Visible = true;
+                grpslots.Visible = true;
+                grptickets.Visible = true;
                 this.Cursor = System.Windows.Forms.Cursors.Default;
 
                 ScrollDown();
