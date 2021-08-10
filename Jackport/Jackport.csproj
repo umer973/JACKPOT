@@ -92,6 +92,12 @@
     <Compile Include="FrmActivationKey.designer.cs">
       <DependentUpon>FrmActivationKey.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAgentBalance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAgentBalance.Designer.cs">
+      <DependentUpon>FrmAgentBalance.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAllData.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +191,9 @@
     </Compile>
     <EmbeddedResource Include="FrmActivationKey.resx">
       <DependentUpon>FrmActivationKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAgentBalance.resx">
+      <DependentUpon>FrmAgentBalance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAllData.resx">
       <DependentUpon>FrmAllData.cs</DependentUpon>

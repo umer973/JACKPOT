@@ -1,31 +1,24 @@
-﻿using CrystalDecisions.CrystalReports.Engine;
-using Jackport.DataModel;
-using Jackport.Helper;
-using Jackport.Security;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿
 
 namespace Jackport
 {
 
+    using CrystalDecisions.CrystalReports.Engine;
+    using Jackport.DataModel;
+    using Jackport.Helper;
+    using Jackport.Security;
+    using System;
+    using System.Collections.Generic;
+    using System.Data;
+    using System.Drawing;
+    using System.Linq;
+    using System.Net;
+    using System.Threading.Tasks;
+    using System.Windows.Forms;
+
     public partial class FrmJackportDemo : Form
     {
-        List<ListValueControl> products;
-        List<UserInputControl> InputBox;
+
         ClsService clsService;
         public string agentToken;
         public string slotdId;
@@ -35,20 +28,12 @@ namespace Jackport
         public string endtime;
         List<Bid> bidList = new List<Bid>();
         List<PurchaseTicket> plist = new List<PurchaseTicket>();
-        //  private int count = 360;
-        // int segundo = 360;
-        private int count = 360;
-        int segundo = 360;
-        DateTime dt = new DateTime();
         List<TimeSlot> timeSlots = new List<TimeSlot>();
         List<TimeSlot> overSlots = new List<TimeSlot>();
-        LoginData data;
-        private static TimeZoneInfo timezone;
-
+        LoginData data = new LoginData();
         DateTime appTime;
         DateTime slotitme;
         DateTime dateTime = DateTime.Now;
-
         int ticketPrice = 0;
 
 
@@ -64,91 +49,41 @@ namespace Jackport
 
         }
 
-        private void SetSystemDate()
-        {
-            appTime = Convert.ToDateTime(data.ApplicationDetails.app_time);
 
-            // Get time in local time zone 
-            DateTime thisTime = DateTime.Now;
-            Console.WriteLine("Time in {0} zone: {1}", TimeZoneInfo.Local.IsDaylightSavingTime(thisTime) ?
-                               TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName, thisTime);
-            Console.WriteLine("   UTC Time: {0}", TimeZoneInfo.ConvertTimeToUtc(thisTime, TimeZoneInfo.Local));
-
-
-            TimeZoneInfo tst = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
-
-            DateTime tstTime = TimeZoneInfo.ConvertTime(thisTime, TimeZoneInfo.Local, tst);
-            //  LblDate.Text = tst.IsDaylightSavingTime(tstTime) ? tst.DaylightName : tst.StandardName, tstTime;
-            Console.WriteLine("   UTC Time: {0}", TimeZoneInfo.ConvertTimeToUtc(tstTime, tst));
-
-
-        }
 
         public void FrmJackport_Load(object sender, EventArgs e)
         {
-
-
-            DisplayData();
-
-
-            SetSystemDate();
-
-
-
+            LoadData();
         }
 
-        private void DisplayData()
+        private void LoadData()
         {
             SetLoading(true);
 
-            SetData(data);
+            LoadTickets();
 
+            SetAppLicationData(data);
 
+            SetCurrentSlot(data.TimeSlots);
 
-            LoadProduct();
+            loadWinPrizes(timeSlots);
 
-
-            //   var list = data.TimeSlots.Where(x => x.slot_over == "0").ToList();
-
-            var over = data.TimeSlots.Where(x => x.slot_over == "1");
-
-            var last_end = over.LastOrDefault();
-
-
-            overSlots = over.Select(x => new TimeSlot
-            {
-                slot_id = x.slot_id,
-                slot_over = x.slot_over
-
-            }).ToList();
-
-
-            timeSlots = data.TimeSlots.Select(x => new TimeSlot
-            {
-                slot_id = x.slot_id,
-                slot_over = x.slot_over,
-                time_end = x.time_end
-
-
-            }).ToList();
-
-            cmbSlot.Text = "Current";
-
-            GetCurrentSlot(data.TimeSlots);
-
-
-
-            //ScrollDown();
-
-            timer1 = new System.Windows.Forms.Timer();
-            timer1.Tick += new EventHandler(timer1_Tick);
-            timer1.Interval = 1000; // 1 second
-            timer1.Start();
+            RunTimer();
 
             SetLoading(false);
 
-            // RunCounter();
+
+
         }
+
+        private void RunTimer()
+        {
+            timer1 = new Timer();
+            timer1.Tick += new EventHandler(timer1_Tick);
+            timer1.Interval = 1000;
+            timer1.Start();
+        }
+
 
         private void SetLoading(bool displayLoader)
         {
@@ -156,7 +91,6 @@ namespace Jackport
             if (displayLoader)
             {
 
-                //this.Visible = false;
                 this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
 
 
@@ -168,20 +102,17 @@ namespace Jackport
                 grpslots.Visible = true;
                 grptickets.Visible = true;
                 headerpanel.Visible = true;
-
-                //this.Visible = true;
                 this.Cursor = System.Windows.Forms.Cursors.Default;
+
                 ScrollDown();
 
             }
         }
 
-        //private int GetOverSlot()
-        //{
 
-        //}
-        private bool GetCurrentSlot(List<TimeSlot> Slotlist)
+        private bool SetCurrentSlot(List<TimeSlot> Slotlist)
         {
+
             bool flag = true;
             try
             {
@@ -206,11 +137,6 @@ namespace Jackport
 
                 list = Slotlist.OrderBy(x => x.slot_id).ToList();
 
-
-
-                // lblSlotTime.Text = CommonHelper.GetdateFormat(endtime);
-                //SetSlotTime(CommonHelper.GetdateFormat(endtime));
-
                 timeSlots = null;
 
                 timeSlots = Slotlist.Select(x => new TimeSlot
@@ -228,7 +154,7 @@ namespace Jackport
                     flag = false;
                 }
 
-                loadWinPrizes(timeSlots);
+
             }
             catch (Exception ex)
             {
@@ -266,10 +192,10 @@ namespace Jackport
 
                 if (ctr.Tag.ToString() != slotdId)
                 {
-                    if (flag == 6)
+                    if (flag == 5)
                     {
                         Point current = flowLayoutPanel1.AutoScrollPosition;
-                        Point scrolled = new Point(current.X, -current.Y + 80);
+                        Point scrolled = new Point(current.X, -current.Y + 10);
                         flowLayoutPanel1.AutoScrollPosition = scrolled;
                         flag = 0;
                     }
@@ -282,14 +208,14 @@ namespace Jackport
                     // ctr.ForeColor
                 }
 
-                Application.DoEvents();
+               
             }
 
 
 
         }
 
-        private void LoadProduct()
+        private void LoadTickets()
         {
             for (int i = 0; i < 100; i++)
             {
@@ -351,10 +277,11 @@ namespace Jackport
 
         }
 
-        private void SetData(LoginData _root)
+        private void SetAppLicationData(LoginData _root)
         {
             try
             {
+
                 LblAgentId.Text = data.AgentData.agent_code;
                 LblBalance.Text = data.AgentData.balance;
                 LblCompanyName.Text = data.ApplicationDetails.app_name;
@@ -381,6 +308,8 @@ namespace Jackport
                 {
                     pictureBox1.Image = Bitmap.FromStream(stream);
                 }
+
+                cmbSlot.SelectedIndex = 0;
 
 
 
@@ -543,12 +472,8 @@ namespace Jackport
                Txt8089.BackColor = Txt9099.BackColor = Color.AliceBlue;
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private async void timer1_Tick(object sender, EventArgs e)
         {
-
-            TimeZoneInfo tz = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
-
-            dateTime = TimeZoneInfo.ConvertTime(DateTime.UtcNow, tz);
 
             appTime = appTime.AddSeconds(1);
 
@@ -600,8 +525,19 @@ namespace Jackport
 
 
             string leftTime = string.Format("{0}:{1}:{2}", datediff.Hours.ToString().PadLeft(2, '0'), datediff.Minutes.ToString().PadLeft(2, '0'), datediff.Seconds.ToString().PadLeft(2, '0'));
-            LblCountDown1.Text = leftTime.ToString();
+
             var remainintime = DateTime.Compare(Convert.ToDateTime(endtime), appTime);
+
+
+
+            if (remainintime == -1)
+            {
+                LblCountDown1.Text = "00:00:00";
+            }
+            else
+            {
+                LblCountDown1.Text = leftTime.ToString();
+            }
 
             if (remainintime == 0)
             {
@@ -611,7 +547,20 @@ namespace Jackport
 
                 FrmWinPrice ObjWinPrice = new FrmWinPrice(result);
                 ObjWinPrice.ShowDialog();
-                RefreshSlots();
+
+                List<TimeSlot> timeSlot = await RefreshSlots();
+
+                if (timeSlot == null)
+                {
+                    return;
+                }
+                else
+                {
+                    SetCurrentSlot(timeSlot);
+
+                    loadWinPrizes(timeSlot);
+                }
+
                 timer1.Start();
             }
         }
@@ -693,71 +642,56 @@ namespace Jackport
             //LblTime.Text = appTime.tos;
         }
 
-        private void ShowWinNumber()
+        //private void ShowWinNumber()
+        //{
+        //    // slotdId = timeSlots.Select(x => x.slot_id).FirstOrDefault();
+
+        //    // var slot = timeSlots.Where(x => x.slot_over == "0").FirstOrDefault();
+        //    // var endtime = (x => x.time_end).FirstOrDefault();
+        //    // var datediff = Convert.ToDateTime(endtime) - (dateTime);
+        //    count--;
+        //    TimeSpan datediff = Convert.ToDateTime(endtime) - (DateTime.Now);
+
+
+        //    //var datediff = Convert.ToInt64(GetTimeSpan(Convert.ToDateTime(endtime))) - Convert.ToInt64(GetTimeSpan(dateTime));
+        //    //DateTime d1 = new DateTime(1970, 1, 1);
+        //    //TimeSpan left = new TimeSpan(Convert.ToInt64(datediff));
+
+
+
+        //    if (datediff.Hours == 0 && datediff.Minutes == 0 && datediff.Seconds == 0)
+        //    {
+        //        ClsService clsService = new ClsService();
+        //        var result = clsService.GetWinTickets(Convert.ToInt16(slotdId));
+
+        //        FrmWinPrice ObjWinPrice = new FrmWinPrice(result);
+        //        ObjWinPrice.ShowDialog();
+        //        RefreshSlots();
+
+
+        //    }
+        //    //timer1.Stop();
+        //    //LblCountDown1.Text = counter.ToString();
+        //    string leftTime = string.Format("{0}:{1}:{2}", datediff.Hours.ToString().PadLeft(2, '0'), datediff.Minutes.ToString().PadLeft(2, '0'), datediff.Seconds.ToString().PadLeft(2, '0'));
+        //    //string leftTime = Convert.ToDateTime(GetTimeSpan( left));
+        //    //string leftTime = Convert.ToString(left.TotalMinutes+':'+left.TotalSeconds);
+        //    LblCountDown1.Text = leftTime.ToString();
+        //    //label1.Text = count / 60 + ":" + ((count % 60) >= 10 ? (count % 60).ToString() : "0" + (count % 60));
+        //    int LeftTime1 = count;
+        //    int LeftTime2 = segundo - LeftTime1;
+        //    int LeftTime = segundo - LeftTime2;
+        //    // LblCountDown2.Text = leftTime.ToString();
+        //}
+
+
+
+        private async Task<List<TimeSlot>> RefreshSlots()
         {
-            // slotdId = timeSlots.Select(x => x.slot_id).FirstOrDefault();
-
-            // var slot = timeSlots.Where(x => x.slot_over == "0").FirstOrDefault();
-            // var endtime = (x => x.time_end).FirstOrDefault();
-            // var datediff = Convert.ToDateTime(endtime) - (dateTime);
-            count--;
-            TimeSpan datediff = Convert.ToDateTime(endtime) - (DateTime.Now);
 
 
-            //var datediff = Convert.ToInt64(GetTimeSpan(Convert.ToDateTime(endtime))) - Convert.ToInt64(GetTimeSpan(dateTime));
-            //DateTime d1 = new DateTime(1970, 1, 1);
-            //TimeSpan left = new TimeSpan(Convert.ToInt64(datediff));
+            List<TimeSlot> timeSlots = await clsService.GetUpdatedSlots();
 
-
-
-            if (datediff.Hours == 0 && datediff.Minutes == 0 && datediff.Seconds == 0)
-            {
-                ClsService clsService = new ClsService();
-                var result = clsService.GetWinTickets(Convert.ToInt16(slotdId));
-
-                FrmWinPrice ObjWinPrice = new FrmWinPrice(result);
-                ObjWinPrice.ShowDialog();
-                RefreshSlots();
-                count = 360;
-                segundo = 360;
-
-            }
-            //timer1.Stop();
-            //LblCountDown1.Text = counter.ToString();
-            string leftTime = string.Format("{0}:{1}:{2}", datediff.Hours.ToString().PadLeft(2, '0'), datediff.Minutes.ToString().PadLeft(2, '0'), datediff.Seconds.ToString().PadLeft(2, '0'));
-            //string leftTime = Convert.ToDateTime(GetTimeSpan( left));
-            //string leftTime = Convert.ToString(left.TotalMinutes+':'+left.TotalSeconds);
-            LblCountDown1.Text = leftTime.ToString();
-            //label1.Text = count / 60 + ":" + ((count % 60) >= 10 ? (count % 60).ToString() : "0" + (count % 60));
-            int LeftTime1 = count;
-            int LeftTime2 = segundo - LeftTime1;
-            int LeftTime = segundo - LeftTime2;
-            // LblCountDown2.Text = leftTime.ToString();
-        }
-
-        private string GetTimeSpan(DateTime value)
-        {
-            return value.ToString("yyyyMMddHHmmssffff");
-        }
-
-        private void RefreshSlots()
-        {
-            try
-            {
-
-                List<TimeSlot> timeSlot = clsService.GetUpdatedSlots();
-
-                var result = GetCurrentSlot(timeSlot);
-
-                //else
-                //    timer1_Tick.stop
-
-            }
-            catch (Exception ex)
-            {
-
-            }
-
+            return timeSlots;
 
 
         }
@@ -1973,7 +1907,7 @@ namespace Jackport
 
             }
 
-           
+
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
@@ -2145,34 +2079,12 @@ namespace Jackport
 
         }
 
-        private void label5_MouseClick(object sender, MouseEventArgs e)
+            
+
+        private void linkbalance_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
-            if (label5.Text == "Show Balance")
-            {
-                LblBalance.Visible = true;
-                label5.Text = "Hide Balance";
-            }
-            else
-            {
-                LblBalance.Visible = false;
-            }
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-            if (label5.Text == "Show Balance")
-            {
-                LblBalance.Visible = true;
-                label5.Text = "Hide Balance";
-            }
-            else
-            {
-                LblBalance.Visible = false;
-                label5.Text = "Show Balance";
-            }
-
+            FrmAgentBalance obj = new FrmAgentBalance(LblBalance.Text);
+            obj.ShowDialog();
         }
     }
 }

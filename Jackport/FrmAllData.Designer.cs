@@ -122,6 +122,7 @@
             this.BtnTmlClaim.Text = "OK";
             this.BtnTmlClaim.UseVisualStyleBackColor = false;
             this.BtnTmlClaim.Click += new System.EventHandler(this.BtnTmlClaim_Click);
+            this.BtnTmlClaim.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BtnTmlClaim_MouseClick);
             // 
             // panel2
             // 

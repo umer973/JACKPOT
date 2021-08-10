@@ -52,7 +52,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.LblCountDown1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.LblTime = new System.Windows.Forms.Label();
             this.LblDate = new System.Windows.Forms.Label();
             this.LblCompanyName = new System.Windows.Forms.Label();
@@ -112,6 +111,9 @@
             this.Txt2029 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label43 = new System.Windows.Forms.Label();
+            this.linkbalance = new System.Windows.Forms.LinkLabel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.headerpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -119,20 +121,19 @@
             this.grpfooter.SuspendLayout();
             this.grpslots.SuspendLayout();
             this.grptickets.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // headerpanel
             // 
             this.headerpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.headerpanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.headerpanel.Controls.Add(this.label8);
-            this.headerpanel.Controls.Add(this.label7);
+            this.headerpanel.Controls.Add(this.groupBox1);
+            this.headerpanel.Controls.Add(this.linkbalance);
             this.headerpanel.Controls.Add(this.pictureBox1);
             this.headerpanel.Controls.Add(this.panel3);
             this.headerpanel.Controls.Add(this.panel2);
-            this.headerpanel.Controls.Add(this.label5);
-            this.headerpanel.Controls.Add(this.LblTime);
-            this.headerpanel.Controls.Add(this.LblDate);
             this.headerpanel.Controls.Add(this.LblCompanyName);
             this.headerpanel.Controls.Add(this.LblBalance);
             this.headerpanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -146,7 +147,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(854, 34);
+            this.label8.Location = new System.Drawing.Point(7, 35);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(122, 20);
             this.label8.TabIndex = 255;
@@ -156,7 +157,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(854, 7);
+            this.label7.Location = new System.Drawing.Point(7, 10);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(113, 20);
             this.label7.TabIndex = 254;
@@ -226,23 +227,22 @@
             // 
             this.cmbSlot.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbSlot.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbSlot.Dock = System.Windows.Forms.DockStyle.Right;
             this.cmbSlot.DropDownHeight = 120;
             this.cmbSlot.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cmbSlot.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSlot.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSlot.FormattingEnabled = true;
             this.cmbSlot.IntegralHeight = false;
             this.cmbSlot.Items.AddRange(new object[] {
-            "05:15PM",
+            "CURRENT",
             "NEXT 5",
             "NEXT 10",
             "NEXT 15",
             "NEXT 20",
-            "ALL DRAW",
-            "05:22 PM",
-            "05:25 PM"});
-            this.cmbSlot.Location = new System.Drawing.Point(1044, -3);
+            "ALL DRAW"});
+            this.cmbSlot.Location = new System.Drawing.Point(1167, 0);
             this.cmbSlot.Name = "cmbSlot";
-            this.cmbSlot.Size = new System.Drawing.Size(153, 32);
+            this.cmbSlot.Size = new System.Drawing.Size(187, 28);
             this.cmbSlot.TabIndex = 10;
             this.cmbSlot.SelectedIndexChanged += new System.EventHandler(this.cmbSlot_SelectedIndexChanged);
             // 
@@ -310,13 +310,12 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.groupBox2);
             this.panel2.Controls.Add(this.button6);
             this.panel2.Controls.Add(this.button5);
             this.panel2.Controls.Add(this.button3);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.LblCountDown1);
-            this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 87);
             this.panel2.Name = "panel2";
@@ -399,9 +398,9 @@
             this.LblCountDown1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.LblCountDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblCountDown1.ForeColor = System.Drawing.Color.White;
-            this.LblCountDown1.Location = new System.Drawing.Point(940, 0);
+            this.LblCountDown1.Location = new System.Drawing.Point(167, 7);
             this.LblCountDown1.Name = "LblCountDown1";
-            this.LblCountDown1.Size = new System.Drawing.Size(101, 42);
+            this.LblCountDown1.Size = new System.Drawing.Size(101, 34);
             this.LblCountDown1.TabIndex = 2;
             this.LblCountDown1.Text = "00:00:00";
             this.LblCountDown1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -410,30 +409,17 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(835, 11);
+            this.label2.Location = new System.Drawing.Point(62, 14);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Time Left  :";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Navy;
-            this.label5.Location = new System.Drawing.Point(26, 8);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(123, 20);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Show Balance";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
-            this.label5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.label5_MouseClick);
-            // 
             // LblTime
             // 
             this.LblTime.AutoSize = true;
             this.LblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTime.Location = new System.Drawing.Point(984, 34);
+            this.LblTime.Location = new System.Drawing.Point(134, 33);
             this.LblTime.Name = "LblTime";
             this.LblTime.Size = new System.Drawing.Size(47, 20);
             this.LblTime.TabIndex = 9;
@@ -443,7 +429,7 @@
             // 
             this.LblDate.AutoSize = true;
             this.LblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDate.Location = new System.Drawing.Point(984, 7);
+            this.LblDate.Location = new System.Drawing.Point(134, 9);
             this.LblDate.Name = "LblDate";
             this.LblDate.Size = new System.Drawing.Size(48, 20);
             this.LblDate.TabIndex = 8;
@@ -464,7 +450,7 @@
             this.LblBalance.AutoSize = true;
             this.LblBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblBalance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.LblBalance.Location = new System.Drawing.Point(26, 36);
+            this.LblBalance.Location = new System.Drawing.Point(7, 36);
             this.LblBalance.Name = "LblBalance";
             this.LblBalance.Size = new System.Drawing.Size(123, 20);
             this.LblBalance.TabIndex = 0;
@@ -595,6 +581,7 @@
             // 
             // grptickets
             // 
+            this.grptickets.AutoSize = true;
             this.grptickets.BackColor = System.Drawing.Color.Navy;
             this.grptickets.Controls.Add(this.button7);
             this.grptickets.Controls.Add(this.TxtLpNo);
@@ -640,6 +627,7 @@
             this.grptickets.Controls.Add(this.textBox5);
             this.grptickets.Controls.Add(this.label43);
             this.grptickets.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grptickets.ForeColor = System.Drawing.Color.White;
             this.grptickets.Location = new System.Drawing.Point(0, 133);
             this.grptickets.Name = "grptickets";
             this.grptickets.Size = new System.Drawing.Size(978, 564);
@@ -1174,6 +1162,43 @@
             this.label43.TabIndex = 517;
             this.label43.Text = "20-29";
             // 
+            // linkbalance
+            // 
+            this.linkbalance.AutoSize = true;
+            this.linkbalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkbalance.Location = new System.Drawing.Point(4, 9);
+            this.linkbalance.Name = "linkbalance";
+            this.linkbalance.Size = new System.Drawing.Size(106, 16);
+            this.linkbalance.TabIndex = 256;
+            this.linkbalance.TabStop = true;
+            this.linkbalance.Text = "Show Balance";
+            this.linkbalance.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkbalance_LinkClicked);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.AutoSize = true;
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.LblDate);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.LblTime);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.groupBox1.Location = new System.Drawing.Point(1168, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(188, 58);
+            this.groupBox1.TabIndex = 257;
+            this.groupBox1.TabStop = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.LblCountDown1);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.groupBox2.Location = new System.Drawing.Point(1082, 0);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(272, 40);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            // 
             // FrmJackportDemo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1197,13 +1222,17 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.grpfooter.ResumeLayout(false);
             this.grpfooter.PerformLayout();
             this.grpslots.ResumeLayout(false);
             this.grptickets.ResumeLayout(false);
             this.grptickets.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1242,7 +1271,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ComboBox cmbSlot;
         private System.Windows.Forms.Label lblprice;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox grpfooter;
         private System.Windows.Forms.GroupBox grpslots;
         private System.Windows.Forms.GroupBox grptickets;
@@ -1292,5 +1320,8 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.LinkLabel linkbalance;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

@@ -9,7 +9,7 @@ namespace Jackport
 {
     public partial class FrmAllData : Form
     {
-        List<WinTicketData> Wintikcet = new List<WinTicketData>();
+        List<WinTicketData> tikcet = new List<WinTicketData>();
 
         public FrmAllData()
         {
@@ -17,7 +17,7 @@ namespace Jackport
           
         }
 
-        private void LoadData(List<WinTicketData> tikcet)
+        private void LoadData()
         {
            
             DateTime dtf = dtfrom.Value;
@@ -25,8 +25,8 @@ namespace Jackport
             try
             {
                 ClsService service = new ClsService();
-                
-                Wintikcet = service.GetWinData(dtf.ToString("yyyy-MM-dd"), dtt.ToString("yyyy-MM-dd"));
+
+                tikcet = service.GetWinData(dtf.ToString("yyyy-MM-dd"), dtt.ToString("yyyy-MM-dd"));
                 dataGridView1.DataSource = null;
                 dataGridView1.Rows.Clear();
                 // dataGridView1.DataSource = tikcet;
@@ -59,7 +59,12 @@ namespace Jackport
 
         private void BtnTmlClaim_Click(object sender, EventArgs e)
         {
-            LoadData(Wintikcet);
+            LoadData();
+        }
+
+        private void BtnTmlClaim_MouseClick(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }
