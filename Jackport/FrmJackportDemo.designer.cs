@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.headerpanel = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblprice = new System.Windows.Forms.Label();
             this.lblWinRs = new System.Windows.Forms.Label();
@@ -37,14 +38,15 @@
             this.cmbSlot = new System.Windows.Forms.ComboBox();
             this.LblCountDown2 = new System.Windows.Forms.Label();
             this.label142 = new System.Windows.Forms.Label();
+            this.LblAgentId = new System.Windows.Forms.Label();
             this.lblSlotTime = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.label140 = new System.Windows.Forms.Label();
             this.lblticketprice = new System.Windows.Forms.Label();
             this.lblpriceformat = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -53,12 +55,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.LblTime = new System.Windows.Forms.Label();
             this.LblDate = new System.Windows.Forms.Label();
-            this.LblAgentId = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.LblCompanyName = new System.Windows.Forms.Label();
             this.LblBalance = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.TxtLpNo = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -68,78 +67,89 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.Txt0009 = new System.Windows.Forms.TextBox();
-            this.TxtE0 = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.Txt1019 = new System.Windows.Forms.TextBox();
-            this.TxtE1 = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.Txt2029 = new System.Windows.Forms.TextBox();
-            this.TxtE2 = new System.Windows.Forms.TextBox();
-            this.label43 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
-            this.Txt3031 = new System.Windows.Forms.TextBox();
-            this.TxtE3 = new System.Windows.Forms.TextBox();
-            this.label56 = new System.Windows.Forms.Label();
-            this.label57 = new System.Windows.Forms.Label();
+            this.grpfooter = new System.Windows.Forms.GroupBox();
+            this.grpslots = new System.Windows.Forms.GroupBox();
+            this.grptickets = new System.Windows.Forms.GroupBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.Txt7079 = new System.Windows.Forms.TextBox();
+            this.label69 = new System.Windows.Forms.Label();
+            this.label82 = new System.Windows.Forms.Label();
+            this.TxtE5 = new System.Windows.Forms.TextBox();
+            this.Txt5051 = new System.Windows.Forms.TextBox();
+            this.label109 = new System.Windows.Forms.Label();
+            this.label108 = new System.Windows.Forms.Label();
+            this.label83 = new System.Windows.Forms.Label();
             this.Txt4049 = new System.Windows.Forms.TextBox();
             this.TxtE4 = new System.Windows.Forms.TextBox();
-            this.label108 = new System.Windows.Forms.Label();
-            this.label109 = new System.Windows.Forms.Label();
-            this.Txt5051 = new System.Windows.Forms.TextBox();
-            this.TxtE5 = new System.Windows.Forms.TextBox();
-            this.label82 = new System.Windows.Forms.Label();
-            this.label83 = new System.Windows.Forms.Label();
-            this.Txt7079 = new System.Windows.Forms.TextBox();
-            this.TxtE7 = new System.Windows.Forms.TextBox();
-            this.label69 = new System.Windows.Forms.Label();
-            this.label70 = new System.Windows.Forms.Label();
             this.Txt8089 = new System.Windows.Forms.TextBox();
-            this.TxtE8 = new System.Windows.Forms.TextBox();
-            this.label134 = new System.Windows.Forms.Label();
-            this.label135 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label57 = new System.Windows.Forms.Label();
+            this.Txt1019 = new System.Windows.Forms.TextBox();
+            this.TxtE3 = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
             this.label95 = new System.Windows.Forms.Label();
+            this.TxtE2 = new System.Windows.Forms.TextBox();
+            this.Txt2029 = new System.Windows.Forms.TextBox();
+            this.TxtE7 = new System.Windows.Forms.TextBox();
+            this.label43 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label134 = new System.Windows.Forms.Label();
+            this.label70 = new System.Windows.Forms.Label();
+            this.Txt3031 = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.TxtE8 = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.label96 = new System.Windows.Forms.Label();
+            this.Txt0009 = new System.Windows.Forms.TextBox();
+            this.label135 = new System.Windows.Forms.Label();
             this.Txt9099 = new System.Windows.Forms.TextBox();
-            this.TxtE9 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.TxtLpNo = new System.Windows.Forms.TextBox();
+            this.TxtE1 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.button7 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
+            this.label14 = new System.Windows.Forms.Label();
+            this.TxtE9 = new System.Windows.Forms.TextBox();
+            this.TxtE0 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.grppickticket = new System.Windows.Forms.GroupBox();
+            this.headerpanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.grpfooter.SuspendLayout();
+            this.grpslots.SuspendLayout();
+            this.grptickets.SuspendLayout();
+            this.grppickticket.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // headerpanel
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.LblTime);
-            this.panel1.Controls.Add(this.LblDate);
-            this.panel1.Controls.Add(this.LblCompanyName);
-            this.panel1.Controls.Add(this.LblBalance);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1360, 133);
-            this.panel1.TabIndex = 0;
+            this.headerpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.headerpanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.headerpanel.Controls.Add(this.pictureBox1);
+            this.headerpanel.Controls.Add(this.panel3);
+            this.headerpanel.Controls.Add(this.panel2);
+            this.headerpanel.Controls.Add(this.label5);
+            this.headerpanel.Controls.Add(this.LblTime);
+            this.headerpanel.Controls.Add(this.LblDate);
+            this.headerpanel.Controls.Add(this.LblCompanyName);
+            this.headerpanel.Controls.Add(this.LblBalance);
+            this.headerpanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.headerpanel.Location = new System.Drawing.Point(0, 0);
+            this.headerpanel.Name = "headerpanel";
+            this.headerpanel.Size = new System.Drawing.Size(1360, 133);
+            this.headerpanel.TabIndex = 0;
+            this.headerpanel.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(202, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(225, 53);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 253;
+            this.pictureBox1.TabStop = false;
             // 
             // panel3
             // 
@@ -159,9 +169,9 @@
             this.panel3.Controls.Add(this.lblpriceformat);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.ForeColor = System.Drawing.Color.White;
-            this.panel3.Location = new System.Drawing.Point(0, 62);
+            this.panel3.Location = new System.Drawing.Point(0, 58);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1360, 29);
+            this.panel3.Size = new System.Drawing.Size(1356, 29);
             this.panel3.TabIndex = 252;
             // 
             // lblprice
@@ -238,6 +248,16 @@
             this.label142.TabIndex = 14;
             this.label142.Text = "LT  :";
             // 
+            // LblAgentId
+            // 
+            this.LblAgentId.AutoSize = true;
+            this.LblAgentId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblAgentId.Location = new System.Drawing.Point(798, 6);
+            this.LblAgentId.Name = "LblAgentId";
+            this.LblAgentId.Size = new System.Drawing.Size(53, 17);
+            this.LblAgentId.TabIndex = 6;
+            this.LblAgentId.Text = "12345";
+            // 
             // lblSlotTime
             // 
             this.lblSlotTime.AutoSize = true;
@@ -247,6 +267,16 @@
             this.lblSlotTime.Size = new System.Drawing.Size(84, 20);
             this.lblSlotTime.TabIndex = 13;
             this.lblSlotTime.Text = "12:06 PM";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(690, 5);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(91, 17);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "AGENT ID :";
             // 
             // label140
             // 
@@ -284,16 +314,15 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.button6);
             this.panel2.Controls.Add(this.button5);
-            this.panel2.Controls.Add(this.button4);
             this.panel2.Controls.Add(this.button3);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.LblCountDown1);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 91);
+            this.panel2.Location = new System.Drawing.Point(0, 87);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1360, 42);
+            this.panel2.Size = new System.Drawing.Size(1356, 42);
             this.panel2.TabIndex = 3;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -303,11 +332,11 @@
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button6.Location = new System.Drawing.Point(796, 2);
+            this.button6.Location = new System.Drawing.Point(484, 3);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(156, 36);
             this.button6.TabIndex = 5;
-            this.button6.Text = "Upt. Rslt";
+            this.button6.Text = "Result - R";
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
@@ -317,27 +346,13 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button5.Location = new System.Drawing.Point(631, 2);
+            this.button5.Location = new System.Drawing.Point(646, 2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(159, 36);
             this.button5.TabIndex = 4;
             this.button5.Text = "Report - S";
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button4.Location = new System.Drawing.Point(484, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(142, 36);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Result - R";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -433,26 +448,6 @@
             this.LblDate.TabIndex = 8;
             this.LblDate.Text = "Date";
             // 
-            // LblAgentId
-            // 
-            this.LblAgentId.AutoSize = true;
-            this.LblAgentId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblAgentId.Location = new System.Drawing.Point(798, 6);
-            this.LblAgentId.Name = "LblAgentId";
-            this.LblAgentId.Size = new System.Drawing.Size(53, 17);
-            this.LblAgentId.TabIndex = 6;
-            this.LblAgentId.Text = "12345";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(690, 5);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 17);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "AGENT ID :";
-            // 
             // LblCompanyName
             // 
             this.LblCompanyName.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -485,17 +480,6 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(510, 542);
             this.flowLayoutPanel1.TabIndex = 251;
-            // 
-            // TxtLpNo
-            // 
-            this.TxtLpNo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.TxtLpNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtLpNo.Location = new System.Drawing.Point(154, 211);
-            this.TxtLpNo.MaxLength = 2;
-            this.TxtLpNo.Multiline = true;
-            this.TxtLpNo.Name = "TxtLpNo";
-            this.TxtLpNo.Size = new System.Drawing.Size(40, 32);
-            this.TxtLpNo.TabIndex = 254;
             // 
             // textBox2
             // 
@@ -581,194 +565,151 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // Txt0009
+            // grpfooter
             // 
-            this.Txt0009.BackColor = System.Drawing.Color.AliceBlue;
-            this.Txt0009.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt0009.Location = new System.Drawing.Point(68, 34);
-            this.Txt0009.MaxLength = 2;
-            this.Txt0009.Multiline = true;
-            this.Txt0009.Name = "Txt0009";
-            this.Txt0009.Size = new System.Drawing.Size(52, 30);
-            this.Txt0009.TabIndex = 264;
-            this.Txt0009.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Txt0009.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Txt0009_KeyUp);
+            this.grpfooter.BackColor = System.Drawing.Color.Teal;
+            this.grpfooter.Controls.Add(this.textBox2);
+            this.grpfooter.Controls.Add(this.label1);
+            this.grpfooter.Controls.Add(this.label4);
+            this.grpfooter.Controls.Add(this.textBox4);
+            this.grpfooter.Controls.Add(this.label146);
+            this.grpfooter.Controls.Add(this.label145);
+            this.grpfooter.Controls.Add(this.textBox3);
+            this.grpfooter.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.grpfooter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpfooter.ForeColor = System.Drawing.Color.White;
+            this.grpfooter.Location = new System.Drawing.Point(0, 694);
+            this.grpfooter.Name = "grpfooter";
+            this.grpfooter.Size = new System.Drawing.Size(1360, 51);
+            this.grpfooter.TabIndex = 547;
+            this.grpfooter.TabStop = false;
             // 
-            // TxtE0
+            // grpslots
             // 
-            this.TxtE0.BackColor = System.Drawing.Color.Magenta;
-            this.TxtE0.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtE0.Location = new System.Drawing.Point(6, 34);
-            this.TxtE0.Margin = new System.Windows.Forms.Padding(10);
-            this.TxtE0.MaxLength = 2;
-            this.TxtE0.Multiline = true;
-            this.TxtE0.Name = "TxtE0";
-            this.TxtE0.Size = new System.Drawing.Size(50, 30);
-            this.TxtE0.TabIndex = 263;
-            this.TxtE0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TxtE0.TextChanged += new System.EventHandler(this.TxtE0_TextChanged);
-            this.TxtE0.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtE0_KeyUp);
+            this.grpslots.Controls.Add(this.flowLayoutPanel1);
+            this.grpslots.Dock = System.Windows.Forms.DockStyle.Right;
+            this.grpslots.Location = new System.Drawing.Point(844, 133);
+            this.grpslots.Name = "grpslots";
+            this.grpslots.Size = new System.Drawing.Size(516, 561);
+            this.grpslots.TabIndex = 548;
+            this.grpslots.TabStop = false;
+            this.grpslots.Text = "Win Numbers";
+            this.grpslots.Visible = false;
             // 
-            // label15
+            // grptickets
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(74, 18);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(39, 13);
-            this.label15.TabIndex = 509;
-            this.label15.Text = "00-09";
+            this.grptickets.Controls.Add(this.flowLayoutPanel2);
+            this.grptickets.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grptickets.Location = new System.Drawing.Point(0, 133);
+            this.grptickets.Name = "grptickets";
+            this.grptickets.Size = new System.Drawing.Size(844, 561);
+            this.grptickets.TabIndex = 549;
+            this.grptickets.TabStop = false;
+            this.grptickets.Text = "Tickets";
+            this.grptickets.Visible = false;
             // 
-            // label14
+            // textBox5
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(18, 17);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(26, 13);
-            this.label14.TabIndex = 508;
-            this.label14.Text = "E 0";
+            this.textBox5.BackColor = System.Drawing.Color.AliceBlue;
+            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Location = new System.Drawing.Point(69, 291);
+            this.textBox5.MaxLength = 2;
+            this.textBox5.Multiline = true;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(50, 30);
+            this.textBox5.TabIndex = 539;
+            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox5_KeyUp);
             // 
-            // Txt1019
+            // Txt7079
             // 
-            this.Txt1019.BackColor = System.Drawing.Color.AliceBlue;
-            this.Txt1019.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt1019.Location = new System.Drawing.Point(70, 84);
-            this.Txt1019.MaxLength = 2;
-            this.Txt1019.Multiline = true;
-            this.Txt1019.Name = "Txt1019";
-            this.Txt1019.Size = new System.Drawing.Size(50, 30);
-            this.Txt1019.TabIndex = 511;
-            this.Txt1019.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Txt1019.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Txt1019_KeyUp);
+            this.Txt7079.BackColor = System.Drawing.Color.AliceBlue;
+            this.Txt7079.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt7079.Location = new System.Drawing.Point(68, 389);
+            this.Txt7079.MaxLength = 2;
+            this.Txt7079.Multiline = true;
+            this.Txt7079.Name = "Txt7079";
+            this.Txt7079.Size = new System.Drawing.Size(50, 30);
+            this.Txt7079.TabIndex = 531;
+            this.Txt7079.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Txt7079.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Txt7079_KeyUp);
             // 
-            // TxtE1
+            // label69
             // 
-            this.TxtE1.BackColor = System.Drawing.Color.Magenta;
-            this.TxtE1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtE1.Location = new System.Drawing.Point(6, 84);
-            this.TxtE1.MaxLength = 2;
-            this.TxtE1.Multiline = true;
-            this.TxtE1.Name = "TxtE1";
-            this.TxtE1.Size = new System.Drawing.Size(50, 30);
-            this.TxtE1.TabIndex = 510;
-            this.TxtE1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TxtE1.TextChanged += new System.EventHandler(this.TxtE1_TextChanged);
-            this.TxtE1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtE1_KeyUp);
+            this.label69.AutoSize = true;
+            this.label69.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label69.Location = new System.Drawing.Point(76, 373);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(39, 13);
+            this.label69.TabIndex = 533;
+            this.label69.Text = "70-79";
             // 
-            // label30
+            // label82
             // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(75, 68);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(39, 13);
-            this.label30.TabIndex = 513;
-            this.label30.Text = "10-19";
+            this.label82.AutoSize = true;
+            this.label82.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label82.Location = new System.Drawing.Point(76, 326);
+            this.label82.Name = "label82";
+            this.label82.Size = new System.Drawing.Size(39, 13);
+            this.label82.TabIndex = 529;
+            this.label82.Text = "60-69";
             // 
-            // label31
+            // TxtE5
             // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(19, 67);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(26, 13);
-            this.label31.TabIndex = 512;
-            this.label31.Text = "E 1";
+            this.TxtE5.BackColor = System.Drawing.Color.Magenta;
+            this.TxtE5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtE5.Location = new System.Drawing.Point(7, 341);
+            this.TxtE5.MaxLength = 2;
+            this.TxtE5.Multiline = true;
+            this.TxtE5.Name = "TxtE5";
+            this.TxtE5.Size = new System.Drawing.Size(50, 30);
+            this.TxtE5.TabIndex = 526;
+            this.TxtE5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtE5.TextChanged += new System.EventHandler(this.TxtE5_TextChanged);
+            this.TxtE5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtE5_KeyUp);
             // 
-            // Txt2029
+            // Txt5051
             // 
-            this.Txt2029.BackColor = System.Drawing.Color.AliceBlue;
-            this.Txt2029.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt2029.Location = new System.Drawing.Point(68, 137);
-            this.Txt2029.MaxLength = 2;
-            this.Txt2029.Multiline = true;
-            this.Txt2029.Name = "Txt2029";
-            this.Txt2029.Size = new System.Drawing.Size(50, 30);
-            this.Txt2029.TabIndex = 515;
-            this.Txt2029.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Txt2029.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Txt2029_KeyUp);
+            this.Txt5051.BackColor = System.Drawing.Color.AliceBlue;
+            this.Txt5051.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt5051.Location = new System.Drawing.Point(70, 341);
+            this.Txt5051.MaxLength = 2;
+            this.Txt5051.Multiline = true;
+            this.Txt5051.Name = "Txt5051";
+            this.Txt5051.Size = new System.Drawing.Size(50, 30);
+            this.Txt5051.TabIndex = 527;
+            this.Txt5051.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Txt5051.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Txt5051_KeyUp);
             // 
-            // TxtE2
+            // label109
             // 
-            this.TxtE2.BackColor = System.Drawing.Color.Magenta;
-            this.TxtE2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtE2.Location = new System.Drawing.Point(7, 137);
-            this.TxtE2.MaxLength = 2;
-            this.TxtE2.Multiline = true;
-            this.TxtE2.Name = "TxtE2";
-            this.TxtE2.Size = new System.Drawing.Size(50, 30);
-            this.TxtE2.TabIndex = 514;
-            this.TxtE2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TxtE2.TextChanged += new System.EventHandler(this.TxtE2_TextChanged);
-            this.TxtE2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtE2_KeyUp);
+            this.label109.AutoSize = true;
+            this.label109.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label109.Location = new System.Drawing.Point(18, 223);
+            this.label109.Name = "label109";
+            this.label109.Size = new System.Drawing.Size(26, 13);
+            this.label109.TabIndex = 524;
+            this.label109.Text = "E 4";
             // 
-            // label43
+            // label108
             // 
-            this.label43.AutoSize = true;
-            this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(75, 118);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(39, 13);
-            this.label43.TabIndex = 517;
-            this.label43.Text = "20-29";
+            this.label108.AutoSize = true;
+            this.label108.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label108.Location = new System.Drawing.Point(76, 223);
+            this.label108.Name = "label108";
+            this.label108.Size = new System.Drawing.Size(39, 13);
+            this.label108.TabIndex = 525;
+            this.label108.Text = "40-49";
             // 
-            // label44
+            // label83
             // 
-            this.label44.AutoSize = true;
-            this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.Location = new System.Drawing.Point(20, 118);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(26, 13);
-            this.label44.TabIndex = 516;
-            this.label44.Text = "E 2";
-            // 
-            // Txt3031
-            // 
-            this.Txt3031.BackColor = System.Drawing.Color.AliceBlue;
-            this.Txt3031.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt3031.Location = new System.Drawing.Point(68, 187);
-            this.Txt3031.MaxLength = 2;
-            this.Txt3031.Multiline = true;
-            this.Txt3031.Name = "Txt3031";
-            this.Txt3031.Size = new System.Drawing.Size(50, 30);
-            this.Txt3031.TabIndex = 519;
-            this.Txt3031.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Txt3031.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Txt3031_KeyUp);
-            // 
-            // TxtE3
-            // 
-            this.TxtE3.BackColor = System.Drawing.Color.Magenta;
-            this.TxtE3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtE3.Location = new System.Drawing.Point(7, 187);
-            this.TxtE3.MaxLength = 2;
-            this.TxtE3.Multiline = true;
-            this.TxtE3.Name = "TxtE3";
-            this.TxtE3.Size = new System.Drawing.Size(50, 30);
-            this.TxtE3.TabIndex = 518;
-            this.TxtE3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TxtE3.TextChanged += new System.EventHandler(this.TxtE3_TextChanged);
-            this.TxtE3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtE3_KeyUp);
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label56.Location = new System.Drawing.Point(74, 170);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(39, 13);
-            this.label56.TabIndex = 521;
-            this.label56.Text = "30-31";
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label57.Location = new System.Drawing.Point(21, 171);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(26, 13);
-            this.label57.TabIndex = 520;
-            this.label57.Text = "E 3";
+            this.label83.AutoSize = true;
+            this.label83.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label83.Location = new System.Drawing.Point(20, 326);
+            this.label83.Name = "label83";
+            this.label83.Size = new System.Drawing.Size(26, 13);
+            this.label83.TabIndex = 528;
+            this.label83.Text = "E 6";
             // 
             // Txt4049
             // 
@@ -797,85 +738,112 @@
             this.TxtE4.TextChanged += new System.EventHandler(this.TxtE4_TextChanged);
             this.TxtE4.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtE4_KeyUp);
             // 
-            // label108
+            // Txt8089
             // 
-            this.label108.AutoSize = true;
-            this.label108.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label108.Location = new System.Drawing.Point(76, 223);
-            this.label108.Name = "label108";
-            this.label108.Size = new System.Drawing.Size(39, 13);
-            this.label108.TabIndex = 525;
-            this.label108.Text = "40-49";
+            this.Txt8089.BackColor = System.Drawing.Color.AliceBlue;
+            this.Txt8089.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt8089.Location = new System.Drawing.Point(69, 439);
+            this.Txt8089.MaxLength = 2;
+            this.Txt8089.Multiline = true;
+            this.Txt8089.Name = "Txt8089";
+            this.Txt8089.Size = new System.Drawing.Size(50, 30);
+            this.Txt8089.TabIndex = 535;
+            this.Txt8089.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Txt8089.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Txt8089_KeyUp);
             // 
-            // label109
+            // label57
             // 
-            this.label109.AutoSize = true;
-            this.label109.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label109.Location = new System.Drawing.Point(18, 223);
-            this.label109.Name = "label109";
-            this.label109.Size = new System.Drawing.Size(26, 13);
-            this.label109.TabIndex = 524;
-            this.label109.Text = "E 4";
+            this.label57.AutoSize = true;
+            this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label57.Location = new System.Drawing.Point(21, 171);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(26, 13);
+            this.label57.TabIndex = 520;
+            this.label57.Text = "E 3";
             // 
-            // Txt5051
+            // Txt1019
             // 
-            this.Txt5051.BackColor = System.Drawing.Color.AliceBlue;
-            this.Txt5051.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt5051.Location = new System.Drawing.Point(70, 341);
-            this.Txt5051.MaxLength = 2;
-            this.Txt5051.Multiline = true;
-            this.Txt5051.Name = "Txt5051";
-            this.Txt5051.Size = new System.Drawing.Size(50, 30);
-            this.Txt5051.TabIndex = 527;
-            this.Txt5051.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Txt5051.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Txt5051_KeyUp);
+            this.Txt1019.BackColor = System.Drawing.Color.AliceBlue;
+            this.Txt1019.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt1019.Location = new System.Drawing.Point(70, 84);
+            this.Txt1019.MaxLength = 2;
+            this.Txt1019.Multiline = true;
+            this.Txt1019.Name = "Txt1019";
+            this.Txt1019.Size = new System.Drawing.Size(50, 30);
+            this.Txt1019.TabIndex = 511;
+            this.Txt1019.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Txt1019.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Txt1019_KeyUp);
             // 
-            // TxtE5
+            // TxtE3
             // 
-            this.TxtE5.BackColor = System.Drawing.Color.Magenta;
-            this.TxtE5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtE5.Location = new System.Drawing.Point(7, 341);
-            this.TxtE5.MaxLength = 2;
-            this.TxtE5.Multiline = true;
-            this.TxtE5.Name = "TxtE5";
-            this.TxtE5.Size = new System.Drawing.Size(50, 30);
-            this.TxtE5.TabIndex = 526;
-            this.TxtE5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TxtE5.TextChanged += new System.EventHandler(this.TxtE5_TextChanged);
-            this.TxtE5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtE5_KeyUp);
+            this.TxtE3.BackColor = System.Drawing.Color.Magenta;
+            this.TxtE3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtE3.Location = new System.Drawing.Point(7, 187);
+            this.TxtE3.MaxLength = 2;
+            this.TxtE3.Multiline = true;
+            this.TxtE3.Name = "TxtE3";
+            this.TxtE3.Size = new System.Drawing.Size(50, 30);
+            this.TxtE3.TabIndex = 518;
+            this.TxtE3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtE3.TextChanged += new System.EventHandler(this.TxtE3_TextChanged);
+            this.TxtE3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtE3_KeyUp);
             // 
-            // label82
+            // label30
             // 
-            this.label82.AutoSize = true;
-            this.label82.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label82.Location = new System.Drawing.Point(76, 326);
-            this.label82.Name = "label82";
-            this.label82.Size = new System.Drawing.Size(39, 13);
-            this.label82.TabIndex = 529;
-            this.label82.Text = "60-69";
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(75, 68);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(39, 13);
+            this.label30.TabIndex = 513;
+            this.label30.Text = "10-19";
             // 
-            // label83
+            // label44
             // 
-            this.label83.AutoSize = true;
-            this.label83.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label83.Location = new System.Drawing.Point(20, 326);
-            this.label83.Name = "label83";
-            this.label83.Size = new System.Drawing.Size(26, 13);
-            this.label83.TabIndex = 528;
-            this.label83.Text = "E 6";
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.Location = new System.Drawing.Point(20, 118);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(26, 13);
+            this.label44.TabIndex = 516;
+            this.label44.Text = "E 2";
             // 
-            // Txt7079
+            // label95
             // 
-            this.Txt7079.BackColor = System.Drawing.Color.AliceBlue;
-            this.Txt7079.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt7079.Location = new System.Drawing.Point(68, 389);
-            this.Txt7079.MaxLength = 2;
-            this.Txt7079.Multiline = true;
-            this.Txt7079.Name = "Txt7079";
-            this.Txt7079.Size = new System.Drawing.Size(50, 30);
-            this.Txt7079.TabIndex = 531;
-            this.Txt7079.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Txt7079.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Txt7079_KeyUp);
+            this.label95.AutoSize = true;
+            this.label95.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label95.Location = new System.Drawing.Point(75, 274);
+            this.label95.Name = "label95";
+            this.label95.Size = new System.Drawing.Size(39, 13);
+            this.label95.TabIndex = 541;
+            this.label95.Text = "50-51";
+            // 
+            // TxtE2
+            // 
+            this.TxtE2.BackColor = System.Drawing.Color.Magenta;
+            this.TxtE2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtE2.Location = new System.Drawing.Point(7, 137);
+            this.TxtE2.MaxLength = 2;
+            this.TxtE2.Multiline = true;
+            this.TxtE2.Name = "TxtE2";
+            this.TxtE2.Size = new System.Drawing.Size(50, 30);
+            this.TxtE2.TabIndex = 514;
+            this.TxtE2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtE2.TextChanged += new System.EventHandler(this.TxtE2_TextChanged);
+            this.TxtE2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtE2_KeyUp);
+            // 
+            // Txt2029
+            // 
+            this.Txt2029.BackColor = System.Drawing.Color.AliceBlue;
+            this.Txt2029.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt2029.Location = new System.Drawing.Point(68, 137);
+            this.Txt2029.MaxLength = 2;
+            this.Txt2029.Multiline = true;
+            this.Txt2029.Name = "Txt2029";
+            this.Txt2029.Size = new System.Drawing.Size(50, 30);
+            this.Txt2029.TabIndex = 515;
+            this.Txt2029.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Txt2029.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Txt2029_KeyUp);
             // 
             // TxtE7
             // 
@@ -891,85 +859,15 @@
             this.TxtE7.TextChanged += new System.EventHandler(this.TxtE7_TextChanged);
             this.TxtE7.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtE7_KeyUp);
             // 
-            // label69
+            // label43
             // 
-            this.label69.AutoSize = true;
-            this.label69.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label69.Location = new System.Drawing.Point(76, 373);
-            this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(39, 13);
-            this.label69.TabIndex = 533;
-            this.label69.Text = "70-79";
-            // 
-            // label70
-            // 
-            this.label70.AutoSize = true;
-            this.label70.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label70.Location = new System.Drawing.Point(18, 373);
-            this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(26, 13);
-            this.label70.TabIndex = 532;
-            this.label70.Text = "E 7";
-            // 
-            // Txt8089
-            // 
-            this.Txt8089.BackColor = System.Drawing.Color.AliceBlue;
-            this.Txt8089.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt8089.Location = new System.Drawing.Point(69, 439);
-            this.Txt8089.MaxLength = 2;
-            this.Txt8089.Multiline = true;
-            this.Txt8089.Name = "Txt8089";
-            this.Txt8089.Size = new System.Drawing.Size(50, 30);
-            this.Txt8089.TabIndex = 535;
-            this.Txt8089.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Txt8089.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Txt8089_KeyUp);
-            // 
-            // TxtE8
-            // 
-            this.TxtE8.BackColor = System.Drawing.Color.Magenta;
-            this.TxtE8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtE8.Location = new System.Drawing.Point(7, 438);
-            this.TxtE8.MaxLength = 2;
-            this.TxtE8.Multiline = true;
-            this.TxtE8.Name = "TxtE8";
-            this.TxtE8.Size = new System.Drawing.Size(50, 30);
-            this.TxtE8.TabIndex = 534;
-            this.TxtE8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TxtE8.TextChanged += new System.EventHandler(this.TxtE8_TextChanged);
-            this.TxtE8.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtE8_KeyUp);
-            // 
-            // label134
-            // 
-            this.label134.AutoSize = true;
-            this.label134.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label134.Location = new System.Drawing.Point(79, 423);
-            this.label134.Name = "label134";
-            this.label134.Size = new System.Drawing.Size(39, 13);
-            this.label134.TabIndex = 537;
-            this.label134.Text = "80-89";
-            // 
-            // label135
-            // 
-            this.label135.AutoSize = true;
-            this.label135.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label135.Location = new System.Drawing.Point(18, 423);
-            this.label135.Name = "label135";
-            this.label135.Size = new System.Drawing.Size(26, 13);
-            this.label135.TabIndex = 536;
-            this.label135.Text = "E 8";
-            // 
-            // textBox5
-            // 
-            this.textBox5.BackColor = System.Drawing.Color.AliceBlue;
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(69, 291);
-            this.textBox5.MaxLength = 2;
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(50, 30);
-            this.textBox5.TabIndex = 539;
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox5_KeyUp);
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.Location = new System.Drawing.Point(75, 118);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(39, 13);
+            this.label43.TabIndex = 517;
+            this.label43.Text = "20-29";
             // 
             // textBox6
             // 
@@ -985,15 +883,82 @@
             this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             this.textBox6.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox6_KeyUp);
             // 
-            // label95
+            // label134
             // 
-            this.label95.AutoSize = true;
-            this.label95.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label95.Location = new System.Drawing.Point(75, 274);
-            this.label95.Name = "label95";
-            this.label95.Size = new System.Drawing.Size(39, 13);
-            this.label95.TabIndex = 541;
-            this.label95.Text = "50-51";
+            this.label134.AutoSize = true;
+            this.label134.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label134.Location = new System.Drawing.Point(79, 423);
+            this.label134.Name = "label134";
+            this.label134.Size = new System.Drawing.Size(39, 13);
+            this.label134.TabIndex = 537;
+            this.label134.Text = "80-89";
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label70.Location = new System.Drawing.Point(18, 373);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(26, 13);
+            this.label70.TabIndex = 532;
+            this.label70.Text = "E 7";
+            // 
+            // Txt3031
+            // 
+            this.Txt3031.BackColor = System.Drawing.Color.AliceBlue;
+            this.Txt3031.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt3031.Location = new System.Drawing.Point(68, 187);
+            this.Txt3031.MaxLength = 2;
+            this.Txt3031.Multiline = true;
+            this.Txt3031.Name = "Txt3031";
+            this.Txt3031.Size = new System.Drawing.Size(50, 30);
+            this.Txt3031.TabIndex = 519;
+            this.Txt3031.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Txt3031.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Txt3031_KeyUp);
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(19, 67);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(26, 13);
+            this.label31.TabIndex = 512;
+            this.label31.Text = "E 1";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.Location = new System.Drawing.Point(74, 170);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(39, 13);
+            this.label56.TabIndex = 521;
+            this.label56.Text = "30-31";
+            // 
+            // TxtE8
+            // 
+            this.TxtE8.BackColor = System.Drawing.Color.Magenta;
+            this.TxtE8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtE8.Location = new System.Drawing.Point(7, 438);
+            this.TxtE8.MaxLength = 2;
+            this.TxtE8.Multiline = true;
+            this.TxtE8.Name = "TxtE8";
+            this.TxtE8.Size = new System.Drawing.Size(50, 30);
+            this.TxtE8.TabIndex = 534;
+            this.TxtE8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtE8.TextChanged += new System.EventHandler(this.TxtE8_TextChanged);
+            this.TxtE8.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtE8_KeyUp);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(74, 18);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(39, 13);
+            this.label15.TabIndex = 509;
+            this.label15.Text = "00-09";
             // 
             // label96
             // 
@@ -1004,6 +969,29 @@
             this.label96.Size = new System.Drawing.Size(26, 13);
             this.label96.TabIndex = 540;
             this.label96.Text = "E 5";
+            // 
+            // Txt0009
+            // 
+            this.Txt0009.BackColor = System.Drawing.Color.AliceBlue;
+            this.Txt0009.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt0009.Location = new System.Drawing.Point(68, 34);
+            this.Txt0009.MaxLength = 2;
+            this.Txt0009.Multiline = true;
+            this.Txt0009.Name = "Txt0009";
+            this.Txt0009.Size = new System.Drawing.Size(52, 30);
+            this.Txt0009.TabIndex = 264;
+            this.Txt0009.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Txt0009.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Txt0009_KeyUp);
+            // 
+            // label135
+            // 
+            this.label135.AutoSize = true;
+            this.label135.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label135.Location = new System.Drawing.Point(18, 423);
+            this.label135.Name = "label135";
+            this.label135.Size = new System.Drawing.Size(26, 13);
+            this.label135.TabIndex = 536;
+            this.label135.Text = "E 8";
             // 
             // Txt9099
             // 
@@ -1017,6 +1005,64 @@
             this.Txt9099.TabIndex = 543;
             this.Txt9099.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Txt9099.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Txt9099_KeyUp);
+            // 
+            // TxtLpNo
+            // 
+            this.TxtLpNo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.TxtLpNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtLpNo.Location = new System.Drawing.Point(154, 211);
+            this.TxtLpNo.MaxLength = 2;
+            this.TxtLpNo.Multiline = true;
+            this.TxtLpNo.Name = "TxtLpNo";
+            this.TxtLpNo.Size = new System.Drawing.Size(40, 32);
+            this.TxtLpNo.TabIndex = 254;
+            // 
+            // TxtE1
+            // 
+            this.TxtE1.BackColor = System.Drawing.Color.Magenta;
+            this.TxtE1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtE1.Location = new System.Drawing.Point(6, 84);
+            this.TxtE1.MaxLength = 2;
+            this.TxtE1.Multiline = true;
+            this.TxtE1.Name = "TxtE1";
+            this.TxtE1.Size = new System.Drawing.Size(50, 30);
+            this.TxtE1.TabIndex = 510;
+            this.TxtE1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtE1.TextChanged += new System.EventHandler(this.TxtE1_TextChanged);
+            this.TxtE1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtE1_KeyUp);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(73, 474);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(39, 13);
+            this.label10.TabIndex = 545;
+            this.label10.Text = "90-99";
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.Location = new System.Drawing.Point(154, 249);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(40, 39);
+            this.button7.TabIndex = 547;
+            this.button7.Text = "LP";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click_1);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(18, 17);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(26, 13);
+            this.label14.TabIndex = 508;
+            this.label14.Text = "E 0";
             // 
             // TxtE9
             // 
@@ -1032,6 +1078,21 @@
             this.TxtE9.TextChanged += new System.EventHandler(this.TxtE9_TextChanged);
             this.TxtE9.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtE9_KeyUp);
             // 
+            // TxtE0
+            // 
+            this.TxtE0.BackColor = System.Drawing.Color.Magenta;
+            this.TxtE0.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtE0.Location = new System.Drawing.Point(6, 34);
+            this.TxtE0.Margin = new System.Windows.Forms.Padding(10);
+            this.TxtE0.MaxLength = 2;
+            this.TxtE0.Multiline = true;
+            this.TxtE0.Name = "TxtE0";
+            this.TxtE0.Size = new System.Drawing.Size(50, 30);
+            this.TxtE0.TabIndex = 263;
+            this.TxtE0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtE0.TextChanged += new System.EventHandler(this.TxtE0_TextChanged);
+            this.TxtE0.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtE0_KeyUp);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -1042,131 +1103,59 @@
             this.label3.TabIndex = 544;
             this.label3.Text = "E 9";
             // 
-            // label10
+            // grppickticket
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(73, 474);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(39, 13);
-            this.label10.TabIndex = 545;
-            this.label10.Text = "90-99";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.Color.Teal;
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.label146);
-            this.groupBox2.Controls.Add(this.label145);
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(0, 694);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1360, 51);
-            this.groupBox2.TabIndex = 547;
-            this.groupBox2.TabStop = false;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.flowLayoutPanel1);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox3.Location = new System.Drawing.Point(844, 133);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(516, 561);
-            this.groupBox3.TabIndex = 548;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Win Numbers";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.flowLayoutPanel2);
-            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(0, 133);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(844, 561);
-            this.groupBox4.TabIndex = 549;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Tickets";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.BackColor = System.Drawing.Color.Navy;
-            this.groupBox5.Controls.Add(this.label3);
-            this.groupBox5.Controls.Add(this.TxtE0);
-            this.groupBox5.Controls.Add(this.TxtE9);
-            this.groupBox5.Controls.Add(this.label14);
-            this.groupBox5.Controls.Add(this.button7);
-            this.groupBox5.Controls.Add(this.label10);
-            this.groupBox5.Controls.Add(this.TxtE1);
-            this.groupBox5.Controls.Add(this.TxtLpNo);
-            this.groupBox5.Controls.Add(this.Txt9099);
-            this.groupBox5.Controls.Add(this.label135);
-            this.groupBox5.Controls.Add(this.Txt0009);
-            this.groupBox5.Controls.Add(this.label96);
-            this.groupBox5.Controls.Add(this.label15);
-            this.groupBox5.Controls.Add(this.TxtE8);
-            this.groupBox5.Controls.Add(this.label56);
-            this.groupBox5.Controls.Add(this.label31);
-            this.groupBox5.Controls.Add(this.Txt3031);
-            this.groupBox5.Controls.Add(this.label70);
-            this.groupBox5.Controls.Add(this.label134);
-            this.groupBox5.Controls.Add(this.textBox6);
-            this.groupBox5.Controls.Add(this.label43);
-            this.groupBox5.Controls.Add(this.TxtE7);
-            this.groupBox5.Controls.Add(this.Txt2029);
-            this.groupBox5.Controls.Add(this.TxtE2);
-            this.groupBox5.Controls.Add(this.label95);
-            this.groupBox5.Controls.Add(this.label44);
-            this.groupBox5.Controls.Add(this.label30);
-            this.groupBox5.Controls.Add(this.TxtE3);
-            this.groupBox5.Controls.Add(this.Txt1019);
-            this.groupBox5.Controls.Add(this.label57);
-            this.groupBox5.Controls.Add(this.Txt8089);
-            this.groupBox5.Controls.Add(this.TxtE4);
-            this.groupBox5.Controls.Add(this.Txt4049);
-            this.groupBox5.Controls.Add(this.label83);
-            this.groupBox5.Controls.Add(this.label108);
-            this.groupBox5.Controls.Add(this.label109);
-            this.groupBox5.Controls.Add(this.Txt5051);
-            this.groupBox5.Controls.Add(this.TxtE5);
-            this.groupBox5.Controls.Add(this.label82);
-            this.groupBox5.Controls.Add(this.label69);
-            this.groupBox5.Controls.Add(this.Txt7079);
-            this.groupBox5.Controls.Add(this.textBox5);
-            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox5.ForeColor = System.Drawing.Color.White;
-            this.groupBox5.Location = new System.Drawing.Point(606, 133);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(238, 561);
-            this.groupBox5.TabIndex = 550;
-            this.groupBox5.TabStop = false;
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(154, 249);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(40, 39);
-            this.button7.TabIndex = 547;
-            this.button7.Text = "LP";
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click_1);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(202, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(225, 53);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 253;
-            this.pictureBox1.TabStop = false;
+            this.grppickticket.BackColor = System.Drawing.Color.Navy;
+            this.grppickticket.Controls.Add(this.label3);
+            this.grppickticket.Controls.Add(this.TxtE0);
+            this.grppickticket.Controls.Add(this.TxtE9);
+            this.grppickticket.Controls.Add(this.label14);
+            this.grppickticket.Controls.Add(this.button7);
+            this.grppickticket.Controls.Add(this.label10);
+            this.grppickticket.Controls.Add(this.TxtE1);
+            this.grppickticket.Controls.Add(this.TxtLpNo);
+            this.grppickticket.Controls.Add(this.Txt9099);
+            this.grppickticket.Controls.Add(this.label135);
+            this.grppickticket.Controls.Add(this.Txt0009);
+            this.grppickticket.Controls.Add(this.label96);
+            this.grppickticket.Controls.Add(this.label15);
+            this.grppickticket.Controls.Add(this.TxtE8);
+            this.grppickticket.Controls.Add(this.label56);
+            this.grppickticket.Controls.Add(this.label31);
+            this.grppickticket.Controls.Add(this.Txt3031);
+            this.grppickticket.Controls.Add(this.label70);
+            this.grppickticket.Controls.Add(this.label134);
+            this.grppickticket.Controls.Add(this.textBox6);
+            this.grppickticket.Controls.Add(this.label43);
+            this.grppickticket.Controls.Add(this.TxtE7);
+            this.grppickticket.Controls.Add(this.Txt2029);
+            this.grppickticket.Controls.Add(this.TxtE2);
+            this.grppickticket.Controls.Add(this.label95);
+            this.grppickticket.Controls.Add(this.label44);
+            this.grppickticket.Controls.Add(this.label30);
+            this.grppickticket.Controls.Add(this.TxtE3);
+            this.grppickticket.Controls.Add(this.Txt1019);
+            this.grppickticket.Controls.Add(this.label57);
+            this.grppickticket.Controls.Add(this.Txt8089);
+            this.grppickticket.Controls.Add(this.TxtE4);
+            this.grppickticket.Controls.Add(this.Txt4049);
+            this.grppickticket.Controls.Add(this.label83);
+            this.grppickticket.Controls.Add(this.label108);
+            this.grppickticket.Controls.Add(this.label109);
+            this.grppickticket.Controls.Add(this.Txt5051);
+            this.grppickticket.Controls.Add(this.TxtE5);
+            this.grppickticket.Controls.Add(this.label82);
+            this.grppickticket.Controls.Add(this.label69);
+            this.grppickticket.Controls.Add(this.Txt7079);
+            this.grppickticket.Controls.Add(this.textBox5);
+            this.grppickticket.Dock = System.Windows.Forms.DockStyle.Right;
+            this.grppickticket.ForeColor = System.Drawing.Color.White;
+            this.grppickticket.Location = new System.Drawing.Point(606, 133);
+            this.grppickticket.Name = "grppickticket";
+            this.grppickticket.Size = new System.Drawing.Size(238, 561);
+            this.grppickticket.TabIndex = 550;
+            this.grppickticket.TabStop = false;
+            this.grppickticket.Visible = false;
             // 
             // FrmJackportDemo
             // 
@@ -1175,39 +1164,38 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(1360, 745);
-            this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.grppickticket);
+            this.Controls.Add(this.grptickets);
+            this.Controls.Add(this.grpslots);
+            this.Controls.Add(this.grpfooter);
+            this.Controls.Add(this.headerpanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "FrmJackportDemo";
             this.Text = "Jackport";
             this.Load += new System.EventHandler(this.FrmJackport_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.headerpanel.ResumeLayout(false);
+            this.headerpanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.grpfooter.ResumeLayout(false);
+            this.grpfooter.PerformLayout();
+            this.grpslots.ResumeLayout(false);
+            this.grptickets.ResumeLayout(false);
+            this.grppickticket.ResumeLayout(false);
+            this.grppickticket.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel headerpanel;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
@@ -1229,7 +1217,6 @@
         private System.Windows.Forms.Label label140;
         private System.Windows.Forms.Label lblticketprice;
         private System.Windows.Forms.Label lblpriceformat;
-        private System.Windows.Forms.TextBox TxtLpNo;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
@@ -1239,54 +1226,55 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.TextBox Txt0009;
-        private System.Windows.Forms.TextBox TxtE0;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox Txt1019;
-        private System.Windows.Forms.TextBox TxtE1;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.TextBox Txt2029;
-        private System.Windows.Forms.TextBox TxtE2;
-        private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.TextBox Txt3031;
-        private System.Windows.Forms.TextBox TxtE3;
-        private System.Windows.Forms.Label label56;
-        private System.Windows.Forms.Label label57;
-        private System.Windows.Forms.TextBox Txt4049;
-        private System.Windows.Forms.TextBox TxtE4;
-        private System.Windows.Forms.Label label108;
-        private System.Windows.Forms.Label label109;
-        private System.Windows.Forms.TextBox Txt5051;
-        private System.Windows.Forms.TextBox TxtE5;
-        private System.Windows.Forms.Label label82;
-        private System.Windows.Forms.Label label83;
-        private System.Windows.Forms.TextBox Txt7079;
-        private System.Windows.Forms.TextBox TxtE7;
-        private System.Windows.Forms.Label label69;
-        private System.Windows.Forms.Label label70;
-        private System.Windows.Forms.TextBox Txt8089;
-        private System.Windows.Forms.TextBox TxtE8;
-        private System.Windows.Forms.Label label134;
-        private System.Windows.Forms.Label label135;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label95;
-        private System.Windows.Forms.Label label96;
         private System.Windows.Forms.ComboBox cmbSlot;
-        private System.Windows.Forms.TextBox Txt9099;
-        private System.Windows.Forms.TextBox TxtE9;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblprice;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.GroupBox grpfooter;
+        private System.Windows.Forms.GroupBox grpslots;
+        private System.Windows.Forms.GroupBox grptickets;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox Txt7079;
+        private System.Windows.Forms.Label label69;
+        private System.Windows.Forms.Label label82;
+        private System.Windows.Forms.TextBox TxtE5;
+        private System.Windows.Forms.TextBox Txt5051;
+        private System.Windows.Forms.Label label109;
+        private System.Windows.Forms.Label label108;
+        private System.Windows.Forms.Label label83;
+        private System.Windows.Forms.TextBox Txt4049;
+        private System.Windows.Forms.TextBox TxtE4;
+        private System.Windows.Forms.TextBox Txt8089;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.TextBox Txt1019;
+        private System.Windows.Forms.TextBox TxtE3;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Label label95;
+        private System.Windows.Forms.TextBox TxtE2;
+        private System.Windows.Forms.TextBox Txt2029;
+        private System.Windows.Forms.TextBox TxtE7;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label134;
+        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.TextBox Txt3031;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.TextBox TxtE8;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label96;
+        private System.Windows.Forms.TextBox Txt0009;
+        private System.Windows.Forms.Label label135;
+        private System.Windows.Forms.TextBox Txt9099;
+        private System.Windows.Forms.TextBox TxtLpNo;
+        private System.Windows.Forms.TextBox TxtE1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox TxtE9;
+        private System.Windows.Forms.TextBox TxtE0;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox grppickticket;
     }
 }

@@ -23,8 +23,8 @@ namespace Jackport
         public string deviceId;
         public ClsService()
         {
-            deviceId = getMachineId().ToString().Trim();
-            // deviceId = "-hcaFK5rNlk8rFKhI2e-kStz04MpLGoCAqEIJAA7G30";
+            //deviceId = getMachineId().ToString().Trim();
+            deviceId = "-hcaFK5rNlk8rFKhI2e-kStz04MpLGoCAqEIJAA7G30";
         }
         public bool ActivateLicenceAsync(string licenceKey)
         {
@@ -53,35 +53,38 @@ namespace Jackport
         }
 
 
-        public LoginData LoginAsync(string userName, string password)
+        public async Task<LoginData> LoginAsync(string userName, string password)
         {
 
             try
             {
-                var client = new RestClient("https://api.welcomejk.com/v1/logins/do");
-                client.Timeout = -1;
-                var request = new RestRequest(Method.POST);
-                request.AddHeader("APP-KEY", "e76d8c85-979c-411a-89f6-f1dfe0dfa041");
-                request.AlwaysMultipartFormData = true;
-                request.AddParameter("username", userName);
-                request.AddParameter("password", password);
-                // request.AddParameter("machine_id", getMachineId().ToString().Trim());
-                request.AddParameter("machine_id", deviceId);
-                IRestResponse response = client.Execute(request);
-                var result = JsonConvert.DeserializeObject<Root>(response.Content);
-                FrmLogin Login = new FrmLogin();
-                if (result.success && result.code == 200)
+                await Task.Run(() =>
                 {
+                    var client = new RestClient("https://api.welcomejk.com/v1/logins/do");
+                    client.Timeout = -1;
+                    var request = new RestRequest(Method.POST);
+                    request.AddHeader("APP-KEY", "e76d8c85-979c-411a-89f6-f1dfe0dfa041");
+                    request.AlwaysMultipartFormData = true;
+                    request.AddParameter("username", userName);
+                    request.AddParameter("password", password);
+                    // request.AddParameter("machine_id", getMachineId().ToString().Trim());
+                    request.AddParameter("machine_id", deviceId);
+                    IRestResponse response = client.Execute(request);
+                    var result = JsonConvert.DeserializeObject<Root>(response.Content);
+                    FrmLogin Login = new FrmLogin();
+                    if (result.success && result.code == 200)
+                    {
 
-                    return result.data;
+                        return result.data;
 
-                }
-                else
-                {
-                    MessageBox.Show(result.message);
-                    return null;
+                    }
+                    else
+                    {
+                        MessageBox.Show(result.message);
+                        return null;
 
-                }
+                    }
+                });
             }
             catch (Exception ex)
             {
@@ -99,7 +102,7 @@ namespace Jackport
             return deviceId;
         }
 
-        public object PurchaseSingleTicketAsync(string token, List<Bid> bidList, List<PurchaseTicket> ticketList)
+        public List<TimeSlotList> PurchaseSingleTicketAsync(string token, List<Bid> bidList, List<PurchaseTicket> ticketList)
         {
             var client = new RestClient("https://api.welcomejk.com/v1/tickets/buy-all");
             client.Timeout = -1;
@@ -122,7 +125,8 @@ namespace Jackport
             if (result.success)
             {
                 MessageBox.Show(result.message);
-                return result.data.agent_balance;
+                return result.data.time_slots; ;
+
 
             }
             else
@@ -270,6 +274,7 @@ namespace Jackport
         }
 
 
+
         public bool CancelTicket(string token, string barcode)
         {
             var client = new RestClient("https://api.welcomejk.com/v1/tickets/cancel/" + barcode);
@@ -319,7 +324,7 @@ namespace Jackport
 
         public List<TimeSlot> GetUpdatedSlots()
         {
-
+            await Task.Run(() => { });
             var client = new RestClient("https://api.welcomejk.com/v1/tickets/refresh-slots");
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
@@ -403,5 +408,7 @@ namespace Jackport
             }
 
         }
+
+
     }
 }

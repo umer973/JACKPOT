@@ -1,4 +1,5 @@
-﻿using Jackport.DataModel;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using Jackport.DataModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,7 +31,7 @@ namespace Jackport
                 DateTime dt1 = dtfrom.Value;
                 DateTime dt2 = dtTo.Value;
                 report = clsService.GetReportSummary(dt1.ToString("yyyy-MM-dd"), (dt2.ToString("yyyy-MM-dd")));
-
+                
                 lblAgentID.Text = UserAgent.AgentCode;
                 lblDate.Text = DateTime.Now.ToString();
                 lblGrosssaleAmt.Text = report.gross_sales_amount;
@@ -46,11 +47,48 @@ namespace Jackport
                 lblfrom.Text = dtfrom.Text;
                 lblto.Text = dtTo.Text;
                 panel1.Visible = true;
+                // Print(ds);
+                Print();
             }
             catch { }
 
 
 
+        }
+
+
+       
+
+
+        private void Print()
+        {
+
+            try
+            {
+               
+                try
+                {
+              
+
+
+                   // Popup objpop;
+                  //  PnlPrintInvoice.Visible = true;
+                    //objpop = new Popup("DELIVERY NOT", PnlPrintInvoice);
+                    //objpop.StartPosition = FormStartPosition.CenterScreen;
+                    //objpop.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+                    //objpop.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)

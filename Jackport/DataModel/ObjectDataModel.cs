@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -208,6 +209,8 @@ namespace Jackport.DataModel
         public string total_profit { get; set; }
         public string net_to_pay { get; set; }
     }
+ 
+
 
     public class ReportData
     {
@@ -215,6 +218,8 @@ namespace Jackport.DataModel
         public int code { get; set; }
         public string message { get; set; }
         public ReportSummary data { get; set; }
+     
+
     }
 
 
@@ -243,6 +248,7 @@ namespace Jackport.DataModel
         public string message { get; set; }
         public string app_time { get; set; }
         public List<SlotList> data { get; set; }
+
 
     }
 
