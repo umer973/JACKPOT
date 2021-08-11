@@ -37,10 +37,8 @@ namespace Jackport
         DateTime slotitme;
         DateTime dateTime = DateTime.Now;
         int ticketPrice = 0;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private ProgressBar progressbar;
-        private Label lblStatus;
-        int val = 0;
+
+        bool IsSlotOver = false;
 
         public FrmJackportDemo(LoginData _data)
         {
@@ -53,12 +51,7 @@ namespace Jackport
             objLogin.Hide();
             clsService = new ClsService();
 
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
-            backgroundWorker1.ProgressChanged += new ProgressChangedEventHandler
-                    (backgroundWorker1_ProgressChanged);
-            backgroundWorker1.WorkerReportsProgress = true;
+
 
         }
 
@@ -66,67 +59,10 @@ namespace Jackport
 
         public async void FrmJackport_Load(object sender, EventArgs e)
         {
-            progressbar = new ProgressBar();
-            lblStatus = new Label();
 
-
-            lblStatus.Location = new Point(600, 150);
-
-            lblStatus.Font = new Font("Calibri", 18);
-            progressbar.Location = new System.Drawing.Point(600, 300);
-            progressbar.Name = "progressBar1";
-            progressbar.Width = 200;
-            progressbar.Height = 30;
-            progressbar.Maximum = 100;
-            progressbar.Step = 1;
-            progressbar.Style = ProgressBarStyle.Blocks;
-            this.Controls.Add(progressbar);
-
-            this.Controls.Add(lblStatus);
 
             await LoadData();
-            //  backgroundWorker1.RunWorkerAsync();
 
-
-
-
-
-        }
-
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-        {
-            val++;
-            for (int i = 0; i <= 100; i++)
-            {
-                Thread.Sleep(100);
-                backgroundWorker1.ReportProgress(i);
-            }
-            backgroundWorker1.ReportProgress(100);
-
-
-        }
-
-
-        void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-            // progressbar.Value = val;
-            // This function fires on the UI thread so it's safe to edit
-            // the UI control directly, no funny business with Control.Invoke :)
-            // Update the progressBar with the integer supplied to us from the
-            // ReportProgress() function.
-
-            this.Text = "Processing......" + progressbar.Value.ToString() + "%";
-
-            progressbar.Value = e.ProgressPercentage;
-        }
-        // Put all of background logic that is taking too much time      
-
-
-        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            if (e.Cancelled) MessageBox.Show("Operation was canceled");
-            else if (e.Error != null) MessageBox.Show(e.Error.Message);
-            else MessageBox.Show(e.Result.ToString());
         }
 
         private async Task LoadData()
@@ -165,11 +101,6 @@ namespace Jackport
                 SetLoading(false);
             }
 
-
-
-
-
-
         }
 
         private void RunTimer()
@@ -199,9 +130,9 @@ namespace Jackport
                 panel2.Visible = true;
                 panel3.Visible = true;
                 tblboard.Visible = true;
-              
-               
-               
+
+
+
                 this.Cursor = System.Windows.Forms.Cursors.Default;
 
                 ScrollDown();
@@ -254,6 +185,12 @@ namespace Jackport
                     flag = false;
                 }
 
+                var overedSlots = list.Where(x => x.slot_over == "0").ToList();
+
+                if (overedSlots.Count == 0)
+                {
+                    IsSlotOver = true;
+                }
 
             }
             catch (Exception ex)
@@ -574,7 +511,7 @@ namespace Jackport
         {
 
             appTime = appTime.AddSeconds(1);
-
+            bool flag = false;
             int hh = appTime.Hour;
             int mm = appTime.Minute;
             int ss = appTime.Second;
@@ -626,6 +563,32 @@ namespace Jackport
 
             var remainintime = DateTime.Compare(Convert.ToDateTime(endtime), appTime);
 
+            List<TimeSlot> timeSlot = new List<TimeSlot>();
+
+            if (remainintime == 0)
+            {
+                LblCountDown1.Text = leftTime.ToString();
+                timer1.Stop();
+                ClsService clsService = new ClsService();
+                var result = clsService.GetWinTickets(Convert.ToInt16(slotdId));
+
+                FrmWinPrice ObjWinPrice = new FrmWinPrice(result);
+                ObjWinPrice.ShowDialog();
+
+                timeSlot = await RefreshSlots();
+                SetCurrentSlot(timeSlot);
+
+                await loadWinPrizes(timeSlot);
+                timer1.Start();
+                flag = true;
+
+
+
+
+            }
+
+            var overedSlots = timeSlot.Where(x => x.slot_over == "0").ToList();
+
 
 
             if (remainintime == -1)
@@ -637,30 +600,23 @@ namespace Jackport
                 LblCountDown1.Text = leftTime.ToString();
             }
 
-            if (remainintime == 0)
+            if (overedSlots.Count == 0 && flag)
             {
-                timer1.Stop();
-                ClsService clsService = new ClsService();
-                var result = clsService.GetWinTickets(Convert.ToInt16(slotdId));
-
-                FrmWinPrice ObjWinPrice = new FrmWinPrice(result);
-                ObjWinPrice.ShowDialog();
-
-                List<TimeSlot> timeSlot = await RefreshSlots();
-
-                if (timeSlot == null)
-                {
-                    return;
-                }
-                else
-                {
-                    SetCurrentSlot(timeSlot);
-
-                    loadWinPrizes(timeSlot);
-                }
-
-                timer1.Start();
+                IsSlotOver = true;
+                LblCountDown1.Text = "00:00:00";
+                timeSlot = await RefreshSlots();
+                SetCurrentSlot(timeSlot);
+                await loadWinPrizes(timeSlot);
             }
+            else
+            {
+                IsSlotOver = false;
+                LblCountDown1.Text = leftTime.ToString();
+            }
+
+
+
+
         }
 
         //public void SetAppTime()
