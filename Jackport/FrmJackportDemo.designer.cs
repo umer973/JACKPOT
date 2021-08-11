@@ -629,7 +629,7 @@
             this.flowLayoutPanel2.ForeColor = System.Drawing.Color.White;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(579, 559);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(586, 559);
             this.flowLayoutPanel2.TabIndex = 507;
             // 
             // TxtE9
@@ -1170,10 +1170,10 @@
             this.panel1.Controls.Add(this.textBox6);
             this.panel1.Controls.Add(this.TxtE4);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(585, 0);
+            this.panel1.Location = new System.Drawing.Point(592, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(194, 565);
+            this.panel1.Size = new System.Drawing.Size(187, 565);
             this.panel1.TabIndex = 548;
             // 
             // pnlFooter
@@ -1199,8 +1199,8 @@
             this.tblLayout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tblLayout.BackColor = System.Drawing.Color.Navy;
             this.tblLayout.ColumnCount = 3;
-            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.01471F));
-            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.26471F));
+            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.52941F));
+            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.75F));
             this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.64706F));
             this.tblLayout.Controls.Add(this.panel1, 1, 0);
             this.tblLayout.Controls.Add(this.flowLayoutPanel1, 2, 0);
