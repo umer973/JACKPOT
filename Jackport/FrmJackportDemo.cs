@@ -195,11 +195,13 @@ namespace Jackport
             {
 
                 headerpanel.Visible = true;
-                
+                pnlFooter.Visible = true;
                 panel2.Visible = true;
                 panel3.Visible = true;
-                grpslots.Visible = true;
-                grptickets.Visible = true;
+                tblboard.Visible = true;
+              
+               
+               
                 this.Cursor = System.Windows.Forms.Cursors.Default;
 
                 ScrollDown();
@@ -2184,6 +2186,21 @@ namespace Jackport
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tblboard_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
