@@ -22,8 +22,8 @@ namespace Jackport
 
         public ClsService()
         {
-           // deviceId = getMachineId().ToString().Trim();
-            deviceId = "-hcaFK5rNlk8rFKhI2e-kStz04MpLGoCAqEIJAA7G30";
+            deviceId = getMachineId().ToString().Trim();
+            //deviceId = "-hcaFK5rNlk8rFKhI2e-kStz04MpLGoCAqEIJAA7G30";
         }
         public bool ActivateLicenceAsync(string licenceKey)
         {

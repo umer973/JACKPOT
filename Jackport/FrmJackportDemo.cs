@@ -232,6 +232,7 @@ namespace Jackport
         {
             int flag = 0;
             int winflag = 0;
+            
             foreach (ListValueControl ctr in flowLayoutPanel1.Controls)
             {
                 flag++;
@@ -572,7 +573,7 @@ namespace Jackport
 
             var remainintime = DateTime.Compare(Convert.ToDateTime(endtime), appTime);
 
-            if (IsSloverOver == false)
+            if (IsSloverOver == true)
             {
 
                 if (remainintime == -1)
@@ -597,7 +598,7 @@ namespace Jackport
 
                     IsSloverOver = IsSlotAvailable(timeSlot);
 
-                    
+
                     SetCurrentSlot(timeSlot);
 
                     await loadWinPrizes(timeSlot);
@@ -615,6 +616,7 @@ namespace Jackport
                 IsSloverOver = IsSlotAvailable(timeSlot);
 
                 SetCurrentSlot(timeSlot);
+
 
                 await loadWinPrizes(timeSlot);
             }
