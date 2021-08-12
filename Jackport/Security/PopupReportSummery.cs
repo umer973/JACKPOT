@@ -25,8 +25,8 @@ namespace Jackport.Security
             //throw new NotImplementedException();
             ReportDocument cRep = new ReportDocument();
 
-            //cRep.Load(Application.StartupPath + "/Report/DsPurchase/CryPurchaseTicket.rpt");
-            cRep.Load("E:/Live Project/JackPot-master/Jackport/Jackport/Report/DsReportSummery/CryReportSummery.rpt");
+            cRep.Load(Application.StartupPath + "/Report/DsReportSummery/CryReportSummery.rpt");
+            //cRep.Load("E:/Live Project/JackPot-master/Jackport/Jackport/Report/DsReportSummery/CryReportSummery.rpt");
             // CRPT.Wholesale.Challan.DsChallan.DsChallan ObjDsPo = new CRPT.Wholesale.Challan.DsChallan.DsChallan();
             Report.DsPurchase.DsPurchase ObjDsPo = new Report.DsPurchase.DsPurchase();
             DataTable dt = new DataTable();
