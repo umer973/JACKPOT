@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1433
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jackport", "Jackport\Jackport.csproj", "{868644A3-5E1E-4F57-B76B-2E780F9F195B}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "JACKPOT.V.1.0", "JACKPOT.V.1.0\JACKPOT.V.1.0.vdproj", "{8F042D7C-2C61-4623-A7D8-BF7587DF4B0B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,8 @@ Global
 		{868644A3-5E1E-4F57-B76B-2E780F9F195B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{868644A3-5E1E-4F57-B76B-2E780F9F195B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{868644A3-5E1E-4F57-B76B-2E780F9F195B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F042D7C-2C61-4623-A7D8-BF7587DF4B0B}.Debug|Any CPU.ActiveCfg = Debug
+		{8F042D7C-2C61-4623-A7D8-BF7587DF4B0B}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

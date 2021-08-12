@@ -45,22 +45,22 @@ namespace Jackport
 
             InitializeComponent();
 
-           
+
             FrmLogin objLogin = new FrmLogin();
             objLogin.Hide();
             clsService = new ClsService();
 
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+           // this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 
 
         }
 
 
 
-        public  void FrmJackport_Load(object sender, EventArgs e)
+        public void FrmJackport_Load(object sender, EventArgs e)
         {
 
-           // await LoadData();
+            // await LoadData();
 
         }
 
@@ -71,7 +71,7 @@ namespace Jackport
             data = _data;
             SetLoading(true);
 
-             LoadTickets();
+            LoadTickets();
 
             if (InvokeRequired)
             {
@@ -163,7 +163,7 @@ namespace Jackport
         private void SetCurrentSlot(List<TimeSlot> Slotlist)
         {
 
-
+            int flag = 0;
             try
             {
                 var l = Slotlist.OrderByDescending(x => x.time_end).ToList();
@@ -173,11 +173,20 @@ namespace Jackport
                     {
                         slotdId = Convert.ToInt32(l[i - 1].slot_id).ToString();
                         endtime = l[i - 1].time_end;
+                        flag = 1;
 
                     }
 
 
                 }
+
+                if (flag == 0)
+                {
+                    var ls = Slotlist.Where(x => x.slot_over == "0").ToList();
+                    endtime = ls.Select(x => x.time_end).FirstOrDefault();
+                    slotdId = ls.Select(x => x.slot_id).FirstOrDefault();
+                }
+
                 lblSlotTime.Text = CommonHelper.GetdateFormat(endtime);
 
                 var list = Slotlist.OrderByDescending(x => x.slot_id).ToList();
@@ -2161,6 +2170,14 @@ namespace Jackport
 
         private void Txt0009_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            GameBoardV1 obj = new GameBoardV1();
+            this.Hide();
+            obj.Show();
 
         }
     }

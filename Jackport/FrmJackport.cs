@@ -27,22 +27,9 @@ namespace Jackport
         List<Bid> bidList = new List<Bid>();
         List<PurchaseTicket> plist = new List<PurchaseTicket>();
 
-        public FrmJackport(Root data)
+        public FrmJackport()
         {
-            FrmLogin objLogin = new FrmLogin();
-            objLogin.Hide();
-            clsService = new ClsService();
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            InitializeComponent();
-            // LoadProduct();
-            LblDate.Text = DateTime.UtcNow.ToString("dd-MMM-yyyy");
-
-            LblTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
-            SetData(data);
-            slotdId = data.data.TimeSlots.FirstOrDefault(x => x.slot_over == "0").slot_id;
-
-            GetSlot();
-
+            
 
 
         }

@@ -106,6 +106,9 @@
             this.lblticketprice = new System.Windows.Forms.Label();
             this.lblpriceformat = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.LblCountDown1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -113,9 +116,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.LblCompanyName = new System.Windows.Forms.Label();
             this.LblBalance = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.LblCountDown1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.tblLayout.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -139,7 +139,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 133);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1360, 565);
+            this.panel4.Size = new System.Drawing.Size(984, 569);
             this.panel4.TabIndex = 551;
             // 
             // tblLayout
@@ -161,12 +161,15 @@
             this.tblLayout.Name = "tblLayout";
             this.tblLayout.RowCount = 1;
             this.tblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblLayout.Size = new System.Drawing.Size(1360, 565);
+            this.tblLayout.Size = new System.Drawing.Size(984, 569);
             this.tblLayout.TabIndex = 550;
             this.tblLayout.Visible = false;
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.Navy;
             this.panel1.Controls.Add(this.TxtE0);
@@ -211,12 +214,11 @@
             this.panel1.Controls.Add(this.label134);
             this.panel1.Controls.Add(this.textBox6);
             this.panel1.Controls.Add(this.TxtE4);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(591, 0);
+            this.panel1.Location = new System.Drawing.Point(427, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(177, 565);
+            this.panel1.Size = new System.Drawing.Size(128, 569);
             this.panel1.TabIndex = 548;
             // 
             // TxtE0
@@ -747,27 +749,30 @@
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.ForeColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(771, 3);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(558, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(586, 559);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(423, 563);
             this.flowLayoutPanel1.TabIndex = 251;
             this.flowLayoutPanel1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.flowLayoutPanel1_Scroll);
             this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.AutoScroll = true;
+            this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel2.BackColor = System.Drawing.Color.Navy;
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.ForeColor = System.Drawing.Color.White;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(585, 559);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(421, 563);
             this.flowLayoutPanel2.TabIndex = 507;
             // 
             // pnlFooter
@@ -783,9 +788,9 @@
             this.pnlFooter.Controls.Add(this.txttickektsqty);
             this.pnlFooter.Controls.Add(this.label145);
             this.pnlFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlFooter.Location = new System.Drawing.Point(0, 698);
+            this.pnlFooter.Location = new System.Drawing.Point(0, 702);
             this.pnlFooter.Name = "pnlFooter";
-            this.pnlFooter.Size = new System.Drawing.Size(1360, 47);
+            this.pnlFooter.Size = new System.Drawing.Size(984, 47);
             this.pnlFooter.TabIndex = 549;
             this.pnlFooter.Visible = false;
             // 
@@ -884,7 +889,7 @@
             this.headerpanel.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.headerpanel.Location = new System.Drawing.Point(0, 0);
             this.headerpanel.Name = "headerpanel";
-            this.headerpanel.Size = new System.Drawing.Size(1360, 133);
+            this.headerpanel.Size = new System.Drawing.Size(984, 133);
             this.headerpanel.TabIndex = 0;
             this.headerpanel.Visible = false;
             // 
@@ -896,7 +901,7 @@
             this.panel6.Controls.Add(this.LblDate);
             this.panel6.Controls.Add(this.label7);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel6.Location = new System.Drawing.Point(1091, 0);
+            this.panel6.Location = new System.Drawing.Point(715, 0);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(265, 58);
             this.panel6.TabIndex = 258;
@@ -991,7 +996,7 @@
             this.panel3.ForeColor = System.Drawing.Color.White;
             this.panel3.Location = new System.Drawing.Point(0, 58);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1356, 29);
+            this.panel3.Size = new System.Drawing.Size(980, 29);
             this.panel3.TabIndex = 252;
             // 
             // lblprice
@@ -1046,7 +1051,7 @@
             "NEXT 15",
             "NEXT 20",
             "ALL DRAW"});
-            this.cmbSlot.Location = new System.Drawing.Point(1169, 0);
+            this.cmbSlot.Location = new System.Drawing.Point(793, 0);
             this.cmbSlot.Name = "cmbSlot";
             this.cmbSlot.Size = new System.Drawing.Size(185, 30);
             this.cmbSlot.TabIndex = 10;
@@ -1132,9 +1137,43 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 87);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1356, 42);
+            this.panel2.Size = new System.Drawing.Size(980, 42);
             this.panel2.TabIndex = 3;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.Transparent;
+            this.panel5.Controls.Add(this.LblCountDown1);
+            this.panel5.Controls.Add(this.label2);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel5.Location = new System.Drawing.Point(759, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(219, 40);
+            this.panel5.TabIndex = 7;
+            // 
+            // LblCountDown1
+            // 
+            this.LblCountDown1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.LblCountDown1.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCountDown1.ForeColor = System.Drawing.Color.White;
+            this.LblCountDown1.Location = new System.Drawing.Point(116, 3);
+            this.LblCountDown1.Name = "LblCountDown1";
+            this.LblCountDown1.Size = new System.Drawing.Size(101, 34);
+            this.LblCountDown1.TabIndex = 2;
+            this.LblCountDown1.Text = "00:00:00";
+            this.LblCountDown1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(-1, 10);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(120, 22);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Time Left :";
             // 
             // button6
             // 
@@ -1236,52 +1275,17 @@
             this.LblBalance.Text = "Show Balance";
             this.LblBalance.Visible = false;
             // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.Transparent;
-            this.panel5.Controls.Add(this.LblCountDown1);
-            this.panel5.Controls.Add(this.label2);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel5.Location = new System.Drawing.Point(1135, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(219, 40);
-            this.panel5.TabIndex = 7;
-            // 
-            // LblCountDown1
-            // 
-            this.LblCountDown1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LblCountDown1.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCountDown1.ForeColor = System.Drawing.Color.White;
-            this.LblCountDown1.Location = new System.Drawing.Point(116, 3);
-            this.LblCountDown1.Name = "LblCountDown1";
-            this.LblCountDown1.Size = new System.Drawing.Size(101, 34);
-            this.LblCountDown1.TabIndex = 2;
-            this.LblCountDown1.Text = "00:00:00";
-            this.LblCountDown1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(-1, 10);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 22);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Time Left :";
-            // 
             // FrmJackportDemo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(1360, 745);
+            this.ClientSize = new System.Drawing.Size(984, 749);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.pnlFooter);
             this.Controls.Add(this.headerpanel);
             this.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.KeyPreview = true;
             this.Name = "FrmJackportDemo";
             this.Text = "JACKPORT";
