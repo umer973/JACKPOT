@@ -33,5 +33,10 @@ namespace Jackport
 
             //MessageBox.Show(message.ToString());
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

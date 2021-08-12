@@ -32,16 +32,16 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.TxtPassword = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.TxtUser = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.TxtPassword = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -71,6 +71,34 @@
             this.panel1.Size = new System.Drawing.Size(705, 437);
             this.panel1.TabIndex = 4;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.TxtPassword);
+            this.groupBox2.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.Location = new System.Drawing.Point(362, 163);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(0);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(0);
+            this.groupBox2.Size = new System.Drawing.Size(290, 69);
+            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Password";
+            // 
+            // TxtPassword
+            // 
+            this.TxtPassword.BackColor = System.Drawing.Color.DimGray;
+            this.TxtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtPassword.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TxtPassword.Font = new System.Drawing.Font("Consolas", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtPassword.ForeColor = System.Drawing.Color.White;
+            this.TxtPassword.Location = new System.Drawing.Point(0, 29);
+            this.TxtPassword.Name = "TxtPassword";
+            this.TxtPassword.PasswordChar = '.';
+            this.TxtPassword.Size = new System.Drawing.Size(290, 41);
+            this.TxtPassword.TabIndex = 1;
+            this.TxtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtPassword_KeyDown);
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.TxtUser);
@@ -87,7 +115,8 @@
             // 
             // TxtUser
             // 
-            this.TxtUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(57)))), ((int)(((byte)(81)))));
+            this.TxtUser.BackColor = System.Drawing.Color.DimGray;
+            this.TxtUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtUser.Font = new System.Drawing.Font("Consolas", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtUser.ForeColor = System.Drawing.Color.White;
@@ -128,34 +157,6 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // TxtPassword
-            // 
-            this.TxtPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(57)))), ((int)(((byte)(81)))));
-            this.TxtPassword.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TxtPassword.Font = new System.Drawing.Font("Consolas", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtPassword.ForeColor = System.Drawing.Color.White;
-            this.TxtPassword.Location = new System.Drawing.Point(0, 29);
-            this.TxtPassword.Name = "TxtPassword";
-            this.TxtPassword.PasswordChar = '.';
-            this.TxtPassword.Size = new System.Drawing.Size(290, 41);
-            this.TxtPassword.TabIndex = 1;
-            this.TxtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TxtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtPassword_KeyDown);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.TxtPassword);
-            this.groupBox2.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(362, 163);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox2.Size = new System.Drawing.Size(290, 69);
-            this.groupBox2.TabIndex = 5;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Password";
-            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,10 +171,10 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }

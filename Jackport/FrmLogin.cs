@@ -46,7 +46,8 @@ namespace Jackport
                     if (obj.LoadData(data))
                     {
                         this.Hide();
-                        
+                        obj.Show();
+
                     }
 
 
@@ -59,7 +60,7 @@ namespace Jackport
             }
 
             Cursor.Current = Cursors.Default;
-            obj.Show();
+
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -50,7 +50,8 @@ namespace Jackport
             objLogin.Hide();
             clsService = new ClsService();
 
-           // this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+           
 
 
         }
@@ -2178,6 +2179,11 @@ namespace Jackport
             GameBoardV1 obj = new GameBoardV1();
             this.Hide();
             obj.Show();
+
+        }
+
+        private void panel1_Paint_1(object sender, PaintEventArgs e)
+        {
 
         }
     }
