@@ -1,5 +1,6 @@
 ﻿using CrystalDecisions.CrystalReports.Engine;
 using Jackport.DataModel;
+using Jackport.Security;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -48,7 +49,7 @@ namespace Jackport
                 lblto.Text = dtTo.Text;
                 panel1.Visible = true;
                 // Print(ds);
-                Print();
+                //Print();
             }
             catch { }
 
@@ -63,32 +64,23 @@ namespace Jackport
         private void Print()
         {
 
-            try
-            {
-               
+            
                 try
                 {
-              
+                    ReportSummary report = new ReportSummary();
 
-
-                   // Popup objpop;
-                  //  PnlPrintInvoice.Visible = true;
-                    //objpop = new Popup("DELIVERY NOT", PnlPrintInvoice);
-                    //objpop.StartPosition = FormStartPosition.CenterScreen;
-                    //objpop.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-                    //objpop.ShowDialog();
+                    DateTime dt1 = dtfrom.Value;
+                    DateTime dt2 = dtTo.Value;
+                    report = clsService.GetReportSummary(dt1.ToString("yyyy-MM-dd"), (dt2.ToString("yyyy-MM-dd")));
+                    PopupReportSummery ObjPopup = new PopupReportSummery(report, dt1, dt2);
+                    ObjPopup.Show();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
                 }
 
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+            
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -105,6 +97,11 @@ namespace Jackport
         private void label16_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtnReprint_Click(object sender, EventArgs e)
+        {
+            Print();
         }
     }
 }

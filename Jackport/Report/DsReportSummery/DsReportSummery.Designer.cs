@@ -281,17 +281,31 @@ namespace Jackport.Report.DsReportSummery {
             
             private global::System.Data.DataColumn columnAgentCode;
             
+            private global::System.Data.DataColumn columnDate;
+            
             private global::System.Data.DataColumn columngross_sales_amount;
+            
+            private global::System.Data.DataColumn columngrosssales_amount;
             
             private global::System.Data.DataColumn columnpayout_amount;
             
             private global::System.Data.DataColumn columnnet_to_pay;
             
+            private global::System.Data.DataColumn columncancelled_sales_amount;
+            
             private global::System.Data.DataColumn columntotal_profit;
+            
+            private global::System.Data.DataColumn columnretailer_discount;
             
             private global::System.Data.DataColumn columnoperator_balance;
             
             private global::System.Data.DataColumn columnsale_incentive;
+            
+            private global::System.Data.DataColumn columnsaleincentive;
+            
+            private global::System.Data.DataColumn columnfromdate;
+            
+            private global::System.Data.DataColumn columntodat;
             
             private global::System.Data.DataColumn columnPayoutIncentive;
             
@@ -338,9 +352,25 @@ namespace Jackport.Report.DsReportSummery {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn DateColumn {
+                get {
+                    return this.columnDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn gross_sales_amountColumn {
                 get {
                     return this.columngross_sales_amount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn grosssales_amountColumn {
+                get {
+                    return this.columngrosssales_amount;
                 }
             }
             
@@ -362,9 +392,25 @@ namespace Jackport.Report.DsReportSummery {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn cancelled_sales_amountColumn {
+                get {
+                    return this.columncancelled_sales_amount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn total_profitColumn {
                 get {
                     return this.columntotal_profit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn retailer_discountColumn {
+                get {
+                    return this.columnretailer_discount;
                 }
             }
             
@@ -381,6 +427,30 @@ namespace Jackport.Report.DsReportSummery {
             public global::System.Data.DataColumn sale_incentiveColumn {
                 get {
                     return this.columnsale_incentive;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn saleincentiveColumn {
+                get {
+                    return this.columnsaleincentive;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn fromdateColumn {
+                get {
+                    return this.columnfromdate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn todatColumn {
+                get {
+                    return this.columntodat;
                 }
             }
             
@@ -429,16 +499,23 @@ namespace Jackport.Report.DsReportSummery {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string AgentCode, string gross_sales_amount, string payout_amount, string net_to_pay, string total_profit, string operator_balance, string sale_incentive, string PayoutIncentive) {
+            public DataTable1Row AddDataTable1Row(string AgentCode, string Date, decimal gross_sales_amount, decimal grosssales_amount, decimal payout_amount, decimal net_to_pay, decimal cancelled_sales_amount, decimal total_profit, string retailer_discount, string operator_balance, string sale_incentive, string saleincentive, string fromdate, string todat, string PayoutIncentive) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         AgentCode,
+                        Date,
                         gross_sales_amount,
+                        grosssales_amount,
                         payout_amount,
                         net_to_pay,
+                        cancelled_sales_amount,
                         total_profit,
+                        retailer_discount,
                         operator_balance,
                         sale_incentive,
+                        saleincentive,
+                        fromdate,
+                        todat,
                         PayoutIncentive};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
@@ -463,12 +540,19 @@ namespace Jackport.Report.DsReportSummery {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
                 this.columnAgentCode = base.Columns["AgentCode"];
+                this.columnDate = base.Columns["Date"];
                 this.columngross_sales_amount = base.Columns["gross_sales_amount"];
+                this.columngrosssales_amount = base.Columns["grosssales_amount"];
                 this.columnpayout_amount = base.Columns["payout_amount"];
                 this.columnnet_to_pay = base.Columns["net_to_pay"];
+                this.columncancelled_sales_amount = base.Columns["cancelled_sales_amount"];
                 this.columntotal_profit = base.Columns["total_profit"];
+                this.columnretailer_discount = base.Columns["retailer_discount"];
                 this.columnoperator_balance = base.Columns["operator_balance"];
                 this.columnsale_incentive = base.Columns["sale_incentive"];
+                this.columnsaleincentive = base.Columns["saleincentive"];
+                this.columnfromdate = base.Columns["fromdate"];
+                this.columntodat = base.Columns["todat"];
                 this.columnPayoutIncentive = base.Columns["PayoutIncentive"];
             }
             
@@ -477,18 +561,32 @@ namespace Jackport.Report.DsReportSummery {
             private void InitClass() {
                 this.columnAgentCode = new global::System.Data.DataColumn("AgentCode", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAgentCode);
-                this.columngross_sales_amount = new global::System.Data.DataColumn("gross_sales_amount", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnDate = new global::System.Data.DataColumn("Date", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDate);
+                this.columngross_sales_amount = new global::System.Data.DataColumn("gross_sales_amount", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columngross_sales_amount);
-                this.columnpayout_amount = new global::System.Data.DataColumn("payout_amount", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columngrosssales_amount = new global::System.Data.DataColumn("grosssales_amount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columngrosssales_amount);
+                this.columnpayout_amount = new global::System.Data.DataColumn("payout_amount", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpayout_amount);
-                this.columnnet_to_pay = new global::System.Data.DataColumn("net_to_pay", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnnet_to_pay = new global::System.Data.DataColumn("net_to_pay", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnet_to_pay);
-                this.columntotal_profit = new global::System.Data.DataColumn("total_profit", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columncancelled_sales_amount = new global::System.Data.DataColumn("cancelled_sales_amount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncancelled_sales_amount);
+                this.columntotal_profit = new global::System.Data.DataColumn("total_profit", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntotal_profit);
+                this.columnretailer_discount = new global::System.Data.DataColumn("retailer_discount", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnretailer_discount);
                 this.columnoperator_balance = new global::System.Data.DataColumn("operator_balance", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnoperator_balance);
                 this.columnsale_incentive = new global::System.Data.DataColumn("sale_incentive", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsale_incentive);
+                this.columnsaleincentive = new global::System.Data.DataColumn("saleincentive", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsaleincentive);
+                this.columnfromdate = new global::System.Data.DataColumn("fromdate", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfromdate);
+                this.columntodat = new global::System.Data.DataColumn("todat", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntodat);
                 this.columnPayoutIncentive = new global::System.Data.DataColumn("PayoutIncentive", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPayoutIncentive);
             }
@@ -649,10 +747,26 @@ namespace Jackport.Report.DsReportSummery {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string gross_sales_amount {
+            public string Date {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable1.gross_sales_amountColumn]));
+                        return ((string)(this[this.tableDataTable1.DateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Date\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.DateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal gross_sales_amount {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDataTable1.gross_sales_amountColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'gross_sales_amount\' in table \'DataTable1\' is DBNull.", e);
@@ -665,10 +779,26 @@ namespace Jackport.Report.DsReportSummery {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string payout_amount {
+            public decimal grosssales_amount {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable1.payout_amountColumn]));
+                        return ((decimal)(this[this.tableDataTable1.grosssales_amountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'grosssales_amount\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.grosssales_amountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal payout_amount {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDataTable1.payout_amountColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'payout_amount\' in table \'DataTable1\' is DBNull.", e);
@@ -681,10 +811,10 @@ namespace Jackport.Report.DsReportSummery {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string net_to_pay {
+            public decimal net_to_pay {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable1.net_to_payColumn]));
+                        return ((decimal)(this[this.tableDataTable1.net_to_payColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'net_to_pay\' in table \'DataTable1\' is DBNull.", e);
@@ -697,10 +827,26 @@ namespace Jackport.Report.DsReportSummery {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string total_profit {
+            public decimal cancelled_sales_amount {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable1.total_profitColumn]));
+                        return ((decimal)(this[this.tableDataTable1.cancelled_sales_amountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'cancelled_sales_amount\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.cancelled_sales_amountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal total_profit {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDataTable1.total_profitColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'total_profit\' in table \'DataTable1\' is DBNull.", e);
@@ -708,6 +854,22 @@ namespace Jackport.Report.DsReportSummery {
                 }
                 set {
                     this[this.tableDataTable1.total_profitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string retailer_discount {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.retailer_discountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'retailer_discount\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.retailer_discountColumn] = value;
                 }
             }
             
@@ -745,6 +907,54 @@ namespace Jackport.Report.DsReportSummery {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string saleincentive {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.saleincentiveColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'saleincentive\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.saleincentiveColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string fromdate {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.fromdateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'fromdate\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.fromdateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string todat {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.todatColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'todat\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.todatColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string PayoutIncentive {
                 get {
                     try {
@@ -773,6 +983,18 @@ namespace Jackport.Report.DsReportSummery {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsDateNull() {
+                return this.IsNull(this.tableDataTable1.DateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetDateNull() {
+                this[this.tableDataTable1.DateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool Isgross_sales_amountNull() {
                 return this.IsNull(this.tableDataTable1.gross_sales_amountColumn);
             }
@@ -781,6 +1003,18 @@ namespace Jackport.Report.DsReportSummery {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void Setgross_sales_amountNull() {
                 this[this.tableDataTable1.gross_sales_amountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Isgrosssales_amountNull() {
+                return this.IsNull(this.tableDataTable1.grosssales_amountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Setgrosssales_amountNull() {
+                this[this.tableDataTable1.grosssales_amountColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -809,6 +1043,18 @@ namespace Jackport.Report.DsReportSummery {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Iscancelled_sales_amountNull() {
+                return this.IsNull(this.tableDataTable1.cancelled_sales_amountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Setcancelled_sales_amountNull() {
+                this[this.tableDataTable1.cancelled_sales_amountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool Istotal_profitNull() {
                 return this.IsNull(this.tableDataTable1.total_profitColumn);
             }
@@ -817,6 +1063,18 @@ namespace Jackport.Report.DsReportSummery {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void Settotal_profitNull() {
                 this[this.tableDataTable1.total_profitColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Isretailer_discountNull() {
+                return this.IsNull(this.tableDataTable1.retailer_discountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Setretailer_discountNull() {
+                this[this.tableDataTable1.retailer_discountColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -841,6 +1099,42 @@ namespace Jackport.Report.DsReportSummery {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void Setsale_incentiveNull() {
                 this[this.tableDataTable1.sale_incentiveColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IssaleincentiveNull() {
+                return this.IsNull(this.tableDataTable1.saleincentiveColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetsaleincentiveNull() {
+                this[this.tableDataTable1.saleincentiveColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsfromdateNull() {
+                return this.IsNull(this.tableDataTable1.fromdateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetfromdateNull() {
+                this[this.tableDataTable1.fromdateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IstodatNull() {
+                return this.IsNull(this.tableDataTable1.todatColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SettodatNull() {
+                this[this.tableDataTable1.todatColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

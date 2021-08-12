@@ -177,6 +177,12 @@
     <Compile Include="Security\Popup.Designer.cs">
       <DependentUpon>Popup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Security\PopupReportSummery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Security\PopupReportSummery.Designer.cs">
+      <DependentUpon>PopupReportSummery.cs</DependentUpon>
+    </Compile>
     <Compile Include="TicketContols.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -238,6 +244,9 @@
     <EmbeddedResource Include="Security\Popup.resx">
       <DependentUpon>Popup.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Security\PopupReportSummery.resx">
+      <DependentUpon>PopupReportSummery.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TicketContols.resx">
       <DependentUpon>TicketContols.cs</DependentUpon>
     </EmbeddedResource>
@@ -279,9 +288,9 @@
       <DependentUpon>DsReportSummery.xsd</DependentUpon>
     </None>
     <None Include="Report\DsReportSummery\DsReportSummery.xsd">
-      <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DsReportSummery.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Report\DsReportSummery\DsReportSummery.xss">
       <DependentUpon>DsReportSummery.xsd</DependentUpon>
