@@ -36,7 +36,7 @@
             // 
             this.LblTime.BackColor = System.Drawing.Color.Black;
             this.LblTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTime.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblTime.ForeColor = System.Drawing.Color.White;
             this.LblTime.Location = new System.Drawing.Point(1, 55);
             this.LblTime.Margin = new System.Windows.Forms.Padding(0);
@@ -48,7 +48,7 @@
             // 
             // BtnSubmit
             // 
-            this.BtnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSubmit.Font = new System.Drawing.Font("Consolas", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSubmit.ForeColor = System.Drawing.Color.Black;
             this.BtnSubmit.Location = new System.Drawing.Point(1, 1);
             this.BtnSubmit.Margin = new System.Windows.Forms.Padding(0);

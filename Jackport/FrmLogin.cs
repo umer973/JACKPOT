@@ -28,7 +28,7 @@ namespace Jackport
         private void button1_Click(object sender, EventArgs e)
         {
             Login();
-           
+
 
         }
 
@@ -37,15 +37,19 @@ namespace Jackport
             Cursor.Current = Cursors.WaitCursor;
             ClsService clsService = new ClsService();
             LoginData data = new LoginData();
-            FrmJackportDemo obj;
+            FrmJackportDemo obj = new FrmJackportDemo();
             if (!string.IsNullOrEmpty(TxtUser.Text) && !string.IsNullOrEmpty(TxtPassword.Text.Trim()))
             {
                 data = clsService.LoginAsync(TxtUser.Text.Trim(), TxtPassword.Text.Trim());
                 if (data != null)
                 {
-                    obj = new FrmJackportDemo(data);
-                    this.Hide();
-                    obj.Show();
+                    if (obj.LoadData(data))
+                    {
+                        this.Hide();
+                        
+                    }
+
+
 
                 }
             }
@@ -55,6 +59,7 @@ namespace Jackport
             }
 
             Cursor.Current = Cursors.Default;
+            obj.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -96,6 +101,11 @@ namespace Jackport
                 TxtPassword.Focus();
 
             }
+        }
+
+        private void TxtUser_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

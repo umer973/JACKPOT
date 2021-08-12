@@ -271,6 +271,22 @@
     <Content Include="Images\84049517-progressive-jackpot-casino-gambling-games-banner-template-big-win.jpg" />
     <Content Include="Images\download %281%29.jpg" />
     <Content Include="Images\images.jpg" />
+    <None Include="Resources\login3.png" />
+    <None Include="Resources\logout %281%29.png" />
+    <None Include="Resources\loginbtn.png" />
+    <None Include="Resources\logout21.png" />
+    <None Include="Resources\logout2.png" />
+    <None Include="Resources\logout.png" />
+    <None Include="Resources\login-background.png" />
+    <None Include="Resources\buttonbg.png" />
+    <None Include="Resources\footer.png" />
+    <None Include="Resources\gameboard1.png" />
+    <None Include="Resources\gameboard.png" />
+    <None Include="Resources\navbar3.png" />
+    <None Include="Resources\navbar22.png" />
+    <None Include="Resources\navbar21.png" />
+    <None Include="Resources\navbar2.png" />
+    <None Include="Resources\header.png" />
     <None Include="Report\DsPurchase\CryPurchaseTicket.rpt" />
     <None Include="Report\DsPurchase\DsPurchase.xsc">
       <DependentUpon>DsPurchase.xsd</DependentUpon>

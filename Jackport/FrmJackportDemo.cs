@@ -39,13 +39,13 @@ namespace Jackport
         int ticketPrice = 0;
         bool IsSloverOver = false;
 
-        public FrmJackportDemo(LoginData _data)
+        public FrmJackportDemo()
         {
 
 
             InitializeComponent();
 
-            data = _data;
+           
             FrmLogin objLogin = new FrmLogin();
             objLogin.Hide();
             clsService = new ClsService();
@@ -57,20 +57,21 @@ namespace Jackport
 
 
 
-        public async void FrmJackport_Load(object sender, EventArgs e)
+        public  void FrmJackport_Load(object sender, EventArgs e)
         {
 
-            await LoadData();
+           // await LoadData();
 
         }
 
 
 
-        private async Task LoadData()
+        public bool LoadData(LoginData _data)
         {
+            data = _data;
             SetLoading(true);
 
-            await LoadTickets();
+             LoadTickets();
 
             if (InvokeRequired)
             {
@@ -88,7 +89,7 @@ namespace Jackport
 
             IsSloverOver = IsSlotAvailable(data.TimeSlots);
 
-            await loadWinPrizes(timeSlots);
+            loadWinPrizes(timeSlots);
 
             RunTimer();
 
@@ -104,7 +105,7 @@ namespace Jackport
                 SetLoading(false);
             }
 
-
+            return true;
 
 
 

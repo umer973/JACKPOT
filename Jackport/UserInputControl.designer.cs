@@ -35,21 +35,22 @@
             // LabelName
             // 
             this.LabelName.AutoSize = true;
-            this.LabelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelName.Location = new System.Drawing.Point(17, 0);
+            this.LabelName.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelName.Location = new System.Drawing.Point(14, 1);
             this.LabelName.Name = "LabelName";
-            this.LabelName.Size = new System.Drawing.Size(21, 13);
+            this.LabelName.Size = new System.Drawing.Size(21, 15);
             this.LabelName.TabIndex = 265;
             this.LabelName.Text = "00";
+            this.LabelName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // TxtQty
             // 
-            this.TxtQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtQty.Location = new System.Drawing.Point(0, 13);
+            this.TxtQty.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtQty.Location = new System.Drawing.Point(0, 18);
             this.TxtQty.MaxLength = 2;
             this.TxtQty.Multiline = true;
             this.TxtQty.Name = "TxtQty";
-            this.TxtQty.Size = new System.Drawing.Size(50, 30);
+            this.TxtQty.Size = new System.Drawing.Size(50, 27);
             this.TxtQty.TabIndex = 264;
             this.TxtQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TxtQty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtQty_KeyPress);
@@ -61,7 +62,7 @@
             this.Controls.Add(this.LabelName);
             this.Controls.Add(this.TxtQty);
             this.Name = "UserInputControl";
-            this.Size = new System.Drawing.Size(51, 43);
+            this.Size = new System.Drawing.Size(49, 45);
             this.ResumeLayout(false);
             this.PerformLayout();
 
