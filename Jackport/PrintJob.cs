@@ -18,7 +18,7 @@ namespace Jackport
         private Graphics graphics;
         ReportSummary data = new ReportSummary();
 
-        private int InitialHeight = 360;
+        private int InitialHeight = 200;
 
         private TimeSlotList _tickets;
 
@@ -44,9 +44,9 @@ namespace Jackport
 
             printDocument.PrintPage += new PrintPageEventHandler(FormatPage);
             PrintPreviewDialog p = new PrintPreviewDialog();
-            printDocument.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("custom", 200, 200);
+            printDocument.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("pprnm", 285, 600);
             p.Document = printDocument;
-          
+
             p.ShowDialog();
 
 
