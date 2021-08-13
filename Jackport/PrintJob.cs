@@ -16,6 +16,7 @@ namespace Jackport
     {
         private PrintDocument printDocument;
         private Graphics graphics;
+
         ReportSummary data = new ReportSummary();
 
         private int InitialHeight = 200;
