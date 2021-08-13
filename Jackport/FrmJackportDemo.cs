@@ -51,7 +51,7 @@ namespace Jackport
             clsService = new ClsService();
 
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-           
+
 
 
         }
@@ -450,14 +450,22 @@ namespace Jackport
 
                 if (flag == 1)
                 {
-                    List<TimeSlotList> slots = new List<TimeSlotList>();
-                    slots = clsService.PurchaseSingleTicketAsync(agentToken, bidList, plist);
+                    List<TimeSlotList> tickets = new List<TimeSlotList>();
+                    tickets = clsService.PurchaseSingleTicketAsync(agentToken, bidList, plist);
                     /// LblBalance.Text = result.ToString();
 
                     ClearBoard();
                     // Print(slots);
-                    Popup objpop = new Popup(slots);
-                    objpop.Show();
+                    //Popup objpop = new Popup(slots);
+
+                    PrintJob print = new PrintJob();
+                    string printername = "";
+
+                    foreach (TimeSlotList ticket in tickets)
+                    {
+                        print.Print(txtprintername.Text.Trim(), ticket);
+                    }
+
                 }
                 else
                 {
@@ -466,6 +474,7 @@ namespace Jackport
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
             }
         }
 
