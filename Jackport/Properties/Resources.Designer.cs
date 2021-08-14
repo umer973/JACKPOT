@@ -73,6 +73,16 @@ namespace Jackport.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _33_337047_sell_icon_png {
+            get {
+                object obj = ResourceManager.GetObject("33-337047_sell-icon-png", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _84049517_progressive_jackpot_casino_gambling_games_banner_template_big_win {
             get {
                 object obj = ResourceManager.GetObject("84049517-progressive-jackpot-casino-gambling-games-banner-template-big-win", resourceCulture);

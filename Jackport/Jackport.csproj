@@ -142,6 +142,12 @@
     <Compile Include="FrmRegister.designer.cs">
       <DependentUpon>FrmRegister.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSetting.Designer.cs">
+      <DependentUpon>FrmSetting.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmTMLPrint.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +167,7 @@
       <DependentUpon>GameBoardV1.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper\CommonHelper.cs" />
+    <Compile Include="Helper\PrintJobHelper.cs" />
     <Compile Include="ListValueControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -233,6 +240,9 @@
     <EmbeddedResource Include="FrmRegister.resx">
       <DependentUpon>FrmRegister.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmSetting.resx">
+      <DependentUpon>FrmSetting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmTMLPrint.resx">
       <DependentUpon>FrmTMLPrint.cs</DependentUpon>
     </EmbeddedResource>
@@ -288,6 +298,8 @@
     <Content Include="Images\84049517-progressive-jackpot-casino-gambling-games-banner-template-big-win.jpg" />
     <Content Include="Images\download %281%29.jpg" />
     <Content Include="Images\images.jpg" />
+    <None Include="Resources\33-337047_sell-icon-png.png" />
+    <Content Include="Resources\logo.png" />
     <None Include="Resources\activatebg.png" />
     <None Include="Resources\login3.png" />
     <None Include="Resources\logout %281%29.png" />

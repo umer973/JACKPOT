@@ -106,10 +106,17 @@ namespace Jackport
                 SetLoading(false);
             }
 
+
+            SetLayout();
             return true;
 
 
 
+
+        }
+
+        private void SetLayout()
+        {
 
         }
 
@@ -325,6 +332,13 @@ namespace Jackport
                 p1.Tag = i;
                 //p1.TickeName = Convert.ToString(i);
                 p1.TickeName = Convert.ToString(num);
+
+
+                //int height = Screen.PrimaryScreen.WorkingArea.Height;
+                //int width = Screen.PrimaryScreen.WorkingArea.Width;
+                //p1.Size.
+                Width = p1.Width + Width - ClientSize.Width;
+                Height = p1.Height + Height - ClientSize.Height;
                 flowLayoutPanel2.Controls.Add(p1);
 
             }
@@ -458,12 +472,14 @@ namespace Jackport
                     // Print(slots);
                     //Popup objpop = new Popup(slots);
 
-                    PrintJob print = new PrintJob();
-                    string printername = "";
+                    // PrintJob print = new PrintJob();
+
+                    
 
                     foreach (TimeSlotList ticket in tickets)
                     {
-                        print.Print(txtprintername.Text.Trim(), ticket);
+                        
+                        PrintJobHelper.Print(ticket);
                     }
 
                 }
@@ -2131,9 +2147,6 @@ namespace Jackport
 
             }
 
-
-
-
         }
 
         private void txttickektsqty_TextChanged(object sender, EventArgs e)
@@ -2194,6 +2207,22 @@ namespace Jackport
         private void panel1_Paint_1(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void LblCountDown1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click_3(object sender, EventArgs e)
+        {
+            FrmSetting setting = new FrmSetting();
+            setting.ShowDialog();
         }
     }
 }

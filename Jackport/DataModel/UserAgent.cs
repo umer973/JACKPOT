@@ -11,7 +11,19 @@ namespace Jackport.DataModel
         public static string AgentCode { get; set; }
 
         public static string AgenToken { get; set; }
+
         
-        
+
+
+    }
+
+
+    public class PrintJobSettings
+    {
+        public static string PrinterName { get; set; }
+        public static string PaperSize { get; set; }
+        public static int Height { get; set; }
+        public static int Width { get; set; }
+        public static bool IsDirectPrint { get; set; }
     }
 }

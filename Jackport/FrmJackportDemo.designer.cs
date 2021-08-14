@@ -89,7 +89,6 @@
             this.txtTSN = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.headerpanel = new System.Windows.Forms.Panel();
-            this.txtprintername = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.LblTime = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -119,6 +118,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.LblCompanyName = new System.Windows.Forms.Label();
             this.LblBalance = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             this.tblLayout.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -912,7 +912,6 @@
             this.headerpanel.BackColor = System.Drawing.Color.White;
             this.headerpanel.BackgroundImage = global::Jackport.Properties.Resources.header;
             this.headerpanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.headerpanel.Controls.Add(this.txtprintername);
             this.headerpanel.Controls.Add(this.panel6);
             this.headerpanel.Controls.Add(this.linkbalance);
             this.headerpanel.Controls.Add(this.pictureBox1);
@@ -927,13 +926,6 @@
             this.headerpanel.Size = new System.Drawing.Size(1241, 133);
             this.headerpanel.TabIndex = 0;
             this.headerpanel.Visible = false;
-            // 
-            // txtprintername
-            // 
-            this.txtprintername.Location = new System.Drawing.Point(317, 11);
-            this.txtprintername.Name = "txtprintername";
-            this.txtprintername.Size = new System.Drawing.Size(138, 20);
-            this.txtprintername.TabIndex = 259;
             // 
             // panel6
             // 
@@ -1170,6 +1162,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.panel2.BackgroundImage = global::Jackport.Properties.Resources.navbar3;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.button4);
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.button6);
             this.panel2.Controls.Add(this.button5);
@@ -1317,6 +1310,21 @@
             this.LblBalance.Text = "Show Balance";
             this.LblBalance.Visible = false;
             // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button4.Location = new System.Drawing.Point(809, 2);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(159, 36);
+            this.button4.TabIndex = 8;
+            this.button4.Text = "Settings ";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click_3);
+            // 
             // FrmJackportDemo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1446,6 +1454,6 @@
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TextBox txtprintername;
+        private System.Windows.Forms.Button button4;
     }
 }
