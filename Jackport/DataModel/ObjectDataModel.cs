@@ -12,6 +12,8 @@ namespace Jackport.DataModel
     {
     }
 
+   
+
     public class ApiResponse
     {
         public bool success { get; set; }
@@ -31,6 +33,9 @@ namespace Jackport.DataModel
         public string ticket_cancel_time { get; set; }
         public string ticket_result_time { get; set; }
     }
+
+
+ 
 
     public class ApplicationDetails
     {

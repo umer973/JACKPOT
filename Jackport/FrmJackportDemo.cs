@@ -337,17 +337,21 @@ namespace Jackport
                 //int height = Screen.PrimaryScreen.WorkingArea.Height;
                 //int width = Screen.PrimaryScreen.WorkingArea.Width;
                 //p1.Size.
-                Width = p1.Width + Width - ClientSize.Width;
-                Height = p1.Height + Height - ClientSize.Height;
+
+                //p1.Size = new Size(100,100)
+
+
                 flowLayoutPanel2.Controls.Add(p1);
+
+
 
             }
 
+        }
 
-
-
-
-
+        void p1_OnChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("");
         }
 
         private void SetAppLicationData(LoginData _root)
@@ -467,17 +471,11 @@ namespace Jackport
                 if (flag == 1)
                 {
                     List<TimeSlotList> tickets = new List<TimeSlotList>();
+
                     tickets = clsService.PurchaseSingleTicketAsync(agentToken, bidList, plist);
 
-
                     ClearBoard();
-                    // Print(slots);
-                    //Popup objpop = new Popup(slots);
-
-                    // PrintJob print = new PrintJob();
-
-
-
+                   
                     foreach (TimeSlotList ticket in tickets)
                     {
 
@@ -2141,13 +2139,13 @@ namespace Jackport
         private void ClaimTicket(string barcode)
         {
             ClsService clsservice = new ClsService();
-
-            bool result = clsservice.ClaimTicket(UserAgent.AgenToken, barcode);
-            if (result)
+            TicketDetail ticket = new TicketDetail();
+            ticket = clsservice.ClaimTicket(UserAgent.AgenToken, barcode);
+            if (ticket != null)
             {
                 this.Hide();
                 MessageBox.Show("Ticket Claim Successfully");
-
+                PrintJobHelper.PrintClaimedTicket(ticket);
             }
 
         }

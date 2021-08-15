@@ -219,7 +219,7 @@
             this.panel1.Controls.Add(this.label134);
             this.panel1.Controls.Add(this.textBox6);
             this.panel1.Controls.Add(this.TxtE4);
-            this.panel1.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(529, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
@@ -231,7 +231,7 @@
             // 
             this.TxtE0.BackColor = System.Drawing.Color.Magenta;
             this.TxtE0.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtE0.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtE0.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtE0.Location = new System.Drawing.Point(2, 23);
             this.TxtE0.Margin = new System.Windows.Forms.Padding(10);
             this.TxtE0.MaxLength = 2;
@@ -247,8 +247,8 @@
             // 
             this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button7.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(114, 481);
+            this.button7.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.Location = new System.Drawing.Point(114, 480);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(50, 29);
             this.button7.TabIndex = 547;
@@ -270,7 +270,7 @@
             // TxtLpNo
             // 
             this.TxtLpNo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.TxtLpNo.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtLpNo.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtLpNo.Location = new System.Drawing.Point(113, 433);
             this.TxtLpNo.MaxLength = 2;
             this.TxtLpNo.Multiline = true;
@@ -281,7 +281,7 @@
             // textBox5
             // 
             this.textBox5.BackColor = System.Drawing.Color.AliceBlue;
-            this.textBox5.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox5.Location = new System.Drawing.Point(57, 272);
             this.textBox5.MaxLength = 2;
             this.textBox5.Multiline = true;
@@ -305,7 +305,7 @@
             // Txt2029
             // 
             this.Txt2029.BackColor = System.Drawing.Color.AliceBlue;
-            this.Txt2029.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt2029.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt2029.Location = new System.Drawing.Point(57, 123);
             this.Txt2029.MaxLength = 2;
             this.Txt2029.Multiline = true;
@@ -318,7 +318,7 @@
             // Txt7079
             // 
             this.Txt7079.BackColor = System.Drawing.Color.AliceBlue;
-            this.Txt7079.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt7079.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt7079.Location = new System.Drawing.Point(57, 381);
             this.Txt7079.MaxLength = 2;
             this.Txt7079.Multiline = true;
@@ -332,7 +332,7 @@
             // 
             this.TxtE9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(200)))), ((int)(((byte)(217)))));
             this.TxtE9.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtE9.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtE9.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtE9.Location = new System.Drawing.Point(1, 481);
             this.TxtE9.MaxLength = 2;
             this.TxtE9.Multiline = true;
@@ -347,7 +347,7 @@
             // 
             this.TxtE2.BackColor = System.Drawing.Color.Magenta;
             this.TxtE2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtE2.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtE2.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtE2.Location = new System.Drawing.Point(0, 123);
             this.TxtE2.MaxLength = 2;
             this.TxtE2.Multiline = true;
@@ -372,7 +372,7 @@
             // Txt0009
             // 
             this.Txt0009.BackColor = System.Drawing.Color.AliceBlue;
-            this.Txt0009.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt0009.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt0009.Location = new System.Drawing.Point(58, 23);
             this.Txt0009.MaxLength = 2;
             this.Txt0009.Multiline = true;
@@ -442,7 +442,7 @@
             // 
             this.TxtE1.BackColor = System.Drawing.Color.Magenta;
             this.TxtE1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtE1.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtE1.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtE1.Location = new System.Drawing.Point(1, 74);
             this.TxtE1.MaxLength = 2;
             this.TxtE1.Multiline = true;
@@ -457,7 +457,7 @@
             // 
             this.TxtE5.BackColor = System.Drawing.Color.Magenta;
             this.TxtE5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtE5.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtE5.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtE5.Location = new System.Drawing.Point(1, 326);
             this.TxtE5.MaxLength = 2;
             this.TxtE5.Multiline = true;
@@ -471,7 +471,7 @@
             // Txt9099
             // 
             this.Txt9099.BackColor = System.Drawing.Color.AliceBlue;
-            this.Txt9099.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt9099.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt9099.Location = new System.Drawing.Point(58, 481);
             this.Txt9099.MaxLength = 2;
             this.Txt9099.Multiline = true;
@@ -484,7 +484,7 @@
             // Txt3031
             // 
             this.Txt3031.BackColor = System.Drawing.Color.AliceBlue;
-            this.Txt3031.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt3031.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt3031.Location = new System.Drawing.Point(56, 171);
             this.Txt3031.MaxLength = 2;
             this.Txt3031.Multiline = true;
@@ -508,7 +508,7 @@
             // Txt5051
             // 
             this.Txt5051.BackColor = System.Drawing.Color.AliceBlue;
-            this.Txt5051.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt5051.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt5051.Location = new System.Drawing.Point(57, 326);
             this.Txt5051.MaxLength = 2;
             this.Txt5051.Multiline = true;
@@ -533,7 +533,7 @@
             // 
             this.TxtE3.BackColor = System.Drawing.Color.Magenta;
             this.TxtE3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtE3.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtE3.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtE3.Location = new System.Drawing.Point(0, 171);
             this.TxtE3.MaxLength = 2;
             this.TxtE3.Multiline = true;
@@ -547,7 +547,7 @@
             // Txt1019
             // 
             this.Txt1019.BackColor = System.Drawing.Color.AliceBlue;
-            this.Txt1019.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt1019.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt1019.Location = new System.Drawing.Point(57, 75);
             this.Txt1019.MaxLength = 2;
             this.Txt1019.Multiline = true;
@@ -604,7 +604,7 @@
             // Txt8089
             // 
             this.Txt8089.BackColor = System.Drawing.Color.AliceBlue;
-            this.Txt8089.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt8089.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt8089.Location = new System.Drawing.Point(58, 433);
             this.Txt8089.MaxLength = 2;
             this.Txt8089.Multiline = true;
@@ -618,7 +618,7 @@
             // 
             this.TxtE8.BackColor = System.Drawing.Color.Magenta;
             this.TxtE8.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtE8.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtE8.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtE8.Location = new System.Drawing.Point(1, 433);
             this.TxtE8.MaxLength = 2;
             this.TxtE8.Multiline = true;
@@ -687,7 +687,7 @@
             // Txt4049
             // 
             this.Txt4049.BackColor = System.Drawing.Color.AliceBlue;
-            this.Txt4049.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt4049.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt4049.Location = new System.Drawing.Point(56, 222);
             this.Txt4049.MaxLength = 2;
             this.Txt4049.Multiline = true;
@@ -701,7 +701,7 @@
             // 
             this.TxtE7.BackColor = System.Drawing.Color.Magenta;
             this.TxtE7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtE7.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtE7.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtE7.Location = new System.Drawing.Point(0, 381);
             this.TxtE7.MaxLength = 2;
             this.TxtE7.Multiline = true;
@@ -727,7 +727,7 @@
             // 
             this.textBox6.BackColor = System.Drawing.Color.Magenta;
             this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox6.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox6.Location = new System.Drawing.Point(1, 272);
             this.textBox6.MaxLength = 2;
             this.textBox6.Multiline = true;
@@ -742,7 +742,7 @@
             // 
             this.TxtE4.BackColor = System.Drawing.Color.Magenta;
             this.TxtE4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtE4.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtE4.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtE4.Location = new System.Drawing.Point(0, 222);
             this.TxtE4.MaxLength = 2;
             this.TxtE4.Multiline = true;

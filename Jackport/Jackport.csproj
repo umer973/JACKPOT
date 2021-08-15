@@ -93,6 +93,7 @@
   <ItemGroup>
     <Compile Include="ClsServive.cs" />
     <Compile Include="DataModel\ObjectDataModel.cs" />
+    <Compile Include="DataModel\TicketModel.cs" />
     <Compile Include="DataModel\UserAgent.cs" />
     <Compile Include="FrmActivationKey.cs">
       <SubType>Form</SubType>

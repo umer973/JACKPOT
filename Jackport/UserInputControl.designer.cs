@@ -51,7 +51,8 @@
             this.TxtQty.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtQty.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtQty.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtQty.ForeColor = System.Drawing.Color.White;
             this.TxtQty.Location = new System.Drawing.Point(0, 18);
             this.TxtQty.MaxLength = 2;
             this.TxtQty.Multiline = true;
@@ -59,13 +60,13 @@
             this.TxtQty.Size = new System.Drawing.Size(50, 27);
             this.TxtQty.TabIndex = 264;
             this.TxtQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtQty.TextChanged += new System.EventHandler(this.TxtQty_TextChanged);
             this.TxtQty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtQty_KeyPress);
             // 
             // UserInputControl
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSize = true;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.LabelName);
             this.Controls.Add(this.TxtQty);
             this.Name = "UserInputControl";

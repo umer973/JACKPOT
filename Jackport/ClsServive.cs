@@ -124,7 +124,7 @@ namespace Jackport
             {
                 MessageBox.Show(result.message);
                 UserAgent.ShowBalance = result.data.agent_balance;
-                return result.data.time_slots; 
+                return result.data.time_slots;
 
 
             }
@@ -289,7 +289,7 @@ namespace Jackport
             }
         }
 
-        public bool ClaimTicket(string token, string barcode)
+        public TicketDetail ClaimTicket(string token, string barcode)
         {
             var client = new RestClient("https://api.welcomejk.com/v1/tickets/claim");
             client.Timeout = -1;
@@ -300,16 +300,16 @@ namespace Jackport
             request.AlwaysMultipartFormData = true;
             request.AddParameter("ticket_barcode", barcode);
             IRestResponse response = client.Execute(request);
-            var result = JsonConvert.DeserializeObject<ApiResponse>(response.Content);
+            var result = JsonConvert.DeserializeObject<ClaimedTicketDetail>(response.Content);
             if (result.success)
             {
+                return result.data.ticket_detail;
 
-                return true;
             }
             else
             {
                 MessageBox.Show(result.message);
-                return false;
+                return null;
             }
         }
 
@@ -405,6 +405,29 @@ namespace Jackport
                 return null;
             }
 
+        }
+
+        public BidDetail GetSingleTickeDetail(string barcode)
+        {
+            var client = new RestClient("https://api.welcomejk.com/v1/tickets/get-ticket?ticket_barcode=" + barcode);
+            client.Timeout = -1;
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("APP-KEY", "e76d8c85-979c-411a-89f6-f1dfe0dfa041");
+            request.AddHeader("AGENT-TOKEN", UserAgent.AgenToken);
+            request.AddHeader("MACHINE-ID", deviceId);
+
+            IRestResponse response = client.Execute(request);
+            var result = JsonConvert.DeserializeObject<TicketResult>(response.Content);
+            if (result.success)
+            {
+                return result.data;
+
+            }
+            else
+            {
+                MessageBox.Show(result.message);
+                return null;
+            }
         }
 
 

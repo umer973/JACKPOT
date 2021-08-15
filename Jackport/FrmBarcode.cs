@@ -96,16 +96,19 @@ namespace Jackport
         private void ClaimTicket()
         {
             ClsService clsservice = new ClsService();
+            TicketDetail ticket = new TicketDetail();
 
             if (dataGridView1.SelectedRows.Count != 0)
             {
                 DataGridViewRow row = this.dataGridView1.SelectedRows[0];
                 string barccode = row.Cells[1].Value.ToString().Trim();
-                bool result = clsservice.ClaimTicket(UserAgent.AgenToken, barccode);
-                if (result)
+                ticket = clsservice.ClaimTicket(UserAgent.AgenToken, barccode);
+                if (ticket != null)
                 {
                     this.Hide();
                     MessageBox.Show("Ticket Claim Successfully");
+                    PrintJobHelper.PrintClaimedTicket(ticket);
+
 
                 }
 
@@ -118,5 +121,33 @@ namespace Jackport
 
         }
 
+        private void BtnReprint_Click(object sender, EventArgs e)
+        {
+            Reprint();
+        }
+
+        private void Reprint()
+        {
+            ClsService clsservice = new ClsService();
+            BidDetail bids = new BidDetail();
+            if (dataGridView1.SelectedRows.Count != 0)
+            {
+                DataGridViewRow row = this.dataGridView1.SelectedRows[0];
+                string barccode = row.Cells[1].Value.ToString().Trim();
+                bids = clsservice.GetSingleTickeDetail(barccode);
+                if (bids != null)
+                {
+                    this.Hide();
+
+                    PrintJobHelper.ReprintPrint(bids);
+                }
+
+
+            }
+            else
+            {
+                MessageBox.Show("Please Select Barcode");
+            }
+        }
     }
 }

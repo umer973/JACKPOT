@@ -66,9 +66,9 @@
             this.BtnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.BtnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCancel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnCancel.Location = new System.Drawing.Point(521, 3);
+            this.BtnCancel.Location = new System.Drawing.Point(521, 6);
             this.BtnCancel.Name = "BtnCancel";
-            this.BtnCancel.Size = new System.Drawing.Size(113, 36);
+            this.BtnCancel.Size = new System.Drawing.Size(113, 31);
             this.BtnCancel.TabIndex = 38;
             this.BtnCancel.Text = "Close";
             this.BtnCancel.UseVisualStyleBackColor = false;
@@ -76,37 +76,39 @@
             // 
             // dtTo
             // 
+            this.dtTo.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtTo.Location = new System.Drawing.Point(201, 11);
+            this.dtTo.Location = new System.Drawing.Point(249, 9);
             this.dtTo.Name = "dtTo";
-            this.dtTo.Size = new System.Drawing.Size(104, 20);
+            this.dtTo.Size = new System.Drawing.Size(113, 26);
             this.dtTo.TabIndex = 35;
             // 
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label40.Location = new System.Drawing.Point(177, 15);
+            this.label40.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.Location = new System.Drawing.Point(192, 13);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(34, 13);
+            this.label40.Size = new System.Drawing.Size(54, 19);
             this.label40.TabIndex = 37;
             this.label40.Text = "To : ";
             // 
             // dtfrom
             // 
+            this.dtfrom.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtfrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtfrom.Location = new System.Drawing.Point(79, 11);
+            this.dtfrom.Location = new System.Drawing.Point(69, 11);
             this.dtfrom.Name = "dtfrom";
-            this.dtfrom.Size = new System.Drawing.Size(92, 20);
+            this.dtfrom.Size = new System.Drawing.Size(117, 26);
             this.dtfrom.TabIndex = 34;
             // 
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(33, 13);
+            this.label37.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.Location = new System.Drawing.Point(12, 15);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(50, 13);
+            this.label37.Size = new System.Drawing.Size(81, 19);
             this.label37.TabIndex = 36;
             this.label37.Text = "From :  ";
             // 
@@ -115,9 +117,9 @@
             this.BtnTmlClaim.BackColor = System.Drawing.SystemColors.Highlight;
             this.BtnTmlClaim.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnTmlClaim.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnTmlClaim.Location = new System.Drawing.Point(380, 3);
+            this.BtnTmlClaim.Location = new System.Drawing.Point(392, 6);
             this.BtnTmlClaim.Name = "BtnTmlClaim";
-            this.BtnTmlClaim.Size = new System.Drawing.Size(123, 36);
+            this.BtnTmlClaim.Size = new System.Drawing.Size(123, 31);
             this.BtnTmlClaim.TabIndex = 33;
             this.BtnTmlClaim.Text = "OK";
             this.BtnTmlClaim.UseVisualStyleBackColor = false;

@@ -14,27 +14,27 @@ namespace Jackport.Helper
     public static class PrintJobHelper
     {
         private static TimeSlotList _ticket;
-
+        private static BidDetail _bids;
         private static CancelledTicket cticket;
         private static ReportSummary _report;
         private static PrintDocument printDocument;
-
+        private static TicketDetail _claimedticket;
         private static Graphics graphics;
 
         private static PrintPreviewDialog p = new PrintPreviewDialog();
 
-
+       
         private static int InitialHeight = 360;
 
-        static PrintJobHelper()
-        {
-            CommonHelper.ReadXMlData();
-            AdjustHeight();
-            printDocument = new PrintDocument();
-            printDocument.PrinterSettings.PrinterName = PrintJobSettings.PrinterName;
+        //static PrintJobHelper()
+        //{
+        //    CommonHelper.ReadXMlData();
+        //    AdjustHeight();
+        //    //printDocument = new PrintDocument();
+        //    printDocument.PrinterSettings.PrinterName = PrintJobSettings.PrinterName;
 
 
-        }
+        //}
 
 
         #region :: Print Formating
@@ -89,6 +89,8 @@ namespace Jackport.Helper
 
         #endregion
 
+        #region :: Public Methods
+
         private static void AdjustHeight()
         {
             //var capacity = 5 * order.ItemTransactions.Capacity;
@@ -100,11 +102,15 @@ namespace Jackport.Helper
 
         public static void Print(TimeSlotList ticket)
         {
-
+            printDocument = new PrintDocument();
+            CommonHelper.ReadXMlData();
+            printDocument.PrinterSettings.PrinterName = PrintJobSettings.PrinterName;
             _ticket = ticket;
+            
             printDocument.PrintPage += new PrintPageEventHandler(PrintTicket);
             printDocument.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize(PrintJobSettings.PaperSize, PrintJobSettings.Width, PrintJobSettings.Height);
             p.Document = printDocument;
+            
 
             if (PrintJobSettings.IsDirectPrint)
             {
@@ -118,11 +124,40 @@ namespace Jackport.Helper
 
         }
 
+        public static void ReprintPrint(BidDetail ticket)
+        {
+            printDocument = new PrintDocument();
+            CommonHelper.ReadXMlData();
+            printDocument.PrinterSettings.PrinterName = PrintJobSettings.PrinterName;
+            _bids = ticket;
+           
+            printDocument.PrintPage += new PrintPageEventHandler(RePrintTicket);
+            printDocument.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize(PrintJobSettings.PaperSize, PrintJobSettings.Width, PrintJobSettings.Height);
+            p.Document = printDocument;
+
+            if (PrintJobSettings.IsDirectPrint)
+            {
+                printDocument.Print();
+            }
+            else
+
+            {
+                p.ShowDialog();
+            }
+
+           
+            printDocument.Dispose();
+
+        }
+
         public static void PrintCancelledTicket(CancelledTicket ticket)
         {
-
+            printDocument = new PrintDocument();
+            CommonHelper.ReadXMlData();
+            printDocument.PrinterSettings.PrinterName = PrintJobSettings.PrinterName;
 
             cticket = ticket;
+            printDocument = new PrintDocument();
             printDocument.PrintPage += new PrintPageEventHandler(PrintCancelledTicket);
             PrintPreviewDialog p = new PrintPreviewDialog();
             printDocument.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize(PrintJobSettings.PaperSize, PrintJobSettings.Width, PrintJobSettings.Height);
@@ -145,12 +180,43 @@ namespace Jackport.Helper
 
         }
 
+        public static void PrintClaimedTicket(TicketDetail ticket)
+        {
+
+            printDocument = new PrintDocument();
+            CommonHelper.ReadXMlData();
+            printDocument.PrinterSettings.PrinterName = PrintJobSettings.PrinterName;
+            _claimedticket = ticket;
+           
+            printDocument.PrintPage += new PrintPageEventHandler(PrintClaimedTicket);
+            PrintPreviewDialog p = new PrintPreviewDialog();
+            printDocument.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize(PrintJobSettings.PaperSize, PrintJobSettings.Width, PrintJobSettings.Height);
+
+            p.Document = printDocument;
+
+
+            if (PrintJobSettings.IsDirectPrint)
+            {
+                printDocument.Print();
+            }
+            else
+
+            {
+                p.ShowDialog();
+            }
+
+
+
+
+        }
 
         public static void PrintReportSummary(ReportSummary report)
         {
-
+            printDocument = new PrintDocument();
+            CommonHelper.ReadXMlData();
+            printDocument.PrinterSettings.PrinterName = PrintJobSettings.PrinterName;
             _report = report;
-
+          
             printDocument.PrintPage += new PrintPageEventHandler(PrintReportSummary);
             PrintPreviewDialog p = new PrintPreviewDialog();
             printDocument.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize(PrintJobSettings.PaperSize, PrintJobSettings.Width, PrintJobSettings.Height);
@@ -172,6 +238,12 @@ namespace Jackport.Helper
 
 
         }
+
+        #endregion
+
+        #region :: Private Methods
+
+
 
         private static void PrintTicket(object sender, PrintPageEventArgs e)
         {
@@ -210,7 +282,7 @@ namespace Jackport.Helper
 
             Offset = Offset + largeinc;
             //InsertItem("JACKPOT", "", Offset);
-            InsertHeaderStyleItem("JACKPOT STARTDIGIT", "", Offset);
+            InsertHeaderStyleItem(UserAgent.AppName, "", Offset);
 
 
             // DrawSimpleString("JACKPOT", minifont, Offset, 15);
@@ -282,6 +354,210 @@ namespace Jackport.Helper
             Offset = Offset + mediuminc;
 
             InsertHeaderStyleItem("Qty  :" + total + " RS. " + total * 2 + "  " + CommonHelper.GetdateFormat(_ticket.time_end).ToString(), "", Offset);
+
+
+
+            //graphics.DrawString("Welcome to HOT AND CRISPY", smallfont,
+            //new SolidBrush(Color.Black), startX + 22, startY + Offset);
+
+
+            //  Offset = Offset + mediuminc;
+
+
+
+            //  DrawAtStart("Date: " + "11-09-21", Offset);
+
+            // DrawAtStart("Time: " + "9:00 PM", Offset);
+
+            /// Offset = Offset + mediuminc;
+
+            //DrawAtStart("Qty : " + "10", Offset);
+
+            // DrawAtStart("Rs: " + "2", Offset);
+
+
+            //  DrawAtStart("Time: " + "9:00 PM", Offset);
+
+
+            Offset = Offset + mediuminc;
+            // underLine = "-------------------------";
+            //  DrawLine(underLine, largefont, Offset, 30);
+
+            // Offset = Offset + largeinc;
+
+            // InsertHeaderStyleItem("Name. ", "Price. ", Offset);
+
+            //Offset = Offset + largeinc;
+            //foreach (var itran in order.ItemTransactions)
+            //{
+            //    InsertItem(itran.Item.Name + " x " + itran.Quantity, itran.Total.CValue, Offset);
+            //    Offset = Offset + smallinc;
+            //}
+            //foreach (var dtran in order.DealTransactions)
+            //{
+            //    InsertItem(dtran.Deal.Name, dtran.Total.CValue, Offset);
+            //    Offset = Offset + smallinc;
+
+            //    foreach (var di in dtran.Deal.DealItems)
+            //    {
+            //        InsertItem(di.Item.Name + " x " + (dtran.Quantity * di.Quantity), "", Offset);
+            //        Offset = Offset + smallinc;
+            //    }
+            //}
+
+            //underLine = "-------------------------";
+            //DrawLine(underLine, largefont, Offset, 30);
+
+            //Offset = Offset + largeinc;
+            //InsertItem(" Net. Total: ", order.Total.CValue, Offset);
+
+            //if (!order.Cash.Discount.IsZero())
+            //{
+            //    Offset = Offset + smallinc;
+            //    InsertItem(" Discount: ", order.Cash.Discount.CValue, Offset);
+            //}
+
+            //Offset = Offset + smallinc;
+            //InsertHeaderStyleItem(" Amount Payable: ", order.GrossTotal.CValue, Offset);
+
+            //Offset = Offset + largeinc;
+            //String address = shop.Address;
+            //DrawSimpleString("Address: " + address, minifont, Offset, 15);
+
+            //Offset = Offset + smallinc;
+            //String number = "Tel: " + shop.Phone1 + " - OR - " + shop.Phone2;
+            //DrawSimpleString(number, minifont, Offset, 35);
+
+            //Offset = Offset + 7;
+            //underLine = "-------------------------------------";
+            //DrawLine(underLine, largefont, Offset, 0);
+
+            //Offset = Offset + mediuminc;
+            //String greetings = "Thanks for visiting us.";
+            //DrawSimpleString(greetings, mediumfont, Offset, 28);
+
+            //Offset = Offset + mediuminc;
+            //underLine = "-------------------------------------";
+            //DrawLine(underLine, largefont, Offset, 0);
+
+            //Offset += (2 * mediuminc);
+            //string tip = "TIP: -----------------------------";
+            //InsertItem(tip, "", Offset);
+
+            //Offset = Offset + largeinc;
+            //string DrawnBy = "Meganos Softwares: 0312-0459491 - OR - 0321-6228321";
+            //DrawSimpleString(DrawnBy, minifont, Offset, 15);
+        }
+
+        private static void RePrintTicket(object sender, PrintPageEventArgs e)
+        {
+            graphics = e.Graphics;
+            Font minifont = new Font("Arial", 5);
+            Font itemfont = new Font("Arial", 6);
+            Font smallfont = new Font("Arial", 8);
+            Font mediumfont = new Font("Arial", 10);
+            Font largefont = new Font("Arial", 12);
+            int Offset = 10;
+            int smallinc = 10, mediuminc = 12, largeinc = 15;
+
+
+
+            Offset = Offset + largeinc + 10;
+
+            String underLine = "-------------------------------------";
+            //DrawLine(underLine, largefont, Offset, 0);
+
+            //Offset = Offset + mediuminc;
+            InsertHeaderStyleItem(_bids.agent_code + "   " + _bids.ticket_barcode, "", Offset);
+
+            Offset = Offset + mediuminc;
+            //InsertItem("BARCODE     :  " + _ticket.ticket_barcode, "", Offset);
+
+            Offset = Offset + mediuminc;
+
+            //  Image image = Resources._33_337047_sell_icon_png;
+            // e.Graphics.DrawImage(image, 10 + 50, 5 + Offset, 100, 30);
+            // InsertItem(" ", "", Offset);
+
+            // Offset = Offset + mediuminc;
+
+            //DrawAtStart("STARTDIGIT: " + "2", Offset);
+            //Offset = Offset + mediuminc;
+
+            Offset = Offset + largeinc;
+            //InsertItem("JACKPOT", "", Offset);
+            InsertHeaderStyleItem(UserAgent.AppName, "", Offset);
+
+
+            // DrawSimpleString("JACKPOT", minifont, Offset, 15);
+
+            Offset = Offset + mediuminc;
+            InsertHeaderStyleItem("Date : " + _bids.ticket_taken_time + "  Time :  " + CommonHelper.GetdateFormat(_bids.ticket_end_time).ToString(), "", Offset);
+
+
+
+            //InsertHeaderStyleItem("No - Qty", "", Offset);
+
+
+            int total = 0;
+            string bids = string.Empty;
+            int count = _bids.bids.Count;
+
+            for (int i = 0; i < _bids.bids.Count;)
+            {
+                if (count >= 3)
+                {
+                    bids = "";
+                    for (int j = 0; j <= 2; j++)
+                    {
+
+
+                        bids = bids + _bids.bids[i].bid_number.ToString() + "-  " + _bids.bids[i].bid_quantity.ToString() + "  ";
+
+                        total = total + Convert.ToInt16(_bids.bids[i].bid_quantity);
+                        i++;
+                        count--;
+                    }
+
+                }
+                else if (count >= 2)
+                {
+                    bids = "";
+                    for (int j = 0; j <= 1; j++)
+                    {
+
+
+                        bids = bids + _bids.bids[i].bid_number.ToString() + "-  " + _bids.bids[i].bid_quantity.ToString() + "  ";
+
+                        total = total + Convert.ToInt16(_bids.bids[i].bid_quantity);
+                        i++;
+                        count--;
+                    }
+
+                }
+                else if (count >= 1)
+                {
+                    bids = "";
+                    bids = _bids.bids[i].bid_number.ToString() + "-  " + _bids.bids[i].bid_quantity.ToString() + "  ";
+
+                    total = total + Convert.ToInt16(_bids.bids[i].bid_quantity);
+                    i++;
+                    count--;
+
+                }
+
+
+                Offset = Offset + mediuminc;
+                InsertHeaderStyleItem(bids, "", Offset);
+
+
+
+
+            }
+
+            Offset = Offset + largeinc;
+
+            InsertHeaderStyleItem("Qty  :" + total + " RS. " + total * 2 + "  " + CommonHelper.GetdateFormat(_bids.ticket_end_time).ToString(), "", Offset);
 
 
 
@@ -503,6 +779,138 @@ namespace Jackport.Helper
             //DrawSimpleString(DrawnBy, minifont, Offset, 15);
         }
 
+        private static void PrintClaimedTicket(object sender, PrintPageEventArgs e)
+        {
+            graphics = e.Graphics;
+            Font minifont = new Font("Arial", 5);
+            Font itemfont = new Font("Arial", 6);
+            Font smallfont = new Font("Arial", 8);
+            Font mediumfont = new Font("Arial", 10);
+            Font largefont = new Font("Arial", 12);
+            int Offset = 10;
+            int smallinc = 10, mediuminc = 12, largeinc = 15;
+
+            String underLine = "-------------------------------";
+            DrawLine(underLine, mediumfont, Offset, 0);
+
+            Offset = Offset + largeinc;
+
+            InsertHeaderStyleItem("Terminal ID     :" + _claimedticket.ticket_agent_code, "", Offset);
+
+            Offset = Offset + mediuminc;
+
+            InsertHeaderStyleItem("Barcode No     :" + _claimedticket.ticket_barcode, "", Offset);
+
+            Offset = Offset + mediuminc;
+
+            InsertHeaderStyleItem("Claimed Amt   :" + _claimedticket.ticket_win_customer, "", Offset);
+
+
+            Offset = Offset + mediuminc;
+
+            InsertHeaderStyleItem("Claimed Time    :" + _claimedticket.ticket_purchase_time, "", Offset);
+
+
+            Offset = Offset + largeinc;
+            DrawLine(underLine, mediumfont, Offset, 0);
+
+
+
+            Offset = Offset + largeinc;
+
+
+            DrawSimpleString("JACKPOT", largefont, Offset, 28);
+
+            //graphics.DrawString("Welcome to HOT AND CRISPY", smallfont,
+            //new SolidBrush(Color.Black), startX + 22, startY + Offset);
+
+
+            //  Offset = Offset + mediuminc;
+
+            //  DrawAtStart("Date: " + "11-09-21", Offset);
+
+            // DrawAtStart("Time: " + "9:00 PM", Offset);
+
+            /// Offset = Offset + mediuminc;
+
+            //DrawAtStart("Qty : " + "10", Offset);
+
+            // DrawAtStart("Rs: " + "2", Offset);
+
+
+            //  DrawAtStart("Time: " + "9:00 PM", Offset);
+
+
+            Offset = Offset + mediuminc;
+            // underLine = "-------------------------";
+            //  DrawLine(underLine, largefont, Offset, 30);
+
+            // Offset = Offset + largeinc;
+
+            // InsertHeaderStyleItem("Name. ", "Price. ", Offset);
+
+            //Offset = Offset + largeinc;
+            //foreach (var itran in order.ItemTransactions)
+            //{
+            //    InsertItem(itran.Item.Name + " x " + itran.Quantity, itran.Total.CValue, Offset);
+            //    Offset = Offset + smallinc;
+            //}
+            //foreach (var dtran in order.DealTransactions)
+            //{
+            //    InsertItem(dtran.Deal.Name, dtran.Total.CValue, Offset);
+            //    Offset = Offset + smallinc;
+
+            //    foreach (var di in dtran.Deal.DealItems)
+            //    {
+            //        InsertItem(di.Item.Name + " x " + (dtran.Quantity * di.Quantity), "", Offset);
+            //        Offset = Offset + smallinc;
+            //    }
+            //}
+
+            //underLine = "-------------------------";
+            //DrawLine(underLine, largefont, Offset, 30);
+
+            //Offset = Offset + largeinc;
+            //InsertItem(" Net. Total: ", order.Total.CValue, Offset);
+
+            //if (!order.Cash.Discount.IsZero())
+            //{
+            //    Offset = Offset + smallinc;
+            //    InsertItem(" Discount: ", order.Cash.Discount.CValue, Offset);
+            //}
+
+            //Offset = Offset + smallinc;
+            //InsertHeaderStyleItem(" Amount Payable: ", order.GrossTotal.CValue, Offset);
+
+            //Offset = Offset + largeinc;
+            //String address = shop.Address;
+            //DrawSimpleString("Address: " + address, minifont, Offset, 15);
+
+            //Offset = Offset + smallinc;
+            //String number = "Tel: " + shop.Phone1 + " - OR - " + shop.Phone2;
+            //DrawSimpleString(number, minifont, Offset, 35);
+
+            //Offset = Offset + 7;
+            //underLine = "-------------------------------------";
+            //DrawLine(underLine, largefont, Offset, 0);
+
+            //Offset = Offset + mediuminc;
+            //String greetings = "Thanks for visiting us.";
+            //DrawSimpleString(greetings, mediumfont, Offset, 28);
+
+            //Offset = Offset + mediuminc;
+            //underLine = "-------------------------------------";
+            //DrawLine(underLine, largefont, Offset, 0);
+
+            //Offset += (2 * mediuminc);
+            //string tip = "TIP: -----------------------------";
+            //InsertItem(tip, "", Offset);
+
+            //Offset = Offset + largeinc;
+            //string DrawnBy = "Meganos Softwares: 0312-0459491 - OR - 0321-6228321";
+            //DrawSimpleString(DrawnBy, minifont, Offset, 15);
+        }
+
         private static void PrintReportSummary(object sender, PrintPageEventArgs e)
         {
             graphics = e.Graphics;
@@ -523,7 +931,7 @@ namespace Jackport.Helper
             Offset = Offset + largeinc;
             InsertHeaderStyleItem("Agent   " + UserAgent.AgentCode, "", Offset);
 
-          
+
             Offset = Offset + mediuminc;
             InsertHeaderStyleItem("Date    " + DateTime.Now, "", Offset);
 
@@ -540,7 +948,7 @@ namespace Jackport.Helper
 
             Offset = Offset + mediuminc;
             InsertHeaderStyleItem("Gross Sales Amount      ", _report.gross_sales_amount, Offset);
-        
+
 
             Offset = Offset + mediuminc;
             InsertHeaderStyleItem("Cancelled Amount        ", _report.cancelled_sales_amount, Offset);
@@ -549,43 +957,43 @@ namespace Jackport.Helper
             DrawLine(underLine, mediumfont, Offset, 0);
 
             Offset = Offset + mediuminc;
-            InsertHeaderStyleItem("Net Sales Amount       " , _report.net_sales_amount, Offset);
+            InsertHeaderStyleItem("Net Sales Amount       ", _report.net_sales_amount, Offset);
 
             Offset = Offset + mediuminc;
 
-            InsertHeaderStyleItem("Payout Amount           " , _report.payout_amount, Offset);
-
-            Offset = Offset + mediuminc;
-            DrawLine(underLine, mediumfont, Offset, 0);
-
-
-            Offset = Offset + mediuminc;
-            InsertHeaderStyleItem("Operator Balance        " , _report.operator_balance, Offset);
+            InsertHeaderStyleItem("Payout Amount           ", _report.payout_amount, Offset);
 
             Offset = Offset + mediuminc;
             DrawLine(underLine, mediumfont, Offset, 0);
 
 
             Offset = Offset + mediuminc;
-            InsertHeaderStyleItem("Retailer Discount       " , _report.retailer_discount, Offset);
+            InsertHeaderStyleItem("Operator Balance        ", _report.operator_balance, Offset);
 
             Offset = Offset + mediuminc;
-            InsertHeaderStyleItem("Sale Incentive          ",  _report.sale_incentive, Offset);
+            DrawLine(underLine, mediumfont, Offset, 0);
+
 
             Offset = Offset + mediuminc;
-            InsertHeaderStyleItem("Payout Incentive        " , _report.PayoutIncentive, Offset);
+            InsertHeaderStyleItem("Retailer Discount       ", _report.retailer_discount, Offset);
+
+            Offset = Offset + mediuminc;
+            InsertHeaderStyleItem("Sale Incentive          ", _report.sale_incentive, Offset);
+
+            Offset = Offset + mediuminc;
+            InsertHeaderStyleItem("Payout Incentive        ", _report.PayoutIncentive, Offset);
 
             Offset = Offset + mediuminc;
             DrawLine(underLine, mediumfont, Offset, 0);
 
             Offset = Offset + mediuminc;
-            InsertHeaderStyleItem("Total Profit            " , _report.total_profit, Offset);
+            InsertHeaderStyleItem("Total Profit            ", _report.total_profit, Offset);
 
             Offset = Offset + mediuminc;
             DrawLine(underLine, mediumfont, Offset, 0);
 
             Offset = Offset + mediuminc;
-            InsertHeaderStyleItem("Net To Pay              " ,_report.net_to_pay, Offset);
+            InsertHeaderStyleItem("Net To Pay              ", _report.net_to_pay, Offset);
 
 
 
@@ -678,5 +1086,7 @@ namespace Jackport.Helper
             //string DrawnBy = "Meganos Softwares: 0312-0459491 - OR - 0321-6228321";
             //DrawSimpleString(DrawnBy, minifont, Offset, 15);
         }
+
+        #endregion
     }
 }

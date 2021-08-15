@@ -12,9 +12,21 @@ namespace Jackport
 {
     public partial class UserInputControl : UserControl
     {
+
+
         public UserInputControl()
         {
             InitializeComponent();
+
+            ParentChanged += OnChanged;
+            // this.Size = new Size(150, 150);
+        }
+
+        private void OnChanged(object sender, EventArgs e)
+        {
+
+            // More events or
+            // Do Something...
         }
 
 
@@ -35,6 +47,8 @@ namespace Jackport
 
         private void TxtQty_KeyPress(object sender, KeyPressEventArgs e)
         {
+
+          
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
           (e.KeyChar != '.'))
             {
@@ -46,6 +60,14 @@ namespace Jackport
             {
                 e.Handled = true;
             }
+        }
+
+        private void TxtQty_TextChanged(object sender, EventArgs e)
+        {
+            if (TxtQty.Text != "")
+                TxtQty.BackColor = Color.Green;
+            else
+                TxtQty.BackColor = Color.White;
         }
     }
 }
