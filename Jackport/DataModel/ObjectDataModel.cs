@@ -17,8 +17,19 @@ namespace Jackport.DataModel
         public bool success { get; set; }
         public string code { get; set; }
         public string message { get; set; }
-        public object data { get; set; }
+        public CancelledTicket data { get; set; }
 
+    }
+
+    public class CancelledTicket
+    {
+        public long agent_balance { get; set; }
+        public string agent_code { get; set; }
+        public string ticket_barcode { get; set; }
+        public string ticket_total_amount { get; set; }
+        public string ticket_purchase_time { get; set; }
+        public string ticket_cancel_time { get; set; }
+        public string ticket_result_time { get; set; }
     }
 
     public class ApplicationDetails

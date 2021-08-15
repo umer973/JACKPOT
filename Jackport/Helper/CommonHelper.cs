@@ -61,12 +61,14 @@ namespace Jackport.Helper
                     ds.Clear();
                     ds.ReadXml(filePath);
                     int table = Convert.ToInt32(ds.Tables.Count);
-
-                    PrintJobSettings.PrinterName = ds.Tables[1].Rows[0][0].ToString();
-                    PrintJobSettings.PaperSize = ds.Tables[1].Rows[0][1].ToString();
-                    PrintJobSettings.Height = Convert.ToInt16(ds.Tables[1].Rows[0][2].ToString());
-                    PrintJobSettings.Width = Convert.ToInt16(ds.Tables[1].Rows[0][3].ToString());
-                    PrintJobSettings.IsDirectPrint = Convert.ToBoolean(ds.Tables[1].Rows[0][4].ToString());
+                    for (int i = 1; i < table; i++)
+                    {
+                        PrintJobSettings.PrinterName = ds.Tables[i].Rows[0][0].ToString();
+                        PrintJobSettings.PaperSize = ds.Tables[i].Rows[0][1].ToString();
+                        PrintJobSettings.Height = Convert.ToInt16(ds.Tables[i].Rows[0][2].ToString());
+                        PrintJobSettings.Width = Convert.ToInt16(ds.Tables[i].Rows[0][3].ToString());
+                        PrintJobSettings.IsDirectPrint = Convert.ToBoolean(ds.Tables[i].Rows[0][4].ToString());
+                    }
 
 
 

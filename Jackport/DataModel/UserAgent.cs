@@ -12,7 +12,9 @@ namespace Jackport.DataModel
 
         public static string AgenToken { get; set; }
 
-        
+        public static long ShowBalance { get; set; }
+
+        public static string AppName { get; set; }
 
 
     }

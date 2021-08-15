@@ -1,4 +1,4 @@
-﻿ 
+﻿
 
 namespace Jackport
 {
@@ -18,11 +18,11 @@ namespace Jackport
     {
         public static string apiBaseUrl = "https://api.welcomejk.com/v1";
         public string deviceId;
-       // private RestClient client;
+        // private RestClient client;
 
         public ClsService()
         {
-             deviceId = getMachineId().ToString().Trim();
+            deviceId = getMachineId().ToString().Trim();
             //deviceId = "-hcaFK5rNlk8rFKhI2e-kStz04MpLGoCAqEIJAA7G30";
         }
         public bool ActivateLicenceAsync(string licenceKey)
@@ -123,7 +123,8 @@ namespace Jackport
             if (result.success)
             {
                 MessageBox.Show(result.message);
-                return result.data.time_slots; ;
+                UserAgent.ShowBalance = result.data.agent_balance;
+                return result.data.time_slots; 
 
 
             }
@@ -266,7 +267,7 @@ namespace Jackport
 
 
 
-        public bool CancelTicket(string token, string barcode)
+        public CancelledTicket CancelTicket(string token, string barcode)
         {
             var client = new RestClient("https://api.welcomejk.com/v1/tickets/cancel/" + barcode);
             client.Timeout = -1;
@@ -279,12 +280,12 @@ namespace Jackport
             if (result.success)
             {
 
-                return true;
+                return result.data;
             }
             else
             {
                 MessageBox.Show(result.message);
-                return false;
+                return null;
             }
         }
 

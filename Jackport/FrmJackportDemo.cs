@@ -370,6 +370,8 @@ namespace Jackport
 
                 appTime = Convert.ToDateTime(_root.ApplicationDetails.app_time.ToString());
                 LblDate.Text = CommonHelper.SetDateFormat(_root.ApplicationDetails.app_date.ToString());
+                UserAgent.AppName = data.ApplicationDetails.app_name;
+                UserAgent.ShowBalance = Convert.ToInt64(data.AgentData.balance);
 
                 var request = WebRequest.Create(_root.ApplicationDetails.app_logo);
 
@@ -466,7 +468,7 @@ namespace Jackport
                 {
                     List<TimeSlotList> tickets = new List<TimeSlotList>();
                     tickets = clsService.PurchaseSingleTicketAsync(agentToken, bidList, plist);
-                    /// LblBalance.Text = result.ToString();
+
 
                     ClearBoard();
                     // Print(slots);
@@ -474,11 +476,11 @@ namespace Jackport
 
                     // PrintJob print = new PrintJob();
 
-                    
+
 
                     foreach (TimeSlotList ticket in tickets)
                     {
-                        
+
                         PrintJobHelper.Print(ticket);
                     }
 
@@ -797,6 +799,7 @@ namespace Jackport
         {
 
             PurchaseTickets();
+            LblBalance.Text = UserAgent.ShowBalance.ToString();
 
         }
 
@@ -1941,7 +1944,7 @@ namespace Jackport
         {
 
 
-            if (cmbSlot.Text.Trim() == "Current")
+            if (cmbSlot.Text.Trim() == "CURRENT")
             {
                 currentSlot = 1;
             }
@@ -2177,7 +2180,7 @@ namespace Jackport
 
         private void linkbalance_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FrmAgentBalance obj = new FrmAgentBalance(data.AgentData.balance);
+            FrmAgentBalance obj = new FrmAgentBalance(UserAgent.ShowBalance.ToString());
             obj.ShowDialog();
         }
 

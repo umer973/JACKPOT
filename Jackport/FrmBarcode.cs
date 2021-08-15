@@ -1,4 +1,5 @@
 ﻿using Jackport.DataModel;
+using Jackport.Helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -59,16 +60,22 @@ namespace Jackport
         private void CancelTicket()
         {
             ClsService clsservice = new ClsService();
+            var result = new CancelledTicket();
 
             if (dataGridView1.SelectedRows.Count != 0)
             {
                 DataGridViewRow row = this.dataGridView1.SelectedRows[0];
                 string barccode = row.Cells[1].Value.ToString().Trim();
-                bool result = clsservice.CancelTicket(UserAgent.AgenToken, barccode);
-                if (result)
+                result = clsservice.CancelTicket(UserAgent.AgenToken, barccode);
+                if (result != null)
                 {
                     this.Hide();
                     MessageBox.Show("Ticket Cancelled Successfully");
+                    PrintJobHelper.PrintCancelledTicket(result);
+                    UserAgent.ShowBalance = result.agent_balance;
+
+
+
 
                 }
 

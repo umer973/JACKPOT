@@ -1,5 +1,6 @@
 ﻿using CrystalDecisions.CrystalReports.Engine;
 using Jackport.DataModel;
+using Jackport.Helper;
 using Jackport.Security;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,8 @@ namespace Jackport
 {
     public partial class FrmTMLPrint : Form
     {
+        ReportSummary report = new ReportSummary();
+
         ClsService clsService = new ClsService();
         public FrmTMLPrint()
         {
@@ -27,12 +30,12 @@ namespace Jackport
         {
             try
             {
-                ReportSummary report = new ReportSummary();
+
 
                 DateTime dt1 = dtfrom.Value;
                 DateTime dt2 = dtTo.Value;
                 report = clsService.GetReportSummary(dt1.ToString("yyyy-MM-dd"), (dt2.ToString("yyyy-MM-dd")));
-                
+
                 lblAgentID.Text = UserAgent.AgentCode;
                 lblDate.Text = DateTime.Now.ToString();
                 lblGrosssaleAmt.Text = report.gross_sales_amount;
@@ -58,29 +61,23 @@ namespace Jackport
         }
 
 
-       
+
 
 
         private void Print()
         {
 
-            
-                try
-                {
-                    ReportSummary report = new ReportSummary();
 
-                    DateTime dt1 = dtfrom.Value;
-                    DateTime dt2 = dtTo.Value;
-                    report = clsService.GetReportSummary(dt1.ToString("yyyy-MM-dd"), (dt2.ToString("yyyy-MM-dd")));
-                    PopupReportSummery ObjPopup = new PopupReportSummery(report, dt1, dt2);
-                    ObjPopup.Show();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
+            try
+            {
+                PrintJobHelper.PrintReportSummary(report);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
 
-            
+
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
