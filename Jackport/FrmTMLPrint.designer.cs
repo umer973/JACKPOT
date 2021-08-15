@@ -85,7 +85,6 @@
             this.dtfrom = new System.Windows.Forms.DateTimePicker();
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -731,22 +730,11 @@
             this.label37.TabIndex = 30;
             this.label37.Text = "From :  ";
             // 
-            // panel3
-            // 
-            this.panel3.AutoScroll = true;
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(497, 76);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(458, 516);
-            this.panel3.TabIndex = 6;
-            // 
             // FrmTMLPrint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(955, 592);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -768,7 +756,6 @@
         private System.Windows.Forms.Button BtnTmlClaim;
         private System.Windows.Forms.Button BtnReprint;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblAgentID;
