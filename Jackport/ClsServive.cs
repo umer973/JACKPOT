@@ -188,7 +188,8 @@ namespace Jackport
                     ticket_taken_time = x.ticket_taken_time,
                     agent_id = x.agent_id,
                     ticket_total_quantity = x.ticket_total_quantity,
-                    slot_id = x.slot_id
+                    slot_id = x.slot_id,
+                    ticket_end_time=x.ticket_end_time
 
 
                 }).ToList();

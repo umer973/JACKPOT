@@ -36,6 +36,7 @@ namespace Jackport
                     dataGridView1.Rows[index].Cells[4].Value = tikcet[i].ticket_total_quantity;
                     dataGridView1.Rows[index].Cells[5].Value = tikcet[i].ticket_total_amount;
                     dataGridView1.Rows[index].Cells[6].Value = tikcet[i].ticket_status;
+                    dataGridView1.Rows[index].Cells[8].Value = CommonHelper.GetdateFormat(tikcet[i].ticket_end_time);
                     //dataGridView1.Rows[index].Cells[7].Value = "NA";
                 }
             }
@@ -73,10 +74,6 @@ namespace Jackport
                     MessageBox.Show("Ticket Cancelled Successfully");
                     PrintJobHelper.PrintCancelledTicket(result);
                     UserAgent.ShowBalance = result.agent_balance;
-
-
-
-
                 }
 
 

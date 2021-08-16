@@ -583,7 +583,7 @@ namespace Jackport.Helper
                 else if (count >= 4)
                 {
                     bids = "";
-                    for (int j = 0; j <= 3; j++)
+                    for (int j = 0; j <= 3; j++) 
                     {
 
 
@@ -739,10 +739,6 @@ namespace Jackport.Helper
             int Offset = 10;
             int smallinc = 10, mediuminc = 12, largeinc = 15;
 
-
-
-
-
             String underLine = "-------------------------------";
             DrawLine(underLine, mediumfont, Offset, 0);
 
@@ -856,7 +852,7 @@ namespace Jackport.Helper
 
         private static void PrintClaimedTicket(object sender, PrintPageEventArgs e)
         {
-            graphics = e.Graphics;
+            graphics = e.Graphics; 
             Font minifont = new Font("Arial", 5);
             Font itemfont = new Font("Arial", 6);
             Font smallfont = new Font("Arial", 8);
@@ -882,9 +878,20 @@ namespace Jackport.Helper
 
 
             Offset = Offset + mediuminc;
-
             InsertHeaderStyleItem("Claimed Time    :" + _claimedticket.ticket_purchase_time, "", Offset);
 
+            Offset = Offset + mediuminc;
+            InsertHeaderStyleItem("Win No    :" + _claimedticket.ticket_bid_number, "", Offset);
+
+            Offset = Offset + mediuminc;
+            InsertHeaderStyleItem("Qty    :" + _claimedticket.ticket_purchase_quantity, "", Offset);
+
+
+            Offset = Offset + mediuminc;
+            InsertHeaderStyleItem("Price    :" + _claimedticket.ticket_purchase_price, "", Offset);
+
+            Offset = Offset + mediuminc;
+            InsertHeaderStyleItem("Total    :" + _claimedticket.ticket_purchase_amount, "", Offset);
 
             Offset = Offset + largeinc;
             DrawLine(underLine, mediumfont, Offset, 0);

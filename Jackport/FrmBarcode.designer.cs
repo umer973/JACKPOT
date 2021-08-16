@@ -31,6 +31,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.BtnCancel = new System.Windows.Forms.Button();
+            this.BtnTmlClaim = new System.Windows.Forms.Button();
+            this.BtnReprint = new System.Windows.Forms.Button();
+            this.BtnTmlCancel = new System.Windows.Forms.Button();
             this.SlotID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BarcodeNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DrawTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,10 +43,7 @@
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cancelled = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Claimed = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BtnCancel = new System.Windows.Forms.Button();
-            this.BtnTmlClaim = new System.Windows.Forms.Button();
-            this.BtnReprint = new System.Windows.Forms.Button();
-            this.BtnTmlCancel = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -79,60 +80,12 @@
             this.Qty,
             this.Amount,
             this.Cancelled,
-            this.Claimed});
+            this.Claimed,
+            this.Column1});
             this.dataGridView1.Location = new System.Drawing.Point(-2, -2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(916, 511);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // SlotID
-            // 
-            this.SlotID.HeaderText = "SlotID";
-            this.SlotID.Name = "SlotID";
-            this.SlotID.Visible = false;
-            // 
-            // BarcodeNo
-            // 
-            this.BarcodeNo.HeaderText = "Barcode No";
-            this.BarcodeNo.Name = "BarcodeNo";
-            this.BarcodeNo.ReadOnly = true;
-            // 
-            // DrawTime
-            // 
-            this.DrawTime.HeaderText = "Draw Time";
-            this.DrawTime.Name = "DrawTime";
-            this.DrawTime.ReadOnly = true;
-            // 
-            // Mrp
-            // 
-            this.Mrp.HeaderText = "Mrp";
-            this.Mrp.Name = "Mrp";
-            this.Mrp.ReadOnly = true;
-            // 
-            // Qty
-            // 
-            this.Qty.HeaderText = "Qty";
-            this.Qty.Name = "Qty";
-            this.Qty.ReadOnly = true;
-            // 
-            // Amount
-            // 
-            this.Amount.HeaderText = "Amount";
-            this.Amount.Name = "Amount";
-            this.Amount.ReadOnly = true;
-            // 
-            // Cancelled
-            // 
-            this.Cancelled.HeaderText = "Status";
-            this.Cancelled.Name = "Cancelled";
-            this.Cancelled.ReadOnly = true;
-            // 
-            // Claimed
-            // 
-            this.Claimed.HeaderText = "Claimed";
-            this.Claimed.Name = "Claimed";
-            this.Claimed.ReadOnly = true;
-            this.Claimed.Visible = false;
             // 
             // BtnCancel
             // 
@@ -186,6 +139,61 @@
             this.BtnTmlCancel.UseVisualStyleBackColor = false;
             this.BtnTmlCancel.Click += new System.EventHandler(this.BtnTmlCancel_Click);
             // 
+            // SlotID
+            // 
+            this.SlotID.HeaderText = "SlotID";
+            this.SlotID.Name = "SlotID";
+            this.SlotID.Visible = false;
+            // 
+            // BarcodeNo
+            // 
+            this.BarcodeNo.HeaderText = "Barcode No";
+            this.BarcodeNo.Name = "BarcodeNo";
+            this.BarcodeNo.ReadOnly = true;
+            // 
+            // DrawTime
+            // 
+            this.DrawTime.HeaderText = "Purchase Time";
+            this.DrawTime.Name = "DrawTime";
+            this.DrawTime.ReadOnly = true;
+            this.DrawTime.Width = 150;
+            // 
+            // Mrp
+            // 
+            this.Mrp.HeaderText = "Mrp";
+            this.Mrp.Name = "Mrp";
+            this.Mrp.ReadOnly = true;
+            // 
+            // Qty
+            // 
+            this.Qty.HeaderText = "Qty";
+            this.Qty.Name = "Qty";
+            this.Qty.ReadOnly = true;
+            // 
+            // Amount
+            // 
+            this.Amount.HeaderText = "Amount";
+            this.Amount.Name = "Amount";
+            this.Amount.ReadOnly = true;
+            // 
+            // Cancelled
+            // 
+            this.Cancelled.HeaderText = "Status";
+            this.Cancelled.Name = "Cancelled";
+            this.Cancelled.ReadOnly = true;
+            // 
+            // Claimed
+            // 
+            this.Claimed.HeaderText = "Claimed";
+            this.Claimed.Name = "Claimed";
+            this.Claimed.ReadOnly = true;
+            this.Claimed.Visible = false;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Result Time";
+            this.Column1.Name = "Column1";
+            // 
             // FrmBarcode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -224,5 +232,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cancelled;
         private System.Windows.Forms.DataGridViewTextBoxColumn Claimed;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }

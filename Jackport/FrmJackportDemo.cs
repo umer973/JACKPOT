@@ -2097,26 +2097,26 @@ namespace Jackport
 
         private void FrmJackportDemo_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.M)
-            {
-                ClearBoard();
-            }
-            if (e.KeyCode == Keys.T)
-            {
-                PurchaseTickets();
-            }
+            //if (e.KeyCode == Keys.M)
+            //{
+            //    ClearBoard();
+            //}
+            //if (e.KeyCode == Keys.T)
+            //{
+            //    PurchaseTickets();
+            //}
             if (e.KeyCode == Keys.F12)
             {
                 BuyTickets();
             }
-            if (e.KeyCode == Keys.R)
-            {
-                AllData();
-            }
-            if (e.KeyCode == Keys.S)
-            {
-                GetReportSummary();
-            }
+            //if (e.KeyCode == Keys.R)
+            //{
+            //    AllData();
+            //}
+            //if (e.KeyCode == Keys.S)
+            //{
+            //    GetReportSummary();
+            //}
 
 
         }
