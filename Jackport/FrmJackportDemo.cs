@@ -283,6 +283,15 @@ namespace Jackport
 
         private async Task LoadTickets()
         {
+
+            for (int i = 0; i < 100; i++)
+            {
+
+                TicketContols t = new TicketContols();
+
+                flowLayoutPanel2.Controls.Add(t);
+            }
+
             for (int i = 0; i < 100; i++)
             {
                 UserInputControl p1 = new UserInputControl();
@@ -334,14 +343,17 @@ namespace Jackport
                 p1.TickeName = Convert.ToString(num);
 
 
-                //int height = Screen.PrimaryScreen.WorkingArea.Height;
-                //int width = Screen.PrimaryScreen.WorkingArea.Width;
-                //p1.Size.
+                int height = Screen.PrimaryScreen.WorkingArea.Height;
+                int width = Screen.PrimaryScreen.WorkingArea.Width;
+
+                p1.TicketSize = new Size(70, 100);
+                p1.LabeltSize = new Size(70, 100);
+                //  p1.Size = new Size(70, 100);
 
                 //p1.Size = new Size(100,100)
+                // p1.Size = new Size(100, 100);
 
-
-                flowLayoutPanel2.Controls.Add(p1);
+                // flowLayoutPanel2.Controls.Add(p1);
 
 
 
@@ -475,7 +487,7 @@ namespace Jackport
                     tickets = clsService.PurchaseSingleTicketAsync(agentToken, bidList, plist);
 
                     ClearBoard();
-                   
+
                     foreach (TimeSlotList ticket in tickets)
                     {
 
@@ -557,108 +569,115 @@ namespace Jackport
 
         private async void timer1_Tick(object sender, EventArgs e)
         {
-
-            appTime = appTime.AddSeconds(1);
-
-            int hh = appTime.Hour;
-            int mm = appTime.Minute;
-            int ss = appTime.Second;
-
-
-            string time = "";
-
-            //padding leading zero
-            if (hh < 10)
+            try
             {
-                time += "0" + hh;
-            }
-            else
-            {
-                time += hh;
-            }
-            time += ":";
+                appTime = appTime.AddSeconds(1);
 
-            if (mm < 10)
-            {
-                time += "0" + mm;
-            }
-            else
-            {
-                time += mm;
-            }
-            time += ":";
-
-            if (ss < 10)
-            {
-                time += "0" + ss;
-            }
-            else
-            {
-                time += ss;
-            }
-
-            //appTime = appTime - Convert.ToDate(time);
+                int hh = appTime.Hour;
+                int mm = appTime.Minute;
+                int ss = appTime.Second;
 
 
-            LblTime.Text = CommonHelper.GetdateFormat(time);
+                string time = "";
 
-            slotitme = Convert.ToDateTime(time);
-
-            TimeSpan datediff = Convert.ToDateTime(CommonHelper.GetdateFormat(endtime)).Subtract(slotitme);
-
-
-            string leftTime = string.Format("{0}:{1}:{2}", datediff.Hours.ToString().PadLeft(2, '0'), datediff.Minutes.ToString().PadLeft(2, '0'), datediff.Seconds.ToString().PadLeft(2, '0'));
-
-            var remainintime = DateTime.Compare(Convert.ToDateTime(endtime), appTime);
-
-            if (IsSloverOver == false)
-            {
-
-                if (remainintime == -1)
+                //padding leading zero
+                if (hh < 10)
                 {
-                    LblCountDown1.Text = "00:00:00";
+                    time += "0" + hh;
                 }
                 else
                 {
-                    LblCountDown1.Text = leftTime.ToString();
+                    time += hh;
+                }
+                time += ":";
+
+                if (mm < 10)
+                {
+                    time += "0" + mm;
+                }
+                else
+                {
+                    time += mm;
+                }
+                time += ":";
+
+                if (ss < 10)
+                {
+                    time += "0" + ss;
+                }
+                else
+                {
+                    time += ss;
                 }
 
-                if (remainintime == 0)
-                {
-                    timer1.Stop();
-                    ClsService clsService = new ClsService();
-                    var result = clsService.GetWinTickets(Convert.ToInt16(slotdId));
+                //appTime = appTime - Convert.ToDate(time);
 
-                    FrmWinPrice ObjWinPrice = new FrmWinPrice(result);
-                    ObjWinPrice.ShowDialog();
+
+                LblTime.Text = CommonHelper.GetdateFormat(time);
+
+                slotitme = Convert.ToDateTime(time);
+
+                TimeSpan datediff = Convert.ToDateTime(CommonHelper.GetdateFormat(endtime)).Subtract(slotitme);
+
+
+                string leftTime = string.Format("{0}:{1}:{2}", datediff.Hours.ToString().PadLeft(2, '0'), datediff.Minutes.ToString().PadLeft(2, '0'), datediff.Seconds.ToString().PadLeft(2, '0'));
+
+                var remainintime = DateTime.Compare(Convert.ToDateTime(endtime), appTime);
+
+                if (IsSloverOver == false)
+                {
+
+                    if (remainintime == -1)
+                    {
+                        LblCountDown1.Text = "00:00:00";
+                    }
+                    else
+                    {
+                        LblCountDown1.Text = leftTime.ToString();
+                    }
+
+                    if (remainintime == 0)
+                    {
+
+                        ClsService clsService = new ClsService();
+                        var result = clsService.GetWinTickets(Convert.ToInt16(slotdId));
+
+                        FrmWinPrice ObjWinPrice = new FrmWinPrice(result);
+                        ObjWinPrice.ShowDialog();
+
+                        List<TimeSlot> timeSlot = await RefreshSlots();
+
+                        IsSloverOver = IsSlotAvailable(timeSlot);
+
+
+                        SetCurrentSlot(timeSlot);
+
+                        await loadWinPrizes(timeSlot);
+
+
+
+                    }
+                }
+                else
+                {
+                    LblCountDown1.Text = "00:00:00";
 
                     List<TimeSlot> timeSlot = await RefreshSlots();
 
                     IsSloverOver = IsSlotAvailable(timeSlot);
 
 
+
                     SetCurrentSlot(timeSlot);
 
-                    await loadWinPrizes(timeSlot);
-
-
-                    timer1.Start();
+                    if (IsSloverOver == false)
+                        await loadWinPrizes(timeSlot);
                 }
+
             }
-            else
+            catch (Exception ex)
             {
-                LblCountDown1.Text = "00:00:00";
-
-                List<TimeSlot> timeSlot = await RefreshSlots();
-
-                IsSloverOver = IsSlotAvailable(timeSlot);
-
-
-
-                SetCurrentSlot(timeSlot);
-
-                if (IsSloverOver == false)
-                    await loadWinPrizes(timeSlot);
+                MessageBox.Show(ex.Message);
             }
         }
 
