@@ -339,8 +339,8 @@ namespace Jackport
                 int height = Screen.PrimaryScreen.WorkingArea.Height;
                 int width = Screen.PrimaryScreen.WorkingArea.Width;
 
-               // p1.TicketSize = new Size(70, 100);
-               // p1.LabeltSize = new Size(70, 100);
+                // p1.TicketSize = new Size(70, 100);
+                // p1.LabeltSize = new Size(70, 100);
                 //  p1.Size = new Size(70, 100);
 
                 //p1.Size = new Size(100,100)
@@ -449,7 +449,7 @@ namespace Jackport
 
         }
 
-        private void BuyTickets()
+        private async Task BuyTickets()
         {
             try
 
@@ -484,7 +484,7 @@ namespace Jackport
                     foreach (TimeSlotList ticket in tickets)
                     {
 
-                        PrintJobHelper.Print(ticket);
+                        await PrintJobHelper.Print(ticket);
                     }
 
                 }
@@ -623,6 +623,15 @@ namespace Jackport
                     if (remainintime == -1)
                     {
                         LblCountDown1.Text = "00:00:00";
+                        LblCountDown1.Text = "00:00:00";
+
+                        List<TimeSlot> timeSlot = await RefreshSlots();
+
+                        IsSloverOver = IsSlotAvailable(timeSlot);
+
+                        SetCurrentSlot(timeSlot);
+
+                        await loadWinPrizes(timeSlot);
                     }
                     else
                     {

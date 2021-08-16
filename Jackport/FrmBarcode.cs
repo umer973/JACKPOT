@@ -42,7 +42,7 @@ namespace Jackport
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
 
 
@@ -58,7 +58,7 @@ namespace Jackport
             CancelTicket();
         }
 
-        private void CancelTicket()
+        private async Task CancelTicket()
         {
             ClsService clsservice = new ClsService();
             var result = new CancelledTicket();
@@ -70,10 +70,12 @@ namespace Jackport
                 result = clsservice.CancelTicket(UserAgent.AgenToken, barccode);
                 if (result != null)
                 {
-                    this.Hide();
+                    
                     MessageBox.Show("Ticket Cancelled Successfully");
-                    PrintJobHelper.PrintCancelledTicket(result);
+                    await PrintJobHelper.PrintCancelledTicket(result);
                     UserAgent.ShowBalance = result.agent_balance;
+
+                    this.Hide();
                 }
 
 
@@ -90,7 +92,7 @@ namespace Jackport
             ClaimTicket();
         }
 
-        private void ClaimTicket()
+        private async Task ClaimTicket()
         {
             ClsService clsservice = new ClsService();
             TicketDetail ticket = new TicketDetail();
@@ -102,9 +104,11 @@ namespace Jackport
                 ticket = clsservice.ClaimTicket(UserAgent.AgenToken, barccode);
                 if (ticket != null)
                 {
-                    this.Hide();
+                   
                     MessageBox.Show("Ticket Claim Successfully");
-                    PrintJobHelper.PrintClaimedTicket(ticket);
+                    await PrintJobHelper.PrintClaimedTicket(ticket);
+
+                    this.Hide();
 
 
                 }
@@ -123,7 +127,7 @@ namespace Jackport
             Reprint();
         }
 
-        private void Reprint()
+        private async Task Reprint()
         {
             ClsService clsservice = new ClsService();
             BidDetail bids = new BidDetail();
@@ -134,9 +138,11 @@ namespace Jackport
                 bids = clsservice.GetSingleTickeDetail(barccode);
                 if (bids != null)
                 {
-                    this.Hide();
+                    
 
-                    PrintJobHelper.ReprintPrint(bids);
+                    await PrintJobHelper.ReprintPrint(bids);
+
+                    this.Hide();
                 }
 
 

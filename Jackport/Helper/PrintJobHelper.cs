@@ -100,7 +100,7 @@ namespace Jackport.Helper
             //InitialHeight += capacity;
         }
 
-        public static void Print(TimeSlotList ticket)
+        public async static Task Print(TimeSlotList ticket)
         {
             printDocument = new PrintDocument();
             CommonHelper.ReadXMlData();
@@ -124,7 +124,7 @@ namespace Jackport.Helper
 
         }
 
-        public static void ReprintPrint(BidDetail ticket)
+        public async static Task ReprintPrint(BidDetail ticket)
         {
             printDocument = new PrintDocument();
             CommonHelper.ReadXMlData();
@@ -150,7 +150,7 @@ namespace Jackport.Helper
 
         }
 
-        public static void PrintCancelledTicket(CancelledTicket ticket)
+        public async static Task PrintCancelledTicket(CancelledTicket ticket)
         {
             printDocument = new PrintDocument();
             CommonHelper.ReadXMlData();
@@ -180,7 +180,7 @@ namespace Jackport.Helper
 
         }
 
-        public static void PrintClaimedTicket(TicketDetail ticket)
+        public async static Task PrintClaimedTicket(TicketDetail ticket)
         {
 
             printDocument = new PrintDocument();
@@ -583,7 +583,7 @@ namespace Jackport.Helper
                 else if (count >= 4)
                 {
                     bids = "";
-                    for (int j = 0; j <= 3; j++) 
+                    for (int j = 0; j <= 3; j++)
                     {
 
 
@@ -852,7 +852,7 @@ namespace Jackport.Helper
 
         private static void PrintClaimedTicket(object sender, PrintPageEventArgs e)
         {
-            graphics = e.Graphics; 
+            graphics = e.Graphics;
             Font minifont = new Font("Arial", 5);
             Font itemfont = new Font("Arial", 6);
             Font smallfont = new Font("Arial", 8);
@@ -892,6 +892,9 @@ namespace Jackport.Helper
 
             Offset = Offset + mediuminc;
             InsertHeaderStyleItem("Total    :" + _claimedticket.ticket_purchase_amount, "", Offset);
+
+            Offset = Offset + mediuminc;
+            InsertHeaderStyleItem("Result End Tim    :" + _claimedticket.ticket_slot_end_time, "", Offset);
 
             Offset = Offset + largeinc;
             DrawLine(underLine, mediumfont, Offset, 0);
