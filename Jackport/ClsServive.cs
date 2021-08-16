@@ -122,7 +122,7 @@ namespace Jackport
 
             if (result.success)
             {
-                MessageBox.Show(result.message);
+                //MessageBox.Show(result.message);
                 UserAgent.ShowBalance = result.data.agent_balance;
                 return result.data.time_slots;
 

@@ -23,7 +23,7 @@ namespace Jackport.Helper
 
         private static PrintPreviewDialog p = new PrintPreviewDialog();
 
-       
+
         private static int InitialHeight = 360;
 
         //static PrintJobHelper()
@@ -106,11 +106,11 @@ namespace Jackport.Helper
             CommonHelper.ReadXMlData();
             printDocument.PrinterSettings.PrinterName = PrintJobSettings.PrinterName;
             _ticket = ticket;
-            
+
             printDocument.PrintPage += new PrintPageEventHandler(PrintTicket);
             printDocument.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize(PrintJobSettings.PaperSize, PrintJobSettings.Width, PrintJobSettings.Height);
             p.Document = printDocument;
-            
+
 
             if (PrintJobSettings.IsDirectPrint)
             {
@@ -130,7 +130,7 @@ namespace Jackport.Helper
             CommonHelper.ReadXMlData();
             printDocument.PrinterSettings.PrinterName = PrintJobSettings.PrinterName;
             _bids = ticket;
-           
+
             printDocument.PrintPage += new PrintPageEventHandler(RePrintTicket);
             printDocument.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize(PrintJobSettings.PaperSize, PrintJobSettings.Width, PrintJobSettings.Height);
             p.Document = printDocument;
@@ -145,7 +145,7 @@ namespace Jackport.Helper
                 p.ShowDialog();
             }
 
-           
+
             printDocument.Dispose();
 
         }
@@ -187,7 +187,7 @@ namespace Jackport.Helper
             CommonHelper.ReadXMlData();
             printDocument.PrinterSettings.PrinterName = PrintJobSettings.PrinterName;
             _claimedticket = ticket;
-           
+
             printDocument.PrintPage += new PrintPageEventHandler(PrintClaimedTicket);
             PrintPreviewDialog p = new PrintPreviewDialog();
             printDocument.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize(PrintJobSettings.PaperSize, PrintJobSettings.Width, PrintJobSettings.Height);
@@ -216,7 +216,7 @@ namespace Jackport.Helper
             CommonHelper.ReadXMlData();
             printDocument.PrinterSettings.PrinterName = PrintJobSettings.PrinterName;
             _report = report;
-          
+
             printDocument.PrintPage += new PrintPageEventHandler(PrintReportSummary);
             PrintPreviewDialog p = new PrintPreviewDialog();
             printDocument.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize(PrintJobSettings.PaperSize, PrintJobSettings.Width, PrintJobSettings.Height);
@@ -301,12 +301,56 @@ namespace Jackport.Helper
 
             for (int i = 0; i < _ticket.bids.Count;)
             {
-                if (count >= 3)
+                if (count >= 6)
+                {
+                    bids = "";
+                    for (int j = 0; j <= 5; j++)
+                    {
+
+
+                        bids = bids + _ticket.bids[i].number.ToString() + "-  " + _ticket.bids[i].quantity.ToString() + "  ";
+
+                        total = total + Convert.ToInt16(_ticket.bids[i].quantity);
+                        i++;
+                        count--;
+                    }
+
+                }
+                else if (count >= 5)
+                {
+                    bids = "";
+                    for (int j = 0; j <= 4; j++)
+                    {
+
+
+                        bids = bids + _ticket.bids[i].number.ToString() + "-  " + _ticket.bids[i].quantity.ToString() + "  ";
+
+                        total = total + Convert.ToInt16(_ticket.bids[i].quantity);
+                        i++;
+                        count--;
+                    }
+
+                }
+                else if (count >= 4)
+                {
+                    bids = "";
+                    for (int j = 0; j <= 3; j++)
+                    {
+
+                        bids = bids + _ticket.bids[i].number.ToString() + "-  " + _ticket.bids[i].quantity.ToString() + "  ";
+
+                        total = total + Convert.ToInt16(_ticket.bids[i].quantity);
+                        i++;
+                        count--;
+                    }
+
+                }
+
+                else if (count >= 3)
                 {
                     bids = "";
                     for (int j = 0; j <= 2; j++)
                     {
-
 
                         bids = bids + _ticket.bids[i].number.ToString() + "-  " + _ticket.bids[i].quantity.ToString() + "  ";
 
@@ -322,7 +366,6 @@ namespace Jackport.Helper
                     for (int j = 0; j <= 1; j++)
                     {
 
-
                         bids = bids + _ticket.bids[i].number.ToString() + "-  " + _ticket.bids[i].quantity.ToString() + "  ";
 
                         total = total + Convert.ToInt16(_ticket.bids[i].quantity);
@@ -333,12 +376,14 @@ namespace Jackport.Helper
                 }
                 else if (count >= 1)
                 {
+
                     bids = "";
                     bids = _ticket.bids[i].number.ToString() + "-  " + _ticket.bids[i].quantity.ToString() + "  ";
 
                     total = total + Convert.ToInt16(_ticket.bids[i].quantity);
                     i++;
                     count--;
+
 
                 }
 
@@ -505,10 +550,10 @@ namespace Jackport.Helper
 
             for (int i = 0; i < _bids.bids.Count;)
             {
-                if (count >= 3)
+                if (count >= 6)
                 {
                     bids = "";
-                    for (int j = 0; j <= 2; j++)
+                    for (int j = 0; j <= 5; j++)
                     {
 
 
@@ -520,10 +565,40 @@ namespace Jackport.Helper
                     }
 
                 }
-                else if (count >= 2)
+                else if (count >= 5)
                 {
                     bids = "";
-                    for (int j = 0; j <= 1; j++)
+                    for (int j = 0; j <= 4; j++)
+                    {
+
+
+                        bids = bids + _bids.bids[i].bid_number.ToString() + "-  " + _bids.bids[i].bid_quantity.ToString() + "  ";
+
+                        total = total + Convert.ToInt16(_bids.bids[i].bid_quantity);
+                        i++;
+                        count--;
+                    }
+
+                }
+                else if (count >= 4)
+                {
+                    bids = "";
+                    for (int j = 0; j <= 3; j++)
+                    {
+
+
+                        bids = bids + _bids.bids[i].bid_number.ToString() + "-  " + _bids.bids[i].bid_quantity.ToString() + "  ";
+
+                        total = total + Convert.ToInt16(_bids.bids[i].bid_quantity);
+                        i++;
+                        count--;
+                    }
+
+                }
+                else if (count >= 3)
+                {
+                    bids = "";
+                    for (int j = 0; j <= 2; j++)
                     {
 
 

@@ -284,13 +284,6 @@ namespace Jackport
         private async Task LoadTickets()
         {
 
-            for (int i = 0; i < 100; i++)
-            {
-
-                TicketContols t = new TicketContols();
-
-                flowLayoutPanel2.Controls.Add(t);
-            }
 
             for (int i = 0; i < 100; i++)
             {
@@ -346,14 +339,14 @@ namespace Jackport
                 int height = Screen.PrimaryScreen.WorkingArea.Height;
                 int width = Screen.PrimaryScreen.WorkingArea.Width;
 
-                p1.TicketSize = new Size(70, 100);
-                p1.LabeltSize = new Size(70, 100);
+               // p1.TicketSize = new Size(70, 100);
+               // p1.LabeltSize = new Size(70, 100);
                 //  p1.Size = new Size(70, 100);
 
                 //p1.Size = new Size(100,100)
                 // p1.Size = new Size(100, 100);
 
-                // flowLayoutPanel2.Controls.Add(p1);
+                flowLayoutPanel2.Controls.Add(p1);
 
 
 
