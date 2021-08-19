@@ -34,7 +34,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.tblLayout = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.TxtE0 = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
             this.label43 = new System.Windows.Forms.Label();
             this.TxtLpNo = new System.Windows.Forms.TextBox();
@@ -119,6 +118,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.LblCompanyName = new System.Windows.Forms.Label();
             this.LblBalance = new System.Windows.Forms.Label();
+            this.TxtE0 = new System.Windows.Forms.TextBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel4.SuspendLayout();
             this.tblLayout.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -153,9 +154,9 @@
             this.tblLayout.BackColor = System.Drawing.Color.Navy;
             this.tblLayout.BackgroundImage = global::Jackport.Properties.Resources.gameboard1;
             this.tblLayout.ColumnCount = 3;
-            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.62691F));
-            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.77921F));
-            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.45588F));
+            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.59388F));
+            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.40532F));
+            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.92023F));
             this.tblLayout.Controls.Add(this.panel1, 1, 0);
             this.tblLayout.Controls.Add(this.flowLayoutPanel1, 2, 0);
             this.tblLayout.Controls.Add(this.flowLayoutPanel2, 0, 0);
@@ -220,28 +221,12 @@
             this.panel1.Controls.Add(this.textBox6);
             this.panel1.Controls.Add(this.TxtE4);
             this.panel1.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(529, 0);
+            this.panel1.Location = new System.Drawing.Point(541, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(171, 551);
+            this.panel1.Size = new System.Drawing.Size(216, 551);
             this.panel1.TabIndex = 548;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
-            // 
-            // TxtE0
-            // 
-            this.TxtE0.BackColor = System.Drawing.Color.Magenta;
-            this.TxtE0.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtE0.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtE0.Location = new System.Drawing.Point(2, 23);
-            this.TxtE0.Margin = new System.Windows.Forms.Padding(10);
-            this.TxtE0.MaxLength = 2;
-            this.TxtE0.Multiline = true;
-            this.TxtE0.Name = "TxtE0";
-            this.TxtE0.Size = new System.Drawing.Size(50, 28);
-            this.TxtE0.TabIndex = 263;
-            this.TxtE0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TxtE0.TextChanged += new System.EventHandler(this.TxtE0_TextChanged);
-            this.TxtE0.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtE0_KeyUp);
             // 
             // button7
             // 
@@ -755,30 +740,26 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.ForeColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(703, 3);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(760, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(535, 545);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(478, 545);
             this.flowLayoutPanel1.TabIndex = 251;
             this.flowLayoutPanel1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.flowLayoutPanel1_Scroll);
             this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel2.BackColor = System.Drawing.Color.Navy;
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.ForeColor = System.Drawing.Color.White;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(523, 545);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(535, 545);
             this.flowLayoutPanel2.TabIndex = 507;
             // 
             // pnlFooter
@@ -1325,6 +1306,22 @@
             this.LblBalance.Text = "Show Balance";
             this.LblBalance.Visible = false;
             // 
+            // TxtE0
+            // 
+            this.TxtE0.BackColor = System.Drawing.Color.Magenta;
+            this.TxtE0.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtE0.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtE0.Location = new System.Drawing.Point(2, 23);
+            this.TxtE0.Margin = new System.Windows.Forms.Padding(10);
+            this.TxtE0.MaxLength = 2;
+            this.TxtE0.Multiline = true;
+            this.TxtE0.Name = "TxtE0";
+            this.TxtE0.Size = new System.Drawing.Size(50, 28);
+            this.TxtE0.TabIndex = 263;
+            this.TxtE0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtE0.TextChanged += new System.EventHandler(this.TxtE0_TextChanged);
+            this.TxtE0.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtE0_KeyUp);
+            // 
             // FrmJackportDemo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1340,6 +1337,8 @@
             this.KeyPreview = true;
             this.Name = "FrmJackportDemo";
             this.Text = "JACKPORT";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmJackportDemo_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmJackportDemo_FormClosed);
             this.Load += new System.EventHandler(this.FrmJackport_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmJackportDemo_KeyDown);
             this.panel4.ResumeLayout(false);
@@ -1414,7 +1413,6 @@
         private System.Windows.Forms.TextBox TxtE9;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.TextBox TxtE0;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel pnlFooter;
@@ -1455,5 +1453,7 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox TxtE0;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

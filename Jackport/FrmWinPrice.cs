@@ -14,6 +14,7 @@ namespace Jackport
     {
         public string winPrize;
         int count = 5;
+        int val = 0;
         public FrmWinPrice(string _winPrize)
         {
             InitializeComponent();
@@ -39,8 +40,24 @@ namespace Jackport
         private void timer1_Tick(object sender, EventArgs e)
         {
             count--;
+            val++;
+            if (count != 0)
+                progressBar1.Value = val;
+
+            lbltime.Text = "Wait time........% " + count;
+
             if (count == 0)
+            {
                 this.Hide();
+                timer1.Stop();
+            }
+
+
+        }
+
+        private void lbltime_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -39,6 +39,9 @@ namespace Jackport
         int ticketPrice = 0;
         bool IsSloverOver = false;
 
+        //BusyIndicator busyIndicator = new BusyIndicator();
+        //ObservableCollection<int> sampleData = new ObservableCollection<int>();
+
         public FrmJackportDemo()
         {
 
@@ -51,12 +54,28 @@ namespace Jackport
             clsService = new ClsService();
 
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-
+            this.SizeChanged += new EventHandler(form1_sizeeventhandler);
 
 
         }
 
 
+        private void form1_sizeeventhandler(object sender, EventArgs e)
+
+        {
+
+            
+        }
+
+        private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+
+        }
 
         public void FrmJackport_Load(object sender, EventArgs e)
         {
@@ -69,6 +88,8 @@ namespace Jackport
 
         public bool LoadData(LoginData _data)
         {
+
+
             data = _data;
             SetLoading(true);
 
@@ -329,6 +350,7 @@ namespace Jackport
                 {
                     num = "09";
                 }
+
 
 
                 p1.Tag = i;
@@ -2245,6 +2267,17 @@ namespace Jackport
         {
             FrmSetting setting = new FrmSetting();
             setting.ShowDialog();
+        }
+
+        private void FrmJackportDemo_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            timer1.Stop();
+
+        }
+
+        private void FrmJackportDemo_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            timer1.Stop();
         }
     }
 }
