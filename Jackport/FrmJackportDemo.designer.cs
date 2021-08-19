@@ -34,6 +34,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.tblLayout = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.TxtE0 = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
             this.label43 = new System.Windows.Forms.Label();
             this.TxtLpNo = new System.Windows.Forms.TextBox();
@@ -118,7 +119,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.LblCompanyName = new System.Windows.Forms.Label();
             this.LblBalance = new System.Windows.Forms.Label();
-            this.TxtE0 = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel4.SuspendLayout();
             this.tblLayout.SuspendLayout();
@@ -227,6 +227,22 @@
             this.panel1.Size = new System.Drawing.Size(216, 551);
             this.panel1.TabIndex = 548;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
+            // 
+            // TxtE0
+            // 
+            this.TxtE0.BackColor = System.Drawing.Color.Magenta;
+            this.TxtE0.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtE0.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtE0.Location = new System.Drawing.Point(2, 23);
+            this.TxtE0.Margin = new System.Windows.Forms.Padding(10);
+            this.TxtE0.MaxLength = 2;
+            this.TxtE0.Multiline = true;
+            this.TxtE0.Name = "TxtE0";
+            this.TxtE0.Size = new System.Drawing.Size(50, 28);
+            this.TxtE0.TabIndex = 263;
+            this.TxtE0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtE0.TextChanged += new System.EventHandler(this.TxtE0_TextChanged);
+            this.TxtE0.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtE0_KeyUp);
             // 
             // button7
             // 
@@ -1305,22 +1321,6 @@
             this.LblBalance.TabIndex = 0;
             this.LblBalance.Text = "Show Balance";
             this.LblBalance.Visible = false;
-            // 
-            // TxtE0
-            // 
-            this.TxtE0.BackColor = System.Drawing.Color.Magenta;
-            this.TxtE0.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtE0.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtE0.Location = new System.Drawing.Point(2, 23);
-            this.TxtE0.Margin = new System.Windows.Forms.Padding(10);
-            this.TxtE0.MaxLength = 2;
-            this.TxtE0.Multiline = true;
-            this.TxtE0.Name = "TxtE0";
-            this.TxtE0.Size = new System.Drawing.Size(50, 28);
-            this.TxtE0.TabIndex = 263;
-            this.TxtE0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TxtE0.TextChanged += new System.EventHandler(this.TxtE0_TextChanged);
-            this.TxtE0.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtE0_KeyUp);
             // 
             // FrmJackportDemo
             // 

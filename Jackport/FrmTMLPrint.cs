@@ -1,5 +1,4 @@
-﻿using CrystalDecisions.CrystalReports.Engine;
-using Jackport.DataModel;
+﻿using Jackport.DataModel;
 using Jackport.Helper;
 using Jackport.Security;
 using System;
@@ -23,6 +22,7 @@ namespace Jackport
         {
             InitializeComponent();
             panel1.Visible = false;
+            BtnReprint.Enabled = false;
 
         }
 
@@ -37,7 +37,7 @@ namespace Jackport
                 report = clsService.GetReportSummary(dt1.ToString("yyyy-MM-dd"), (dt2.ToString("yyyy-MM-dd")));
 
                 lblAgentID.Text = UserAgent.AgentCode;
-                lblDate.Text = DateTime.Now.ToString();
+                lblDate.Text = DateTime.Now.Day + "/" + DateTime.Now.Month + "/" + DateTime.Now.Year;
                 lblGrosssaleAmt.Text = report.gross_sales_amount;
                 lblnetsalesamt.Text = report.gross_sales_amount;
                 payoutamt.Text = report.payout_amount;
@@ -51,6 +51,7 @@ namespace Jackport
                 lblfrom.Text = dtfrom.Text;
                 lblto.Text = dtTo.Text;
                 panel1.Visible = true;
+                BtnReprint.Enabled = true;
                 // Print(ds);
                 //Print();
             }

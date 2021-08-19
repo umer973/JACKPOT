@@ -64,12 +64,12 @@ namespace Jackport
 
         {
 
-            
+
         }
 
         private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
-            
+
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
@@ -81,9 +81,49 @@ namespace Jackport
         {
 
             // await LoadData();
+            TxtE0.KeyPress += ValidateKeyPress;
+            TxtE2.KeyPress += ValidateKeyPress;
+            TxtE1.KeyPress += ValidateKeyPress;
+            TxtE3.KeyPress += ValidateKeyPress;
+            TxtE4.KeyPress += ValidateKeyPress;
+            TxtE5.KeyPress += ValidateKeyPress;
+            TxtE7.KeyPress += ValidateKeyPress;
+            TxtE8.KeyPress += ValidateKeyPress;
+            TxtE9.KeyPress += ValidateKeyPress;
+            Txt0009.KeyPress += ValidateKeyPress;
+            Txt1019.KeyPress += ValidateKeyPress;
+            Txt2029.KeyPress += ValidateKeyPress;
+            Txt3031.KeyPress += ValidateKeyPress;
+            Txt4049.KeyPress += ValidateKeyPress;
+            Txt5051.KeyPress += ValidateKeyPress;
+            Txt5051.KeyPress += ValidateKeyPress;
+            Txt7079.KeyPress += ValidateKeyPress;
+            Txt8089.KeyPress += ValidateKeyPress;
+            TxtLpNo.KeyPress += ValidateKeyPress;
+            txttotalvalue.KeyPress += ValidateKeyPress;
+            textBox6.KeyPress += ValidateKeyPress;
+            textBox5.KeyPress += ValidateKeyPress;
+            Txt9099.KeyPress += ValidateKeyPress;
+            txttickektsqty.KeyPress += ValidateKeyPress;
+
 
         }
 
+        private void ValidateKeyPress(object sender, KeyPressEventArgs e)
+        {
+            // sender is the textbox the keypress happened in
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+         (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            //// only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
 
 
         public bool LoadData(LoginData _data)
@@ -507,6 +547,8 @@ namespace Jackport
                     {
 
                         await PrintJobHelper.Print(ticket);
+
+                        cmbSlot.SelectedIndex = 0;
                     }
 
                 }
@@ -573,13 +615,14 @@ namespace Jackport
             TxtE0.Text = TxtE1.Text = TxtE2.Text = TxtE3.Text = TxtE4.Text = TxtE5.Text = TxtE7.Text = TxtE8.Text = TxtE9.Text =
                 textBox6.Text = "";
             textBox5.Text = Txt0009.Text = Txt1019.Text = Txt2029.Text = Txt3031.Text = Txt4049.Text = Txt5051.Text = Txt7079.Text =
-                Txt8089.Text = Txt9099.Text = "";
+                Txt8089.Text = Txt9099.Text = TxtLpNo.Text = "";
 
             TxtE0.BackColor = TxtE1.BackColor = TxtE2.BackColor = TxtE3.BackColor = TxtE4.BackColor = TxtE5.BackColor = TxtE7.BackColor = TxtE8.BackColor = TxtE9.BackColor =
                textBox6.BackColor = Color.Magenta;
 
             textBox5.BackColor = Txt0009.BackColor = Txt1019.BackColor = Txt2029.BackColor = Txt3031.BackColor = Txt4049.BackColor = Txt5051.BackColor = Txt7079.BackColor =
                Txt8089.BackColor = Txt9099.BackColor = Color.AliceBlue;
+
         }
 
         private async void timer1_Tick(object sender, EventArgs e)
@@ -782,7 +825,7 @@ namespace Jackport
             //LblTime.Text = appTime.tos;
         }
 
-        //private void ShowWinNumber()
+        //private void ShowWinNumber()u
         //{
         //    // slotdId = timeSlots.Select(x => x.slot_id).FirstOrDefault();
 
@@ -815,13 +858,14 @@ namespace Jackport
         //    string leftTime = string.Format("{0}:{1}:{2}", datediff.Hours.ToString().PadLeft(2, '0'), datediff.Minutes.ToString().PadLeft(2, '0'), datediff.Seconds.ToString().PadLeft(2, '0'));
         //    //string leftTime = Convert.ToDateTime(GetTimeSpan( left));
         //    //string leftTime = Convert.ToString(left.TotalMinutes+':'+left.TotalSeconds);
-        //    LblCountDown1.Text = leftTime.ToString();
+        //    LblCountDown1.Text = leftTime.ToString()co;
         //    //label1.Text = count / 60 + ":" + ((count % 60) >= 10 ? (count % 60).ToString() : "0" + (count % 60));
         //    int LeftTime1 = count;
         //    int LeftTime2 = segundo - LeftTime1;
         //    int LeftTime = segundo - LeftTime2;
         //    // LblCountDown2.Text = leftTime.ToString();
         //}
+
 
 
 
@@ -848,9 +892,15 @@ namespace Jackport
         {
             List<PurchasedTickets> purchasetikcet = new List<PurchasedTickets>();
             purchasetikcet = clsService.GetTodaysPurchasedTickets(agentToken);
-
-            FrmBarcode ObjFrmBarcode = new FrmBarcode(purchasetikcet);
-            ObjFrmBarcode.ShowDialog();
+            if (purchasetikcet != null && purchasetikcet.Count > 0)
+            {
+                FrmBarcode ObjFrmBarcode = new FrmBarcode(purchasetikcet);
+                ObjFrmBarcode.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No Data");
+            }
         }
 
         private void TxtE0_TextChanged(object sender, EventArgs e)

@@ -1018,7 +1018,7 @@ namespace Jackport.Helper
 
 
             Offset = Offset + mediuminc;
-            InsertHeaderStyleItem("Date    " + DateTime.Now, "", Offset);
+            InsertHeaderStyleItem("Date    " + DateTime.Now.Day + "/" + DateTime.Now.Month + "/" + DateTime.Now.Year, "", Offset);
 
             Offset = Offset + largeinc;
             InsertHeaderStyleItem("Report   ", "", Offset);

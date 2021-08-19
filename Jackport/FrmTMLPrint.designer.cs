@@ -686,18 +686,17 @@
             // 
             this.dtTo.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtTo.Location = new System.Drawing.Point(220, 23);
+            this.dtTo.Location = new System.Drawing.Point(220, 24);
             this.dtTo.Name = "dtTo";
             this.dtTo.Size = new System.Drawing.Size(115, 26);
             this.dtTo.TabIndex = 5;
             // 
             // label40
             // 
-            this.label40.AutoSize = true;
             this.label40.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label40.Location = new System.Drawing.Point(162, 28);
+            this.label40.Location = new System.Drawing.Point(178, 28);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(54, 19);
+            this.label40.Size = new System.Drawing.Size(38, 19);
             this.label40.TabIndex = 32;
             this.label40.Text = "To : ";
             // 
@@ -705,9 +704,9 @@
             // 
             this.dtfrom.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtfrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtfrom.Location = new System.Drawing.Point(64, 24);
+            this.dtfrom.Location = new System.Drawing.Point(56, 24);
             this.dtfrom.Name = "dtfrom";
-            this.dtfrom.Size = new System.Drawing.Size(92, 26);
+            this.dtfrom.Size = new System.Drawing.Size(118, 26);
             this.dtfrom.TabIndex = 4;
             // 
             // label38
@@ -722,11 +721,10 @@
             // 
             // label37
             // 
-            this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(8, 28);
+            this.label37.Location = new System.Drawing.Point(4, 28);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(81, 19);
+            this.label37.Size = new System.Drawing.Size(50, 19);
             this.label37.TabIndex = 30;
             this.label37.Text = "From :  ";
             // 
