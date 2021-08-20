@@ -105,8 +105,37 @@ namespace Jackport
             textBox5.KeyPress += ValidateKeyPress;
             Txt9099.KeyPress += ValidateKeyPress;
             txttickektsqty.KeyPress += ValidateKeyPress;
+            TxtE0.KeyUp += OnKeyUp;
+            TxtE0.KeyUp += OnKeyUp;
+            TxtE2.KeyUp += OnKeyUp;
+            TxtE1.KeyUp += OnKeyUp;
+            TxtE3.KeyUp += OnKeyUp;
+            TxtE4.KeyUp += OnKeyUp;
+            TxtE5.KeyUp += OnKeyUp;
+            TxtE7.KeyUp += OnKeyUp;
+            TxtE8.KeyUp += OnKeyUp;
+            TxtE9.KeyUp += OnKeyUp;
+            Txt0009.KeyUp += OnKeyUp;
+            Txt1019.KeyUp += OnKeyUp;
+            Txt2029.KeyUp += OnKeyUp;
+            Txt3031.KeyUp += OnKeyUp;
+            Txt4049.KeyUp += OnKeyUp;
+            Txt5051.KeyUp += OnKeyUp;
+            Txt5051.KeyUp += OnKeyUp;
+            Txt7079.KeyUp += OnKeyUp;
+            Txt8089.KeyUp += OnKeyUp;
+            textBox6.KeyUp += OnKeyUp;
+            textBox5.KeyUp += OnKeyUp;
+            Txt9099.KeyUp += OnKeyUp;
+            flowLayoutPanel2.PreviewKeyDown += OnKeyUp;
 
 
+
+        }
+
+        private void OnKeyUp(object sender, EventArgs e)
+        {
+            ShowTicketQty();
         }
 
         private void ValidateKeyPress(object sender, KeyPressEventArgs e)
@@ -123,8 +152,38 @@ namespace Jackport
             {
                 e.Handled = true;
             }
+
+
+
         }
 
+        private void ShowTicketQty()
+        {
+            try
+            {
+                int quantity = 0;
+                int total = 0;
+                foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
+                {
+
+                    if (!string.IsNullOrEmpty(ctr.TickeQty) && Convert.ToInt32(ctr.TickeQty) > 0)
+                    {
+
+                        quantity = quantity + Convert.ToInt16(ctr.TickeQty);
+
+                    }
+                }
+
+                total = 2 * quantity;
+                txttickektsqty.Text = quantity.ToString();
+                txttotalvalue.Text = total.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
 
         public bool LoadData(LoginData _data)
         {
@@ -548,8 +607,11 @@ namespace Jackport
 
                         await PrintJobHelper.Print(ticket);
 
-                        cmbSlot.SelectedIndex = 0;
+
                     }
+
+
+                    cmbSlot.SelectedIndex = 0;
 
                 }
                 else
@@ -622,6 +684,8 @@ namespace Jackport
 
             textBox5.BackColor = Txt0009.BackColor = Txt1019.BackColor = Txt2029.BackColor = Txt3031.BackColor = Txt4049.BackColor = Txt5051.BackColor = Txt7079.BackColor =
                Txt8089.BackColor = Txt9099.BackColor = Color.AliceBlue;
+
+            txttickektsqty.Text = txttotalvalue.Text = "0";
 
         }
 
@@ -2271,8 +2335,19 @@ namespace Jackport
 
         private void linkbalance_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FrmAgentBalance obj = new FrmAgentBalance(UserAgent.ShowBalance.ToString());
-            obj.ShowDialog();
+            //FrmAgentBalance obj = new FrmAgentBalance(UserAgent.ShowBalance.ToString());
+            LblBalance.Text = UserAgent.ShowBalance.ToString();
+            if (LblBalance.Visible)
+            {
+                LblBalance.Visible = false;
+                linkbalance.Text = "Show Balance";
+            }
+            else
+            {
+                LblBalance.Visible = true;
+                linkbalance.Text = "Hide Balance";
+            }
+            //  obj.ShowDialog();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

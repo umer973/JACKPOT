@@ -155,8 +155,8 @@
             this.tblLayout.BackgroundImage = global::Jackport.Properties.Resources.gameboard1;
             this.tblLayout.ColumnCount = 3;
             this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.59388F));
-            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.40532F));
-            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.92023F));
+            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.79371F));
+            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.61241F));
             this.tblLayout.Controls.Add(this.panel1, 1, 0);
             this.tblLayout.Controls.Add(this.flowLayoutPanel1, 2, 0);
             this.tblLayout.Controls.Add(this.flowLayoutPanel2, 0, 0);
@@ -224,7 +224,7 @@
             this.panel1.Location = new System.Drawing.Point(541, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(216, 551);
+            this.panel1.Size = new System.Drawing.Size(195, 551);
             this.panel1.TabIndex = 548;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
             // 
@@ -761,9 +761,9 @@
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.ForeColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(760, 3);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(739, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(478, 545);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(499, 545);
             this.flowLayoutPanel1.TabIndex = 251;
             this.flowLayoutPanel1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.flowLayoutPanel1_Scroll);
             this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
@@ -1046,7 +1046,7 @@
             this.lblWinRs.AutoSize = true;
             this.lblWinRs.BackColor = System.Drawing.Color.Transparent;
             this.lblWinRs.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWinRs.Location = new System.Drawing.Point(509, 4);
+            this.lblWinRs.Location = new System.Drawing.Point(480, 4);
             this.lblWinRs.Name = "lblWinRs";
             this.lblWinRs.Size = new System.Drawing.Size(63, 18);
             this.lblWinRs.TabIndex = 17;
@@ -1104,7 +1104,7 @@
             this.lblSlotTime.AutoSize = true;
             this.lblSlotTime.BackColor = System.Drawing.Color.Transparent;
             this.lblSlotTime.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSlotTime.Location = new System.Drawing.Point(285, 5);
+            this.lblSlotTime.Location = new System.Drawing.Point(277, 5);
             this.lblSlotTime.Name = "lblSlotTime";
             this.lblSlotTime.Size = new System.Drawing.Size(81, 18);
             this.lblSlotTime.TabIndex = 13;
@@ -1137,7 +1137,7 @@
             this.lblticketprice.AutoSize = true;
             this.lblticketprice.BackColor = System.Drawing.Color.Transparent;
             this.lblticketprice.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblticketprice.Location = new System.Drawing.Point(171, 4);
+            this.lblticketprice.Location = new System.Drawing.Point(163, 4);
             this.lblticketprice.Name = "lblticketprice";
             this.lblticketprice.Size = new System.Drawing.Size(18, 18);
             this.lblticketprice.TabIndex = 11;

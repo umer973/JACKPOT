@@ -13,8 +13,9 @@ namespace Jackport
     public partial class FrmWinPrice : Form
     {
         public string winPrize;
-        int count = 5;
+        int count = 100;
         int val = 0;
+        string win = "00";
         public FrmWinPrice(string _winPrize)
         {
             InitializeComponent();
@@ -31,27 +32,42 @@ namespace Jackport
 
             timer1 = new System.Windows.Forms.Timer();
             timer1.Tick += new EventHandler(timer1_Tick);
-            timer1.Interval = 1000; // 1 second
+            timer1.Interval = 100; // 1 second
             timer1.Start();
-            lblWinNumber.Text = winPrize;
+
 
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             count--;
-            val++;
-            if (count != 0)
-                progressBar1.Value = val;
 
-            lbltime.Text = "Wait time........% " + count;
+            if (winPrize != win)
+            {
+                win = SpinNumbers();
+                lblWinNumber.Text = win;
+            }
+
 
             if (count == 0)
             {
-                this.Hide();
+
                 timer1.Stop();
+                this.Hide();
             }
 
+
+
+
+        }
+
+        private string SpinNumbers()
+        {
+            Random rnd = new Random();
+
+            string num = rnd.Next(0, 99).ToString();
+
+            return num;
 
         }
 

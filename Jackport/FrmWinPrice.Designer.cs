@@ -34,9 +34,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.lbltime = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -58,10 +56,10 @@
             // 
             this.lblWinNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblWinNumber.AutoSize = true;
-            this.lblWinNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWinNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWinNumber.Location = new System.Drawing.Point(465, 68);
             this.lblWinNumber.Name = "lblWinNumber";
-            this.lblWinNumber.Size = new System.Drawing.Size(40, 42);
+            this.lblWinNumber.Size = new System.Drawing.Size(69, 73);
             this.lblWinNumber.TabIndex = 2;
             this.lblWinNumber.Text = "1";
             this.lblWinNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -80,8 +78,6 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.Navy;
-            this.groupBox3.Controls.Add(this.lbltime);
-            this.groupBox3.Controls.Add(this.progressBar1);
             this.groupBox3.Controls.Add(this.lblWinNumber);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(0, 100);
@@ -93,31 +89,6 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.progressBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.progressBar1.Location = new System.Drawing.Point(3, 251);
-            this.progressBar1.Maximum = 5;
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(967, 26);
-            this.progressBar1.Step = 1;
-            this.progressBar1.TabIndex = 3;
-            // 
-            // lbltime
-            // 
-            this.lbltime.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbltime.Font = new System.Drawing.Font("Consolas", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltime.ForeColor = System.Drawing.Color.Red;
-            this.lbltime.Location = new System.Drawing.Point(302, 174);
-            this.lbltime.Name = "lbltime";
-            this.lbltime.Size = new System.Drawing.Size(433, 57);
-            this.lbltime.TabIndex = 4;
-            this.lbltime.Text = "Time Left ............";
-            this.lbltime.Click += new System.EventHandler(this.lbltime_Click);
             // 
             // FrmWinPrice
             // 
@@ -150,7 +121,5 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
-        public System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.Label lbltime;
     }
 }

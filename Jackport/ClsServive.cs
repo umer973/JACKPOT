@@ -244,7 +244,7 @@ namespace Jackport
         public ReportSummary GetReportSummary(string startDate, string endDate)
         {
 
-            var client = new RestClient("https://api.welcomejk.com/v1/reports/get-report?start_date=" + endDate + "&end_date=" + endDate);
+            var client = new RestClient("https://api.welcomejk.com/v1/reports/get-report?start_date=" + startDate + "&end_date=" + endDate);
             /// var client = new RestClient("https://api.welcomejk.com/v1/reports/get-report?start_date=2021-08-02&end_date=2021-11-19");
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);

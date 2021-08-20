@@ -301,29 +301,18 @@ namespace Jackport.Helper
 
             for (int i = 0; i < _ticket.bids.Count;)
             {
-                if (count >= 6)
+                if (count >= 5)
                 {
-                    bids = "";
-                    for (int j = 0; j <= 5; j++)
-                    {
-
-
-                        bids = bids + _ticket.bids[i].number.ToString() + "-  " + _ticket.bids[i].quantity.ToString() + "  ";
-
-                        total = total + Convert.ToInt16(_ticket.bids[i].quantity);
-                        i++;
-                        count--;
-                    }
-
-                }
-                else if (count >= 5)
-                {
-                    bids = "";
+                    bids = string.Empty;
                     for (int j = 0; j <= 4; j++)
                     {
 
+                        if ( _ticket.bids[i].number.ToString().Length == 1)
+                            bids = bids + _ticket.bids[i].number.ToString() + "-    " + _ticket.bids[i].quantity.ToString() + "";
+                        else
+                            bids = bids + _ticket.bids[i].number.ToString() + "-  " + _ticket.bids[i].quantity.ToString() + "  ";
 
-                        bids = bids + _ticket.bids[i].number.ToString() + "-  " + _ticket.bids[i].quantity.ToString() + "  ";
+
 
                         total = total + Convert.ToInt16(_ticket.bids[i].quantity);
                         i++;
@@ -337,6 +326,7 @@ namespace Jackport.Helper
                     for (int j = 0; j <= 3; j++)
                     {
 
+
                         bids = bids + _ticket.bids[i].number.ToString() + "-  " + _ticket.bids[i].quantity.ToString() + "  ";
 
                         total = total + Convert.ToInt16(_ticket.bids[i].quantity);
@@ -345,7 +335,6 @@ namespace Jackport.Helper
                     }
 
                 }
-
                 else if (count >= 3)
                 {
                     bids = "";
@@ -360,6 +349,8 @@ namespace Jackport.Helper
                     }
 
                 }
+
+
                 else if (count >= 2)
                 {
                     bids = "";
@@ -550,22 +541,7 @@ namespace Jackport.Helper
 
             for (int i = 0; i < _bids.bids.Count;)
             {
-                if (count >= 6)
-                {
-                    bids = "";
-                    for (int j = 0; j <= 5; j++)
-                    {
-
-
-                        bids = bids + _bids.bids[i].bid_number.ToString() + "-  " + _bids.bids[i].bid_quantity.ToString() + "  ";
-
-                        total = total + Convert.ToInt16(_bids.bids[i].bid_quantity);
-                        i++;
-                        count--;
-                    }
-
-                }
-                else if (count >= 5)
+                if (count >= 5)
                 {
                     bids = "";
                     for (int j = 0; j <= 4; j++)
@@ -610,6 +586,22 @@ namespace Jackport.Helper
                     }
 
                 }
+                else if (count >= 2)
+                {
+                    bids = "";
+                    for (int j = 0; j <= 1; j++)
+                    {
+
+
+                        bids = bids + _bids.bids[i].bid_number.ToString() + "-  " + _bids.bids[i].bid_quantity.ToString() + "  ";
+
+                        total = total + Convert.ToInt16(_bids.bids[i].bid_quantity);
+                        i++;
+                        count--;
+                    }
+
+                }
+
                 else if (count >= 1)
                 {
                     bids = "";
