@@ -12,13 +12,14 @@ namespace Jackport
 {
     public partial class UserInputControl : UserControl
     {
+        FrmJackportDemo _frm;
 
-
-        public UserInputControl()
+        public UserInputControl(FrmJackportDemo frm)
         {
             InitializeComponent();
 
             ParentChanged += OnChanged;
+            _frm = frm;
             // this.Size = new Size(150, 150);
         }
 
@@ -48,7 +49,7 @@ namespace Jackport
         private void TxtQty_KeyPress(object sender, KeyPressEventArgs e)
         {
 
-          
+
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
           (e.KeyChar != '.'))
             {
@@ -68,6 +69,41 @@ namespace Jackport
                 TxtQty.BackColor = Color.Green;
             else
                 TxtQty.BackColor = Color.White;
+        }
+
+        private void TxtQty_KeyUp(object sender, KeyEventArgs e)
+        {
+
+            GetTotalCount();
+        }
+
+        private void GetTotalCount()
+        {
+
+            try
+            {
+                int quantity = 0;
+                int total = 0;
+                foreach (UserInputControl ctr in _frm.flowLayoutPanel2.Controls)
+                {
+
+                    if (!string.IsNullOrEmpty(ctr.TickeQty) && Convert.ToInt32(ctr.TickeQty) > 0)
+                    {
+
+                        quantity = quantity + Convert.ToInt16(ctr.TickeQty);
+
+                    }
+                }
+
+                total = 2 * quantity;
+                _frm.txttickektsqty.Text = quantity.ToString();
+                _frm.txttotalvalue.Text = total.ToString();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

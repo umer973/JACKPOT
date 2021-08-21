@@ -1370,9 +1370,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbltsnprice;
         private System.Windows.Forms.Label label145;
-        private System.Windows.Forms.TextBox txttickektsqty;
         private System.Windows.Forms.Label label146;
-        private System.Windows.Forms.TextBox txttotalvalue;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox Txt7079;
@@ -1412,7 +1410,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox TxtE9;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel pnlFooter;
@@ -1455,5 +1452,8 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox TxtE0;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        public System.Windows.Forms.TextBox txttickektsqty;
+        public System.Windows.Forms.TextBox txttotalvalue;
     }
 }

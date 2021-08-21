@@ -265,7 +265,6 @@ namespace Jackport.Helper
 
             //Offset = Offset + mediuminc;
             InsertHeaderStyleItem(_ticket.agent_code + "   " + _ticket.ticket_barcode, "", Offset);
-
             Offset = Offset + mediuminc;
             //InsertItem("BARCODE     :  " + _ticket.ticket_barcode, "", Offset);
 
@@ -299,6 +298,7 @@ namespace Jackport.Helper
             string bids = string.Empty;
             int count = _ticket.bids.Count;
 
+
             for (int i = 0; i < _ticket.bids.Count;)
             {
                 if (count >= 5)
@@ -306,11 +306,32 @@ namespace Jackport.Helper
                     bids = string.Empty;
                     for (int j = 0; j <= 4; j++)
                     {
+                        string space = "";
+                        bool single = false;
 
-                        if ( _ticket.bids[i].number.ToString().Length == 1)
-                            bids = bids + _ticket.bids[i].number.ToString() + "-    " + _ticket.bids[i].quantity.ToString() + "";
-                        else
-                            bids = bids + _ticket.bids[i].number.ToString() + "-  " + _ticket.bids[i].quantity.ToString() + "  ";
+
+                        if (_ticket.bids[i].number.ToString().Length == 1 && _ticket.bids[i].quantity.ToString().Length == 1)
+                        {
+                            bids = bids + "  " + _ticket.bids[i].number.ToString() + " - " + _ticket.bids[i].quantity.ToString() + "     ";
+                        }
+
+                        else if (_ticket.bids[i].number.ToString().Length == 1 && _ticket.bids[i].quantity.ToString().Length != 1)
+                        {
+                            bids = bids + "  " + _ticket.bids[i].number.ToString() + " - " + _ticket.bids[i].quantity.ToString() + "   ";
+
+                        }
+                        else if (_ticket.bids[i].number.ToString().Length != 1 && _ticket.bids[i].quantity.ToString().Length == 1)
+                        {
+                            bids = bids + _ticket.bids[i].number.ToString() + " - " + _ticket.bids[i].quantity.ToString() + "     ";
+                        }
+                        else if (_ticket.bids[i].number.ToString().Length != 1 && _ticket.bids[i].quantity.ToString().Length != 1)
+                        {
+                            bids = bids + _ticket.bids[i].number.ToString() + " - " + _ticket.bids[i].quantity.ToString() + "   ";
+                        }
+
+
+                        bids = bids + space;
+
 
 
 
@@ -327,11 +348,12 @@ namespace Jackport.Helper
                     {
 
 
-                        bids = bids + _ticket.bids[i].number.ToString() + "-  " + _ticket.bids[i].quantity.ToString() + "  ";
+                        bids = bids + _ticket.bids[i].number.ToString() + " - " + _ticket.bids[i].quantity.ToString() + " ";
 
                         total = total + Convert.ToInt16(_ticket.bids[i].quantity);
                         i++;
                         count--;
+
                     }
 
                 }
@@ -341,7 +363,7 @@ namespace Jackport.Helper
                     for (int j = 0; j <= 2; j++)
                     {
 
-                        bids = bids + _ticket.bids[i].number.ToString() + "-  " + _ticket.bids[i].quantity.ToString() + "  ";
+                        bids = bids + _ticket.bids[i].number.ToString() + " - " + _ticket.bids[i].quantity.ToString() + " ";
 
                         total = total + Convert.ToInt16(_ticket.bids[i].quantity);
                         i++;
@@ -357,7 +379,7 @@ namespace Jackport.Helper
                     for (int j = 0; j <= 1; j++)
                     {
 
-                        bids = bids + _ticket.bids[i].number.ToString() + "-  " + _ticket.bids[i].quantity.ToString() + "  ";
+                        bids = bids + _ticket.bids[i].number.ToString() + " - " + _ticket.bids[i].quantity.ToString() + " ";
 
                         total = total + Convert.ToInt16(_ticket.bids[i].quantity);
                         i++;
@@ -369,7 +391,7 @@ namespace Jackport.Helper
                 {
 
                     bids = "";
-                    bids = _ticket.bids[i].number.ToString() + "-  " + _ticket.bids[i].quantity.ToString() + "  ";
+                    bids = bids + _ticket.bids[i].number.ToString() + " - " + _ticket.bids[i].quantity.ToString() + " ";
 
                     total = total + Convert.ToInt16(_ticket.bids[i].quantity);
                     i++;
@@ -381,6 +403,8 @@ namespace Jackport.Helper
 
                 Offset = Offset + mediuminc;
                 InsertHeaderStyleItem(bids, "", Offset);
+                //DrawAtStart(bids, Offset);
+
 
 
 
@@ -487,237 +511,270 @@ namespace Jackport.Helper
 
         private static void RePrintTicket(object sender, PrintPageEventArgs e)
         {
-            graphics = e.Graphics;
-            Font minifont = new Font("Arial", 5);
-            Font itemfont = new Font("Arial", 6);
-            Font smallfont = new Font("Arial", 8);
-            Font mediumfont = new Font("Arial", 10);
-            Font largefont = new Font("Arial", 12);
-            int Offset = 10;
-            int smallinc = 10, mediuminc = 12, largeinc = 15;
-
-
-
-            Offset = Offset + largeinc + 10;
-
-            String underLine = "-------------------------------------";
-            //DrawLine(underLine, largefont, Offset, 0);
-
-            //Offset = Offset + mediuminc;
-            InsertHeaderStyleItem(_bids.agent_code + "   " + _bids.ticket_barcode, "", Offset);
-
-            Offset = Offset + mediuminc;
-            //InsertItem("BARCODE     :  " + _ticket.ticket_barcode, "", Offset);
-
-            Offset = Offset + mediuminc;
-
-            //  Image image = Resources._33_337047_sell_icon_png;
-            // e.Graphics.DrawImage(image, 10 + 50, 5 + Offset, 100, 30);
-            // InsertItem(" ", "", Offset);
-
-            // Offset = Offset + mediuminc;
-
-            //DrawAtStart("STARTDIGIT: " + "2", Offset);
-            //Offset = Offset + mediuminc;
-
-            Offset = Offset + largeinc;
-            //InsertItem("JACKPOT", "", Offset);
-            InsertHeaderStyleItem(UserAgent.AppName, "", Offset);
-
-
-            // DrawSimpleString("JACKPOT", minifont, Offset, 15);
-
-            Offset = Offset + mediuminc;
-            InsertHeaderStyleItem("Date : " + _bids.ticket_taken_time + "  Time :  " + CommonHelper.GetdateFormat(_bids.ticket_end_time).ToString(), "", Offset);
-
-
-
-            //InsertHeaderStyleItem("No - Qty", "", Offset);
-
-
-            int total = 0;
-            string bids = string.Empty;
-            int count = _bids.bids.Count;
-
-            for (int i = 0; i < _bids.bids.Count;)
+            try
             {
-                if (count >= 5)
+                graphics = e.Graphics;
+                Font minifont = new Font("Arial", 5);
+                Font itemfont = new Font("Arial", 6);
+                Font smallfont = new Font("Arial", 8);
+                Font mediumfont = new Font("Arial", 10);
+                Font largefont = new Font("Arial", 12);
+                int Offset = 10;
+                int smallinc = 10, mediuminc = 12, largeinc = 15;
+
+
+
+                Offset = Offset + largeinc + 10;
+
+                String underLine = "-------------------------------------";
+                //DrawLine(underLine, largefont, Offset, 0);
+
+                //Offset = Offset + mediuminc;
+                InsertHeaderStyleItem(_bids.agent_code + "   " + _bids.ticket_barcode, "", Offset);
+
+                Offset = Offset + mediuminc;
+                //InsertItem("BARCODE     :  " + _ticket.ticket_barcode, "", Offset);
+
+                Offset = Offset + mediuminc;
+
+                //  Image image = Resources._33_337047_sell_icon_png;
+                // e.Graphics.DrawImage(image, 10 + 50, 5 + Offset, 100, 30);
+                // InsertItem(" ", "", Offset);
+
+                // Offset = Offset + mediuminc;
+
+                //DrawAtStart("STARTDIGIT: " + "2", Offset);
+                //Offset = Offset + mediuminc;
+
+                Offset = Offset + largeinc;
+                //InsertItem("JACKPOT", "", Offset);
+                InsertHeaderStyleItem(UserAgent.AppName, "", Offset);
+
+
+                // DrawSimpleString("JACKPOT", minifont, Offset, 15);
+
+                Offset = Offset + mediuminc;
+                InsertHeaderStyleItem("Date : " + _bids.ticket_taken_time + "  Time :  " + CommonHelper.GetdateFormat(_bids.ticket_end_time).ToString(), "", Offset);
+
+
+
+                //InsertHeaderStyleItem("No - Qty", "", Offset);
+
+
+                int total = 0;
+                string bids = string.Empty;
+                int count = _bids.bids.Count;
+
+                for (int i = 0; i < _bids.bids.Count;)
                 {
-                    bids = "";
-                    for (int j = 0; j <= 4; j++)
+                    if (count >= 5)
                     {
+                        bids = "";
+                        for (int j = 0; j <= 4; j++)
+                        {
 
 
-                        bids = bids + _bids.bids[i].bid_number.ToString() + "-  " + _bids.bids[i].bid_quantity.ToString() + "  ";
+
+
+                            string space = "";
+                            bool single = false;
+
+
+                            if (_bids.bids[i].bid_number.ToString().Length == 1 && _bids.bids[i].bid_quantity.ToString().Length == 1)
+                            {
+                                bids = bids + "  " + _bids.bids[i].bid_number.ToString() + " - " + _bids.bids[i].bid_quantity.ToString() + "     ";
+                            }
+
+                            else if (_bids.bids[i].bid_number.ToString().Length == 1 && _bids.bids[i].bid_quantity.ToString().Length != 1)
+                            {
+                                bids = bids + "  " + _bids.bids[i].bid_number.ToString() + " - " + _bids.bids[i].bid_quantity.ToString() + "   ";
+
+                            }
+                            else if (_bids.bids[i].bid_number.ToString().Length != 1 && _bids.bids[i].bid_quantity.ToString().Length == 1)
+                            {
+                                bids = bids + _bids.bids[i].bid_number.ToString() + " - " + _bids.bids[i].bid_quantity.ToString() + "     ";
+                            }
+                            else if (_bids.bids[i].bid_number.ToString().Length != 1 && _bids.bids[i].bid_quantity.ToString().Length != 1)
+                            {
+                                bids = bids + _bids.bids[i].bid_number.ToString() + " - " + _bids.bids[i].bid_quantity.ToString() + "   ";
+                            }
+
+
+                            bids = bids + space;
+
+                            total = total + Convert.ToInt16(_bids.bids[i].bid_quantity);
+                            i++;
+                            count--;
+                        }
+
+                    }
+                    else if (count >= 4)
+                    {
+                        bids = "";
+                        for (int j = 0; j <= 3; j++)
+                        {
+
+
+                            bids = bids + _bids.bids[i].bid_number.ToString() + "-  " + _bids.bids[i].bid_quantity.ToString() + "  ";
+
+                            total = total + Convert.ToInt16(_bids.bids[i].bid_quantity);
+                            i++;
+                            count--;
+                        }
+
+                    }
+                    else if (count >= 3)
+                    {
+                        bids = "";
+                        for (int j = 0; j <= 2; j++)
+                        {
+
+
+                            bids = bids + _bids.bids[i].bid_number.ToString() + "-  " + _bids.bids[i].bid_quantity.ToString() + "  ";
+
+                            total = total + Convert.ToInt16(_bids.bids[i].bid_quantity);
+                            i++;
+                            count--;
+                        }
+
+                    }
+                    else if (count >= 2)
+                    {
+                        bids = "";
+                        for (int j = 0; j <= 1; j++)
+                        {
+
+
+                            bids = bids + _bids.bids[i].bid_number.ToString() + "-  " + _bids.bids[i].bid_quantity.ToString() + "  ";
+
+                            total = total + Convert.ToInt16(_bids.bids[i].bid_quantity);
+                            i++;
+                            count--;
+                        }
+
+                    }
+
+                    else if (count >= 1)
+                    {
+                        bids = "";
+                        bids = _bids.bids[i].bid_number.ToString() + "-  " + _bids.bids[i].bid_quantity.ToString() + "  ";
 
                         total = total + Convert.ToInt16(_bids.bids[i].bid_quantity);
                         i++;
                         count--;
+
                     }
 
-                }
-                else if (count >= 4)
-                {
-                    bids = "";
-                    for (int j = 0; j <= 3; j++)
-                    {
+
+                    Offset = Offset + mediuminc;
+                    InsertHeaderStyleItem(bids, "", Offset);
 
 
-                        bids = bids + _bids.bids[i].bid_number.ToString() + "-  " + _bids.bids[i].bid_quantity.ToString() + "  ";
 
-                        total = total + Convert.ToInt16(_bids.bids[i].bid_quantity);
-                        i++;
-                        count--;
-                    }
-
-                }
-                else if (count >= 3)
-                {
-                    bids = "";
-                    for (int j = 0; j <= 2; j++)
-                    {
-
-
-                        bids = bids + _bids.bids[i].bid_number.ToString() + "-  " + _bids.bids[i].bid_quantity.ToString() + "  ";
-
-                        total = total + Convert.ToInt16(_bids.bids[i].bid_quantity);
-                        i++;
-                        count--;
-                    }
-
-                }
-                else if (count >= 2)
-                {
-                    bids = "";
-                    for (int j = 0; j <= 1; j++)
-                    {
-
-
-                        bids = bids + _bids.bids[i].bid_number.ToString() + "-  " + _bids.bids[i].bid_quantity.ToString() + "  ";
-
-                        total = total + Convert.ToInt16(_bids.bids[i].bid_quantity);
-                        i++;
-                        count--;
-                    }
 
                 }
 
-                else if (count >= 1)
-                {
-                    bids = "";
-                    bids = _bids.bids[i].bid_number.ToString() + "-  " + _bids.bids[i].bid_quantity.ToString() + "  ";
+                Offset = Offset + largeinc;
 
-                    total = total + Convert.ToInt16(_bids.bids[i].bid_quantity);
-                    i++;
-                    count--;
+                InsertHeaderStyleItem("Qty  :" + total + " RS. " + total * 2 + "  " + CommonHelper.GetdateFormat(_bids.ticket_end_time).ToString(), "", Offset);
 
-                }
+
+
+                //graphics.DrawString("Welcome to HOT AND CRISPY", smallfont,
+                //new SolidBrush(Color.Black), startX + 22, startY + Offset);
+
+
+                //  Offset = Offset + mediuminc;
+
+
+
+                //  DrawAtStart("Date: " + "11-09-21", Offset);
+
+                // DrawAtStart("Time: " + "9:00 PM", Offset);
+
+                /// Offset = Offset + mediuminc;
+
+                //DrawAtStart("Qty : " + "10", Offset);
+
+                // DrawAtStart("Rs: " + "2", Offset);
+
+
+                //  DrawAtStart("Time: " + "9:00 PM", Offset);
 
 
                 Offset = Offset + mediuminc;
-                InsertHeaderStyleItem(bids, "", Offset);
+                // underLine = "-------------------------";
+                //  DrawLine(underLine, largefont, Offset, 30);
 
+                // Offset = Offset + largeinc;
 
+                // InsertHeaderStyleItem("Name. ", "Price. ", Offset);
 
+                //Offset = Offset + largeinc;
+                //foreach (var itran in order.ItemTransactions)
+                //{
+                //    InsertItem(itran.Item.Name + " x " + itran.Quantity, itran.Total.CValue, Offset);
+                //    Offset = Offset + smallinc;
+                //}
+                //foreach (var dtran in order.DealTransactions)
+                //{
+                //    InsertItem(dtran.Deal.Name, dtran.Total.CValue, Offset);
+                //    Offset = Offset + smallinc;
 
+                //    foreach (var di in dtran.Deal.DealItems)
+                //    {
+                //        InsertItem(di.Item.Name + " x " + (dtran.Quantity * di.Quantity), "", Offset);
+                //        Offset = Offset + smallinc;
+                //    }
+                //}
+
+                //underLine = "-------------------------";
+                //DrawLine(underLine, largefont, Offset, 30);
+
+                //Offset = Offset + largeinc;
+                //InsertItem(" Net. Total: ", order.Total.CValue, Offset);
+
+                //if (!order.Cash.Discount.IsZero())
+                //{
+                //    Offset = Offset + smallinc;
+                //    InsertItem(" Discount: ", order.Cash.Discount.CValue, Offset);
+                //}
+
+                //Offset = Offset + smallinc;
+                //InsertHeaderStyleItem(" Amount Payable: ", order.GrossTotal.CValue, Offset);
+
+                //Offset = Offset + largeinc;
+                //String address = shop.Address;
+                //DrawSimpleString("Address: " + address, minifont, Offset, 15);
+
+                //Offset = Offset + smallinc;
+                //String number = "Tel: " + shop.Phone1 + " - OR - " + shop.Phone2;
+                //DrawSimpleString(number, minifont, Offset, 35);
+
+                //Offset = Offset + 7;
+                //underLine = "-------------------------------------";
+                //DrawLine(underLine, largefont, Offset, 0);
+
+                //Offset = Offset + mediuminc;
+                //String greetings = "Thanks for visiting us.";
+                //DrawSimpleString(greetings, mediumfont, Offset, 28);
+
+                //Offset = Offset + mediuminc;
+                //underLine = "-------------------------------------";
+                //DrawLine(underLine, largefont, Offset, 0);
+
+                //Offset += (2 * mediuminc);
+                //string tip = "TIP: -----------------------------";
+                //InsertItem(tip, "", Offset);
+
+                //Offset = Offset + largeinc;
+                //string DrawnBy = "Meganos Softwares: 0312-0459491 - OR - 0321-6228321";
+                //DrawSimpleString(DrawnBy, minifont, Offset, 15);
             }
-
-            Offset = Offset + largeinc;
-
-            InsertHeaderStyleItem("Qty  :" + total + " RS. " + total * 2 + "  " + CommonHelper.GetdateFormat(_bids.ticket_end_time).ToString(), "", Offset);
-
-
-
-            //graphics.DrawString("Welcome to HOT AND CRISPY", smallfont,
-            //new SolidBrush(Color.Black), startX + 22, startY + Offset);
-
-
-            //  Offset = Offset + mediuminc;
-
-
-
-            //  DrawAtStart("Date: " + "11-09-21", Offset);
-
-            // DrawAtStart("Time: " + "9:00 PM", Offset);
-
-            /// Offset = Offset + mediuminc;
-
-            //DrawAtStart("Qty : " + "10", Offset);
-
-            // DrawAtStart("Rs: " + "2", Offset);
-
-
-            //  DrawAtStart("Time: " + "9:00 PM", Offset);
-
-
-            Offset = Offset + mediuminc;
-            // underLine = "-------------------------";
-            //  DrawLine(underLine, largefont, Offset, 30);
-
-            // Offset = Offset + largeinc;
-
-            // InsertHeaderStyleItem("Name. ", "Price. ", Offset);
-
-            //Offset = Offset + largeinc;
-            //foreach (var itran in order.ItemTransactions)
-            //{
-            //    InsertItem(itran.Item.Name + " x " + itran.Quantity, itran.Total.CValue, Offset);
-            //    Offset = Offset + smallinc;
-            //}
-            //foreach (var dtran in order.DealTransactions)
-            //{
-            //    InsertItem(dtran.Deal.Name, dtran.Total.CValue, Offset);
-            //    Offset = Offset + smallinc;
-
-            //    foreach (var di in dtran.Deal.DealItems)
-            //    {
-            //        InsertItem(di.Item.Name + " x " + (dtran.Quantity * di.Quantity), "", Offset);
-            //        Offset = Offset + smallinc;
-            //    }
-            //}
-
-            //underLine = "-------------------------";
-            //DrawLine(underLine, largefont, Offset, 30);
-
-            //Offset = Offset + largeinc;
-            //InsertItem(" Net. Total: ", order.Total.CValue, Offset);
-
-            //if (!order.Cash.Discount.IsZero())
-            //{
-            //    Offset = Offset + smallinc;
-            //    InsertItem(" Discount: ", order.Cash.Discount.CValue, Offset);
-            //}
-
-            //Offset = Offset + smallinc;
-            //InsertHeaderStyleItem(" Amount Payable: ", order.GrossTotal.CValue, Offset);
-
-            //Offset = Offset + largeinc;
-            //String address = shop.Address;
-            //DrawSimpleString("Address: " + address, minifont, Offset, 15);
-
-            //Offset = Offset + smallinc;
-            //String number = "Tel: " + shop.Phone1 + " - OR - " + shop.Phone2;
-            //DrawSimpleString(number, minifont, Offset, 35);
-
-            //Offset = Offset + 7;
-            //underLine = "-------------------------------------";
-            //DrawLine(underLine, largefont, Offset, 0);
-
-            //Offset = Offset + mediuminc;
-            //String greetings = "Thanks for visiting us.";
-            //DrawSimpleString(greetings, mediumfont, Offset, 28);
-
-            //Offset = Offset + mediuminc;
-            //underLine = "-------------------------------------";
-            //DrawLine(underLine, largefont, Offset, 0);
-
-            //Offset += (2 * mediuminc);
-            //string tip = "TIP: -----------------------------";
-            //InsertItem(tip, "", Offset);
-
-            //Offset = Offset + largeinc;
-            //string DrawnBy = "Meganos Softwares: 0312-0459491 - OR - 0321-6228321";
-            //DrawSimpleString(DrawnBy, minifont, Offset, 15);
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private static void PrintCancelledTicket(object sender, PrintPageEventArgs e)

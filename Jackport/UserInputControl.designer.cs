@@ -62,6 +62,7 @@
             this.TxtQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TxtQty.TextChanged += new System.EventHandler(this.TxtQty_TextChanged);
             this.TxtQty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtQty_KeyPress);
+            this.TxtQty.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtQty_KeyUp);
             // 
             // UserInputControl
             // 

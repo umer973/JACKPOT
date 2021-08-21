@@ -16,10 +16,11 @@ namespace Jackport
         int count = 100;
         int val = 0;
         string win = "00";
-        public FrmWinPrice(string _winPrize)
+        public FrmWinPrice(string _winPrize, string drawtime)
         {
             InitializeComponent();
             winPrize = _winPrize;
+            lblDrawtime.Text = drawtime;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -32,7 +33,7 @@ namespace Jackport
 
             timer1 = new System.Windows.Forms.Timer();
             timer1.Tick += new EventHandler(timer1_Tick);
-            timer1.Interval = 100; // 1 second
+            timer1.Interval = 80; // 1 second
             timer1.Start();
 
 
@@ -46,6 +47,11 @@ namespace Jackport
             {
                 win = SpinNumbers();
                 lblWinNumber.Text = win;
+            }
+            else
+
+            {
+                lblWinNumber.Text = winPrize;
             }
 
 

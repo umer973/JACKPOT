@@ -38,6 +38,7 @@ namespace Jackport
         DateTime dateTime = DateTime.Now;
         int ticketPrice = 0;
         bool IsSloverOver = false;
+       
 
         //BusyIndicator busyIndicator = new BusyIndicator();
         //ObservableCollection<int> sampleData = new ObservableCollection<int>();
@@ -127,7 +128,8 @@ namespace Jackport
             textBox6.KeyUp += OnKeyUp;
             textBox5.KeyUp += OnKeyUp;
             Txt9099.KeyUp += OnKeyUp;
-            flowLayoutPanel2.PreviewKeyDown += OnKeyUp;
+           
+
 
 
 
@@ -407,7 +409,7 @@ namespace Jackport
 
             for (int i = 0; i < 100; i++)
             {
-                UserInputControl p1 = new UserInputControl();
+                UserInputControl p1 = new UserInputControl(this);
                 string num = Convert.ToString(i);
                 if (i == 0)
                 {
@@ -769,11 +771,11 @@ namespace Jackport
 
                     if (remainintime == 0)
                     {
-
+                        var winticket = new WinTicket();
                         ClsService clsService = new ClsService();
-                        var result = clsService.GetWinTickets(Convert.ToInt16(slotdId));
+                        winticket = clsService.GetWinTickets(Convert.ToInt16(slotdId));
 
-                        FrmWinPrice ObjWinPrice = new FrmWinPrice(result);
+                        FrmWinPrice ObjWinPrice = new FrmWinPrice(winticket.win_number, winticket.time_end);
                         ObjWinPrice.ShowDialog();
 
                         List<TimeSlot> timeSlot = await RefreshSlots();
@@ -2225,6 +2227,7 @@ namespace Jackport
         {
 
             GenerateRondomTicketNumber();
+            ShowTicketQty();
         }
 
         private void button6_Click(object sender, EventArgs e)

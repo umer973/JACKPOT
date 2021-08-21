@@ -189,7 +189,7 @@ namespace Jackport
                     agent_id = x.agent_id,
                     ticket_total_quantity = x.ticket_total_quantity,
                     slot_id = x.slot_id,
-                    ticket_end_time=x.ticket_end_time
+                    ticket_end_time = x.ticket_end_time
 
 
                 }).ToList();
@@ -203,10 +203,10 @@ namespace Jackport
 
         }
 
-        public string GetWinTickets(int slotId)
+        public WinTicket GetWinTickets(int slotId)
         {
             bool flag = true;
-            List<WinTicket> WinTicketDetails = new List<DataModel.WinTicket>();
+            WinTicket WinTicketDetails = new WinTicket();
             var client = new RestClient("https://api.welcomejk.com/v1/tickets/get-win?slot_id=" + slotId);
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
@@ -218,7 +218,7 @@ namespace Jackport
             if (result != null && result.success)
             {
                 flag = false;
-                return result.data.win_number;
+                return result.data;
             }
 
 
@@ -228,12 +228,12 @@ namespace Jackport
                 {
                     if (!flag)
                     {
-                        return result.data.win_number;
+                        return result.data;
                     }
                     GetWinTickets(slotId);
 
                 }
-                return result != null ? result.message : GetWinTickets(slotId); ;
+                return result != null ? result.data : GetWinTickets(slotId); ;
 
             }
 
