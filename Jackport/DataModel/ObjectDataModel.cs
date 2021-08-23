@@ -12,7 +12,7 @@ namespace Jackport.DataModel
     {
     }
 
-   
+
 
     public class ApiResponse
     {
@@ -35,7 +35,7 @@ namespace Jackport.DataModel
     }
 
 
- 
+
 
     public class ApplicationDetails
     {
@@ -47,6 +47,7 @@ namespace Jackport.DataModel
         public string agent_ticket_win_customer_share_amount { get; set; }
         public string app_time { get; set; }
         public string app_date { get; set; }
+        public string app_company_signature { get; set; }
     }
 
     public class AgentData

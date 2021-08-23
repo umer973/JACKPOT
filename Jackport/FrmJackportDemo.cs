@@ -38,7 +38,7 @@ namespace Jackport
         DateTime dateTime = DateTime.Now;
         int ticketPrice = 0;
         bool IsSloverOver = false;
-       
+        bool IsFullScreen = false;
 
         //BusyIndicator busyIndicator = new BusyIndicator();
         //ObservableCollection<int> sampleData = new ObservableCollection<int>();
@@ -55,7 +55,7 @@ namespace Jackport
             clsService = new ClsService();
 
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.SizeChanged += new EventHandler(form1_sizeeventhandler);
+
 
 
         }
@@ -128,7 +128,7 @@ namespace Jackport
             textBox6.KeyUp += OnKeyUp;
             textBox5.KeyUp += OnKeyUp;
             Txt9099.KeyUp += OnKeyUp;
-           
+
 
 
 
@@ -504,13 +504,15 @@ namespace Jackport
                 LblDate.Text = CommonHelper.SetDateFormat(_root.ApplicationDetails.app_date.ToString());
                 UserAgent.AppName = data.ApplicationDetails.app_name;
                 UserAgent.ShowBalance = Convert.ToInt64(data.AgentData.balance);
-
+                UserAgent.Logo = _root.ApplicationDetails.app_logo;
+                UserAgent.AppSignature = _root.ApplicationDetails.app_company_signature;
                 var request = WebRequest.Create(_root.ApplicationDetails.app_logo);
 
                 using (var response = request.GetResponse())
                 using (var stream = response.GetResponseStream())
                 {
                     pictureBox1.Image = Bitmap.FromStream(stream);
+
                 }
 
                 cmbSlot.SelectedIndex = 0;
@@ -775,17 +777,16 @@ namespace Jackport
                         ClsService clsService = new ClsService();
                         winticket = clsService.GetWinTickets(Convert.ToInt16(slotdId));
 
-                        FrmWinPrice ObjWinPrice = new FrmWinPrice(winticket.win_number, winticket.time_end);
-                        ObjWinPrice.ShowDialog();
-
                         List<TimeSlot> timeSlot = await RefreshSlots();
 
                         IsSloverOver = IsSlotAvailable(timeSlot);
 
-
                         SetCurrentSlot(timeSlot);
 
                         await loadWinPrizes(timeSlot);
+
+                        FrmWinPrice ObjWinPrice = new FrmWinPrice(winticket.win_number, winticket.time_end);
+                        ObjWinPrice.ShowDialog();
 
 
 
@@ -2174,14 +2175,39 @@ namespace Jackport
 
         private void button8_Click(object sender, EventArgs e)
         {
-            GenerateRondomTicketNumber();
+            // GenerateRondomTicketNumber();
 
+            GenerateLpNumber();
+
+        }
+
+        public void GenerateLpNumber()
+        {
+            if (!string.IsNullOrEmpty(TxtLpNo.Text))
+            {
+                Random rnd = new Random();
+                int num = rnd.Next(0, 99);
+
+                foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
+                {
+                    string Data = Convert.ToString(ctr.Tag);
+
+                    if (Data == Convert.ToString(num))
+                    {
+                        ctr.TickeQty = TxtLpNo.Text;
+                        break;
+                    }
+
+                }
+
+            }
         }
 
         private void GenerateRondomTicketNumber()
         {
             try
             {
+                
                 if (TxtLpNo.Text != "")
                 {
                     Random rnd = new Random();
@@ -2190,12 +2216,15 @@ namespace Jackport
                     int i = 0;
                     for (i = 0; i < intArr.Length; i++)
                     {
-                        int num = rnd.Next(0, 99);
+                        int num = rnd.Next(0, 100);
+
+
                         intArr[i] = num;
-                        //Console.WriteLine(num);
+
 
                     }
 
+                    Array.Sort(intArr);
                     for (int j = 0; j < intArr.Length; j++)
                     {
                         foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
@@ -2204,7 +2233,9 @@ namespace Jackport
                             int c = intArr[j];
                             if (Data == Convert.ToString(intArr[j]))
                             {
-                                ctr.TickeQty = "1";
+                                int qty = !string.IsNullOrEmpty(ctr.TickeQty) ? Convert.ToInt16(ctr.TickeQty) + 1 : 1;
+                                if (qty <= 99)
+                                    ctr.TickeQty = qty.ToString();
                             }
 
                         }
@@ -2227,6 +2258,7 @@ namespace Jackport
         {
 
             GenerateRondomTicketNumber();
+            //GenerateLpNumber();
             ShowTicketQty();
         }
 
@@ -2257,6 +2289,36 @@ namespace Jackport
             {
                 BuyTickets();
             }
+
+            if (e.KeyCode == Keys.F11)
+            {
+                if (!IsFullScreen)
+                {
+
+                    this.WindowState = FormWindowState.Normal;
+                    this.FormBorderStyle = FormBorderStyle.None;
+                    this.WindowState = FormWindowState.Maximized;
+                    IsFullScreen = true;
+                }
+                else
+                {
+                    this.WindowState = FormWindowState.Normal;
+                    this.FormBorderStyle = FormBorderStyle.Fixed3D;
+                    this.WindowState = FormWindowState.Maximized;
+                    IsFullScreen = false;
+                }
+
+            }
+            if (e.KeyCode == Keys.Escape)
+            {
+
+                if (ShowDialog())
+                {
+                    timer1.Stop();
+                    this.Hide();
+                }
+
+            }
             //if (e.KeyCode == Keys.R)
             //{
             //    AllData();
@@ -2267,6 +2329,27 @@ namespace Jackport
             //}
 
 
+        }
+        public bool ShowDialog()
+        {
+            Form prompt = new Form()
+            {
+                Width = 500,
+                Height = 150,
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                Text = "Do you want to exit",
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            Label textLabel = new Label() { Left = 50, Top = 20, Text = "Do yo want to exit" };
+            TextBox textBox = new TextBox() { Left = 50, Top = 50, Width = 400 };
+            Button confirmation = new Button() { Text = "Ok", Left = 350, Width = 100, Top = 70, DialogResult = DialogResult.OK };
+            confirmation.Click += (sender, e) => { prompt.Close(); };
+
+            prompt.Controls.Add(confirmation);
+            prompt.Controls.Add(textLabel);
+            prompt.AcceptButton = confirmation;
+
+            return prompt.ShowDialog() == DialogResult.OK ? true : false;
         }
 
         private void flowLayoutPanel1_Scroll(object sender, ScrollEventArgs e)

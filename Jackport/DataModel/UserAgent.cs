@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,10 @@ namespace Jackport.DataModel
         public static long ShowBalance { get; set; }
 
         public static string AppName { get; set; }
+
+        public static string Logo { get; set; }
+
+        public static string AppSignature { get; set; }
 
 
     }

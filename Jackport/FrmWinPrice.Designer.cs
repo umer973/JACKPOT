@@ -31,10 +31,10 @@
             this.components = new System.ComponentModel.Container();
             this.lblWinNumber = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblDrawtime = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblDrawtime = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +47,7 @@
             this.lblWinNumber.BackColor = System.Drawing.Color.Transparent;
             this.lblWinNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWinNumber.ForeColor = System.Drawing.Color.Green;
-            this.lblWinNumber.Location = new System.Drawing.Point(510, 187);
+            this.lblWinNumber.Location = new System.Drawing.Point(555, 193);
             this.lblWinNumber.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblWinNumber.Name = "lblWinNumber";
             this.lblWinNumber.Size = new System.Drawing.Size(153, 108);
@@ -64,50 +64,50 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.groupBox3.Size = new System.Drawing.Size(1081, 490);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(6);
+            this.groupBox3.Size = new System.Drawing.Size(1230, 520);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Consolas", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(379, 41);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(175, 34);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Draw Time ";
             // 
             // lblDrawtime
             // 
             this.lblDrawtime.AutoSize = true;
             this.lblDrawtime.Font = new System.Drawing.Font("Consolas", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDrawtime.ForeColor = System.Drawing.Color.Red;
-            this.lblDrawtime.Location = new System.Drawing.Point(576, 41);
+            this.lblDrawtime.Location = new System.Drawing.Point(674, 50);
             this.lblDrawtime.Name = "lblDrawtime";
             this.lblDrawtime.Size = new System.Drawing.Size(175, 34);
             this.lblDrawtime.TabIndex = 4;
             this.lblDrawtime.Text = "Draw Time ";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Consolas", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(477, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(175, 34);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Draw Time ";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FrmWinPrice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
-            this.ClientSize = new System.Drawing.Size(1081, 490);
+            this.ClientSize = new System.Drawing.Size(1230, 520);
             this.Controls.Add(this.groupBox3);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FrmWinPrice";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Win Number";

@@ -800,21 +800,23 @@
             this.panel8.Controls.Add(this.txttickektsqty);
             this.panel8.Controls.Add(this.label146);
             this.panel8.Controls.Add(this.lbltsnprice);
-            this.panel8.Location = new System.Drawing.Point(807, 0);
+            this.panel8.Location = new System.Drawing.Point(810, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(430, 53);
+            this.panel8.Size = new System.Drawing.Size(427, 53);
             this.panel8.TabIndex = 508;
             // 
             // txttotalvalue
             // 
             this.txttotalvalue.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txttotalvalue.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttotalvalue.Location = new System.Drawing.Point(280, 11);
+            this.txttotalvalue.Location = new System.Drawing.Point(278, 11);
             this.txttotalvalue.Multiline = true;
             this.txttotalvalue.Name = "txttotalvalue";
             this.txttotalvalue.ReadOnly = true;
             this.txttotalvalue.Size = new System.Drawing.Size(139, 25);
             this.txttotalvalue.TabIndex = 506;
+            this.txttotalvalue.Text = "0.00";
+            this.txttotalvalue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txttotalvalue.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // label145
@@ -824,7 +826,7 @@
             this.label145.BackColor = System.Drawing.Color.Transparent;
             this.label145.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label145.ForeColor = System.Drawing.Color.White;
-            this.label145.Location = new System.Drawing.Point(167, 15);
+            this.label145.Location = new System.Drawing.Point(165, 15);
             this.label145.Name = "label145";
             this.label145.Size = new System.Drawing.Size(15, 16);
             this.label145.TabIndex = 503;
@@ -834,13 +836,13 @@
             // 
             this.txttickektsqty.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txttickektsqty.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttickektsqty.Location = new System.Drawing.Point(188, 11);
+            this.txttickektsqty.Location = new System.Drawing.Point(186, 11);
             this.txttickektsqty.Multiline = true;
             this.txttickektsqty.Name = "txttickektsqty";
             this.txttickektsqty.Size = new System.Drawing.Size(66, 25);
             this.txttickektsqty.TabIndex = 504;
-            this.txttickektsqty.Text = "0";
-            this.txttickektsqty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txttickektsqty.Text = "0.00";
+            this.txttickektsqty.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txttickektsqty.TextChanged += new System.EventHandler(this.txttickektsqty_TextChanged);
             // 
             // label146
@@ -850,7 +852,7 @@
             this.label146.BackColor = System.Drawing.Color.Transparent;
             this.label146.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label146.ForeColor = System.Drawing.Color.White;
-            this.label146.Location = new System.Drawing.Point(258, 14);
+            this.label146.Location = new System.Drawing.Point(256, 14);
             this.label146.Name = "label146";
             this.label146.Size = new System.Drawing.Size(18, 19);
             this.label146.TabIndex = 505;
@@ -863,7 +865,7 @@
             this.lbltsnprice.BackColor = System.Drawing.Color.Transparent;
             this.lbltsnprice.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltsnprice.ForeColor = System.Drawing.Color.White;
-            this.lbltsnprice.Location = new System.Drawing.Point(111, 14);
+            this.lbltsnprice.Location = new System.Drawing.Point(108, 14);
             this.lbltsnprice.Name = "lbltsnprice";
             this.lbltsnprice.Size = new System.Drawing.Size(45, 19);
             this.lbltsnprice.TabIndex = 502;
@@ -1032,14 +1034,13 @@
             // 
             // lblprice
             // 
-            this.lblprice.AutoSize = true;
             this.lblprice.BackColor = System.Drawing.Color.Transparent;
             this.lblprice.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblprice.Location = new System.Drawing.Point(124, 4);
+            this.lblprice.Location = new System.Drawing.Point(121, 4);
             this.lblprice.Name = "lblprice";
-            this.lblprice.Size = new System.Drawing.Size(40, 18);
+            this.lblprice.Size = new System.Drawing.Size(33, 18);
             this.lblprice.TabIndex = 18;
-            this.lblprice.Text = "RS :";
+            this.lblprice.Text = "RS:";
             // 
             // lblWinRs
             // 
@@ -1137,7 +1138,7 @@
             this.lblticketprice.AutoSize = true;
             this.lblticketprice.BackColor = System.Drawing.Color.Transparent;
             this.lblticketprice.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblticketprice.Location = new System.Drawing.Point(163, 4);
+            this.lblticketprice.Location = new System.Drawing.Point(151, 4);
             this.lblticketprice.Name = "lblticketprice";
             this.lblticketprice.Size = new System.Drawing.Size(18, 18);
             this.lblticketprice.TabIndex = 11;
@@ -1150,9 +1151,9 @@
             this.lblpriceformat.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblpriceformat.Location = new System.Drawing.Point(3, 4);
             this.lblpriceformat.Name = "lblpriceformat";
-            this.lblpriceformat.Size = new System.Drawing.Size(108, 18);
+            this.lblpriceformat.Size = new System.Drawing.Size(98, 18);
             this.lblpriceformat.TabIndex = 10;
-            this.lblpriceformat.Text = "STARTDIGIT";
+            this.lblpriceformat.Text = "STARDIGIT";
             // 
             // panel2
             // 
