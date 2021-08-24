@@ -32,5 +32,7 @@ namespace Jackport.DataModel
         public static int Height { get; set; }
         public static int Width { get; set; }
         public static bool IsDirectPrint { get; set; }
+        public static int ControlWidth { get; set; }
+        public static int ControlHeight { get; set; }
     }
 }

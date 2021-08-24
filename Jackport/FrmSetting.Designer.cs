@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txtheight = new System.Windows.Forms.TextBox();
             this.txtwidth = new System.Windows.Forms.TextBox();
@@ -42,9 +39,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cmbPrinter = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtxtrheight = new System.Windows.Forms.TextBox();
+            this.txtctrwidth = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -58,38 +63,6 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(554, 473);
             this.tabControl1.TabIndex = 0;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.tabPage2.Location = new System.Drawing.Point(4, 28);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(546, 441);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Others";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(0, 414);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(554, 59);
-            this.panel1.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(192, 8);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 42);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Save";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // tabPage1
             // 
@@ -193,6 +166,76 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Select Printer";
             // 
+            // tabPage2
+            // 
+            this.tabPage2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPage2.Controls.Add(this.txtxtrheight);
+            this.tabPage2.Controls.Add(this.txtctrwidth);
+            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.label6);
+            this.tabPage2.Location = new System.Drawing.Point(4, 28);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(546, 441);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Board Settings";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Location = new System.Drawing.Point(0, 414);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(554, 59);
+            this.panel1.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(192, 8);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(150, 42);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Save";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // txtxtrheight
+            // 
+            this.txtxtrheight.Location = new System.Drawing.Point(157, 56);
+            this.txtxtrheight.Name = "txtxtrheight";
+            this.txtxtrheight.Size = new System.Drawing.Size(50, 26);
+            this.txtxtrheight.TabIndex = 13;
+            this.txtxtrheight.Text = "40";
+            // 
+            // txtctrwidth
+            // 
+            this.txtctrwidth.Location = new System.Drawing.Point(157, 19);
+            this.txtctrwidth.Name = "txtctrwidth";
+            this.txtctrwidth.Size = new System.Drawing.Size(50, 26);
+            this.txtctrwidth.TabIndex = 12;
+            this.txtctrwidth.Text = "60";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(25, 61);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(126, 19);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Ticket Height";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(25, 23);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(117, 19);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Ticket Width";
+            // 
             // FrmSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -205,9 +248,11 @@
             this.Text = "Settings";
             this.Load += new System.EventHandler(this.FrmSetting_Load);
             this.tabControl1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -228,5 +273,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtheight;
         private System.Windows.Forms.TextBox txtwidth;
+        private System.Windows.Forms.TextBox txtxtrheight;
+        private System.Windows.Forms.TextBox txtctrwidth;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }

@@ -56,7 +56,13 @@ namespace Jackport
 
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 
+            CommonHelper.ReadXMlData();
+
             LoadData(_data);
+
+
+            //  SetLayout();
+
 
 
 
@@ -135,6 +141,38 @@ namespace Jackport
 
 
 
+        }
+
+
+
+        private void SetLayout()
+        {
+            int height = PrintJobSettings.ControlHeight > 0 ? PrintJobSettings.ControlHeight : 40;
+            int width = PrintJobSettings.ControlWidth > 0 ? PrintJobSettings.ControlWidth : 50;
+
+            TxtE0.Size = new Size(width, height);
+            TxtE2.Size = new Size(width, height);
+            TxtE1.Size = new Size(width, height);
+            TxtE3.Size = new Size(width, height);
+            TxtE4.Size = new Size(width, height);
+            TxtE5.Size = new Size(width, height);
+            TxtE7.Size = new Size(width, height);
+            TxtE8.Size = new Size(width, height);
+            TxtE9.Size = new Size(width, height);
+            Txt0009.Size = new Size(width, height);
+            Txt1019.Size = new Size(width, height);
+            Txt2029.Size = new Size(width, height);
+            Txt3031.Size = new Size(width, height);
+            Txt4049.Size = new Size(width, height);
+            Txt5051.Size = new Size(width, height);
+            Txt5051.Size = new Size(width, height);
+            Txt7079.Size = new Size(width, height);
+            Txt8089.Size = new Size(width, height);
+            TxtLpNo.Size = new Size(width, height);
+            txttotalvalue.Size = new Size(width, height);
+            textBox6.Size = new Size(width, height);
+            textBox5.Size = new Size(width, height);
+            Txt9099.Size = new Size(width, height);
         }
 
         private void OnKeyUp(object sender, EventArgs e)
@@ -231,7 +269,7 @@ namespace Jackport
             }
 
 
-            SetLayout();
+
             return true;
 
 
@@ -239,10 +277,7 @@ namespace Jackport
 
         }
 
-        private void SetLayout()
-        {
 
-        }
 
         private bool IsSlotAvailable(List<TimeSlot> timeSlots)
         {
@@ -272,6 +307,11 @@ namespace Jackport
             {
 
                 this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+                headerpanel.Visible = true;
+                pnlFooter.Visible = true;
+                panel2.Visible = true;
+                panel3.Visible = true;
+                tblLayout.Visible = true;
 
 
             }
@@ -407,7 +447,7 @@ namespace Jackport
 
         private async Task LoadTickets()
         {
-
+            flowLayoutPanel2.Controls.Clear();
 
             for (int i = 0; i < 100; i++)
             {
@@ -461,15 +501,16 @@ namespace Jackport
                 p1.TickeName = Convert.ToString(num);
 
 
-                int height = Screen.PrimaryScreen.WorkingArea.Height;
-                int width = Screen.PrimaryScreen.WorkingArea.Width;
+                int height = PrintJobSettings.ControlHeight > 0 ? PrintJobSettings.ControlHeight : 40;
+                int width = PrintJobSettings.ControlWidth > 0 ? PrintJobSettings.ControlWidth : 50;
 
-                // p1.TicketSize = new Size(70, 100);
+                //  p1.TicketSize = new Size(width, height);
                 // p1.LabeltSize = new Size(70, 100);
-                //  p1.Size = new Size(70, 100);
+                p1.Size = new Size(width, height);
 
                 //p1.Size = new Size(100,100)
                 // p1.Size = new Size(100, 100);
+
 
                 flowLayoutPanel2.Controls.Add(p1);
 
@@ -477,6 +518,26 @@ namespace Jackport
 
             }
 
+
+            for (int i = 0; i < 20; i++)
+            {
+                UserInputControl p2 = new UserInputControl(this);
+                string num = Convert.ToString(i);
+                if (i == 0)
+                {
+                    num = "E0";
+                }
+                if (i == 1)
+                {
+                    num = "00-09";
+                }
+                if (i == 2)
+                {
+                    num = "02";
+                }
+
+                //flowLayoutPanel3.Controls.Add(p2);
+            }
         }
 
         void p1_OnChanged(object sender, EventArgs e)
@@ -2491,6 +2552,17 @@ namespace Jackport
         private void FrmJackportDemo_FormClosing(object sender, FormClosingEventArgs e)
         {
             timer1.Stop();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            CommonHelper.ReadXMlData();
+
+            LoadTickets();
+
+            // SetLayout();
+
+
         }
     }
 }

@@ -68,6 +68,8 @@ namespace Jackport.Helper
                         PrintJobSettings.Height = Convert.ToInt16(ds.Tables[i].Rows[0][2].ToString());
                         PrintJobSettings.Width = Convert.ToInt16(ds.Tables[i].Rows[0][3].ToString());
                         PrintJobSettings.IsDirectPrint = Convert.ToBoolean(ds.Tables[i].Rows[0][4].ToString());
+                        PrintJobSettings.ControlWidth = Convert.ToInt16(ds.Tables[i].Rows[0][5].ToString());
+                        PrintJobSettings.ControlHeight = Convert.ToInt16(ds.Tables[i].Rows[0][6].ToString());
                     }
 
 
@@ -134,12 +136,16 @@ namespace Jackport.Helper
             dt.Columns.Add("Height");
             dt.Columns.Add("Width");
             dt.Columns.Add("IsDirectPrint");
+            dt.Columns.Add("ControlWidth");
+            dt.Columns.Add("ControlHeight");
             dt.Rows.Add(dt.NewRow());
             dt.Rows[i]["PrinterName"] = PrintJobSettings.PrinterName;
             dt.Rows[i]["PaperSize"] = PrintJobSettings.PaperSize;
             dt.Rows[i]["Height"] = PrintJobSettings.Height;
             dt.Rows[i]["Width"] = PrintJobSettings.Width;
             dt.Rows[i]["IsDirectPrint"] = PrintJobSettings.IsDirectPrint;
+            dt.Rows[i]["ControlWidth"] = PrintJobSettings.ControlWidth;
+            dt.Rows[i]["ControlHeight"] = PrintJobSettings.ControlHeight;
             ds.Tables.Add(dt);
 
 

@@ -38,10 +38,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelName.AutoSize = true;
-            this.LabelName.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelName.Location = new System.Drawing.Point(14, 1);
+            this.LabelName.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelName.Location = new System.Drawing.Point(14, -4);
             this.LabelName.Name = "LabelName";
-            this.LabelName.Size = new System.Drawing.Size(21, 15);
+            this.LabelName.Size = new System.Drawing.Size(27, 19);
             this.LabelName.TabIndex = 265;
             this.LabelName.Text = "00";
             this.LabelName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -57,7 +57,7 @@
             this.TxtQty.MaxLength = 2;
             this.TxtQty.Multiline = true;
             this.TxtQty.Name = "TxtQty";
-            this.TxtQty.Size = new System.Drawing.Size(50, 27);
+            this.TxtQty.Size = new System.Drawing.Size(61, 32);
             this.TxtQty.TabIndex = 264;
             this.TxtQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TxtQty.TextChanged += new System.EventHandler(this.TxtQty_TextChanged);
@@ -71,7 +71,7 @@
             this.Controls.Add(this.LabelName);
             this.Controls.Add(this.TxtQty);
             this.Name = "UserInputControl";
-            this.Size = new System.Drawing.Size(49, 45);
+            this.Size = new System.Drawing.Size(60, 50);
             this.ResumeLayout(false);
             this.PerformLayout();
 

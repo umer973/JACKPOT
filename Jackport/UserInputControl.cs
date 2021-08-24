@@ -46,6 +46,14 @@ namespace Jackport
 
         }
 
+        public Size TicketSize
+        {
+            get { return TxtQty.Size; }
+            set { TxtQty.Size = value; }
+
+
+        }
+
         private void TxtQty_KeyPress(object sender, KeyPressEventArgs e)
         {
 
