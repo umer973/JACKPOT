@@ -39,19 +39,19 @@ namespace Jackport
             Cursor.Current = Cursors.WaitCursor;
             ClsService clsService = new ClsService();
             LoginData data = new LoginData();
-            FrmJackportDemo obj = new FrmJackportDemo();
+
             if (!string.IsNullOrEmpty(TxtUser.Text) && !string.IsNullOrEmpty(TxtPassword.Text.Trim()))
             {
                 data = clsService.LoginAsync(TxtUser.Text.Trim(), TxtPassword.Text.Trim());
+
+
+
                 if (data != null)
                 {
-                    if (obj.LoadData(data))
-                    {
-                        this.Hide();
-                        obj.Show();
+                    FrmJackportDemo obj = new FrmJackportDemo(data);
 
-                    }
-
+                    this.Hide();
+                    obj.Show();
 
 
                 }

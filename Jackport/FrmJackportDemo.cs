@@ -43,7 +43,7 @@ namespace Jackport
         //BusyIndicator busyIndicator = new BusyIndicator();
         //ObservableCollection<int> sampleData = new ObservableCollection<int>();
 
-        public FrmJackportDemo()
+        public FrmJackportDemo(LoginData _data)
         {
 
 
@@ -55,6 +55,8 @@ namespace Jackport
             clsService = new ClsService();
 
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+
+            LoadData(_data);
 
 
 
@@ -187,14 +189,14 @@ namespace Jackport
 
         }
 
-        public bool LoadData(LoginData _data)
+        public async Task<bool> LoadData(LoginData _data)
         {
 
 
             data = _data;
             SetLoading(true);
 
-            LoadTickets();
+            await LoadTickets();
 
             if (InvokeRequired)
             {
@@ -212,7 +214,7 @@ namespace Jackport
 
             IsSloverOver = IsSlotAvailable(data.TimeSlots);
 
-            loadWinPrizes(timeSlots);
+            await loadWinPrizes(timeSlots);
 
             RunTimer();
 
@@ -2207,7 +2209,7 @@ namespace Jackport
         {
             try
             {
-                
+
                 if (TxtLpNo.Text != "")
                 {
                     Random rnd = new Random();
