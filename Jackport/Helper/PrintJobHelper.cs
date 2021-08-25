@@ -275,9 +275,9 @@ namespace Jackport.Helper
             Image image = GetImage();
             e.Graphics.DrawImage(image, 5, 5 + Offset, 50, 30);
             Offset = Offset + mediuminc;
-            InsertHeaderStyleItem("             GOVT OF ANDAMAN", "", Offset);
+            InsertHeaderStyleItem("                      " + UserAgent.CompanyName, "", Offset);
             Offset = Offset + largeinc + 5;
-            InsertHeaderStyleItem("JACKPOT STARDIGIT", "", Offset);
+            InsertHeaderStyleItem("JACKPOT STARTDIGIT RS : " + UserAgent.RS, "", Offset);
 
             Offset = Offset + mediuminc;
             InsertHeaderStyleItem("Date : " + _ticket.date_slot + "  Time :  " + CommonHelper.GetdateFormat(_ticket.time_end).ToString(), "", Offset);
@@ -295,7 +295,7 @@ namespace Jackport.Helper
                     for (int j = 0; j <= 4; j++)
                     {
                         string space = "";
-                       
+
                         if (_ticket.bids[i].number.ToString().Length == 1 && _ticket.bids[i].quantity.ToString().Length == 1)
                         {
                             bids = bids + "  " + _ticket.bids[i].number.ToString() + " - " + _ticket.bids[i].quantity.ToString() + "     ";
@@ -467,7 +467,7 @@ namespace Jackport.Helper
             Offset = Offset + 5;
 
             InsertHeaderStyleItem("                         ANDAMANLOTTERY", "", Offset);
-       
+
         }
 
         private static Image GetSignImage()
@@ -529,11 +529,11 @@ namespace Jackport.Helper
 
                 //DrawAtStart("STARTDIGIT: " + "2", Offset);
                 //Offset = Offset + mediuminc;
-                InsertHeaderStyleItem("GOVT OF ANDAMAN", "", Offset);
+                InsertHeaderStyleItem(UserAgent.CompanyName, "", Offset);
 
                 Offset = Offset + largeinc;
                 //InsertItem("JACKPOT", "", Offset);
-                InsertHeaderStyleItem("JACKPOT STARDIGIT", "", Offset);
+                InsertHeaderStyleItem("JACKPOT STARTDIGIT RS : " + UserAgent.RS, "", Offset);
 
 
                 // DrawSimpleString("JACKPOT", minifont, Offset, 15);
@@ -661,7 +661,7 @@ namespace Jackport.Helper
 
                 Offset = Offset + largeinc;
 
-                InsertHeaderStyleItem("Qty  :" + total + " RS. " + total * 2 + "  " + CommonHelper.GetdateFormat(_bids.ticket_end_time).ToString(), "", Offset);
+                InsertHeaderStyleItem("Qty: " + total + " RS." + total * 2 + "  " + CommonHelper.GetdateFormat(_bids.ticket_end_time).ToString(), "", Offset);
 
 
 
@@ -778,20 +778,20 @@ namespace Jackport.Helper
 
             Offset = Offset + largeinc;
 
-            InsertHeaderStyleItem("Terminal ID     :" + cticket.agent_code, "", Offset);
+            InsertHeaderStyleItem("Terminal ID          :  " + cticket.agent_code, "", Offset);
 
             Offset = Offset + mediuminc;
 
-            InsertHeaderStyleItem("Barcode No     :" + cticket.ticket_barcode, "", Offset);
+            InsertHeaderStyleItem("Barcode No         :  " + cticket.ticket_barcode, "", Offset);
 
             Offset = Offset + mediuminc;
 
-            InsertHeaderStyleItem("Cancelled Amt   :" + cticket.ticket_total_amount, "", Offset);
+            InsertHeaderStyleItem("Cancelled Amt    :  " + cticket.ticket_total_amount, "", Offset);
 
 
             Offset = Offset + mediuminc;
 
-            InsertHeaderStyleItem("Cancelled At    :" + cticket.ticket_cancel_time, "", Offset);
+            InsertHeaderStyleItem("Cancelled At       :  " + cticket.ticket_cancel_time, "", Offset);
 
 
             //graphics.DrawString("Welcome to HOT AND CRISPY", smallfont,
@@ -1043,11 +1043,11 @@ namespace Jackport.Helper
 
             String underLine = "-------------------------------------------------------";
 
-            InsertHeaderStyleItem("GOVT OF ANDAMAN", "", Offset);
+            InsertHeaderStyleItem(UserAgent.CompanyName, "", Offset);
 
             Offset = Offset + largeinc;
 
-            InsertHeaderStyleItem("JACKPOT STARDIGIT", "", Offset);
+            InsertHeaderStyleItem("JACKPOT", "", Offset);
 
             Offset = Offset + largeinc;
             InsertHeaderStyleItem("Agent   " + UserAgent.AgentCode, "", Offset);

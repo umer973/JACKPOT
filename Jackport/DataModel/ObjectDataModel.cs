@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Jackport.DataModel
 {
@@ -48,6 +49,7 @@ namespace Jackport.DataModel
         public string app_time { get; set; }
         public string app_date { get; set; }
         public string app_company_signature { get; set; }
+        public string app_company_name { get; set; }
     }
 
     public class AgentData
@@ -286,6 +288,12 @@ namespace Jackport.DataModel
         public int code { get; set; }
         public string message { get; set; }
         public List<WinTicket> data { get; set; }
+    }
+
+    public class TicketBoxes: Control
+    {
+        public string TicketNo { get; set; }
+        public string Tag { get; set; }
     }
 
 

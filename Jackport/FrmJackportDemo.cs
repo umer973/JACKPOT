@@ -151,29 +151,49 @@ namespace Jackport
             int height = PrintJobSettings.ToolHeight > 0 ? PrintJobSettings.ToolHeight : 40;
             int width = PrintJobSettings.ToolWidth > 0 ? PrintJobSettings.ToolWidth : 50;
 
-            TxtE0.Size = new Size(width, height);
-            TxtE2.Size = new Size(width, height);
-            TxtE1.Size = new Size(width, height);
-            TxtE3.Size = new Size(width, height);
-            TxtE4.Size = new Size(width, height);
-            TxtE5.Size = new Size(width, height);
-            TxtE7.Size = new Size(width, height);
-            TxtE8.Size = new Size(width, height);
-            TxtE9.Size = new Size(width, height);
-            Txt0009.Size = new Size(width, height);
-            Txt1019.Size = new Size(width, height);
-            Txt2029.Size = new Size(width, height);
-            Txt3031.Size = new Size(width, height);
-            Txt4049.Size = new Size(width, height);
-            Txt5051.Size = new Size(width, height);
-            Txt5051.Size = new Size(width, height);
-            Txt7079.Size = new Size(width, height);
-            Txt8089.Size = new Size(width, height);
-            TxtLpNo.Size = new Size(width, height);
-    
-            textBox6.Size = new Size(width, height);
-            textBox5.Size = new Size(width, height);
-            Txt9099.Size = new Size(width, height);
+            TxtE0.Width = width; TxtE0.Height = height;
+            TxtE2.Width = width;
+            TxtE1.Width = width;
+            TxtE3.Width = width;
+            TxtE4.Width = width;
+            TxtE5.Width = width;
+            TxtE7.Width = width;
+            TxtE8.Width = width;
+            TxtE9.Width = width;
+            TxtE2.Height = height;
+            TxtE1.Height = height;
+            TxtE3.Height = height;
+            TxtE4.Height = height;
+            TxtE5.Height = height;
+            TxtE7.Height = height;
+            TxtE8.Height = height;
+            TxtE9.Height = height;
+            Txt0009.Width = width;
+            Txt1019.Width = width;
+            Txt2029.Width = width;
+            Txt3031.Width = width;
+            Txt4049.Width = width;
+            Txt5051.Width = width;
+            Txt5051.Width = width;
+            Txt7079.Width = width;
+            Txt8089.Width = width;
+            TxtLpNo.Width = width;
+            Txt0009.Height = height;
+            Txt1019.Height = height;
+            Txt2029.Height = height;
+            Txt3031.Height = height;
+            Txt4049.Height = height;
+            Txt5051.Height = height;
+            Txt5051.Height = height;
+            Txt7079.Height = height;
+            Txt8089.Height = height;
+            TxtLpNo.Height = height;
+            textBox6.Width = width;
+            textBox5.Width = width;
+            Txt9099.Width = width;
+            textBox6.Height = height;
+            textBox5.Height = height;
+            Txt9099.Height = height;
         }
 
         private void OnKeyUp(object sender, EventArgs e)
@@ -304,9 +324,9 @@ namespace Jackport
                 this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
                 headerpanel.Visible = false;
                 pnlFooter.Visible = false;
-                panel2.Visible = true;
-                panel3.Visible = true;
-                tblLayout.Visible = true;
+                panel2.Visible = false;
+                panel3.Visible = false;
+                tblLayout.Visible = false;
 
 
             }
@@ -451,6 +471,11 @@ namespace Jackport
             int toolheight = PrintJobSettings.ToolHeight > 0 ? PrintJobSettings.ToolHeight : 40;
             int toolwidth = PrintJobSettings.ToolWidth > 0 ? PrintJobSettings.ToolWidth : 50;
 
+
+            List<TicketBoxes> ticketList = new List<TicketBoxes>();
+
+            ListBox list = new ListBox();
+
             for (int i = 0; i < 100; i++)
             {
                 UserInputControl p1 = new UserInputControl(this);
@@ -512,10 +537,22 @@ namespace Jackport
                 //p1.Size = new Size(100,100)
                 // p1.Size = new Size(100, 100);
 
+                //var ticket = new TicketBoxes
+                //{
+                //    Tag = i.ToString(),
+                //    TicketNo = num
 
+                //};
+                //ticketList.Add(ticket);
                 flowLayoutPanel2.Controls.Add(p1);
 
+
+
+
+
             }
+
+            //flowLayoutPanel2.Controls.Add(ticketList);
 
             SetLayout();
 
@@ -550,6 +587,9 @@ namespace Jackport
                 UserAgent.ShowBalance = Convert.ToInt64(data.AgentData.balance);
                 UserAgent.Logo = _root.ApplicationDetails.app_logo;
                 UserAgent.AppSignature = _root.ApplicationDetails.app_company_signature;
+                UserAgent.RS = _root.ApplicationDetails.agent_ticket_price;
+                UserAgent.CompanyName = _root.ApplicationDetails.app_company_name;
+
                 var request = WebRequest.Create(_root.ApplicationDetails.app_logo);
 
                 using (var response = request.GetResponse())

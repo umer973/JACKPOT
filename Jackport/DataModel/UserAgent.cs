@@ -21,6 +21,9 @@ namespace Jackport.DataModel
 
         public static string AppSignature { get; set; }
 
+        public static string RS { get; set; }
+
+        public static string CompanyName { get; set; }
 
     }
 

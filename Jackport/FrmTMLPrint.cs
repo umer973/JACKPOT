@@ -52,6 +52,8 @@ namespace Jackport
                 lblto.Text = dtTo.Text;
                 panel1.Visible = true;
                 BtnReprint.Enabled = true;
+                report.start_date = dtfrom.Text;
+                report.end_date = dtTo.Text;
                 // Print(ds);
                 //Print();
             }

@@ -13,7 +13,7 @@ namespace Jackport
     public partial class FrmWinPrice : Form
     {
         public string winPrize;
-        int count = 100;
+        int count = 30;
         int val = 0;
         string win = "00";
         public FrmWinPrice(string _winPrize, string drawtime)
@@ -41,7 +41,7 @@ namespace Jackport
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            count--;
+
 
             if (winPrize != win)
             {
@@ -52,6 +52,7 @@ namespace Jackport
 
             {
                 lblWinNumber.Text = winPrize;
+                count--;
             }
 
 
