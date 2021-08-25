@@ -46,6 +46,10 @@
             this.txtctrwidth = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txttoolwidth = new System.Windows.Forms.TextBox();
+            this.txttoolheight = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -169,8 +173,12 @@
             // tabPage2
             // 
             this.tabPage2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPage2.Controls.Add(this.txttoolheight);
             this.tabPage2.Controls.Add(this.txtxtrheight);
+            this.tabPage2.Controls.Add(this.txttoolwidth);
+            this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.txtctrwidth);
+            this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Location = new System.Drawing.Point(4, 28);
@@ -236,6 +244,40 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "Ticket Width";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(230, 22);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(99, 19);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Tool Width";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(230, 61);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(108, 19);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "Tool Height";
+            // 
+            // txttoolwidth
+            // 
+            this.txttoolwidth.Location = new System.Drawing.Point(362, 18);
+            this.txttoolwidth.Name = "txttoolwidth";
+            this.txttoolwidth.Size = new System.Drawing.Size(50, 26);
+            this.txttoolwidth.TabIndex = 12;
+            this.txttoolwidth.Text = "60";
+            // 
+            // txttoolheight
+            // 
+            this.txttoolheight.Location = new System.Drawing.Point(362, 56);
+            this.txttoolheight.Name = "txttoolheight";
+            this.txttoolheight.Size = new System.Drawing.Size(50, 26);
+            this.txttoolheight.TabIndex = 13;
+            this.txttoolheight.Text = "40";
+            // 
             // FrmSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -277,5 +319,9 @@
         private System.Windows.Forms.TextBox txtctrwidth;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txttoolheight;
+        private System.Windows.Forms.TextBox txttoolwidth;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
     }
 }

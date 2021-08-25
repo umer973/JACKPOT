@@ -68,6 +68,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.LabelName);
             this.Controls.Add(this.TxtQty);
             this.Name = "UserInputControl";

@@ -50,8 +50,8 @@ namespace Jackport
                 {
                     FrmJackportDemo obj = new FrmJackportDemo(data);
 
-                    this.Hide();
-                    obj.Show();
+                   
+                   // obj.Show();
 
 
                 }
@@ -62,6 +62,7 @@ namespace Jackport
             }
 
             Cursor.Current = Cursors.Default;
+            this.Hide();
 
         }
 

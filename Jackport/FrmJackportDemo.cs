@@ -60,6 +60,11 @@ namespace Jackport
 
             LoadData(_data);
 
+            LoadTickets();
+
+            LoadEvents();
+
+            this.Show();
 
             //  SetLayout();
 
@@ -68,28 +73,8 @@ namespace Jackport
 
         }
 
-
-        private void form1_sizeeventhandler(object sender, EventArgs e)
-
+        private void LoadEvents()
         {
-
-
-        }
-
-        private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
-        {
-
-        }
-
-        private void backgroundWorker1_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
-        {
-
-        }
-
-        public void FrmJackport_Load(object sender, EventArgs e)
-        {
-
-            // await LoadData();
             TxtE0.KeyPress += ValidateKeyPress;
             TxtE2.KeyPress += ValidateKeyPress;
             TxtE1.KeyPress += ValidateKeyPress;
@@ -137,8 +122,24 @@ namespace Jackport
             textBox5.KeyUp += OnKeyUp;
             Txt9099.KeyUp += OnKeyUp;
 
+        }
 
 
+
+        private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+
+        }
+
+        public void FrmJackport_Load(object sender, EventArgs e)
+        {
+
+            // await LoadData();
 
 
         }
@@ -147,8 +148,8 @@ namespace Jackport
 
         private void SetLayout()
         {
-            int height = PrintJobSettings.ControlHeight > 0 ? PrintJobSettings.ControlHeight : 40;
-            int width = PrintJobSettings.ControlWidth > 0 ? PrintJobSettings.ControlWidth : 50;
+            int height = PrintJobSettings.ToolHeight > 0 ? PrintJobSettings.ToolHeight : 40;
+            int width = PrintJobSettings.ToolWidth > 0 ? PrintJobSettings.ToolWidth : 50;
 
             TxtE0.Size = new Size(width, height);
             TxtE2.Size = new Size(width, height);
@@ -169,7 +170,7 @@ namespace Jackport
             Txt7079.Size = new Size(width, height);
             Txt8089.Size = new Size(width, height);
             TxtLpNo.Size = new Size(width, height);
-            txttotalvalue.Size = new Size(width, height);
+    
             textBox6.Size = new Size(width, height);
             textBox5.Size = new Size(width, height);
             Txt9099.Size = new Size(width, height);
@@ -227,14 +228,14 @@ namespace Jackport
 
         }
 
-        public async Task<bool> LoadData(LoginData _data)
+        public void LoadData(LoginData _data)
         {
 
 
             data = _data;
             SetLoading(true);
 
-            await LoadTickets();
+
 
             if (InvokeRequired)
             {
@@ -252,7 +253,7 @@ namespace Jackport
 
             IsSloverOver = IsSlotAvailable(data.TimeSlots);
 
-            await loadWinPrizes(timeSlots);
+            loadWinPrizes(timeSlots);
 
             RunTimer();
 
@@ -267,12 +268,6 @@ namespace Jackport
             {
                 SetLoading(false);
             }
-
-
-
-            return true;
-
-
 
 
         }
@@ -307,8 +302,8 @@ namespace Jackport
             {
 
                 this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-                headerpanel.Visible = true;
-                pnlFooter.Visible = true;
+                headerpanel.Visible = false;
+                pnlFooter.Visible = false;
                 panel2.Visible = true;
                 panel3.Visible = true;
                 tblLayout.Visible = true;
@@ -445,9 +440,16 @@ namespace Jackport
 
         }
 
-        private async Task LoadTickets()
+        private void LoadTickets()
         {
             flowLayoutPanel2.Controls.Clear();
+
+            int height = PrintJobSettings.ControlHeight > 0 ? PrintJobSettings.ControlHeight : 40;
+            int width = PrintJobSettings.ControlWidth > 0 ? PrintJobSettings.ControlWidth : 50;
+
+
+            int toolheight = PrintJobSettings.ToolHeight > 0 ? PrintJobSettings.ToolHeight : 40;
+            int toolwidth = PrintJobSettings.ToolWidth > 0 ? PrintJobSettings.ToolWidth : 50;
 
             for (int i = 0; i < 100; i++)
             {
@@ -501,8 +503,7 @@ namespace Jackport
                 p1.TickeName = Convert.ToString(num);
 
 
-                int height = PrintJobSettings.ControlHeight > 0 ? PrintJobSettings.ControlHeight : 40;
-                int width = PrintJobSettings.ControlWidth > 0 ? PrintJobSettings.ControlWidth : 50;
+
 
                 //  p1.TicketSize = new Size(width, height);
                 // p1.LabeltSize = new Size(70, 100);
@@ -514,30 +515,10 @@ namespace Jackport
 
                 flowLayoutPanel2.Controls.Add(p1);
 
-
-
             }
 
+            SetLayout();
 
-            for (int i = 0; i < 20; i++)
-            {
-                UserInputControl p2 = new UserInputControl(this);
-                string num = Convert.ToString(i);
-                if (i == 0)
-                {
-                    num = "E0";
-                }
-                if (i == 1)
-                {
-                    num = "00-09";
-                }
-                if (i == 2)
-                {
-                    num = "02";
-                }
-
-                //flowLayoutPanel3.Controls.Add(p2);
-            }
         }
 
         void p1_OnChanged(object sender, EventArgs e)
@@ -2359,14 +2340,14 @@ namespace Jackport
                 {
 
                     this.WindowState = FormWindowState.Normal;
-                    this.FormBorderStyle = FormBorderStyle.None;
+                    // this.FormBorderStyle = FormBorderStyle.None;
                     this.WindowState = FormWindowState.Maximized;
                     IsFullScreen = true;
                 }
                 else
                 {
                     this.WindowState = FormWindowState.Normal;
-                    this.FormBorderStyle = FormBorderStyle.Fixed3D;
+                    // this.FormBorderStyle = FormBorderStyle.Fixed3D;
                     this.WindowState = FormWindowState.Maximized;
                     IsFullScreen = false;
                 }
@@ -2560,7 +2541,7 @@ namespace Jackport
 
             LoadTickets();
 
-            // SetLayout();
+            SetLayout();
 
 
         }

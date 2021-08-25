@@ -521,7 +521,7 @@ namespace Jackport.Helper
 
                 Offset = Offset + mediuminc;
 
-                Image image = GetSignImage();
+                Image image = GetImage();
                 e.Graphics.DrawImage(image, 10 + 50, 5 + Offset, 100, 30);
 
 
