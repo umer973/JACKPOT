@@ -38,5 +38,28 @@ namespace Jackport
         {
             this.Hide();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void TxtLicence_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtLicence_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (TxtLicence.Text == "XXXX-XXXX-XXXX-XXXX-XXXX-XXXX")
+            {
+                TxtLicence.Text = "";
+            }
+        }
     }
 }

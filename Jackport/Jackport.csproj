@@ -309,6 +309,7 @@
     <Content Include="Images\download %281%29.jpg" />
     <Content Include="Images\images.jpg" />
     <None Include="Resources\33-337047_sell-icon-png.png" />
+    <None Include="Resources\loginbg - Copy.png" />
     <Content Include="Resources\logo.png" />
     <None Include="Resources\activatebg.png" />
     <None Include="Resources\login3.png" />
