@@ -27,12 +27,12 @@ namespace Jackport
 
                 for (int column = 0; column <= 9; column++)
                 {
-                    BidControl ctr = new BidControl();
+                   // BidControl ctr = new BidControl(this);
 
-                    ctr.Dock = DockStyle.Fill;
+                  //  ctr.Dock = DockStyle.Fill;
                     // ctr.TickeName = row + "" + column;
 
-                    tblBids.Controls.Add(ctr, column, row);
+                    //tblBids.Controls.Add(ctr, column, row);
                 }
 
             }

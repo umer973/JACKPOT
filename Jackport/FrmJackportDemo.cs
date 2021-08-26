@@ -60,7 +60,7 @@ namespace Jackport
 
             LoadTickets();
 
-            LoadEvents();
+            //LoadEvents();
 
             LoadData(_data);
 
@@ -75,56 +75,56 @@ namespace Jackport
 
         }
 
-        private void LoadEvents()
-        {
-            TxtE0.KeyPress += ValidateKeyPress;
-            TxtE2.KeyPress += ValidateKeyPress;
-            TxtE1.KeyPress += ValidateKeyPress;
-            TxtE3.KeyPress += ValidateKeyPress;
-            TxtE4.KeyPress += ValidateKeyPress;
-            TxtE5.KeyPress += ValidateKeyPress;
-            TxtE7.KeyPress += ValidateKeyPress;
-            TxtE8.KeyPress += ValidateKeyPress;
-            TxtE9.KeyPress += ValidateKeyPress;
-            Txt0009.KeyPress += ValidateKeyPress;
-            Txt1019.KeyPress += ValidateKeyPress;
-            Txt2029.KeyPress += ValidateKeyPress;
-            Txt3031.KeyPress += ValidateKeyPress;
-            Txt4049.KeyPress += ValidateKeyPress;
-            Txt5051.KeyPress += ValidateKeyPress;
-            Txt5051.KeyPress += ValidateKeyPress;
-            Txt7079.KeyPress += ValidateKeyPress;
-            Txt8089.KeyPress += ValidateKeyPress;
-            TxtLpNo.KeyPress += ValidateKeyPress;
-            txttotalvalue.KeyPress += ValidateKeyPress;
-            textBox6.KeyPress += ValidateKeyPress;
-            textBox5.KeyPress += ValidateKeyPress;
-            Txt9099.KeyPress += ValidateKeyPress;
-            txttickektsqty.KeyPress += ValidateKeyPress;
-            TxtE0.KeyUp += OnKeyUp;
-            TxtE0.KeyUp += OnKeyUp;
-            TxtE2.KeyUp += OnKeyUp;
-            TxtE1.KeyUp += OnKeyUp;
-            TxtE3.KeyUp += OnKeyUp;
-            TxtE4.KeyUp += OnKeyUp;
-            TxtE5.KeyUp += OnKeyUp;
-            TxtE7.KeyUp += OnKeyUp;
-            TxtE8.KeyUp += OnKeyUp;
-            TxtE9.KeyUp += OnKeyUp;
-            Txt0009.KeyUp += OnKeyUp;
-            Txt1019.KeyUp += OnKeyUp;
-            Txt2029.KeyUp += OnKeyUp;
-            Txt3031.KeyUp += OnKeyUp;
-            Txt4049.KeyUp += OnKeyUp;
-            Txt5051.KeyUp += OnKeyUp;
-            Txt5051.KeyUp += OnKeyUp;
-            Txt7079.KeyUp += OnKeyUp;
-            Txt8089.KeyUp += OnKeyUp;
-            textBox6.KeyUp += OnKeyUp;
-            textBox5.KeyUp += OnKeyUp;
-            Txt9099.KeyUp += OnKeyUp;
+        //private void LoadEvents()
+        //{
+        //    TxtE0.KeyPress += ValidateKeyPress;
+        //    TxtE2.KeyPress += ValidateKeyPress;
+        //    TxtE1.KeyPress += ValidateKeyPress;
+        //    TxtE3.KeyPress += ValidateKeyPress;
+        //    TxtE4.KeyPress += ValidateKeyPress;
+        //    TxtE5.KeyPress += ValidateKeyPress;
+        //    TxtE7.KeyPress += ValidateKeyPress;
+        //    TxtE8.KeyPress += ValidateKeyPress;
+        //    TxtE9.KeyPress += ValidateKeyPress;
+        //    Txt0009.KeyPress += ValidateKeyPress;
+        //    Txt1019.KeyPress += ValidateKeyPress;
+        //    Txt2029.KeyPress += ValidateKeyPress;
+        //    Txt3031.KeyPress += ValidateKeyPress;
+        //    Txt4049.KeyPress += ValidateKeyPress;
+        //    Txt5051.KeyPress += ValidateKeyPress;
+        //    Txt5051.KeyPress += ValidateKeyPress;
+        //    Txt7079.KeyPress += ValidateKeyPress;
+        //    Txt8089.KeyPress += ValidateKeyPress;
+        //    TxtLpNo.KeyPress += ValidateKeyPress;
+        //    txttotalvalue.KeyPress += ValidateKeyPress;
+        //    textBox6.KeyPress += ValidateKeyPress;
+        //    textBox5.KeyPress += ValidateKeyPress;
+        //    Txt9099.KeyPress += ValidateKeyPress;
+        //    txttickektsqty.KeyPress += ValidateKeyPress;
+        //    TxtE0.KeyUp += OnKeyUp;
+        //    TxtE0.KeyUp += OnKeyUp;
+        //    TxtE2.KeyUp += OnKeyUp;
+        //    TxtE1.KeyUp += OnKeyUp;
+        //    TxtE3.KeyUp += OnKeyUp;
+        //    TxtE4.KeyUp += OnKeyUp;
+        //    TxtE5.KeyUp += OnKeyUp;
+        //    TxtE7.KeyUp += OnKeyUp;
+        //    TxtE8.KeyUp += OnKeyUp;
+        //    TxtE9.KeyUp += OnKeyUp;
+        //    Txt0009.KeyUp += OnKeyUp;
+        //    Txt1019.KeyUp += OnKeyUp;
+        //    Txt2029.KeyUp += OnKeyUp;
+        //    Txt3031.KeyUp += OnKeyUp;
+        //    Txt4049.KeyUp += OnKeyUp;
+        //    Txt5051.KeyUp += OnKeyUp;
+        //    Txt5051.KeyUp += OnKeyUp;
+        //    Txt7079.KeyUp += OnKeyUp;
+        //    Txt8089.KeyUp += OnKeyUp;
+        //    textBox6.KeyUp += OnKeyUp;
+        //    textBox5.KeyUp += OnKeyUp;
+        //    Txt9099.KeyUp += OnKeyUp;
 
-        }
+        //}
 
 
 
@@ -153,51 +153,51 @@ namespace Jackport
             int height = PrintJobSettings.ToolHeight > 0 ? PrintJobSettings.ToolHeight : 40;
             int width = PrintJobSettings.ToolWidth > 0 ? PrintJobSettings.ToolWidth : 50;
 
-            TxtE0.Width = width; TxtE0.Height = height;
-            TxtE2.Width = width;
-            TxtE1.Width = width;
-            TxtE3.Width = width;
-            TxtE4.Width = width;
-            TxtE5.Width = width;
-            TxtE7.Width = width;
-            TxtE8.Width = width;
-            TxtE9.Width = width;
-            TxtE2.Height = height;
-            TxtE1.Height = height;
-            TxtE3.Height = height;
-            TxtE4.Height = height;
-            TxtE5.Height = height;
-            TxtE7.Height = height;
-            TxtE8.Height = height;
-            TxtE9.Height = height;
-            Txt0009.Width = width;
-            Txt1019.Width = width;
-            Txt2029.Width = width;
-            Txt3031.Width = width;
-            Txt4049.Width = width;
-            Txt5051.Width = width;
-            Txt5051.Width = width;
-            Txt7079.Width = width;
-            Txt8089.Width = width;
-            TxtLpNo.Width = width;
-            Txt0009.Height = height;
-            Txt1019.Height = height;
-            Txt2029.Height = height;
-            Txt3031.Height = height;
-            Txt4049.Height = height;
-            Txt5051.Height = height;
-            Txt5051.Height = height;
-            Txt7079.Height = height;
-            Txt8089.Height = height;
-            TxtLpNo.Height = height;
-            textBox6.Width = width;
-            textBox5.Width = width;
-            Txt9099.Width = width;
-            textBox6.Height = height;
-            textBox5.Height = height;
-            Txt9099.Height = height;
-            button7.Height = height;
-            button7.Width = width;
+            //TxtE0.Width = width; TxtE0.Height = height;
+            //TxtE2.Width = width;
+            //TxtE1.Width = width;
+            //TxtE3.Width = width;
+            //TxtE4.Width = width;
+            //TxtE5.Width = width;
+            //TxtE7.Width = width;
+            //TxtE8.Width = width;
+            //TxtE9.Width = width;
+            //TxtE2.Height = height;
+            //TxtE1.Height = height;
+            //TxtE3.Height = height;
+            //TxtE4.Height = height;
+            //TxtE5.Height = height;
+            //TxtE7.Height = height;
+            //TxtE8.Height = height;
+            //TxtE9.Height = height;
+            //Txt0009.Width = width;
+            //Txt1019.Width = width;
+            //Txt2029.Width = width;
+            //Txt3031.Width = width;
+            //Txt4049.Width = width;
+            //Txt5051.Width = width;
+            //Txt5051.Width = width;
+            //Txt7079.Width = width;
+            //Txt8089.Width = width;
+            //TxtLpNo.Width = width;
+            //Txt0009.Height = height;
+            //Txt1019.Height = height;
+            //Txt2029.Height = height;
+            //Txt3031.Height = height;
+            //Txt4049.Height = height;
+            //Txt5051.Height = height;
+            //Txt5051.Height = height;
+            //Txt7079.Height = height;
+            //Txt8089.Height = height;
+            //TxtLpNo.Height = height;
+            //textBox6.Width = width;
+            //textBox5.Width = width;
+            //Txt9099.Width = width;
+            //textBox6.Height = height;
+            //textBox5.Height = height;
+            //Txt9099.Height = height;
+            //button7.Height = height;
+            //button7.Width = width;
         }
 
         private void OnKeyUp(object sender, EventArgs e)
@@ -468,13 +468,6 @@ namespace Jackport
         {
             tblBids.Controls.Clear();
 
-            int height = PrintJobSettings.ControlHeight > 0 ? PrintJobSettings.ControlHeight : 40;
-            int width = PrintJobSettings.ControlWidth > 0 ? PrintJobSettings.ControlWidth : 50;
-
-
-            int toolheight = PrintJobSettings.ToolHeight > 0 ? PrintJobSettings.ToolHeight : 40;
-            int toolwidth = PrintJobSettings.ToolWidth > 0 ? PrintJobSettings.ToolWidth : 50;
-
             tblBids.Visible = false;
 
 
@@ -484,83 +477,53 @@ namespace Jackport
                 for (int c = 0; c < 10; c++)
                 {
                     UserInputControl p1 = new UserInputControl(this);
-                    string num = Convert.ToString(i);
-                    if (i == 0)
-                    {
-                        num = "00";
-                    }
-                    if (i == 1)
-                    {
-                        num = "01";
-                    }
-                    if (i == 2)
-                    {
-                        num = "02";
-                    }
-                    if (i == 3)
-                    {
-                        num = "03";
-                    }
-                    if (i == 4)
-                    {
-                        num = "04";
-                    }
-                    if (i == 5)
-                    {
-                        num = "05";
-                    }
-                    if (i == 6)
-                    {
-                        num = "06";
-                    }
-                    if (i == 7)
-                    {
-                        num = "07";
-                    }
-                    if (i == 8)
-                    {
-                        num = "08";
-                    }
-                    if (i == 9)
-                    {
-                        num = "09";
-                    }
-
-
-
                     p1.Tag = i + "" + c;
-                    //p1.TickeName = Convert.ToString(i);
                     p1.TickeName = Convert.ToString(i + "" + c);
-
-
-
-
-                    //  p1.TicketSize = new Size(width, height);
-                    // p1.LabeltSize = new Size(70, 100);
-                    p1.Size = new Size(width, height);
                     p1.Dock = DockStyle.Fill;
-
-
-                    //p1.Size = new Size(100,100)
-                    // p1.Size = new Size(100, 100);
-
-                    //var ticket = new TicketBoxes
-                    //{
-                    //    Tag = i.ToString(),
-                    //    TicketNo = num
-
-                    //};
-                    //ticketList.Add(ticket);
-                    //flowLayoutPanel2.Controls.Add(p1);
+                    p1.Margin = new Padding(1, 1, 3, 1);
                     tblBids.Controls.Add(p1, c, i);
                 }
 
 
             }
 
-            //flowLayoutPanel2.Controls.Add(ticketList);
+            int val = 0;
+            int val2 = 0;
+            int tag = 0;
+            for (int i = 0; i < 10; i++)
+            {
+
+                for (int c = 0; c < 2; c++)
+                {
+                    BidControl p1 = new BidControl(this);
+                    p1.Tag = tag;
+                    tag++;
+                    if (c % 2 == 0)
+                        p1.TickeName = Convert.ToString("E" + (c + i));
+
+                    else
+                    {
+                        val = val + 9;
+
+                        p1.TickeName = Convert.ToString(val2 + "-" + val);
+                        val++;
+
+                        val2 = val2 + 10;
+                    }
+
+                    p1.Dock = DockStyle.Fill;
+                    p1.Margin = new Padding(3, 1, 3, 1);
+                    p1.Tag = p1.TickeName;
+                    tblbidsControl.Controls.Add(p1, c, i);
+                }
+            }
+
+
+
             tblBids.Visible = true;
-            SetLayout();
+
+
+
 
         }
 
@@ -769,16 +732,16 @@ namespace Jackport
 
 
             }
-            TxtE0.Text = TxtE1.Text = TxtE2.Text = TxtE3.Text = TxtE4.Text = TxtE5.Text = TxtE7.Text = TxtE8.Text = TxtE9.Text =
-                textBox6.Text = "";
-            textBox5.Text = Txt0009.Text = Txt1019.Text = Txt2029.Text = Txt3031.Text = Txt4049.Text = Txt5051.Text = Txt7079.Text =
-                Txt8089.Text = Txt9099.Text = TxtLpNo.Text = "";
+            //TxtE0.Text = TxtE1.Text = TxtE2.Text = TxtE3.Text = TxtE4.Text = TxtE5.Text = TxtE7.Text = TxtE8.Text = TxtE9.Text =
+            //    textBox6.Text = "";
+            //textBox5.Text = Txt0009.Text = Txt1019.Text = Txt2029.Text = Txt3031.Text = Txt4049.Text = Txt5051.Text = Txt7079.Text =
+            //    Txt8089.Text = Txt9099.Text = TxtLpNo.Text = "";
 
-            TxtE0.BackColor = TxtE1.BackColor = TxtE2.BackColor = TxtE3.BackColor = TxtE4.BackColor = TxtE5.BackColor = TxtE7.BackColor = TxtE8.BackColor = TxtE9.BackColor =
-               textBox6.BackColor = Color.Magenta;
+            //TxtE0.BackColor = TxtE1.BackColor = TxtE2.BackColor = TxtE3.BackColor = TxtE4.BackColor = TxtE5.BackColor = TxtE7.BackColor = TxtE8.BackColor = TxtE9.BackColor =
+            //   textBox6.BackColor = Color.Magenta;
 
-            textBox5.BackColor = Txt0009.BackColor = Txt1019.BackColor = Txt2029.BackColor = Txt3031.BackColor = Txt4049.BackColor = Txt5051.BackColor = Txt7079.BackColor =
-               Txt8089.BackColor = Txt9099.BackColor = Color.AliceBlue;
+            //textBox5.BackColor = Txt0009.BackColor = Txt1019.BackColor = Txt2029.BackColor = Txt3031.BackColor = Txt4049.BackColor = Txt5051.BackColor = Txt7079.BackColor =
+            //   Txt8089.BackColor = Txt9099.BackColor = Color.AliceBlue;
 
             txttickektsqty.Text = txttotalvalue.Text = "0";
 
@@ -1111,1060 +1074,7 @@ namespace Jackport
 
         }
 
-        private void TxtE0_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (TxtE0.Text != "")
-            {
-                TxtE0.BackColor = Color.YellowGreen;
-            }
-            foreach (UserInputControl ctr in tblBids.Controls)
-            {
-                string Data = Convert.ToString(ctr.Tag);
-                if (Data == "00")
-                {
-                    ctr.TickeQty = TxtE0.Text;
-                }
-                else if (Data == "10")
-                {
-                    ctr.TickeQty = TxtE0.Text;
-                }
-                else if (Data == "20")
-                {
-                    ctr.TickeQty = TxtE0.Text;
-                }
-                else if (Data == "30")
-                {
-                    ctr.TickeQty = TxtE0.Text;
-                }
-                else if (Data == "40")
-                {
-                    ctr.TickeQty = TxtE0.Text;
-                }
-                else if (Data == "50")
-                {
-                    ctr.TickeQty = TxtE0.Text;
-                }
-                else if (Data == "60")
-                {
-                    ctr.TickeQty = TxtE0.Text;
-                }
-                else if (Data == "70")
-                {
-                    ctr.TickeQty = TxtE0.Text;
-                }
-                else if (Data == "80")
-                {
-                    ctr.TickeQty = TxtE0.Text;
-                }
-                else if (Data == "90")
-                {
-                    ctr.TickeQty = TxtE0.Text;
-                }
 
-
-
-
-            }
-        }
-
-        private void TxtE1_KeyUp(object sender, KeyEventArgs e)
-        {
-            TxtE1.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in tblBids.Controls)
-            {
-                string Data = Convert.ToString(ctr.Tag);
-                if (Data == "01")
-                {
-                    ctr.TickeQty = TxtE1.Text;
-                }
-                else if (Data == "11")
-                {
-                    ctr.TickeQty = TxtE1.Text;
-                }
-                else if (Data == "21")
-                {
-                    ctr.TickeQty = TxtE1.Text;
-                }
-                else if (Data == "31")
-                {
-                    ctr.TickeQty = TxtE1.Text;
-                }
-                else if (Data == "41")
-                {
-                    ctr.TickeQty = TxtE1.Text;
-                }
-                else if (Data == "51")
-                {
-                    ctr.TickeQty = TxtE1.Text;
-                }
-                else if (Data == "61")
-                {
-                    ctr.TickeQty = TxtE1.Text;
-                }
-                else if (Data == "71")
-                {
-                    ctr.TickeQty = TxtE1.Text;
-                }
-                else if (Data == "81")
-                {
-                    ctr.TickeQty = TxtE1.Text;
-                }
-                else if (Data == "91")
-                {
-                    ctr.TickeQty = TxtE1.Text;
-                }
-
-
-
-            }
-        }
-
-        private void TxtE2_KeyUp(object sender, KeyEventArgs e)
-        {
-            TxtE2.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in tblBids.Controls)
-            {
-                string Data = Convert.ToString(ctr.Tag);
-                if (Data == "02")
-                {
-                    ctr.TickeQty = TxtE2.Text;
-                }
-                else if (Data == "12")
-                {
-                    ctr.TickeQty = TxtE2.Text;
-                }
-                else if (Data == "22")
-                {
-                    ctr.TickeQty = TxtE2.Text;
-                }
-                else if (Data == "32")
-                {
-                    ctr.TickeQty = TxtE2.Text;
-                }
-                else if (Data == "42")
-                {
-                    ctr.TickeQty = TxtE2.Text;
-                }
-                else if (Data == "52")
-                {
-                    ctr.TickeQty = TxtE2.Text;
-                }
-                else if (Data == "62")
-                {
-                    ctr.TickeQty = TxtE2.Text;
-                }
-                else if (Data == "72")
-                {
-                    ctr.TickeQty = TxtE2.Text;
-                }
-                else if (Data == "82")
-                {
-                    ctr.TickeQty = TxtE2.Text;
-                }
-                else if (Data == "92")
-                {
-                    ctr.TickeQty = TxtE2.Text;
-                }
-
-
-
-
-            }
-        }
-
-        private void TxtE3_KeyUp(object sender, KeyEventArgs e)
-        {
-            TxtE3.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in tblBids.Controls)
-            {
-                string Data = Convert.ToString(ctr.Tag);
-                if (Data == "03")
-                {
-                    ctr.TickeQty = TxtE3.Text;
-                }
-                else if (Data == "13")
-                {
-                    ctr.TickeQty = TxtE3.Text;
-                }
-                else if (Data == "23")
-                {
-                    ctr.TickeQty = TxtE3.Text;
-                }
-                else if (Data == "33")
-                {
-                    ctr.TickeQty = TxtE3.Text;
-                }
-                else if (Data == "43")
-                {
-                    ctr.TickeQty = TxtE3.Text;
-                }
-                else if (Data == "53")
-                {
-                    ctr.TickeQty = TxtE3.Text;
-                }
-                else if (Data == "63")
-                {
-                    ctr.TickeQty = TxtE3.Text;
-                }
-                else if (Data == "73")
-                {
-                    ctr.TickeQty = TxtE3.Text;
-                }
-                else if (Data == "83")
-                {
-                    ctr.TickeQty = TxtE3.Text;
-                }
-                else if (Data == "93")
-                {
-                    ctr.TickeQty = TxtE3.Text;
-                }
-
-
-
-
-            }
-        }
-
-        private void TxtE4_KeyUp(object sender, KeyEventArgs e)
-        {
-            TxtE4.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in tblBids.Controls)
-            {
-                string Data = Convert.ToString(ctr.Tag);
-                if (Data == "04")
-                {
-                    ctr.TickeQty = TxtE4.Text;
-                }
-                else if (Data == "14")
-                {
-                    ctr.TickeQty = TxtE4.Text;
-                }
-                else if (Data == "24")
-                {
-                    ctr.TickeQty = TxtE4.Text;
-                }
-                else if (Data == "34")
-                {
-                    ctr.TickeQty = TxtE4.Text;
-                }
-                else if (Data == "44")
-                {
-                    ctr.TickeQty = TxtE4.Text;
-                }
-                else if (Data == "54")
-                {
-                    ctr.TickeQty = TxtE4.Text;
-                }
-                else if (Data == "64")
-                {
-                    ctr.TickeQty = TxtE4.Text;
-                }
-                else if (Data == "74")
-                {
-                    ctr.TickeQty = TxtE4.Text;
-                }
-                else if (Data == "84")
-                {
-                    ctr.TickeQty = TxtE4.Text;
-                }
-                else if (Data == "94")
-                {
-                    ctr.TickeQty = TxtE4.Text;
-                }
-
-
-
-
-            }
-        }
-
-        private void textBox6_KeyUp(object sender, KeyEventArgs e)
-        {
-            textBox6.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in tblBids.Controls)
-            {
-                string Data = Convert.ToString(ctr.Tag);
-                if (Data == "05")
-                {
-                    ctr.TickeQty = textBox6.Text;
-                }
-                else if (Data == "15")
-                {
-                    ctr.TickeQty = textBox6.Text;
-                }
-                else if (Data == "25")
-                {
-                    ctr.TickeQty = textBox6.Text;
-                }
-                else if (Data == "35")
-                {
-                    ctr.TickeQty = textBox6.Text;
-                }
-                else if (Data == "45")
-                {
-                    ctr.TickeQty = textBox6.Text;
-                }
-                else if (Data == "55")
-                {
-                    ctr.TickeQty = textBox6.Text;
-                }
-                else if (Data == "65")
-                {
-                    ctr.TickeQty = textBox6.Text;
-                }
-                else if (Data == "75")
-                {
-                    ctr.TickeQty = textBox6.Text;
-                }
-                else if (Data == "85")
-                {
-                    ctr.TickeQty = textBox6.Text;
-                }
-                else if (Data == "95")
-                {
-                    ctr.TickeQty = textBox6.Text;
-                }
-
-
-
-
-            }
-        }
-
-        private void TxtE5_KeyUp(object sender, KeyEventArgs e)
-        {
-
-            TxtE5.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in tblBids.Controls)
-            {
-                string Data = Convert.ToString(ctr.Tag);
-                if (Data == "06")
-                {
-                    ctr.TickeQty = TxtE5.Text;
-                }
-                else if (Data == "16")
-                {
-                    ctr.TickeQty = TxtE5.Text;
-                }
-                else if (Data == "26")
-                {
-                    ctr.TickeQty = TxtE5.Text;
-                }
-                else if (Data == "36")
-                {
-                    ctr.TickeQty = TxtE5.Text;
-                }
-                else if (Data == "46")
-                {
-                    ctr.TickeQty = TxtE5.Text;
-                }
-                else if (Data == "56")
-                {
-                    ctr.TickeQty = TxtE5.Text;
-                }
-                else if (Data == "66")
-                {
-                    ctr.TickeQty = TxtE5.Text;
-                }
-                else if (Data == "76")
-                {
-                    ctr.TickeQty = TxtE5.Text;
-                }
-                else if (Data == "86")
-                {
-                    ctr.TickeQty = TxtE5.Text;
-                }
-                else if (Data == "96")
-                {
-                    ctr.TickeQty = TxtE5.Text;
-                }
-
-
-
-            }
-        }
-
-        private void TxtE7_KeyUp(object sender, KeyEventArgs e)
-        {
-            TxtE7.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in tblBids.Controls)
-            {
-                string Data = Convert.ToString(ctr.Tag);
-                if (Data == "07")
-                {
-                    ctr.TickeQty = TxtE7.Text;
-                }
-                else if (Data == "17")
-                {
-                    ctr.TickeQty = TxtE7.Text;
-                }
-                else if (Data == "27")
-                {
-                    ctr.TickeQty = TxtE7.Text;
-                }
-                else if (Data == "37")
-                {
-                    ctr.TickeQty = TxtE7.Text;
-                }
-                else if (Data == "47")
-                {
-                    ctr.TickeQty = TxtE7.Text;
-                }
-                else if (Data == "57")
-                {
-                    ctr.TickeQty = TxtE7.Text;
-                }
-                else if (Data == "67")
-                {
-                    ctr.TickeQty = TxtE7.Text;
-                }
-                else if (Data == "77")
-                {
-                    ctr.TickeQty = TxtE7.Text;
-                }
-                else if (Data == "87")
-                {
-                    ctr.TickeQty = TxtE7.Text;
-                }
-                else if (Data == "97")
-                {
-                    ctr.TickeQty = TxtE7.Text;
-                }
-
-
-
-
-            }
-        }
-
-        private void TxtE8_KeyUp(object sender, KeyEventArgs e)
-        {
-            TxtE8.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in tblBids.Controls)
-            {
-                string Data = Convert.ToString(ctr.Tag);
-                if (Data == "08")
-                {
-                    ctr.TickeQty = TxtE8.Text;
-                }
-                else if (Data == "18")
-                {
-                    ctr.TickeQty = TxtE8.Text;
-                }
-                else if (Data == "28")
-                {
-                    ctr.TickeQty = TxtE8.Text;
-                }
-                else if (Data == "38")
-                {
-                    ctr.TickeQty = TxtE8.Text;
-                }
-                else if (Data == "48")
-                {
-                    ctr.TickeQty = TxtE8.Text;
-                }
-                else if (Data == "58")
-                {
-                    ctr.TickeQty = TxtE8.Text;
-                }
-                else if (Data == "68")
-                {
-                    ctr.TickeQty = TxtE8.Text;
-                }
-                else if (Data == "78")
-                {
-                    ctr.TickeQty = TxtE8.Text;
-                }
-                else if (Data == "88")
-                {
-                    ctr.TickeQty = TxtE7.Text;
-                }
-                else if (Data == "98")
-                {
-                    ctr.TickeQty = TxtE8.Text;
-                }
-
-
-
-            }
-        }
-
-        private void TxtE9_KeyUp(object sender, KeyEventArgs e)
-        {
-            TxtE9.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in tblBids.Controls)
-            {
-                string Data = Convert.ToString(ctr.Tag);
-                if (Data == "09")
-                {
-                    ctr.TickeQty = TxtE9.Text;
-                }
-                else if (Data == "19")
-                {
-                    ctr.TickeQty = TxtE9.Text;
-                }
-                else if (Data == "29")
-                {
-                    ctr.TickeQty = TxtE9.Text;
-                }
-                else if (Data == "39")
-                {
-                    ctr.TickeQty = TxtE9.Text;
-                }
-                else if (Data == "49")
-                {
-                    ctr.TickeQty = TxtE9.Text;
-                }
-                else if (Data == "59")
-                {
-                    ctr.TickeQty = TxtE9.Text;
-                }
-                else if (Data == "69")
-                {
-                    ctr.TickeQty = TxtE9.Text;
-                }
-                else if (Data == "79")
-                {
-                    ctr.TickeQty = TxtE9.Text;
-                }
-                else if (Data == "89")
-                {
-                    ctr.TickeQty = TxtE9.Text;
-                }
-                else if (Data == "99")
-                {
-                    ctr.TickeQty = TxtE9.Text;
-                }
-
-
-
-
-            }
-        }
-
-        private void Txt0009_KeyUp(object sender, KeyEventArgs e)
-        {
-            Txt0009.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in tblBids.Controls)
-            {
-                string Data = Convert.ToString(ctr.Tag);
-                if (Data == "00")
-                {
-                    ctr.TickeQty = Txt0009.Text;
-                }
-                else if (Data == "01")
-                {
-                    ctr.TickeQty = Txt0009.Text;
-                }
-                else if (Data == "02")
-                {
-                    ctr.TickeQty = Txt0009.Text;
-                }
-                else if (Data == "03")
-                {
-                    ctr.TickeQty = Txt0009.Text;
-                }
-                else if (Data == "04")
-                {
-                    ctr.TickeQty = Txt0009.Text;
-                }
-                else if (Data == "05")
-                {
-                    ctr.TickeQty = Txt0009.Text;
-                }
-                else if (Data == "06")
-                {
-                    ctr.TickeQty = Txt0009.Text;
-                }
-                else if (Data == "07")
-                {
-                    ctr.TickeQty = Txt0009.Text;
-                }
-                else if (Data == "08")
-                {
-                    ctr.TickeQty = Txt0009.Text;
-                }
-                else if (Data == "09")
-                {
-                    ctr.TickeQty = Txt0009.Text;
-                }
-
-
-
-
-            }
-        }
-
-        private void Txt1019_KeyUp(object sender, KeyEventArgs e)
-        {
-            Txt1019.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in tblBids.Controls)
-            {
-                string Data = Convert.ToString(ctr.Tag);
-                if (Data == "10")
-                {
-                    ctr.TickeQty = Txt1019.Text;
-                }
-                else if (Data == "11")
-                {
-                    ctr.TickeQty = Txt1019.Text;
-                }
-                else if (Data == "12")
-                {
-                    ctr.TickeQty = Txt1019.Text;
-                }
-                else if (Data == "13")
-                {
-                    ctr.TickeQty = Txt1019.Text;
-                }
-                else if (Data == "14")
-                {
-                    ctr.TickeQty = Txt1019.Text;
-                }
-                else if (Data == "15")
-                {
-                    ctr.TickeQty = Txt1019.Text;
-                }
-                else if (Data == "16")
-                {
-                    ctr.TickeQty = Txt1019.Text;
-                }
-                else if (Data == "17")
-                {
-                    ctr.TickeQty = Txt1019.Text;
-                }
-                else if (Data == "18")
-                {
-                    ctr.TickeQty = Txt1019.Text;
-                }
-                else if (Data == "19")
-                {
-                    ctr.TickeQty = Txt1019.Text;
-                }
-
-
-
-
-            }
-        }
-
-        private void Txt2029_KeyUp(object sender, KeyEventArgs e)
-        {
-            Txt2029.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in tblBids.Controls)
-            {
-                string Data = Convert.ToString(ctr.Tag);
-                if (Data == "20")
-                {
-                    ctr.TickeQty = Txt2029.Text;
-                }
-                else if (Data == "21")
-                {
-                    ctr.TickeQty = Txt2029.Text;
-                }
-                else if (Data == "22")
-                {
-                    ctr.TickeQty = Txt2029.Text;
-                }
-                else if (Data == "23")
-                {
-                    ctr.TickeQty = Txt2029.Text;
-                }
-                else if (Data == "24")
-                {
-                    ctr.TickeQty = Txt2029.Text;
-                }
-                else if (Data == "25")
-                {
-                    ctr.TickeQty = Txt2029.Text;
-                }
-                else if (Data == "26")
-                {
-                    ctr.TickeQty = Txt2029.Text;
-                }
-                else if (Data == "27")
-                {
-                    ctr.TickeQty = Txt2029.Text;
-                }
-                else if (Data == "28")
-                {
-                    ctr.TickeQty = Txt2029.Text;
-                }
-                else if (Data == "29")
-                {
-                    ctr.TickeQty = Txt2029.Text;
-                }
-
-
-            }
-        }
-
-        private void Txt3031_KeyUp(object sender, KeyEventArgs e)
-        {
-            Txt3031.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in tblBids.Controls)
-            {
-                string Data = Convert.ToString(ctr.Tag);
-                if (Data == "30")
-                {
-                    ctr.TickeQty = Txt3031.Text;
-                }
-                else if (Data == "31")
-                {
-                    ctr.TickeQty = Txt3031.Text;
-                }
-                else if (Data == "32")
-                {
-                    ctr.TickeQty = Txt3031.Text;
-                }
-                else if (Data == "33")
-                {
-                    ctr.TickeQty = Txt3031.Text;
-                }
-                else if (Data == "34")
-                {
-                    ctr.TickeQty = Txt3031.Text;
-                }
-                else if (Data == "35")
-                {
-                    ctr.TickeQty = Txt3031.Text;
-                }
-                else if (Data == "36")
-                {
-                    ctr.TickeQty = Txt3031.Text;
-                }
-                else if (Data == "37")
-                {
-                    ctr.TickeQty = Txt2029.Text;
-                }
-                else if (Data == "38")
-                {
-                    ctr.TickeQty = Txt3031.Text;
-                }
-                else if (Data == "39")
-                {
-                    ctr.TickeQty = Txt3031.Text;
-                }
-
-
-
-
-            }
-        }
-
-        private void Txt4049_KeyUp(object sender, KeyEventArgs e)
-        {
-            Txt4049.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in tblBids.Controls)
-            {
-                string Data = Convert.ToString(ctr.Tag);
-                if (Data == "40")
-                {
-                    ctr.TickeQty = Txt4049.Text;
-                }
-                else if (Data == "41")
-                {
-                    ctr.TickeQty = Txt4049.Text;
-                }
-                else if (Data == "42")
-                {
-                    ctr.TickeQty = Txt4049.Text;
-                }
-                else if (Data == "43")
-                {
-                    ctr.TickeQty = Txt3031.Text;
-                }
-                else if (Data == "44")
-                {
-                    ctr.TickeQty = Txt4049.Text;
-                }
-                else if (Data == "45")
-                {
-                    ctr.TickeQty = Txt4049.Text;
-                }
-                else if (Data == "46")
-                {
-                    ctr.TickeQty = Txt4049.Text;
-                }
-                else if (Data == "47")
-                {
-                    ctr.TickeQty = Txt4049.Text;
-                }
-                else if (Data == "48")
-                {
-                    ctr.TickeQty = Txt4049.Text;
-                }
-                else if (Data == "49")
-                {
-                    ctr.TickeQty = Txt4049.Text;
-                }
-
-
-
-            }
-        }
-
-        private void textBox5_KeyUp(object sender, KeyEventArgs e)
-        {
-            textBox5.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in tblBids.Controls)
-            {
-                string Data = Convert.ToString(ctr.Tag);
-                if (Data == "50")
-                {
-                    ctr.TickeQty = textBox5.Text;
-                }
-                else if (Data == "51")
-                {
-                    ctr.TickeQty = textBox5.Text;
-                }
-                else if (Data == "52")
-                {
-                    ctr.TickeQty = textBox5.Text;
-                }
-                else if (Data == "53")
-                {
-                    ctr.TickeQty = textBox5.Text;
-                }
-                else if (Data == "54")
-                {
-                    ctr.TickeQty = textBox5.Text;
-                }
-                else if (Data == "55")
-                {
-                    ctr.TickeQty = textBox5.Text;
-                }
-                else if (Data == "56")
-                {
-                    ctr.TickeQty = textBox5.Text;
-                }
-                else if (Data == "57")
-                {
-                    ctr.TickeQty = textBox5.Text;
-                }
-                else if (Data == "58")
-                {
-                    ctr.TickeQty = textBox5.Text;
-                }
-                else if (Data == "59")
-                {
-                    ctr.TickeQty = textBox5.Text;
-                }
-
-
-
-
-            }
-        }
-
-        private void Txt5051_KeyUp(object sender, KeyEventArgs e)
-        {
-            Txt5051.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in tblBids.Controls)
-            {
-                string Data = Convert.ToString(ctr.Tag);
-                if (Data == "60")
-                {
-                    ctr.TickeQty = Txt5051.Text;
-                }
-                else if (Data == "61")
-                {
-                    ctr.TickeQty = Txt5051.Text;
-                }
-                else if (Data == "62")
-                {
-                    ctr.TickeQty = Txt5051.Text;
-                }
-                else if (Data == "63")
-                {
-                    ctr.TickeQty = Txt5051.Text;
-                }
-                else if (Data == "64")
-                {
-                    ctr.TickeQty = Txt5051.Text;
-                }
-                else if (Data == "65")
-                {
-                    ctr.TickeQty = Txt5051.Text;
-                }
-                else if (Data == "66")
-                {
-                    ctr.TickeQty = Txt5051.Text;
-                }
-                else if (Data == "67")
-                {
-                    ctr.TickeQty = Txt5051.Text;
-                }
-                else if (Data == "68")
-                {
-                    ctr.TickeQty = Txt5051.Text;
-                }
-                else if (Data == "69")
-                {
-                    ctr.TickeQty = Txt5051.Text;
-                }
-
-
-
-            }
-        }
-
-        private void Txt7079_KeyUp(object sender, KeyEventArgs e)
-        {
-            Txt7079.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in tblBids.Controls)
-            {
-                string Data = Convert.ToString(ctr.Tag);
-                if (Data == "70")
-                {
-                    ctr.TickeQty = Txt7079.Text;
-                }
-                else if (Data == "71")
-                {
-                    ctr.TickeQty = Txt7079.Text;
-                }
-                else if (Data == "72")
-                {
-                    ctr.TickeQty = Txt7079.Text;
-                }
-                else if (Data == "73")
-                {
-                    ctr.TickeQty = Txt7079.Text;
-                }
-                else if (Data == "74")
-                {
-                    ctr.TickeQty = Txt7079.Text;
-                }
-                else if (Data == "75")
-                {
-                    ctr.TickeQty = Txt7079.Text;
-                }
-                else if (Data == "76")
-                {
-                    ctr.TickeQty = Txt7079.Text;
-                }
-                else if (Data == "77")
-                {
-                    ctr.TickeQty = Txt7079.Text;
-                }
-                else if (Data == "78")
-                {
-                    ctr.TickeQty = Txt7079.Text;
-                }
-                else if (Data == "79")
-                {
-                    ctr.TickeQty = Txt7079.Text;
-                }
-
-
-
-            }
-        }
-
-        private void Txt8089_KeyUp(object sender, KeyEventArgs e)
-        {
-            Txt8089.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in tblBids.Controls)
-            {
-                string Data = Convert.ToString(ctr.Tag);
-                if (Data == "80")
-                {
-                    ctr.TickeQty = Txt8089.Text;
-                }
-                else if (Data == "81")
-                {
-                    ctr.TickeQty = Txt8089.Text;
-                }
-                else if (Data == "82")
-                {
-                    ctr.TickeQty = Txt8089.Text;
-                }
-                else if (Data == "83")
-                {
-                    ctr.TickeQty = Txt8089.Text;
-                }
-                else if (Data == "84")
-                {
-                    ctr.TickeQty = Txt8089.Text;
-                }
-                else if (Data == "85")
-                {
-                    ctr.TickeQty = Txt8089.Text;
-                }
-                else if (Data == "86")
-                {
-                    ctr.TickeQty = Txt8089.Text;
-                }
-                else if (Data == "87")
-                {
-                    ctr.TickeQty = Txt8089.Text;
-                }
-                else if (Data == "88")
-                {
-                    ctr.TickeQty = Txt8089.Text;
-                }
-                else if (Data == "89")
-                {
-                    ctr.TickeQty = Txt8089.Text;
-                }
-
-
-
-
-            }
-        }
-
-        private void Txt9099_KeyUp(object sender, KeyEventArgs e)
-        {
-            Txt9099.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in tblBids.Controls)
-            {
-                string Data = Convert.ToString(ctr.Tag);
-                if (Data == "90")
-                {
-                    ctr.TickeQty = Txt9099.Text;
-                }
-                else if (Data == "91")
-                {
-                    ctr.TickeQty = Txt9099.Text;
-                }
-                else if (Data == "92")
-                {
-                    ctr.TickeQty = Txt9099.Text;
-                }
-                else if (Data == "93")
-                {
-                    ctr.TickeQty = Txt9099.Text;
-                }
-                else if (Data == "94")
-                {
-                    ctr.TickeQty = Txt9099.Text;
-                }
-                else if (Data == "95")
-                {
-                    ctr.TickeQty = Txt9099.Text;
-                }
-                else if (Data == "96")
-                {
-                    ctr.TickeQty = Txt9099.Text;
-                }
-                else if (Data == "97")
-                {
-                    ctr.TickeQty = Txt9099.Text;
-                }
-                else if (Data == "98")
-                {
-                    ctr.TickeQty = Txt9099.Text;
-                }
-                else if (Data == "99")
-                {
-                    ctr.TickeQty = Txt9099.Text;
-                }
-
-
-
-            }
-        }
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -2603,6 +1513,11 @@ namespace Jackport
         }
 
         private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tblControls_Paint(object sender, PaintEventArgs e)
         {
 
         }
