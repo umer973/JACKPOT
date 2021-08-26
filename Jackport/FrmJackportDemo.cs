@@ -434,7 +434,7 @@ namespace Jackport
             int flag = 0;
             int winflag = 0;
 
-            foreach (ListValueControl ctr in flowLayoutPanel1.Controls)
+            foreach (ListValueControl ctr in tblSlots.Controls)
             {
                 flag++;
 
@@ -442,7 +442,7 @@ namespace Jackport
                 {
                     if (flag == 8)
                     {
-                        Point current = flowLayoutPanel1.AutoScrollPosition;
+                        Point current = tblSlots.AutoScrollPosition;
                         Point scrolled = new Point(current.X, -current.Y + 80);
                         flowLayoutPanel1.AutoScrollPosition = scrolled;
                         flag = 0;
@@ -584,7 +584,7 @@ namespace Jackport
         {
             int i = 0;
 
-            foreach (ListValueControl item in flowLayoutPanel1.Controls)
+            foreach (ListValueControl item in tblSlots.Controls)
             {
                 //flowLayoutPanel1.Controls.Remove(item);
                 flowLayoutPanel1.Controls.Clear();
@@ -606,7 +606,8 @@ namespace Jackport
 
             foreach (ListValueControl item in _timeSlot)
             {
-                flowLayoutPanel1.Controls.Add(item);
+                item.Dock = DockStyle.Fill;
+                tblSlots.Controls.Add(item);
             }
 
 
