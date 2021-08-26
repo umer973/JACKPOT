@@ -39,6 +39,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelName.AutoSize = true;
             this.LabelName.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelName.ForeColor = System.Drawing.Color.White;
             this.LabelName.Location = new System.Drawing.Point(14, -4);
             this.LabelName.Name = "LabelName";
             this.LabelName.Size = new System.Drawing.Size(27, 19);

@@ -230,7 +230,7 @@ namespace Jackport
             {
                 int quantity = 0;
                 int total = 0;
-                foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
+                foreach (UserInputControl ctr in tblBids.Controls)
                 {
 
                     if (!string.IsNullOrEmpty(ctr.TickeQty) && Convert.ToInt32(ctr.TickeQty) > 0)
@@ -466,7 +466,7 @@ namespace Jackport
 
         private void LoadTickets()
         {
-            flowLayoutPanel2.Controls.Clear();
+            tblBids.Controls.Clear();
 
             int height = PrintJobSettings.ControlHeight > 0 ? PrintJobSettings.ControlHeight : 40;
             int width = PrintJobSettings.ControlWidth > 0 ? PrintJobSettings.ControlWidth : 50;
@@ -475,87 +475,91 @@ namespace Jackport
             int toolheight = PrintJobSettings.ToolHeight > 0 ? PrintJobSettings.ToolHeight : 40;
             int toolwidth = PrintJobSettings.ToolWidth > 0 ? PrintJobSettings.ToolWidth : 50;
 
-            flowLayoutPanel2.Hide();
+            tblBids.Visible = false;
 
 
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 10; i++)
             {
-                UserInputControl p1 = new UserInputControl(this);
-                string num = Convert.ToString(i);
-                if (i == 0)
+
+                for (int c = 0; c < 10; c++)
                 {
-                    num = "00";
+                    UserInputControl p1 = new UserInputControl(this);
+                    string num = Convert.ToString(i);
+                    if (i == 0)
+                    {
+                        num = "00";
+                    }
+                    if (i == 1)
+                    {
+                        num = "01";
+                    }
+                    if (i == 2)
+                    {
+                        num = "02";
+                    }
+                    if (i == 3)
+                    {
+                        num = "03";
+                    }
+                    if (i == 4)
+                    {
+                        num = "04";
+                    }
+                    if (i == 5)
+                    {
+                        num = "05";
+                    }
+                    if (i == 6)
+                    {
+                        num = "06";
+                    }
+                    if (i == 7)
+                    {
+                        num = "07";
+                    }
+                    if (i == 8)
+                    {
+                        num = "08";
+                    }
+                    if (i == 9)
+                    {
+                        num = "09";
+                    }
+
+
+
+                    p1.Tag = i + "" + c;
+                    //p1.TickeName = Convert.ToString(i);
+                    p1.TickeName = Convert.ToString(i + "" + c);
+
+
+
+
+                    //  p1.TicketSize = new Size(width, height);
+                    // p1.LabeltSize = new Size(70, 100);
+                    p1.Size = new Size(width, height);
+                    p1.Dock = DockStyle.Fill;
+
+
+                    //p1.Size = new Size(100,100)
+                    // p1.Size = new Size(100, 100);
+
+                    //var ticket = new TicketBoxes
+                    //{
+                    //    Tag = i.ToString(),
+                    //    TicketNo = num
+
+                    //};
+                    //ticketList.Add(ticket);
+                    //flowLayoutPanel2.Controls.Add(p1);
+                    tblBids.Controls.Add(p1, c, i);
                 }
-                if (i == 1)
-                {
-                    num = "01";
-                }
-                if (i == 2)
-                {
-                    num = "02";
-                }
-                if (i == 3)
-                {
-                    num = "03";
-                }
-                if (i == 4)
-                {
-                    num = "04";
-                }
-                if (i == 5)
-                {
-                    num = "05";
-                }
-                if (i == 6)
-                {
-                    num = "06";
-                }
-                if (i == 7)
-                {
-                    num = "07";
-                }
-                if (i == 8)
-                {
-                    num = "08";
-                }
-                if (i == 9)
-                {
-                    num = "09";
-                }
-
-
-
-                p1.Tag = i;
-                //p1.TickeName = Convert.ToString(i);
-                p1.TickeName = Convert.ToString(num);
-
-
-
-
-                //  p1.TicketSize = new Size(width, height);
-                // p1.LabeltSize = new Size(70, 100);
-                p1.Size = new Size(width, height);
-
-                //p1.Size = new Size(100,100)
-                // p1.Size = new Size(100, 100);
-
-                //var ticket = new TicketBoxes
-                //{
-                //    Tag = i.ToString(),
-                //    TicketNo = num
-
-                //};
-                //ticketList.Add(ticket);
-                flowLayoutPanel2.Controls.Add(p1);
-
-
-
 
 
             }
 
             //flowLayoutPanel2.Controls.Add(ticketList);
-            flowLayoutPanel2.Show();
+            tblBids.Visible = true;
             SetLayout();
 
         }
@@ -669,7 +673,7 @@ namespace Jackport
                 bidList.Clear();
                 int flag = 0;
                 GetSlots();
-                foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
+                foreach (UserInputControl ctr in tblBids.Controls)
                 {
 
                     if (!string.IsNullOrEmpty(ctr.TickeQty) && Convert.ToInt32(ctr.TickeQty) > 0)
@@ -759,7 +763,7 @@ namespace Jackport
 
         public void ClearBoard()
         {
-            foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
+            foreach (UserInputControl ctr in tblBids.Controls)
             {
                 ctr.TickeQty = "";
 
@@ -1113,10 +1117,10 @@ namespace Jackport
             {
                 TxtE0.BackColor = Color.YellowGreen;
             }
-            foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
+            foreach (UserInputControl ctr in tblBids.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
-                if (Data == "0")
+                if (Data == "00")
                 {
                     ctr.TickeQty = TxtE0.Text;
                 }
@@ -1166,10 +1170,10 @@ namespace Jackport
         private void TxtE1_KeyUp(object sender, KeyEventArgs e)
         {
             TxtE1.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
+            foreach (UserInputControl ctr in tblBids.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
-                if (Data == "1")
+                if (Data == "01")
                 {
                     ctr.TickeQty = TxtE1.Text;
                 }
@@ -1218,10 +1222,10 @@ namespace Jackport
         private void TxtE2_KeyUp(object sender, KeyEventArgs e)
         {
             TxtE2.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
+            foreach (UserInputControl ctr in tblBids.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
-                if (Data == "2")
+                if (Data == "02")
                 {
                     ctr.TickeQty = TxtE2.Text;
                 }
@@ -1271,10 +1275,10 @@ namespace Jackport
         private void TxtE3_KeyUp(object sender, KeyEventArgs e)
         {
             TxtE3.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
+            foreach (UserInputControl ctr in tblBids.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
-                if (Data == "3")
+                if (Data == "03")
                 {
                     ctr.TickeQty = TxtE3.Text;
                 }
@@ -1324,10 +1328,10 @@ namespace Jackport
         private void TxtE4_KeyUp(object sender, KeyEventArgs e)
         {
             TxtE4.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
+            foreach (UserInputControl ctr in tblBids.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
-                if (Data == "4")
+                if (Data == "04")
                 {
                     ctr.TickeQty = TxtE4.Text;
                 }
@@ -1377,10 +1381,10 @@ namespace Jackport
         private void textBox6_KeyUp(object sender, KeyEventArgs e)
         {
             textBox6.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
+            foreach (UserInputControl ctr in tblBids.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
-                if (Data == "5")
+                if (Data == "05")
                 {
                     ctr.TickeQty = textBox6.Text;
                 }
@@ -1431,10 +1435,10 @@ namespace Jackport
         {
 
             TxtE5.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
+            foreach (UserInputControl ctr in tblBids.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
-                if (Data == "6")
+                if (Data == "06")
                 {
                     ctr.TickeQty = TxtE5.Text;
                 }
@@ -1483,10 +1487,10 @@ namespace Jackport
         private void TxtE7_KeyUp(object sender, KeyEventArgs e)
         {
             TxtE7.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
+            foreach (UserInputControl ctr in tblBids.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
-                if (Data == "7")
+                if (Data == "07")
                 {
                     ctr.TickeQty = TxtE7.Text;
                 }
@@ -1536,10 +1540,10 @@ namespace Jackport
         private void TxtE8_KeyUp(object sender, KeyEventArgs e)
         {
             TxtE8.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
+            foreach (UserInputControl ctr in tblBids.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
-                if (Data == "8")
+                if (Data == "08")
                 {
                     ctr.TickeQty = TxtE8.Text;
                 }
@@ -1588,10 +1592,10 @@ namespace Jackport
         private void TxtE9_KeyUp(object sender, KeyEventArgs e)
         {
             TxtE9.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
+            foreach (UserInputControl ctr in tblBids.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
-                if (Data == "9")
+                if (Data == "09")
                 {
                     ctr.TickeQty = TxtE9.Text;
                 }
@@ -1641,46 +1645,46 @@ namespace Jackport
         private void Txt0009_KeyUp(object sender, KeyEventArgs e)
         {
             Txt0009.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
+            foreach (UserInputControl ctr in tblBids.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
-                if (Data == "0")
+                if (Data == "00")
                 {
                     ctr.TickeQty = Txt0009.Text;
                 }
-                else if (Data == "1")
+                else if (Data == "01")
                 {
                     ctr.TickeQty = Txt0009.Text;
                 }
-                else if (Data == "2")
+                else if (Data == "02")
                 {
                     ctr.TickeQty = Txt0009.Text;
                 }
-                else if (Data == "3")
+                else if (Data == "03")
                 {
                     ctr.TickeQty = Txt0009.Text;
                 }
-                else if (Data == "4")
+                else if (Data == "04")
                 {
                     ctr.TickeQty = Txt0009.Text;
                 }
-                else if (Data == "5")
+                else if (Data == "05")
                 {
                     ctr.TickeQty = Txt0009.Text;
                 }
-                else if (Data == "6")
+                else if (Data == "06")
                 {
                     ctr.TickeQty = Txt0009.Text;
                 }
-                else if (Data == "7")
+                else if (Data == "07")
                 {
                     ctr.TickeQty = Txt0009.Text;
                 }
-                else if (Data == "8")
+                else if (Data == "08")
                 {
                     ctr.TickeQty = Txt0009.Text;
                 }
-                else if (Data == "9")
+                else if (Data == "09")
                 {
                     ctr.TickeQty = Txt0009.Text;
                 }
@@ -1694,7 +1698,7 @@ namespace Jackport
         private void Txt1019_KeyUp(object sender, KeyEventArgs e)
         {
             Txt1019.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
+            foreach (UserInputControl ctr in tblBids.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
                 if (Data == "10")
@@ -1747,7 +1751,7 @@ namespace Jackport
         private void Txt2029_KeyUp(object sender, KeyEventArgs e)
         {
             Txt2029.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
+            foreach (UserInputControl ctr in tblBids.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
                 if (Data == "20")
@@ -1798,7 +1802,7 @@ namespace Jackport
         private void Txt3031_KeyUp(object sender, KeyEventArgs e)
         {
             Txt3031.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
+            foreach (UserInputControl ctr in tblBids.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
                 if (Data == "30")
@@ -1851,7 +1855,7 @@ namespace Jackport
         private void Txt4049_KeyUp(object sender, KeyEventArgs e)
         {
             Txt4049.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
+            foreach (UserInputControl ctr in tblBids.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
                 if (Data == "40")
@@ -1903,7 +1907,7 @@ namespace Jackport
         private void textBox5_KeyUp(object sender, KeyEventArgs e)
         {
             textBox5.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
+            foreach (UserInputControl ctr in tblBids.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
                 if (Data == "50")
@@ -1956,7 +1960,7 @@ namespace Jackport
         private void Txt5051_KeyUp(object sender, KeyEventArgs e)
         {
             Txt5051.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
+            foreach (UserInputControl ctr in tblBids.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
                 if (Data == "60")
@@ -2008,7 +2012,7 @@ namespace Jackport
         private void Txt7079_KeyUp(object sender, KeyEventArgs e)
         {
             Txt7079.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
+            foreach (UserInputControl ctr in tblBids.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
                 if (Data == "70")
@@ -2060,7 +2064,7 @@ namespace Jackport
         private void Txt8089_KeyUp(object sender, KeyEventArgs e)
         {
             Txt8089.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
+            foreach (UserInputControl ctr in tblBids.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
                 if (Data == "80")
@@ -2113,7 +2117,7 @@ namespace Jackport
         private void Txt9099_KeyUp(object sender, KeyEventArgs e)
         {
             Txt9099.BackColor = Color.YellowGreen;
-            foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
+            foreach (UserInputControl ctr in tblBids.Controls)
             {
                 string Data = Convert.ToString(ctr.Tag);
                 if (Data == "90")
@@ -2299,14 +2303,22 @@ namespace Jackport
                 {
                     Random rnd = new Random();
                     int n = Convert.ToInt32(TxtLpNo.Text);
-                    int[] intArr = new int[n];
+                    string[] intArr = new string[n];
                     int i = 0;
                     for (i = 0; i < intArr.Length; i++)
                     {
                         int num = rnd.Next(0, 100);
+                        string number = "";
+                        if (num.ToString().Length == 1)
+                        {
+                            number = "0" + num;
 
-
-                        intArr[i] = num;
+                            intArr[i] = number;
+                        }
+                        else
+                        {
+                            intArr[i] = num.ToString();
+                        }
 
 
                     }
@@ -2314,10 +2326,11 @@ namespace Jackport
                     Array.Sort(intArr);
                     for (int j = 0; j < intArr.Length; j++)
                     {
-                        foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
+                        foreach (UserInputControl ctr in tblBids.Controls)
                         {
                             string Data = Convert.ToString(ctr.Tag);
-                            int c = intArr[j];
+
+
                             if (Data == Convert.ToString(intArr[j]))
                             {
                                 int qty = !string.IsNullOrEmpty(ctr.TickeQty) ? Convert.ToInt16(ctr.TickeQty) + 1 : 1;
@@ -2586,6 +2599,11 @@ namespace Jackport
 
             SetLayout();
 
+
+        }
+
+        private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

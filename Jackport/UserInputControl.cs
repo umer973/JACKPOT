@@ -92,7 +92,7 @@ namespace Jackport
             {
                 int quantity = 0;
                 int total = 0;
-                foreach (UserInputControl ctr in _frm.flowLayoutPanel2.Controls)
+                foreach (UserInputControl ctr in _frm.tblBids.Controls)
                 {
 
                     if (!string.IsNullOrEmpty(ctr.TickeQty) && Convert.ToInt32(ctr.TickeQty) > 0)
