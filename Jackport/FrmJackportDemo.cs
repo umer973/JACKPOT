@@ -444,7 +444,7 @@ namespace Jackport
                     {
                         Point current = tblSlots.AutoScrollPosition;
                         Point scrolled = new Point(current.X, -current.Y + 80);
-                        flowLayoutPanel1.AutoScrollPosition = scrolled;
+                        tblSlots.AutoScrollPosition = scrolled;
                         flag = 0;
                     }
                 }
@@ -1215,7 +1215,7 @@ namespace Jackport
             //if (e.KeyCode == Keys.R)
             //{
             //    AllData();
-            //}
+            //}sc
             //if (e.KeyCode == Keys.S)
             //{
             //    GetReportSummary();
@@ -1334,7 +1334,7 @@ namespace Jackport
 
         }
 
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        private void _Paint(object sender, PaintEventArgs e)
         {
 
         }
@@ -1408,6 +1408,12 @@ namespace Jackport
         private void pnlFooter_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void tblSlots_Scroll(object sender, ScrollEventArgs e)
+        {
+            tblSlots.VerticalScroll.Maximum = 1;
+            tblSlots.HorizontalScroll.Maximum = 1;
         }
     }
 }
