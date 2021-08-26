@@ -480,7 +480,7 @@ namespace Jackport
                     p1.Tag = i + "" + c;
                     p1.TickeName = Convert.ToString(i + "" + c);
                     p1.Dock = DockStyle.Fill;
-                    p1.Margin = new Padding(3, 2, 3, 2);
+                    p1.Margin = new Padding(3, 3, 3, 3);
                     tblBids.Controls.Add(p1, c, i);
                 }
 
