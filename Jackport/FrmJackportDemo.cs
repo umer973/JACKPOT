@@ -440,7 +440,7 @@ namespace Jackport
 
                 if (ctr.Tag.ToString() != slotdId)
                 {
-                    if (flag == 8)
+                    if (flag == 5)
                     {
                         Point current = tblSlots.AutoScrollPosition;
                         Point scrolled = new Point(current.X, -current.Y + 80);
@@ -587,7 +587,7 @@ namespace Jackport
             foreach (ListValueControl item in tblSlots.Controls)
             {
                 //flowLayoutPanel1.Controls.Remove(item);
-                flowLayoutPanel1.Controls.Clear();
+                tblSlots.Controls.Clear();
             }
 
 
@@ -1412,8 +1412,8 @@ namespace Jackport
 
         private void tblSlots_Scroll(object sender, ScrollEventArgs e)
         {
-            tblSlots.VerticalScroll.Maximum = 1;
-            tblSlots.HorizontalScroll.Maximum = 1;
+            tblSlots.VerticalScroll.Maximum = 0;
+           // tblSlots.HorizontalScroll.Maximum = 0;
         }
     }
 }
