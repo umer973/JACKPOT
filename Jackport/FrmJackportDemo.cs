@@ -58,11 +58,13 @@ namespace Jackport
 
             CommonHelper.ReadXMlData();
 
-            LoadData(_data);
-
             LoadTickets();
 
             LoadEvents();
+
+            LoadData(_data);
+
+            ;
 
             this.Show();
 
@@ -194,6 +196,8 @@ namespace Jackport
             textBox6.Height = height;
             textBox5.Height = height;
             Txt9099.Height = height;
+            button7.Height = height;
+            button7.Width = width;
         }
 
         private void OnKeyUp(object sender, EventArgs e)
@@ -322,11 +326,11 @@ namespace Jackport
             {
 
                 this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-                headerpanel.Visible = false;
-                pnlFooter.Visible = false;
-                panel2.Visible = false;
-                panel3.Visible = false;
-                tblLayout.Visible = false;
+                headerpanel.Visible = true;
+                pnlFooter.Visible = true;
+                panel2.Visible = true;
+                panel3.Visible = true;
+                tblLayout.Visible = true;
 
 
             }
@@ -341,7 +345,7 @@ namespace Jackport
 
                 this.Cursor = System.Windows.Forms.Cursors.Default;
 
-                ScrollDown();
+
 
             }
         }
@@ -374,7 +378,7 @@ namespace Jackport
                     slotdId = ls.Select(x => x.slot_id).FirstOrDefault();
                 }
 
-                lblSlotTime.Text = CommonHelper.GetdateFormat(endtime);
+                lblSlotTime.Text = CommonHelper.SetTimeFormat(endtime);
 
                 var list = Slotlist.OrderByDescending(x => x.slot_id).ToList();
 
@@ -471,10 +475,8 @@ namespace Jackport
             int toolheight = PrintJobSettings.ToolHeight > 0 ? PrintJobSettings.ToolHeight : 40;
             int toolwidth = PrintJobSettings.ToolWidth > 0 ? PrintJobSettings.ToolWidth : 50;
 
+            flowLayoutPanel2.Hide();
 
-            List<TicketBoxes> ticketList = new List<TicketBoxes>();
-
-            ListBox list = new ListBox();
 
             for (int i = 0; i < 100; i++)
             {
@@ -553,7 +555,7 @@ namespace Jackport
             }
 
             //flowLayoutPanel2.Controls.Add(ticketList);
-
+            flowLayoutPanel2.Show();
             SetLayout();
 
         }
@@ -589,6 +591,7 @@ namespace Jackport
                 UserAgent.AppSignature = _root.ApplicationDetails.app_company_signature;
                 UserAgent.RS = _root.ApplicationDetails.agent_ticket_price;
                 UserAgent.CompanyName = _root.ApplicationDetails.app_company_name;
+                UserAgent.PrinFooter = _root.ApplicationDetails.app_company_name_footer;
 
                 var request = WebRequest.Create(_root.ApplicationDetails.app_logo);
 

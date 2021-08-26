@@ -457,7 +457,7 @@ namespace Jackport.Helper
 
             Offset = Offset + mediuminc;
 
-            InsertHeaderStyleItem("Qty  :" + total + " RS. " + total * 2 + "  " + CommonHelper.GetdateFormat(_ticket.time_end).ToString(), "", Offset);
+            InsertHeaderStyleItem("Qty: " + total + " RS. " + total * 2 + "  " + CommonHelper.GetdateFormat(_ticket.time_end).ToString(), "", Offset);
 
             Offset = Offset + mediuminc + 10;
 
@@ -466,7 +466,7 @@ namespace Jackport.Helper
 
             Offset = Offset + 5;
 
-            InsertHeaderStyleItem("                         ANDAMANLOTTERY", "", Offset);
+            InsertHeaderStyleItem("                       " + UserAgent.PrinFooter, "", Offset);
 
         }
 

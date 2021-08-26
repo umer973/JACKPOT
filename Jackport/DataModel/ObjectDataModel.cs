@@ -50,6 +50,7 @@ namespace Jackport.DataModel
         public string app_date { get; set; }
         public string app_company_signature { get; set; }
         public string app_company_name { get; set; }
+        public string app_company_name_footer { get; set; }
     }
 
     public class AgentData
@@ -290,7 +291,7 @@ namespace Jackport.DataModel
         public List<WinTicket> data { get; set; }
     }
 
-    public class TicketBoxes: Control
+    public class TicketBoxes : Control
     {
         public string TicketNo { get; set; }
         public string Tag { get; set; }

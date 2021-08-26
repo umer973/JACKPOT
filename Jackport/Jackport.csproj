@@ -91,6 +91,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BidControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BidControl.Designer.cs">
+      <DependentUpon>BidControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClsServive.cs" />
     <Compile Include="DataModel\ObjectDataModel.cs" />
     <Compile Include="DataModel\TicketModel.cs" />
@@ -217,6 +223,9 @@
     <Compile Include="UserInputControl.designer.cs">
       <DependentUpon>UserInputControl.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BidControl.resx">
+      <DependentUpon>BidControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmActivationKey.resx">
       <DependentUpon>FrmActivationKey.cs</DependentUpon>
     </EmbeddedResource>

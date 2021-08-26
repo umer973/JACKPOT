@@ -25,6 +25,9 @@ namespace Jackport.DataModel
 
         public static string CompanyName { get; set; }
 
+
+        public static string PrinFooter { get; set; }
+
     }
 
 

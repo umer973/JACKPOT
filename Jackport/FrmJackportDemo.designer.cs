@@ -156,8 +156,8 @@
             this.tblLayout.BackgroundImage = global::Jackport.Properties.Resources.gameboard1;
             this.tblLayout.ColumnCount = 3;
             this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.57131F));
-            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.66156F));
-            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.8477F));
+            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.59952F));
+            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.90975F));
             this.tblLayout.Controls.Add(this.panel1, 1, 0);
             this.tblLayout.Controls.Add(this.flowLayoutPanel1, 2, 0);
             this.tblLayout.Controls.Add(this.flowLayoutPanel2, 0, 0);
@@ -221,24 +221,25 @@
             this.panel1.Controls.Add(this.textBox6);
             this.panel1.Controls.Add(this.TxtE4);
             this.panel1.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(649, 0);
+            this.panel1.Location = new System.Drawing.Point(639, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(233, 551);
+            this.panel1.Size = new System.Drawing.Size(205, 551);
             this.panel1.TabIndex = 548;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
             // 
             // TxtE0
             // 
+            this.TxtE0.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TxtE0.BackColor = System.Drawing.Color.Magenta;
             this.TxtE0.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtE0.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtE0.Location = new System.Drawing.Point(2, 23);
+            this.TxtE0.Location = new System.Drawing.Point(1, 23);
             this.TxtE0.Margin = new System.Windows.Forms.Padding(10);
             this.TxtE0.MaxLength = 2;
             this.TxtE0.Multiline = true;
             this.TxtE0.Name = "TxtE0";
-            this.TxtE0.Size = new System.Drawing.Size(61, 32);
+            this.TxtE0.Size = new System.Drawing.Size(59, 32);
             this.TxtE0.TabIndex = 263;
             this.TxtE0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TxtE0.TextChanged += new System.EventHandler(this.TxtE0_TextChanged);
@@ -246,12 +247,13 @@
             // 
             // button7
             // 
+            this.button7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button7.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(141, 481);
+            this.button7.Location = new System.Drawing.Point(141, 480);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(50, 29);
+            this.button7.Size = new System.Drawing.Size(50, 31);
             this.button7.TabIndex = 547;
             this.button7.Text = "&LP";
             this.button7.UseVisualStyleBackColor = false;
@@ -270,6 +272,7 @@
             // 
             // TxtLpNo
             // 
+            this.TxtLpNo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TxtLpNo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.TxtLpNo.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtLpNo.Location = new System.Drawing.Point(141, 430);
@@ -281,13 +284,16 @@
             // 
             // textBox5
             // 
+            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox5.BackColor = System.Drawing.Color.AliceBlue;
             this.textBox5.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox5.Location = new System.Drawing.Point(77, 271);
             this.textBox5.MaxLength = 2;
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(61, 32);
+            this.textBox5.Size = new System.Drawing.Size(62, 32);
             this.textBox5.TabIndex = 539;
             this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox5_KeyUp);
@@ -318,6 +324,7 @@
             // 
             // Txt7079
             // 
+            this.Txt7079.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Txt7079.BackColor = System.Drawing.Color.AliceBlue;
             this.Txt7079.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt7079.Location = new System.Drawing.Point(77, 380);
@@ -346,6 +353,9 @@
             // 
             // TxtE2
             // 
+            this.TxtE2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtE2.BackColor = System.Drawing.Color.Magenta;
             this.TxtE2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtE2.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -353,7 +363,7 @@
             this.TxtE2.MaxLength = 2;
             this.TxtE2.Multiline = true;
             this.TxtE2.Name = "TxtE2";
-            this.TxtE2.Size = new System.Drawing.Size(61, 32);
+            this.TxtE2.Size = new System.Drawing.Size(60, 32);
             this.TxtE2.TabIndex = 514;
             this.TxtE2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TxtE2.TextChanged += new System.EventHandler(this.TxtE2_TextChanged);
@@ -445,7 +455,7 @@
             this.TxtE1.BackColor = System.Drawing.Color.Magenta;
             this.TxtE1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtE1.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtE1.Location = new System.Drawing.Point(1, 74);
+            this.TxtE1.Location = new System.Drawing.Point(2, 74);
             this.TxtE1.MaxLength = 2;
             this.TxtE1.Multiline = true;
             this.TxtE1.Name = "TxtE1";
@@ -485,6 +495,7 @@
             // 
             // Txt3031
             // 
+            this.Txt3031.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Txt3031.BackColor = System.Drawing.Color.AliceBlue;
             this.Txt3031.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt3031.Location = new System.Drawing.Point(76, 170);
@@ -509,6 +520,7 @@
             // 
             // Txt5051
             // 
+            this.Txt5051.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Txt5051.BackColor = System.Drawing.Color.AliceBlue;
             this.Txt5051.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt5051.Location = new System.Drawing.Point(77, 323);
@@ -605,6 +617,7 @@
             // 
             // Txt8089
             // 
+            this.Txt8089.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Txt8089.BackColor = System.Drawing.Color.AliceBlue;
             this.Txt8089.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt8089.Location = new System.Drawing.Point(77, 430);
@@ -688,6 +701,7 @@
             // 
             // Txt4049
             // 
+            this.Txt4049.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Txt4049.BackColor = System.Drawing.Color.AliceBlue;
             this.Txt4049.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt4049.Location = new System.Drawing.Point(76, 221);
@@ -762,9 +776,9 @@
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.ForeColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(885, 3);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(847, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(353, 545);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(391, 545);
             this.flowLayoutPanel1.TabIndex = 251;
             this.flowLayoutPanel1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.flowLayoutPanel1_Scroll);
             this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
@@ -1052,11 +1066,12 @@
             // 
             // lblprice
             // 
+            this.lblprice.AutoSize = true;
             this.lblprice.BackColor = System.Drawing.Color.Transparent;
             this.lblprice.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblprice.Location = new System.Drawing.Point(121, 4);
             this.lblprice.Name = "lblprice";
-            this.lblprice.Size = new System.Drawing.Size(33, 18);
+            this.lblprice.Size = new System.Drawing.Size(36, 18);
             this.lblprice.TabIndex = 18;
             this.lblprice.Text = "RS:";
             // 
@@ -1156,7 +1171,7 @@
             this.lblticketprice.AutoSize = true;
             this.lblticketprice.BackColor = System.Drawing.Color.Transparent;
             this.lblticketprice.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblticketprice.Location = new System.Drawing.Point(151, 4);
+            this.lblticketprice.Location = new System.Drawing.Point(159, 4);
             this.lblticketprice.Name = "lblticketprice";
             this.lblticketprice.Size = new System.Drawing.Size(18, 18);
             this.lblticketprice.TabIndex = 11;
@@ -1248,7 +1263,7 @@
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button6.Location = new System.Drawing.Point(484, 3);
+            this.button6.Location = new System.Drawing.Point(486, 2);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(156, 36);
             this.button6.TabIndex = 5;
@@ -1278,7 +1293,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button3.Location = new System.Drawing.Point(327, 2);
+            this.button3.Location = new System.Drawing.Point(330, 2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(151, 36);
             this.button3.TabIndex = 2;
@@ -1293,7 +1308,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Location = new System.Drawing.Point(168, 2);
+            this.button2.Location = new System.Drawing.Point(173, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(153, 36);
             this.button2.TabIndex = 1;
@@ -1310,14 +1325,18 @@
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button1.Location = new System.Drawing.Point(3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(159, 36);
+            this.button1.Size = new System.Drawing.Size(166, 36);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Bet Dtis -&T";
+            this.button1.Text = "Bet Details -&T";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // LblCompanyName
             // 
+            this.LblCompanyName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.LblCompanyName.BackColor = System.Drawing.Color.Transparent;
             this.LblCompanyName.Font = new System.Drawing.Font("Consolas", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblCompanyName.ForeColor = System.Drawing.Color.White;
