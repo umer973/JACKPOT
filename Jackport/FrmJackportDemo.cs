@@ -732,16 +732,12 @@ namespace Jackport
 
 
             }
-            //TxtE0.Text = TxtE1.Text = TxtE2.Text = TxtE3.Text = TxtE4.Text = TxtE5.Text = TxtE7.Text = TxtE8.Text = TxtE9.Text =
-            //    textBox6.Text = "";
-            //textBox5.Text = Txt0009.Text = Txt1019.Text = Txt2029.Text = Txt3031.Text = Txt4049.Text = Txt5051.Text = Txt7079.Text =
-            //    Txt8089.Text = Txt9099.Text = TxtLpNo.Text = "";
+            foreach (BidControl ctr in tblbidsControl.Controls)
+            {
+                ctr.TickeQty = "";
 
-            //TxtE0.BackColor = TxtE1.BackColor = TxtE2.BackColor = TxtE3.BackColor = TxtE4.BackColor = TxtE5.BackColor = TxtE7.BackColor = TxtE8.BackColor = TxtE9.BackColor =
-            //   textBox6.BackColor = Color.Magenta;
 
-            //textBox5.BackColor = Txt0009.BackColor = Txt1019.BackColor = Txt2029.BackColor = Txt3031.BackColor = Txt4049.BackColor = Txt5051.BackColor = Txt7079.BackColor =
-            //   Txt8089.BackColor = Txt9099.BackColor = Color.AliceBlue;
+            }
 
             txttickektsqty.Text = txttotalvalue.Text = "0";
 
@@ -869,62 +865,7 @@ namespace Jackport
             }
         }
 
-        //public void SetAppTime()
-        //{
-        //    while (true)
-        //    {
-        //        apptime = apptime + 1; 
-        //    }
-        //}
-
-        //public async Task RunCounter()
-        //{
-        //    ClsService service = new ClsService();
-        //    await Task.Run(() =>
-        //    {
-
-        //        bool flag = true;
-        //        while (flag)
-        //        {
-        //            TimeSpan datediff = Convert.ToDateTime(CommonHelper.GetdateFormat(endtime)).Subtract(slotitme);
-
-        //            //TimeSpan datediff = DateTimeOffset.Parse(endtime).UtcDateTime.Subtract(DateTime.Parse(DateTime.UtcNoww));
-        //            // int datediff1 = Convert.ToInt32(GetTimeSpan(Convert.ToDateTime(endtime))) - Convert.ToInt32(GetTimeSpan((Convert.ToDateTime(appTime))));
-
-        //            string leftTime = string.Format("{0}:{1}:{2}", datediff.Hours.ToString().PadLeft(2, '0'), datediff.Minutes.ToString().PadLeft(2, '0'), datediff.Seconds.ToString().PadLeft(2, '0'));
-        //            SetText(leftTime);
-        //            // appTime = service.GetUpdatedTime();
-        //            //LblTime.Text = CommonHelper.GetdateFormat(appTime);
-        //            if (datediff.Minutes < 0 && datediff.Seconds < 0 && datediff.Hours <= 0)
-        //            {
-        //                SetText("00:00:00");
-        //                flag = false;
-        //            }
-
-
-        //            if (datediff.Hours == 0 && datediff.Minutes == 0 && datediff.Seconds == 0 && datediff.Minutes >= 0 && datediff.Seconds >= 0 && datediff.Hours >= 0)
-        //            {
-        //                flag = false;
-
-        //            }
-        //        }
-
-
-
-
-        //    });
-
-        //    ClsService clsService = new ClsService();
-        //    var result = clsService.GetWinTickets(Convert.ToInt16(slotdId));
-
-        //    FrmWinPrice ObjWinPrice = new FrmWinPrice(result);
-        //    ObjWinPrice.ShowDialog();
-        //    RefreshSlots();
-
-
-
-        //}
-
+     
         delegate void SetTextCallback(string text);
 
         private void SetText(string text)
@@ -946,46 +887,7 @@ namespace Jackport
             //LblTime.Text = appTime.tos;
         }
 
-        //private void ShowWinNumber()u
-        //{
-        //    // slotdId = timeSlots.Select(x => x.slot_id).FirstOrDefault();
-
-        //    // var slot = timeSlots.Where(x => x.slot_over == "0").FirstOrDefault();
-        //    // var endtime = (x => x.time_end).FirstOrDefault();
-        //    // var datediff = Convert.ToDateTime(endtime) - (dateTime);
-        //    count--;
-        //    TimeSpan datediff = Convert.ToDateTime(endtime) - (DateTime.Now);
-
-
-        //    //var datediff = Convert.ToInt64(GetTimeSpan(Convert.ToDateTime(endtime))) - Convert.ToInt64(GetTimeSpan(dateTime));
-        //    //DateTime d1 = new DateTime(1970, 1, 1);
-        //    //TimeSpan left = new TimeSpan(Convert.ToInt64(datediff));
-
-
-
-        //    if (datediff.Hours == 0 && datediff.Minutes == 0 && datediff.Seconds == 0)
-        //    {
-        //        ClsService clsService = new ClsService();
-        //        var result = clsService.GetWinTickets(Convert.ToInt16(slotdId));
-
-        //        FrmWinPrice ObjWinPrice = new FrmWinPrice(result);
-        //        ObjWinPrice.ShowDialog();
-        //        RefreshSlots();
-
-
-        //    }
-        //    //timer1.Stop();
-        //    //LblCountDown1.Text = counter.ToString();
-        //    string leftTime = string.Format("{0}:{1}:{2}", datediff.Hours.ToString().PadLeft(2, '0'), datediff.Minutes.ToString().PadLeft(2, '0'), datediff.Seconds.ToString().PadLeft(2, '0'));
-        //    //string leftTime = Convert.ToDateTime(GetTimeSpan( left));
-        //    //string leftTime = Convert.ToString(left.TotalMinutes+':'+left.TotalSeconds);
-        //    LblCountDown1.Text = leftTime.ToString()co;
-        //    //label1.Text = count / 60 + ":" + ((count % 60) >= 10 ? (count % 60).ToString() : "0" + (count % 60));
-        //    int LeftTime1 = count;
-        //    int LeftTime2 = segundo - LeftTime1;
-        //    int LeftTime = segundo - LeftTime2;
-        //    // LblCountDown2.Text = leftTime.ToString();
-        //}
+       
 
 
 

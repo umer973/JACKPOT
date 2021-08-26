@@ -39,9 +39,6 @@
             this.TxtLpNo = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
             this.tblbidsControl = new System.Windows.Forms.TableLayoutPanel();
-            this.label82 = new System.Windows.Forms.Label();
-            this.label83 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.pnlFooter = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -250,38 +247,6 @@
             this.tblbidsControl.Size = new System.Drawing.Size(146, 545);
             this.tblbidsControl.TabIndex = 551;
             // 
-            // label82
-            // 
-            this.label82.AutoSize = true;
-            this.label82.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label82.ForeColor = System.Drawing.Color.White;
-            this.label82.Location = new System.Drawing.Point(647, 3);
-            this.label82.Name = "label82";
-            this.label82.Size = new System.Drawing.Size(54, 19);
-            this.label82.TabIndex = 529;
-            this.label82.Text = "60-69";
-            // 
-            // label83
-            // 
-            this.label83.AutoSize = true;
-            this.label83.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label83.ForeColor = System.Drawing.Color.White;
-            this.label83.Location = new System.Drawing.Point(567, 34);
-            this.label83.Name = "label83";
-            this.label83.Size = new System.Drawing.Size(27, 19);
-            this.label83.TabIndex = 528;
-            this.label83.Text = "E6";
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.BackColor = System.Drawing.Color.Transparent;
-            this.flowLayoutPanel2.ForeColor = System.Drawing.Color.White;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(396, 9);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(131, 42);
-            this.flowLayoutPanel2.TabIndex = 507;
-            this.flowLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel2_Paint);
-            // 
             // pnlFooter
             // 
             this.pnlFooter.BackColor = System.Drawing.Color.White;
@@ -417,14 +382,11 @@
             this.headerpanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.headerpanel.Controls.Add(this.panel6);
             this.headerpanel.Controls.Add(this.linkbalance);
-            this.headerpanel.Controls.Add(this.flowLayoutPanel2);
             this.headerpanel.Controls.Add(this.pictureBox1);
             this.headerpanel.Controls.Add(this.panel3);
             this.headerpanel.Controls.Add(this.panel2);
             this.headerpanel.Controls.Add(this.LblCompanyName);
-            this.headerpanel.Controls.Add(this.label82);
             this.headerpanel.Controls.Add(this.LblBalance);
-            this.headerpanel.Controls.Add(this.label83);
             this.headerpanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.headerpanel.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.headerpanel.Location = new System.Drawing.Point(0, 0);
@@ -937,14 +899,11 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button button4;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         public System.Windows.Forms.TextBox txttickektsqty;
         public System.Windows.Forms.TextBox txttotalvalue;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.TextBox TxtLpNo;
-        private System.Windows.Forms.Label label82;
-        private System.Windows.Forms.Label label83;
         public System.Windows.Forms.TableLayoutPanel tblBids;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         public System.Windows.Forms.TableLayoutPanel tblbidsControl;
