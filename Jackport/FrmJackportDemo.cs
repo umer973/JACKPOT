@@ -480,7 +480,7 @@ namespace Jackport
                     p1.Tag = i + "" + c;
                     p1.TickeName = Convert.ToString(i + "" + c);
                     p1.Dock = DockStyle.Fill;
-                    p1.Margin = new Padding(1, 1, 3, 1);
+                    p1.Margin = new Padding(3, 2, 3, 2);
                     tblBids.Controls.Add(p1, c, i);
                 }
 
@@ -865,7 +865,7 @@ namespace Jackport
             }
         }
 
-     
+
         delegate void SetTextCallback(string text);
 
         private void SetText(string text)
@@ -887,7 +887,7 @@ namespace Jackport
             //LblTime.Text = appTime.tos;
         }
 
-       
+
 
 
 
@@ -1080,31 +1080,11 @@ namespace Jackport
         {
             // GenerateRondomTicketNumber();
 
-            GenerateLpNumber();
+
 
         }
 
-        public void GenerateLpNumber()
-        {
-            if (!string.IsNullOrEmpty(TxtLpNo.Text))
-            {
-                Random rnd = new Random();
-                int num = rnd.Next(0, 99);
 
-                foreach (UserInputControl ctr in flowLayoutPanel2.Controls)
-                {
-                    string Data = Convert.ToString(ctr.Tag);
-
-                    if (Data == Convert.ToString(num))
-                    {
-                        ctr.TickeQty = TxtLpNo.Text;
-                        break;
-                    }
-
-                }
-
-            }
-        }
 
         private void GenerateRondomTicketNumber()
         {
@@ -1266,8 +1246,8 @@ namespace Jackport
 
         private void flowLayoutPanel1_Scroll(object sender, ScrollEventArgs e)
         {
-            Application.DoEvents();
-            flowLayoutPanel2.HorizontalScroll.Value = 0;
+
+
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
@@ -1420,6 +1400,11 @@ namespace Jackport
         }
 
         private void tblControls_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pnlFooter_Paint(object sender, PaintEventArgs e)
         {
 
         }
