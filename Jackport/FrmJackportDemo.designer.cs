@@ -138,6 +138,7 @@
             // 
             // tblBids
             // 
+            this.tblBids.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tblBids.ColumnCount = 10;
             this.tblBids.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tblBids.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
@@ -169,9 +170,10 @@
             // 
             // tblbidsControl
             // 
+            this.tblbidsControl.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tblbidsControl.ColumnCount = 2;
-            this.tblbidsControl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tblbidsControl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tblbidsControl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblbidsControl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tblbidsControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblbidsControl.ForeColor = System.Drawing.Color.White;
             this.tblbidsControl.Location = new System.Drawing.Point(707, 3);
