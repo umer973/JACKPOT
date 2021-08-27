@@ -519,19 +519,11 @@ namespace Jackport.Helper
                 Offset = Offset + mediuminc;
                 //InsertItem("BARCODE     :  " + _ticket.ticket_barcode, "", Offset);
 
-                Offset = Offset + mediuminc;
-
                 Image image = GetImage();
-                e.Graphics.DrawImage(image, 10 + 50, 5 + Offset, 100, 30);
-
-
-                Offset = Offset + mediuminc + 20;
-
-                //DrawAtStart("STARTDIGIT: " + "2", Offset);
-                //Offset = Offset + mediuminc;
-                InsertHeaderStyleItem(UserAgent.CompanyName, "", Offset);
-
-                Offset = Offset + largeinc;
+                e.Graphics.DrawImage(image, 5, 5 + Offset, 50, 30);
+                Offset = Offset + mediuminc;
+                InsertHeaderStyleItem("                      " + UserAgent.CompanyName, "", Offset);
+                Offset = Offset + largeinc + 5;
                 //InsertItem("JACKPOT", "", Offset);
                 InsertHeaderStyleItem("JACKPOT STARTDIGIT RS : " + UserAgent.RS, "", Offset);
 
@@ -539,7 +531,8 @@ namespace Jackport.Helper
                 // DrawSimpleString("JACKPOT", minifont, Offset, 15);
 
                 Offset = Offset + mediuminc;
-                InsertHeaderStyleItem("Date : " + _bids.ticket_taken_time + "  Time :  " + CommonHelper.GetdateFormat(_bids.ticket_end_time).ToString(), "", Offset);
+                var date = _bids.ticket_taken_time.Split(' ');
+                InsertHeaderStyleItem("Date : " + date[0] + "  Time :  " + CommonHelper.GetdateFormat(_bids.ticket_end_time).ToString(), "", Offset);
 
 
 
@@ -663,7 +656,14 @@ namespace Jackport.Helper
 
                 InsertHeaderStyleItem("Qty: " + total + " RS." + total * 2 + "  " + CommonHelper.GetdateFormat(_bids.ticket_end_time).ToString(), "", Offset);
 
+                Offset = Offset + mediuminc + 10;
 
+                Image image1 = GetSignImage();
+                e.Graphics.DrawImage(image1, 12, Offset, 40, 30);
+
+                Offset = Offset + 5;
+
+                InsertHeaderStyleItem("                       " + UserAgent.PrinFooter, "", Offset);
 
                 //graphics.DrawString("Welcome to HOT AND CRISPY", smallfont,
                 //new SolidBrush(Color.Black), startX + 22, startY + Offset);
