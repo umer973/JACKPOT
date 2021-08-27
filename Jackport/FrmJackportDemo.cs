@@ -1415,5 +1415,10 @@ namespace Jackport
             tblSlots.VerticalScroll.Maximum = 0;
             // tblSlots.HorizontalScroll.Maximum = 0;
         }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

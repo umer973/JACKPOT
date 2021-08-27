@@ -44,7 +44,6 @@
             this.LabelName.Size = new System.Drawing.Size(27, 19);
             this.LabelName.TabIndex = 265;
             this.LabelName.Text = "00";
-            this.LabelName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // TxtQty
             // 

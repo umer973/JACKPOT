@@ -44,7 +44,6 @@
             this.label1.Size = new System.Drawing.Size(27, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "00";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // textBox1
             // 
