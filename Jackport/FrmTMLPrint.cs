@@ -37,7 +37,7 @@ namespace Jackport
                 report = clsService.GetReportSummary(dt1.ToString("yyyy-MM-dd"), (dt2.ToString("yyyy-MM-dd")));
 
                 lblAgentID.Text = UserAgent.AgentCode;
-                lblDate.Text = DateTime.Now.Day + "/" + DateTime.Now.Month + "/" + DateTime.Now.Year;
+                lblDate.Text = DateTime.Now.Day + "-" + DateTime.Now.Month + "-" + DateTime.Now.Year;
                 lblGrosssaleAmt.Text = report.gross_sales_amount;
                 lblnetsalesamt.Text = report.gross_sales_amount;
                 payoutamt.Text = report.payout_amount;
@@ -48,8 +48,8 @@ namespace Jackport
                 operatorbal.Text = report.operator_balance;
                 salesincentive.Text = report.sale_incentive;
                 payoutincentive.Text = report.PayoutIncentive;
-                lblfrom.Text = dtfrom.Text;
-                lblto.Text = dtTo.Text;
+                lblfrom.Text = dt1.ToString("dd-MM-yyyy");
+                lblto.Text = dt2.ToString("dd-MM-yyyy");
                 panel1.Visible = true;
                 BtnReprint.Enabled = true;
                 report.start_date = dtfrom.Text;

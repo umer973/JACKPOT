@@ -513,7 +513,7 @@ namespace Jackport
                     }
 
                     p1.Dock = DockStyle.Fill;
-                    p1.Margin = new Padding(5,3,3,3);
+                    p1.Margin = new Padding(3, 3, 3, 3);
                     p1.Tag = p1.TickeName;
                     tblbidsControl.Controls.Add(p1, c, i);
                 }
