@@ -742,6 +742,7 @@ namespace Jackport
             }
 
             txttickektsqty.Text = txttotalvalue.Text = "0";
+            TxtLpNo.Text = "";
 
         }
 
@@ -1092,48 +1093,50 @@ namespace Jackport
         {
             try
             {
-
-                if (TxtLpNo.Text != "")
+                if (CheckExisting())
                 {
-                    Random rnd = new Random();
-                    int n = Convert.ToInt32(TxtLpNo.Text);
-                    string[] intArr = new string[n];
-                    int i = 0;
-                    for (i = 0; i < intArr.Length; i++)
+                    if (TxtLpNo.Text != "")
                     {
-                        int num = rnd.Next(0, 100);
-                        string number = "";
-                        if (num.ToString().Length == 1)
+                        Random rnd = new Random();
+                        int n = Convert.ToInt32(TxtLpNo.Text);
+                        string[] intArr = new string[n];
+                        int i = 0;
+                        for (i = 0; i < intArr.Length; i++)
                         {
-                            number = "0" + num;
-
-                            intArr[i] = number;
-                        }
-                        else
-                        {
-                            intArr[i] = num.ToString();
-                        }
-
-
-                    }
-
-                    Array.Sort(intArr);
-                    for (int j = 0; j < intArr.Length; j++)
-                    {
-                        foreach (UserInputControl ctr in tblBids.Controls)
-                        {
-                            string Data = Convert.ToString(ctr.Tag);
-
-
-                            if (Data == Convert.ToString(intArr[j]))
+                            int num = rnd.Next(0, 100);
+                            string number = "";
+                            if (num.ToString().Length == 1)
                             {
-                                int qty = !string.IsNullOrEmpty(ctr.TickeQty) ? Convert.ToInt16(ctr.TickeQty) + 1 : 1;
-                                if (qty <= 99)
-                                    ctr.TickeQty = qty.ToString();
+                                number = "0" + num;
+
+                                intArr[i] = number;
+                            }
+                            else
+                            {
+                                intArr[i] = num.ToString();
+                            }
+
+
+                        }
+
+                        Array.Sort(intArr);
+                        for (int j = 0; j < intArr.Length; j++)
+                        {
+                            foreach (UserInputControl ctr in tblBids.Controls)
+                            {
+                                string Data = Convert.ToString(ctr.Tag);
+
+
+                                if (Data == Convert.ToString(intArr[j]))
+                                {
+                                    int qty = !string.IsNullOrEmpty(ctr.TickeQty) ? Convert.ToInt16(ctr.TickeQty) + 1 : 1;
+                                    if (qty <= 99)
+                                        ctr.TickeQty = qty.ToString();
+                                }
+
                             }
 
                         }
-
                     }
                 }
             }
@@ -1141,6 +1144,26 @@ namespace Jackport
             {
 
             }
+        }
+
+        private bool CheckExisting()
+        {
+            bool flag = true;
+            foreach (UserInputControl ctr in tblBids.Controls)
+            {
+
+                if (!string.IsNullOrEmpty(ctr.TickeQty) && Convert.ToInt16(ctr.TickeQty) > 0)
+                {
+                    flag = false;
+
+                    int qty = !string.IsNullOrEmpty(ctr.TickeQty) ? Convert.ToInt16(ctr.TickeQty) + 1 : 1;
+                    if (qty <= 99)
+                        ctr.TickeQty = qty.ToString();
+                }
+
+            }
+
+            return flag;
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
