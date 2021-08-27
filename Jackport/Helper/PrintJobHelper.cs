@@ -270,22 +270,23 @@ namespace Jackport.Helper
 
             //InsertItem("BARCODE     :  " + _ticket.ticket_barcode, "", Offset);
 
-            Offset = Offset + mediuminc;
+            Offset = Offset + mediuminc + 5;
 
             Image image = GetImage();
             e.Graphics.DrawImage(image, 5, 5 + Offset, 50, 30);
             Offset = Offset + mediuminc;
             InsertHeaderStyleItem("                      " + UserAgent.CompanyName, "", Offset);
             Offset = Offset + largeinc + 5;
-            InsertHeaderStyleItem("JACKPOT STARTDIGIT RS : " + UserAgent.RS, "", Offset);
+            InsertHeaderStyleItem("JACKPOT STARTDIGIT Rs. : " + UserAgent.RS, "", Offset);
 
             Offset = Offset + mediuminc;
-            InsertHeaderStyleItem("Date : " + _ticket.date_slot + "  Time :  " + CommonHelper.GetdateFormat(_ticket.time_end).ToString(), "", Offset);
+            InsertHeaderStyleItem("Date : " + SetDDMMYYFormat(_ticket.date_slot) + "  Time :  " + CommonHelper.GetdateFormat(_ticket.time_end).ToString(), "", Offset);
 
             int total = 0;
             string bids = string.Empty;
             int count = _ticket.bids.Count;
 
+            Offset = Offset + 5;
 
             for (int i = 0; i < _ticket.bids.Count;)
             {
@@ -457,7 +458,7 @@ namespace Jackport.Helper
 
             Offset = Offset + mediuminc;
 
-            InsertHeaderStyleItem("Qty: " + total + " RS. " + total * 2 + "  " + CommonHelper.GetdateFormat(_ticket.time_end).ToString(), "", Offset);
+            InsertHeaderStyleItem("Qty: " + total + " Rs. " + total * 2 + "  " + CommonHelper.GetdateFormat(_ticket.time_end).ToString(), "", Offset);
 
             Offset = Offset + mediuminc + 10;
 
@@ -508,7 +509,7 @@ namespace Jackport.Helper
 
 
 
-                Offset = Offset + largeinc + 10;
+                Offset = Offset + mediuminc;
 
                 String underLine = "-------------------------------------";
                 //DrawLine(underLine, largefont, Offset, 0);
@@ -516,27 +517,27 @@ namespace Jackport.Helper
                 //Offset = Offset + mediuminc;
                 InsertHeaderStyleItem(_bids.agent_code + "   " + _bids.ticket_barcode, "", Offset);
 
-                Offset = Offset + mediuminc;
+                Offset = Offset + mediuminc + 5;
                 //InsertItem("BARCODE     :  " + _ticket.ticket_barcode, "", Offset);
 
                 Image image = GetImage();
                 e.Graphics.DrawImage(image, 5, 5 + Offset, 50, 30);
                 Offset = Offset + mediuminc;
                 InsertHeaderStyleItem("                   " + UserAgent.CompanyName, "", Offset);
-                Offset = Offset + largeinc + 5;
+                Offset = Offset + largeinc + 10;
                 //InsertItem("JACKPOT", "", Offset);
                 InsertHeaderStyleItem("JACKPOT STARTDIGIT RS : " + UserAgent.RS, "", Offset);
 
 
                 // DrawSimpleString("JACKPOT", minifont, Offset, 15);
 
-                Offset = Offset + mediuminc;
-                var date = _bids.ticket_taken_time.Split(' ');
-                InsertHeaderStyleItem("Date : " + date[0] + "  Time :  " + CommonHelper.GetdateFormat(_bids.ticket_end_time).ToString(), "", Offset);
+                Offset = Offset + mediuminc + 5;
 
+                string exactdate = SetDDMMYYFormat(_bids.ticket_taken_time);
 
+                InsertHeaderStyleItem("Date : " + exactdate + "  Time :  " + CommonHelper.GetdateFormat(_bids.ticket_end_time).ToString(), "", Offset);
 
-                //InsertHeaderStyleItem("No - Qty", "", Offset);
+                Offset = Offset + 5;
 
 
                 int total = 0;
@@ -762,6 +763,13 @@ namespace Jackport.Helper
             }
         }
 
+        private static string SetDDMMYYFormat(string datetime)
+        {
+            var date = datetime.Split(' ');
+            var dateformat = date[0].Split('-');
+            return dateformat[2] + "-" + dateformat[1] + "-" + dateformat[0];
+        }
+
         private static void PrintCancelledTicket(object sender, PrintPageEventArgs e)
         {
             graphics = e.Graphics;
@@ -791,7 +799,7 @@ namespace Jackport.Helper
 
             Offset = Offset + mediuminc;
 
-            InsertHeaderStyleItem("Cancelled At       :  " + cticket.ticket_cancel_time, "", Offset);
+            InsertHeaderStyleItem("Cancelled At       :  " + SetDDMMYYFormat(cticket.ticket_cancel_time) + " " + CommonHelper.SetTimeFormat(cticket.ticket_cancel_time.Split(' ')[1]), "", Offset);
 
 
             //graphics.DrawString("Welcome to HOT AND CRISPY", smallfont,
@@ -900,35 +908,35 @@ namespace Jackport.Helper
 
             Offset = Offset + largeinc;
 
-            InsertHeaderStyleItem("Terminal ID     :" + _claimedticket.ticket_agent_code, "", Offset);
+            InsertHeaderStyleItem("Terminal ID:  " + _claimedticket.ticket_agent_code, "", Offset);
 
             Offset = Offset + mediuminc;
 
-            InsertHeaderStyleItem("Barcode No     :" + _claimedticket.ticket_barcode, "", Offset);
+            InsertHeaderStyleItem("Barcode No:  " + _claimedticket.ticket_barcode, "", Offset);
 
             Offset = Offset + mediuminc;
 
-            InsertHeaderStyleItem("Claimed Amt   :" + _claimedticket.ticket_win_customer, "", Offset);
+            InsertHeaderStyleItem("Claimed Amt:  " + _claimedticket.ticket_win_customer, "", Offset);
+
+            string date = SetDDMMYYFormat(_claimedticket.ticket_purchase_time);
+            Offset = Offset + mediuminc;
+            InsertHeaderStyleItem("Claimed Time:   " + date, "", Offset);
+
+            Offset = Offset + mediuminc;
+            InsertHeaderStyleItem("Win No:  " + _claimedticket.ticket_bid_number, "", Offset);
+
+            Offset = Offset + mediuminc;
+            InsertHeaderStyleItem("Qty:   " + _claimedticket.ticket_purchase_quantity, "", Offset);
 
 
             Offset = Offset + mediuminc;
-            InsertHeaderStyleItem("Claimed Time    :" + _claimedticket.ticket_purchase_time, "", Offset);
+            InsertHeaderStyleItem("Price:   " + _claimedticket.ticket_purchase_price, "", Offset);
 
             Offset = Offset + mediuminc;
-            InsertHeaderStyleItem("Win No    :" + _claimedticket.ticket_bid_number, "", Offset);
+            InsertHeaderStyleItem("Total:    " + _claimedticket.ticket_purchase_amount, "", Offset);
 
             Offset = Offset + mediuminc;
-            InsertHeaderStyleItem("Qty    :" + _claimedticket.ticket_purchase_quantity, "", Offset);
-
-
-            Offset = Offset + mediuminc;
-            InsertHeaderStyleItem("Price    :" + _claimedticket.ticket_purchase_price, "", Offset);
-
-            Offset = Offset + mediuminc;
-            InsertHeaderStyleItem("Total    :" + _claimedticket.ticket_purchase_amount, "", Offset);
-
-            Offset = Offset + mediuminc;
-            InsertHeaderStyleItem("Result End Tim    :" + _claimedticket.ticket_slot_end_time, "", Offset);
+            InsertHeaderStyleItem("Result End Tim:   " + CommonHelper.SetTimeFormat(_claimedticket.ticket_slot_end_time), "", Offset);
 
             Offset = Offset + largeinc;
             DrawLine(underLine, mediumfont, Offset, 0);

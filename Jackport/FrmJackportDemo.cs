@@ -55,6 +55,7 @@ namespace Jackport
             clsService = new ClsService();
 
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Size = this.ClientSize;
 
             CommonHelper.ReadXMlData();
 
