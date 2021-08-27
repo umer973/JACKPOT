@@ -456,7 +456,7 @@ namespace Jackport.Helper
                 //DrawAtStart(bids, Offset);
             }
 
-            Offset = Offset + mediuminc;
+            Offset = Offset + mediuminc + 5;
 
             InsertHeaderStyleItem("Qty: " + total + " Rs. " + total * 2 + "  " + CommonHelper.SetTimeFormat(_ticket.time_end).ToString(), "", Offset);
 
@@ -517,7 +517,7 @@ namespace Jackport.Helper
                 //Offset = Offset + mediuminc;
                 InsertHeaderStyleItem(_bids.agent_code + "   " + _bids.ticket_barcode, "", Offset);
 
-                Offset = Offset + mediuminc + 5;
+                Offset = Offset + mediuminc + 10;
                 //InsertItem("BARCODE     :  " + _ticket.ticket_barcode, "", Offset);
 
                 Image image = GetImage();
