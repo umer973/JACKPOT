@@ -1421,5 +1421,10 @@ namespace Jackport
         {
 
         }
+
+        private void tblBids_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -495,7 +495,7 @@
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(84, 130);
+            this.lblDate.Location = new System.Drawing.Point(84, 135);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(45, 19);
             this.lblDate.TabIndex = 4;
@@ -505,7 +505,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(23, 130);
+            this.label4.Location = new System.Drawing.Point(23, 134);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 19);
             this.label4.TabIndex = 3;
@@ -515,7 +515,7 @@
             // 
             this.lblAgentID.AutoSize = true;
             this.lblAgentID.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAgentID.Location = new System.Drawing.Point(84, 112);
+            this.lblAgentID.Location = new System.Drawing.Point(134, 113);
             this.lblAgentID.Name = "lblAgentID";
             this.lblAgentID.Size = new System.Drawing.Size(108, 19);
             this.lblAgentID.TabIndex = 2;
