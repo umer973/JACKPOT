@@ -522,7 +522,7 @@ namespace Jackport.Helper
                 Image image = GetImage();
                 e.Graphics.DrawImage(image, 5, 5 + Offset, 50, 30);
                 Offset = Offset + mediuminc;
-                InsertHeaderStyleItem("                      " + UserAgent.CompanyName, "", Offset);
+                InsertHeaderStyleItem("                   " + UserAgent.CompanyName, "", Offset);
                 Offset = Offset + largeinc + 5;
                 //InsertItem("JACKPOT", "", Offset);
                 InsertHeaderStyleItem("JACKPOT STARTDIGIT RS : " + UserAgent.RS, "", Offset);
