@@ -270,17 +270,17 @@ namespace Jackport.Helper
 
             //InsertItem("BARCODE     :  " + _ticket.ticket_barcode, "", Offset);
 
-            Offset = Offset + mediuminc + 5;
+            Offset = Offset + mediuminc + 10;
 
             Image image = GetImage();
             e.Graphics.DrawImage(image, 5, 5 + Offset, 50, 30);
             Offset = Offset + mediuminc;
             InsertHeaderStyleItem("                      " + UserAgent.CompanyName, "", Offset);
-            Offset = Offset + largeinc + 5;
-            InsertHeaderStyleItem("JACKPOT STARTDIGIT Rs. : " + UserAgent.RS, "", Offset);
+            Offset = Offset + largeinc + 10;
+            InsertHeaderStyleItem("JACKPOT STARTDIGIT Rs. " + UserAgent.RS, "", Offset);
 
-            Offset = Offset + mediuminc;
-            InsertHeaderStyleItem("Date : " + SetDDMMYYFormat(_ticket.date_slot) + "  Time :  " + CommonHelper.GetdateFormat(_ticket.time_end).ToString(), "", Offset);
+            Offset = Offset + mediuminc + 5;
+            InsertHeaderStyleItem("Date : " + SetDDMMYYFormat(_ticket.date_slot) + "  Time :  " + CommonHelper.SetTimeFormat(_ticket.time_end).ToString(), "", Offset);
 
             int total = 0;
             string bids = string.Empty;
@@ -458,7 +458,7 @@ namespace Jackport.Helper
 
             Offset = Offset + mediuminc;
 
-            InsertHeaderStyleItem("Qty: " + total + " Rs. " + total * 2 + "  " + CommonHelper.GetdateFormat(_ticket.time_end).ToString(), "", Offset);
+            InsertHeaderStyleItem("Qty: " + total + " Rs. " + total * 2 + "  " + CommonHelper.SetTimeFormat(_ticket.time_end).ToString(), "", Offset);
 
             Offset = Offset + mediuminc + 10;
 
