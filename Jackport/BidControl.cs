@@ -35,6 +35,14 @@ namespace Jackport
 
         }
 
+        public Color ConrolBackColor
+        {
+            get { return textBox1.BackColor; }
+            set { textBox1.BackColor = value; }
+
+
+        }
+
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&

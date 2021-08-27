@@ -500,13 +500,17 @@ namespace Jackport
                     p1.Tag = tag;
                     tag++;
                     if (c % 2 == 0)
+                    {
                         p1.TickeName = Convert.ToString("E" + (c + i));
+                        p1.ConrolBackColor = Color.LightPink;
+                    }
 
                     else
                     {
                         val = val + 9;
 
                         p1.TickeName = Convert.ToString(val2 + "-" + val);
+                        p1.ConrolBackColor = Color.LightBlue;
                         val++;
 
                         val2 = val2 + 10;
@@ -1213,14 +1217,14 @@ namespace Jackport
                 {
 
                     this.WindowState = FormWindowState.Normal;
-                    // this.FormBorderStyle = FormBorderStyle.None;
+                     this.FormBorderStyle = FormBorderStyle.None;
                     this.WindowState = FormWindowState.Maximized;
                     IsFullScreen = true;
                 }
                 else
                 {
                     this.WindowState = FormWindowState.Normal;
-                    // this.FormBorderStyle = FormBorderStyle.Fixed3D;
+                    this.FormBorderStyle = FormBorderStyle.Fixed3D;
                     this.WindowState = FormWindowState.Maximized;
                     IsFullScreen = false;
                 }
