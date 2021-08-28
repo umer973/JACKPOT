@@ -118,10 +118,10 @@
             this.tblLayout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tblLayout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(30)))), ((int)(((byte)(157)))));
             this.tblLayout.ColumnCount = 4;
-            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.3617F));
-            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.38298F));
-            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.297521F));
-            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 429F));
+            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 79.52489F));
+            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.70588F));
+            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.769231F));
+            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 485F));
             this.tblLayout.Controls.Add(this.tblBids, 0, 0);
             this.tblLayout.Controls.Add(this.tblSlots, 3, 0);
             this.tblLayout.Controls.Add(this.panel8, 2, 0);
@@ -174,7 +174,7 @@
             this.tblBids.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tblBids.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tblBids.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tblBids.Size = new System.Drawing.Size(699, 575);
+            this.tblBids.Size = new System.Drawing.Size(703, 575);
             this.tblBids.TabIndex = 549;
             this.tblBids.Paint += new System.Windows.Forms.PaintEventHandler(this.tblBids_Paint);
             // 
@@ -189,7 +189,7 @@
             this.TxtLpNo.MaxLength = 2;
             this.TxtLpNo.Multiline = true;
             this.TxtLpNo.Name = "TxtLpNo";
-            this.TxtLpNo.Size = new System.Drawing.Size(81, 32);
+            this.TxtLpNo.Size = new System.Drawing.Size(45, 32);
             this.TxtLpNo.TabIndex = 254;
             this.TxtLpNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -203,7 +203,7 @@
             this.button7.Location = new System.Drawing.Point(0, 537);
             this.button7.Name = "button7";
             this.button7.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
-            this.button7.Size = new System.Drawing.Size(81, 32);
+            this.button7.Size = new System.Drawing.Size(45, 32);
             this.button7.TabIndex = 547;
             this.button7.Text = "&LP";
             this.button7.UseVisualStyleBackColor = false;
@@ -220,11 +220,11 @@
             this.tblSlots.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tblSlots.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tblSlots.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblSlots.Location = new System.Drawing.Point(943, 3);
+            this.tblSlots.Location = new System.Drawing.Point(887, 3);
             this.tblSlots.Name = "tblSlots";
             this.tblSlots.RowCount = 1;
             this.tblSlots.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tblSlots.Size = new System.Drawing.Size(424, 569);
+            this.tblSlots.Size = new System.Drawing.Size(480, 569);
             this.tblSlots.TabIndex = 552;
             this.tblSlots.Scroll += new System.Windows.Forms.ScrollEventHandler(this.tblSlots_Scroll);
             // 
@@ -825,24 +825,24 @@
             // 
             // panel8
             // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(30)))), ((int)(((byte)(157)))));
             this.panel8.Controls.Add(this.button7);
             this.panel8.Controls.Add(this.TxtLpNo);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(856, 3);
+            this.panel8.Location = new System.Drawing.Point(836, 3);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(81, 569);
+            this.panel8.Size = new System.Drawing.Size(45, 569);
             this.panel8.TabIndex = 553;
             // 
             // tblbidsControl
             // 
-            this.tblbidsControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.tblbidsControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(30)))), ((int)(((byte)(157)))));
             this.tblbidsControl.ColumnCount = 2;
             this.tblbidsControl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tblbidsControl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tblbidsControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblbidsControl.ForeColor = System.Drawing.Color.White;
-            this.tblbidsControl.Location = new System.Drawing.Point(702, 3);
+            this.tblbidsControl.Location = new System.Drawing.Point(706, 3);
             this.tblbidsControl.Name = "tblbidsControl";
             this.tblbidsControl.RowCount = 10;
             this.tblbidsControl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
@@ -855,7 +855,7 @@
             this.tblbidsControl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tblbidsControl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tblbidsControl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tblbidsControl.Size = new System.Drawing.Size(148, 569);
+            this.tblbidsControl.Size = new System.Drawing.Size(124, 569);
             this.tblbidsControl.TabIndex = 554;
             // 
             // FrmJackportDemo

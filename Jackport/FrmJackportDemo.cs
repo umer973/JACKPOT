@@ -868,7 +868,11 @@ namespace Jackport
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                List<TimeSlot> timeSlot = await RefreshSlots();
+
+                IsSloverOver = IsSlotAvailable(timeSlot);
+
+                SetCurrentSlot(timeSlot);
             }
         }
 
@@ -1108,17 +1112,46 @@ namespace Jackport
                         for (i = 0; i < intArr.Length; i++)
                         {
                             int num = rnd.Next(0, 100);
-                            string number = "";
-                            if (num.ToString().Length == 1)
-                            {
-                                number = "0" + num;
 
-                                intArr[i] = number;
-                            }
-                            else
+
+
+                            for (int j = 0; j < intArr.Length; j++)
                             {
-                                intArr[i] = num.ToString();
+                                if (intArr[j] == num.ToString())
+                                {
+                                    num = rnd.Next(0, 99);
+
+                                    string number = "";
+                                    if (num.ToString().Length == 1)
+                                    {
+                                        number = "0" + num;
+
+                                        intArr[i] = number;
+                                    }
+                                    else
+                                    {
+                                        intArr[i] = num.ToString();
+                                    }
+
+
+
+                                }
+                                else
+                                {
+                                    string number = "";
+                                    if (num.ToString().Length == 1)
+                                    {
+                                        number = "0" + num;
+
+                                        intArr[i] = number;
+                                    }
+                                    else
+                                    {
+                                        intArr[i] = num.ToString();
+                                    }
+                                }
                             }
+
 
 
                         }
@@ -1133,9 +1166,9 @@ namespace Jackport
 
                                 if (Data == Convert.ToString(intArr[j]))
                                 {
-                                    int qty = !string.IsNullOrEmpty(ctr.TickeQty) ? Convert.ToInt16(ctr.TickeQty) + 1 : 1;
-                                    if (qty <= 99)
-                                        ctr.TickeQty = qty.ToString();
+                                    // int qty = !string.IsNullOrEmpty(ctr.TickeQty) ? Convert.ToInt16(ctr.TickeQty) + 1 : 1;
+                                    //if (qty <= 99)
+                                    ctr.TickeQty = "1";
                                 }
 
                             }
@@ -1198,14 +1231,7 @@ namespace Jackport
 
         private void FrmJackportDemo_KeyDown(object sender, KeyEventArgs e)
         {
-            //if (e.KeyCode == Keys.M)
-            //{
-            //    ClearBoard();
-            //}
-            //if (e.KeyCode == Keys.T)
-            //{
-            //    PurchaseTickets();
-            //}
+           
             if (e.KeyCode == Keys.F12)
             {
                 BuyTickets();
@@ -1217,7 +1243,7 @@ namespace Jackport
                 {
 
                     this.WindowState = FormWindowState.Normal;
-                     this.FormBorderStyle = FormBorderStyle.None;
+                    this.FormBorderStyle = FormBorderStyle.None;
                     this.WindowState = FormWindowState.Maximized;
                     IsFullScreen = true;
                 }
@@ -1240,15 +1266,29 @@ namespace Jackport
                 }
 
             }
-            //if (e.KeyCode == Keys.R)
-            //{
-            //    AllData();
-            //}sc
-            //if (e.KeyCode == Keys.S)
-            //{
-            //    GetReportSummary();
-            //}
+            if (e.KeyCode == Keys.R)
+            {
+                AllData();
+            }
+           
+            if (e.KeyCode == Keys.S)
+            {
+                GetReportSummary();
+            }
+            if (e.KeyCode == Keys.M)
+            {
+                ClearBoard();
+            }
+            if (e.KeyCode == Keys.T)
+            {
 
+                PurchaseTickets();
+            }
+            if (e.KeyCode == Keys.F12)
+            {
+
+                BuyTickets();
+            }
 
         }
         public bool ShowDialog()
