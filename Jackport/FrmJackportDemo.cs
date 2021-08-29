@@ -1111,36 +1111,54 @@ namespace Jackport
                         string[] intArr = new string[n];
                         int i = 0;
                         int count = 0;
-                        for (i = 0; i < intArr.Length; i++)
+                        if (intArr.Length == 99)
                         {
-                            int num = rnd.Next(0, 100);
 
-
-                            if (!randomList.Contains(num.ToString()))
+                            for (i = 0; i <= intArr.Length; i++)
                             {
-                                string number = "";
-                                if (num.ToString().Length == 1)
-                                {
-                                    number = "0" + num;
+                                int num = rnd.Next(0, 100);
 
-                                    randomList.Add(number);
+
+                                if (!randomList.Contains(num.ToString()))
+                                {
+
+                                    randomList.Add(num.ToString());
+
                                 }
                                 else
                                 {
-                                    randomList.Add(num.ToString());
+
+                                    i--;
+                                    count++;
                                 }
-
-
                             }
-                            else
+                        }
+                        else
+                        {
+                            for (i = 0; i < intArr.Length; i++)
                             {
+                                int num = rnd.Next(0, 100);
 
-                                i--;
-                                count++;
+
+                                if (!randomList.Contains(num.ToString()))
+                                {
+
+                                    randomList.Add(num.ToString());
+
+                                }
+                                else
+                                {
+
+                                    i--;
+                                    count++;
+                                }
                             }
+
                         }
 
 
+
+                        randomList.Sort();
 
                         for (int j = 0; j < randomList.Count; j++)
                         {
@@ -1148,12 +1166,13 @@ namespace Jackport
                             {
                                 string Data = Convert.ToString(ctr.Tag);
 
-
+                                if (randomList[j].Length == 1)
+                                    randomList[j] = "0" + randomList[j];
                                 if (Data == Convert.ToString(randomList[j]))
                                 {
                                     // int qty = !string.IsNullOrEmpty(ctr.TickeQty) ? Convert.ToInt16(ctr.TickeQty) + 1 : 1;
                                     //if (qty <= 99)
-                                   
+
 
                                     ctr.TickeQty = "1";
                                 }
@@ -1163,24 +1182,7 @@ namespace Jackport
                         }
 
 
-                        //foreach (UserInputControl ctr in tblBids.Controls)
-                        //{
-                        //    if (count > 0)
-                        //    {
-
-                        //        if (ctr.TickeQty.ToString() == "")
-                        //        {
-                        //            // int qty = !string.IsNullOrEmpty(ctr.TickeQty) ? Convert.ToInt16(ctr.TickeQty) + 1 : 1;
-                        //            //if (qty <= 99)
-                        //            ctr.TickeQty = "1";
-
-                        //        }
-                        //        count--;
-
-                        //    }
-
-
-                        //}
+                       
 
                     }
                 }
