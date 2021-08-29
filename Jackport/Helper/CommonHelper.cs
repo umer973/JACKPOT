@@ -124,40 +124,47 @@ namespace Jackport.Helper
 
         public static bool InsertDataIntoXML()
         {
+
             bool result = false;
 
-            DataSet ds = new DataSet();
-            DataTable dt = new DataTable();
-            ds.Clear();
-            CreateXmlFile();
-            ds.ReadXml(filePath);
-            int i = 0;
-            i = Convert.ToInt32(ds.Tables[0].Rows.Count) - 1;
-            dt.Columns.Add("PrinterName");
-            dt.Columns.Add("PaperSize");
-            dt.Columns.Add("Height");
-            dt.Columns.Add("Width");
-            dt.Columns.Add("IsDirectPrint");
-            dt.Columns.Add("ControlWidth");
-            dt.Columns.Add("ControlHeight");
-            dt.Columns.Add("ToolHeight");
-            dt.Columns.Add("ToolWidth");
-            dt.Rows.Add(dt.NewRow());
-            dt.Rows[i]["PrinterName"] = PrintJobSettings.PrinterName;
-            dt.Rows[i]["PaperSize"] = PrintJobSettings.PaperSize;
-            dt.Rows[i]["Height"] = PrintJobSettings.Height;
-            dt.Rows[i]["Width"] = PrintJobSettings.Width;
-            dt.Rows[i]["IsDirectPrint"] = PrintJobSettings.IsDirectPrint;
-            dt.Rows[i]["ControlWidth"] = PrintJobSettings.ControlWidth;
-            dt.Rows[i]["ControlHeight"] = PrintJobSettings.ControlHeight;
-            dt.Rows[i]["ToolHeight"] = PrintJobSettings.ToolHeight;
-            dt.Rows[i]["ToolWidth"] = PrintJobSettings.ToolWidth;
-            ds.Tables.Add(dt);
+            try
+            {
+
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+                ds.Clear();
+                CreateXmlFile();
+                ds.ReadXml(filePath);
+                int i = 0;
+                i = Convert.ToInt32(ds.Tables[0].Rows.Count) - 1;
+                dt.Columns.Add("PrinterName");
+                dt.Columns.Add("PaperSize");
+                dt.Columns.Add("Height");
+                dt.Columns.Add("Width");
+                dt.Columns.Add("IsDirectPrint");
+                dt.Columns.Add("ControlWidth");
+                dt.Columns.Add("ControlHeight");
+                dt.Columns.Add("ToolHeight");
+                dt.Columns.Add("ToolWidth");
+                dt.Rows.Add(dt.NewRow());
+                dt.Rows[i]["PrinterName"] = PrintJobSettings.PrinterName;
+                dt.Rows[i]["PaperSize"] = PrintJobSettings.PaperSize;
+                dt.Rows[i]["Height"] = PrintJobSettings.Height;
+                dt.Rows[i]["Width"] = PrintJobSettings.Width;
+                dt.Rows[i]["IsDirectPrint"] = PrintJobSettings.IsDirectPrint;
+                dt.Rows[i]["ControlWidth"] = PrintJobSettings.ControlWidth;
+                dt.Rows[i]["ControlHeight"] = PrintJobSettings.ControlHeight;
+                dt.Rows[i]["ToolHeight"] = PrintJobSettings.ToolHeight;
+                dt.Rows[i]["ToolWidth"] = PrintJobSettings.ToolWidth;
+                ds.Tables.Add(dt);
 
 
-            ds.WriteXml(filePath);
-            result = true;
+                ds.WriteXml(filePath);
+                result = true;
+            }
+            catch { }
             return result;
+
         }
     }
 }

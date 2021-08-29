@@ -254,7 +254,7 @@ namespace Jackport
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                //MessageBox.Show(ex.Message);
             }
 
         }
@@ -595,7 +595,7 @@ namespace Jackport
             }
         }
 
-        private async Task loadWinPrizes(List<TimeSlot> timeSlotList)
+        private void loadWinPrizes(List<TimeSlot> timeSlotList)
         {
             int i = 0;
 
@@ -726,11 +726,12 @@ namespace Jackport
 
         }
 
+        bool isNew = false;
         private async void timer1_Tick(object sender, EventArgs e)
         {
             try
             {
-                appTime = appTime.AddSeconds(1);
+                appTime = DateTime.Now;
 
                 int hh = appTime.Hour;
                 int mm = appTime.Minute;
@@ -797,7 +798,7 @@ namespace Jackport
 
                         SetCurrentSlot(timeSlot);
 
-                        await loadWinPrizes(timeSlot);
+                        loadWinPrizes(timeSlot);
                     }
                     else
                     {
@@ -816,13 +817,27 @@ namespace Jackport
 
                         SetCurrentSlot(timeSlot);
 
-                        await loadWinPrizes(timeSlot);
+                        loadWinPrizes(timeSlot);
 
                         FrmWinPrice ObjWinPrice = new FrmWinPrice(winticket.win_number, winticket.time_end);
                         ObjWinPrice.ShowDialog();
 
 
 
+                    }
+                    else
+                    {
+                        if (!isNew)
+                        {
+                            List<TimeSlot> timeSlot = await RefreshSlots();
+
+                            IsSloverOver = IsSlotAvailable(timeSlot);
+
+                            SetCurrentSlot(timeSlot);
+
+                            loadWinPrizes(timeSlot);
+                            isNew = true;
+                        }
                     }
                 }
                 else
@@ -838,7 +853,7 @@ namespace Jackport
                     SetCurrentSlot(timeSlot);
 
                     if (IsSloverOver == false)
-                        await loadWinPrizes(timeSlot);
+                        loadWinPrizes(timeSlot);
                 }
 
             }

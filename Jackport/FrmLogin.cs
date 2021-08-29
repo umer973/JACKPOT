@@ -27,15 +27,28 @@ namespace Jackport
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (CheckTimeZone())
+
+                Login();
+            else
+                MessageBox.Show("Please set Indian Standard Time Zone");
 
 
-            Login();
+        }
 
+        private bool CheckTimeZone()
+        {
+            TimeZone curTimeZone = TimeZone.CurrentTimeZone;
+            if (curTimeZone.StandardName == "India Standard Time")
+                return true;
+            return false;
 
         }
 
         private void Login()
         {
+
+
             Cursor.Current = Cursors.WaitCursor;
             ClsService clsService = new ClsService();
             LoginData data = new LoginData();
@@ -48,10 +61,15 @@ namespace Jackport
 
                 if (data != null)
                 {
-                    FrmJackportDemo obj = new FrmJackportDemo(data);
+                    if (CheckServerDate(data.ApplicationDetails.app_date, data.ApplicationDetails.app_time))
+                    {
+                        FrmJackportDemo obj = new FrmJackportDemo(data);
+                    }
+                    else
+                        MessageBox.Show("Set System Date Time First");
 
-                   
-                   // obj.Show();
+
+                    // obj.Show();
 
 
                 }
@@ -63,6 +81,29 @@ namespace Jackport
 
             Cursor.Current = Cursors.Default;
             this.Hide();
+
+        }
+
+        private bool CheckServerDate(string appdate, string apptime)
+        {
+            DateTime systemDate = DateTime.Now;
+
+            var differ = DateTime.Compare(Convert.ToDateTime(appdate), systemDate.Date);
+
+            string systime = systemDate.Hour.ToString();
+            string sysmin = systemDate.Minute.ToString();
+            string apphour = Convert.ToDateTime(apptime).Hour.ToString();
+            string appMin = Convert.ToDateTime(apptime).Minute.ToString();
+
+            var time = Convert.ToInt16(systime) - Convert.ToInt16(apphour);
+
+            var mins = Convert.ToInt16(sysmin) - Convert.ToInt16(appMin);
+
+            if (differ == 0 && time == 0 && mins < 2)
+                return true;
+            return false;
+
+
 
         }
 

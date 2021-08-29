@@ -83,15 +83,23 @@ namespace Jackport
 
         private void TxtQty_TextChanged(object sender, EventArgs e)
         {
-            if (TxtQty.Text != "")
+            if (TxtQty.Text != "" && TxtQty.Text != "\r\n")
                 TxtQty.BackColor = Color.Green;
             else
+            {
                 TxtQty.BackColor = Color.White;
+                TxtQty.Text = "";
+            }
         }
 
         private void TxtQty_KeyUp(object sender, KeyEventArgs e)
         {
-            int tab = Convert.ToInt16(LabelName.Text)+1;
+            if (TxtQty.Text != "" && TxtQty.Text != "\r\n")
+                TxtQty.BackColor = Color.Green;
+            else
+                TxtQty.BackColor = Color.White;
+
+            int tab = Convert.ToInt16(LabelName.Text) + 1;
             int[] up = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             //int[] left  = { 1, 11, 21, 31, 41, 51, 61, 71, 81, 91 };
             //int[] right  = { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
@@ -101,7 +109,7 @@ namespace Jackport
             if (e.KeyCode == Keys.Right)
             {
                 //if (!right.Contains(tab))
-                    if (tab != 100)
+                if (tab != 100)
                     SendKeys.Send("{TAB}");
             }
             if (e.KeyCode == Keys.Left)
@@ -112,12 +120,12 @@ namespace Jackport
                 //TxtQty.Text = "1";
                 //TxtQty.Focus();
                 //if (!left.Contains(tab)) 
-                    if (tab != 1)
+                if (tab != 1)
                     SendKeys.Send("+{TAB}");
             }
             if (e.KeyCode == Keys.Up)
             {
-                if(!up.Contains(tab))
+                if (!up.Contains(tab))
                     for (int i = 0; i < 10; i++)
                     {
                         if (tab != 1)
@@ -133,7 +141,8 @@ namespace Jackport
                             SendKeys.Send("{TAB}");
                     }
             }
-            GetTotalCount();
+            if (e.KeyCode != Keys.Enter)
+                GetTotalCount();
         }
 
         private void GetTotalCount()
@@ -146,7 +155,7 @@ namespace Jackport
                 foreach (UserInputControl ctr in _frm.tblBids.Controls)
                 {
 
-                    if (!string.IsNullOrEmpty(ctr.TickeQty) && Convert.ToInt32(ctr.TickeQty) > 0)
+                    if (!string.IsNullOrEmpty(ctr.TickeQty) && ctr.TickeQty != "\r\n" && Convert.ToInt32(ctr.TickeQty) > 0)
                     {
 
                         quantity = quantity + Convert.ToInt16(ctr.TickeQty);
