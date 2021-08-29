@@ -72,6 +72,10 @@ namespace Jackport
 
             this.ResumeLayout();
 
+
+            Padding p = new Padding(0, 0, SystemInformation.VerticalScrollBarWidth, 0);
+            tblLayout.Padding = p;
+
             //  SetLayout();
 
 
@@ -1106,7 +1110,7 @@ namespace Jackport
         {
             try
             {
-                
+
 
                 ClearBids();
 
