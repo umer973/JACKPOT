@@ -54,6 +54,7 @@ namespace Jackport
             objLogin.Hide();
             clsService = new ClsService();
 
+            this.SuspendLayout();
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Size = this.ClientSize;
 
@@ -68,6 +69,8 @@ namespace Jackport
             ;
 
             this.Show();
+
+            this.ResumeLayout();
 
             //  SetLayout();
 
@@ -279,6 +282,8 @@ namespace Jackport
             IsSloverOver = IsSlotAvailable(data.TimeSlots);
 
             loadWinPrizes(timeSlots);
+
+            ScrollDown();
 
             RunTimer();
 
@@ -1101,94 +1106,106 @@ namespace Jackport
         {
             try
             {
-                if (CheckExisting())
+                
+
+                ClearBids();
+
+                if (TxtLpNo.Text != "")
                 {
-                    if (TxtLpNo.Text != "")
+                    Random rnd = new Random();
+                    List<string> randomList = new List<string>();
+                    int n = Convert.ToInt32(TxtLpNo.Text);
+                    string[] intArr = new string[n];
+                    int i = 0;
+                    int count = 0;
+                    if (intArr.Length == 99)
                     {
-                        Random rnd = new Random();
-                        List<string> randomList = new List<string>();
-                        int n = Convert.ToInt32(TxtLpNo.Text);
-                        string[] intArr = new string[n];
-                        int i = 0;
-                        int count = 0;
-                        if (intArr.Length == 99)
+
+                        for (i = 0; i <= intArr.Length; i++)
                         {
+                            int num = rnd.Next(0, 100);
 
-                            for (i = 0; i <= intArr.Length; i++)
+
+                            if (!randomList.Contains(num.ToString()))
                             {
-                                int num = rnd.Next(0, 100);
 
-
-                                if (!randomList.Contains(num.ToString()))
-                                {
-
-                                    randomList.Add(num.ToString());
-
-                                }
-                                else
-                                {
-
-                                    i--;
-                                    count++;
-                                }
-                            }
-                        }
-                        else
-                        {
-                            for (i = 0; i < intArr.Length; i++)
-                            {
-                                int num = rnd.Next(0, 100);
-
-
-                                if (!randomList.Contains(num.ToString()))
-                                {
-
-                                    randomList.Add(num.ToString());
-
-                                }
-                                else
-                                {
-
-                                    i--;
-                                    count++;
-                                }
-                            }
-
-                        }
-
-
-
-                        randomList.Sort();
-
-                        for (int j = 0; j < randomList.Count; j++)
-                        {
-                            foreach (UserInputControl ctr in tblBids.Controls)
-                            {
-                                string Data = Convert.ToString(ctr.Tag);
-
-                                if (randomList[j].Length == 1)
-                                    randomList[j] = "0" + randomList[j];
-                                if (Data == Convert.ToString(randomList[j]))
-                                {
-                                    // int qty = !string.IsNullOrEmpty(ctr.TickeQty) ? Convert.ToInt16(ctr.TickeQty) + 1 : 1;
-                                    //if (qty <= 99)
-
-
-                                    ctr.TickeQty = "1";
-                                }
+                                randomList.Add(num.ToString());
 
                             }
+                            else
+                            {
 
+                                i--;
+                                count++;
+                            }
                         }
+                    }
+                    else
+                    {
+                        for (i = 0; i < intArr.Length; i++)
+                        {
+                            int num = rnd.Next(0, 100);
 
 
-                       
+                            if (!randomList.Contains(num.ToString()))
+                            {
+
+                                randomList.Add(num.ToString());
+
+                            }
+                            else
+                            {
+
+                                i--;
+                                count++;
+                            }
+                        }
 
                     }
+
+
+
+                    randomList.Sort();
+
+                    for (int j = 0; j < randomList.Count; j++)
+                    {
+                        foreach (UserInputControl ctr in tblBids.Controls)
+                        {
+                            string Data = Convert.ToString(ctr.Tag);
+
+                            if (randomList[j].Length == 1)
+                                randomList[j] = "0" + randomList[j];
+                            if (Data == Convert.ToString(randomList[j]))
+                            {
+                                // int qty = !string.IsNullOrEmpty(ctr.TickeQty) ? Convert.ToInt16(ctr.TickeQty) + 1 : 1;
+                                //if (qty <= 99)
+
+
+                                ctr.TickeQty = "1";
+                            }
+
+                        }
+
+                    }
+
+
+
+
                 }
             }
+
             catch (Exception ex)
             {
+
+            }
+        }
+
+        private void ClearBids()
+        {
+            foreach (UserInputControl ctr in tblBids.Controls)
+            {
+                ctr.TickeQty = "";
+
 
             }
         }
@@ -1249,6 +1266,7 @@ namespace Jackport
 
             if (e.KeyCode == Keys.F11)
             {
+                this.SuspendLayout();
                 if (!IsFullScreen)
                 {
 
@@ -1264,6 +1282,8 @@ namespace Jackport
                     this.WindowState = FormWindowState.Maximized;
                     IsFullScreen = false;
                 }
+
+                this.ResumeLayout();
 
             }
             if (e.KeyCode == Keys.Escape)
@@ -1523,6 +1543,53 @@ namespace Jackport
             {
                 e.Handled = true;
             }
+        }
+
+        private void FrmJackportDemo_Resize(object sender, EventArgs e)
+        {
+            //this.SuspendDrawing();
+            //  base.OnResize(e);
+            // this.ResumeDrawing();
+            base.OnResizeBegin(e);
+        }
+
+        protected override void OnResizeBegin(EventArgs e)
+        {
+            //this.SuspendDrawing();
+            base.OnResizeBegin(e);
+        }
+
+        protected override void OnResizeEnd(EventArgs e)
+        {
+            base.OnResizeEnd(e);
+            //this.ResumeDrawing();
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            //this.SuspendDrawing();
+            base.OnClosing(e);
+            // this.ResumeDrawing();
+        }
+
+        private void tblLayout_SizeChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmJackportDemo_ResizeBegin(object sender, EventArgs e)
+        {
+            this.SuspendLayout();
+        }
+
+        private void FrmJackportDemo_ResizeEnd(object sender, EventArgs e)
+        {
+            this.ResumeLayout();
+        }
+
+        private void FrmJackportDemo_SizeChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

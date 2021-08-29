@@ -80,7 +80,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.tblbidsControl = new System.Windows.Forms.TableLayoutPanel();
             this.panel4.SuspendLayout();
@@ -115,7 +114,6 @@
             // 
             // tblLayout
             // 
-            this.tblLayout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tblLayout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(30)))), ((int)(((byte)(157)))));
             this.tblLayout.ColumnCount = 4;
             this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 79.52489F));
@@ -145,6 +143,7 @@
             this.tblLayout.Size = new System.Drawing.Size(1370, 575);
             this.tblLayout.TabIndex = 550;
             this.tblLayout.Visible = false;
+            this.tblLayout.SizeChanged += new System.EventHandler(this.tblLayout_SizeChanged);
             // 
             // tblBids
             // 
@@ -213,6 +212,8 @@
             // tblSlots
             // 
             this.tblSlots.AutoScroll = true;
+            this.tblSlots.AutoSize = true;
+            this.tblSlots.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tblSlots.BackColor = System.Drawing.Color.White;
             this.tblSlots.ColumnCount = 5;
             this.tblSlots.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -394,6 +395,8 @@
             // 
             // tblHeader
             // 
+            this.tblHeader.AutoSize = true;
+            this.tblHeader.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tblHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(46)))), ((int)(((byte)(81)))));
             this.tblHeader.ColumnCount = 5;
             this.tblHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.22222F));
@@ -401,7 +404,6 @@
             this.tblHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.72049F));
             this.tblHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.2553F));
             this.tblHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 253F));
-            this.tblHeader.Controls.Add(this.panel7, 3, 0);
             this.tblHeader.Controls.Add(this.panel1, 0, 0);
             this.tblHeader.Controls.Add(this.panel6, 4, 0);
             this.tblHeader.Controls.Add(this.LblCompanyName, 2, 0);
@@ -817,13 +819,6 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // panel7
-            // 
-            this.panel7.Location = new System.Drawing.Point(922, 3);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(122, 37);
-            this.panel7.TabIndex = 255;
-            // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(30)))), ((int)(((byte)(157)))));
@@ -863,28 +858,32 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.pnlFooter);
             this.Controls.Add(this.headerpanel);
             this.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.Name = "FrmJackportDemo";
             this.Text = "JACKPORT";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmJackportDemo_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmJackportDemo_FormClosed);
             this.Load += new System.EventHandler(this.FrmJackport_Load);
+            this.ResizeBegin += new System.EventHandler(this.FrmJackportDemo_ResizeBegin);
+            this.ResizeEnd += new System.EventHandler(this.FrmJackportDemo_ResizeEnd);
+            this.SizeChanged += new System.EventHandler(this.FrmJackportDemo_SizeChanged);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmJackportDemo_KeyDown);
+            this.Resize += new System.EventHandler(this.FrmJackportDemo_Resize);
             this.panel4.ResumeLayout(false);
             this.tblLayout.ResumeLayout(false);
+            this.tblLayout.PerformLayout();
             this.pnlFooter.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.headerpanel.ResumeLayout(false);
+            this.headerpanel.PerformLayout();
             this.tblHeader.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -954,7 +953,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tblSlots;
-        private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.TableLayoutPanel tblbidsControl;
     }
