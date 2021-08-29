@@ -1106,74 +1106,82 @@ namespace Jackport
                     if (TxtLpNo.Text != "")
                     {
                         Random rnd = new Random();
+                        List<string> randomList = new List<string>();
                         int n = Convert.ToInt32(TxtLpNo.Text);
                         string[] intArr = new string[n];
                         int i = 0;
+                        int count = 0;
                         for (i = 0; i < intArr.Length; i++)
                         {
                             int num = rnd.Next(0, 100);
 
 
-
-                            for (int j = 0; j < intArr.Length; j++)
+                            if (!randomList.Contains(num.ToString()))
                             {
-                                if (intArr[j] == num.ToString())
+                                string number = "";
+                                if (num.ToString().Length == 1)
                                 {
-                                    num = rnd.Next(0, 99);
+                                    number = "0" + num;
 
-                                    string number = "";
-                                    if (num.ToString().Length == 1)
-                                    {
-                                        number = "0" + num;
-
-                                        intArr[i] = number;
-                                    }
-                                    else
-                                    {
-                                        intArr[i] = num.ToString();
-                                    }
-
-
-
+                                    randomList.Add(number);
                                 }
                                 else
                                 {
-                                    string number = "";
-                                    if (num.ToString().Length == 1)
-                                    {
-                                        number = "0" + num;
-
-                                        intArr[i] = number;
-                                    }
-                                    else
-                                    {
-                                        intArr[i] = num.ToString();
-                                    }
+                                    randomList.Add(num.ToString());
                                 }
+
+
                             }
+                            else
+                            {
 
-
-
+                                i--;
+                                count++;
+                            }
                         }
 
-                        Array.Sort(intArr);
-                        for (int j = 0; j < intArr.Length; j++)
+
+
+                        for (int j = 0; j < randomList.Count; j++)
                         {
                             foreach (UserInputControl ctr in tblBids.Controls)
                             {
                                 string Data = Convert.ToString(ctr.Tag);
 
 
-                                if (Data == Convert.ToString(intArr[j]))
+                                if (Data == Convert.ToString(randomList[j]))
                                 {
                                     // int qty = !string.IsNullOrEmpty(ctr.TickeQty) ? Convert.ToInt16(ctr.TickeQty) + 1 : 1;
                                     //if (qty <= 99)
+                                   
+
                                     ctr.TickeQty = "1";
                                 }
 
                             }
 
                         }
+
+
+                        //foreach (UserInputControl ctr in tblBids.Controls)
+                        //{
+                        //    if (count > 0)
+                        //    {
+
+                        //        if (ctr.TickeQty.ToString() == "")
+                        //        {
+                        //            // int qty = !string.IsNullOrEmpty(ctr.TickeQty) ? Convert.ToInt16(ctr.TickeQty) + 1 : 1;
+                        //            //if (qty <= 99)
+                        //            ctr.TickeQty = "1";
+
+                        //        }
+                        //        count--;
+
+                        //    }
+
+
+                        //}
+
                     }
                 }
             }
@@ -1231,7 +1239,7 @@ namespace Jackport
 
         private void FrmJackportDemo_KeyDown(object sender, KeyEventArgs e)
         {
-           
+
             if (e.KeyCode == Keys.F12)
             {
                 BuyTickets();
@@ -1270,7 +1278,7 @@ namespace Jackport
             {
                 AllData();
             }
-           
+
             if (e.KeyCode == Keys.S)
             {
                 GetReportSummary();
@@ -1288,6 +1296,12 @@ namespace Jackport
             {
 
                 BuyTickets();
+            }
+
+            if (e.KeyCode == Keys.L)
+            {
+
+                GenerateRondomTicketNumber();
             }
 
         }
@@ -1492,6 +1506,21 @@ namespace Jackport
         private void tblBids_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void TxtLpNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+       (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

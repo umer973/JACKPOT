@@ -192,6 +192,7 @@
             this.TxtLpNo.Size = new System.Drawing.Size(45, 32);
             this.TxtLpNo.TabIndex = 254;
             this.TxtLpNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtLpNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtLpNo_KeyPress);
             // 
             // button7
             // 

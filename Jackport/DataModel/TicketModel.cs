@@ -86,5 +86,11 @@ namespace Jackport.DataModel
         public BidDetail data { get; set; }
     }
 
+    public class RandomList
+    {
+        public int Index { get; set; }
+        public string Number { get; set; }
+    }
+
 
 }
