@@ -54,12 +54,13 @@ namespace Jackport
             objLogin.Hide();
             clsService = new ClsService();
 
-            this.SuspendLayout();
+            ;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Size = this.ClientSize;
 
             CommonHelper.ReadXMlData();
 
+            //this.SuspendLayout();
             LoadTickets();
 
             //LoadEvents();
@@ -70,11 +71,9 @@ namespace Jackport
 
             this.Show();
 
-            this.ResumeLayout();
+            // this.ResumeLayout();
 
 
-            Padding p = new Padding(0, 0, SystemInformation.VerticalScrollBarWidth, 0);
-            tblLayout.Padding = p;
 
             //  SetLayout();
 
@@ -1583,17 +1582,42 @@ namespace Jackport
 
         private void FrmJackportDemo_ResizeBegin(object sender, EventArgs e)
         {
-            this.SuspendLayout();
+            ///this.SuspendLayout();
         }
 
         private void FrmJackportDemo_ResizeEnd(object sender, EventArgs e)
         {
-            this.ResumeLayout();
+            //this.ResumeLayout();
         }
 
         private void FrmJackportDemo_SizeChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void TxtLpNo_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(TxtLpNo.Text))
+            {
+                int num = Convert.ToInt16(TxtLpNo.Text);
+                int val = 0;
+                if (e.KeyCode == Keys.Up)
+                {
+                    if (Convert.ToInt16(TxtLpNo.Text) < 99)
+                    {
+                        val = num + 1;
+                        TxtLpNo.Text = val.ToString();
+                    }
+                }
+                if (e.KeyCode == Keys.Down)
+                {
+                    if (Convert.ToInt16(TxtLpNo.Text) > 1)
+                    {
+                        val = num - 1;
+                        TxtLpNo.Text = val.ToString();
+                    }
+                }
+            }
         }
     }
 }
