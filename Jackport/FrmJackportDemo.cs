@@ -479,7 +479,7 @@ namespace Jackport
 
             tblBids.Visible = false;
 
-
+            int tabIndex = 0;
             for (int i = 0; i < 10; i++)
             {
 
@@ -490,6 +490,8 @@ namespace Jackport
                     p1.TickeName = Convert.ToString(i + "" + c);
                     p1.Dock = DockStyle.Fill;
                     p1.Margin = new Padding(3, 3, 3, 3);
+                    p1.Tab = tabIndex;
+                    tabIndex++;
                     tblBids.Controls.Add(p1, c, i);
                 }
 
@@ -697,7 +699,7 @@ namespace Jackport
             }
         }
 
-    
+
 
         private void button2_Click(object sender, EventArgs e)
         {

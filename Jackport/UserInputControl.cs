@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Jackport
 {
     public partial class UserInputControl : UserControl
     {
         FrmJackportDemo _frm;
+        Control ctr;
 
         public UserInputControl(FrmJackportDemo frm)
         {
@@ -54,6 +56,14 @@ namespace Jackport
 
         }
 
+        public int Tab
+        {
+            get { return TxtQty.TabIndex; }
+            set { TxtQty.TabIndex = value; }
+
+
+        }
+
         private void TxtQty_KeyPress(object sender, KeyPressEventArgs e)
         {
 
@@ -81,7 +91,48 @@ namespace Jackport
 
         private void TxtQty_KeyUp(object sender, KeyEventArgs e)
         {
+            int tab = Convert.ToInt16(LabelName.Text)+1;
+            int[] up = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            //int[] left  = { 1, 11, 21, 31, 41, 51, 61, 71, 81, 91 };
+            //int[] right  = { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
+            int[] down = { 91, 32, 93, 94, 95, 96, 97, 98, 99, 100 };
 
+
+            if (e.KeyCode == Keys.Right)
+            {
+                //if (!right.Contains(tab))
+                    if (tab != 100)
+                    SendKeys.Send("{TAB}");
+            }
+            if (e.KeyCode == Keys.Left)
+            {
+                //int c = Convert.ToInt16(LabelName.Text) - 1;
+                //int pos = c - 1;
+                //TxtQty.TabIndex = pos;
+                //TxtQty.Text = "1";
+                //TxtQty.Focus();
+                //if (!left.Contains(tab)) 
+                    if (tab != 1)
+                    SendKeys.Send("+{TAB}");
+            }
+            if (e.KeyCode == Keys.Up)
+            {
+                if(!up.Contains(tab))
+                    for (int i = 0; i < 10; i++)
+                    {
+                        if (tab != 1)
+                            SendKeys.Send("+{TAB}");
+                    }
+            }
+            if (e.KeyCode == Keys.Down)
+            {
+                if (!down.Contains(tab))
+                    for (int i = 0; i < 10; i++)
+                    {
+                        if (tab != 99)
+                            SendKeys.Send("{TAB}");
+                    }
+            }
             GetTotalCount();
         }
 
@@ -110,7 +161,7 @@ namespace Jackport
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                // MessageBox.Show(ex.Message);
             }
         }
     }
