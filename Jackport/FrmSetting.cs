@@ -31,11 +31,7 @@ namespace Jackport
             PrintJobSettings.Height = Convert.ToInt16(txtheight.Text);
             PrintJobSettings.Width = Convert.ToInt16(txtwidth.Text);
             PrintJobSettings.PaperSize = txtpapersize.Text;
-            PrintJobSettings.ControlHeight = Convert.ToInt16(txtxtrheight.Text);
-            PrintJobSettings.ControlWidth = Convert.ToInt16(txtctrwidth.Text);
-            PrintJobSettings.ToolHeight = Convert.ToInt16(txttoolheight.Text);
-            PrintJobSettings.ToolWidth = Convert.ToInt16(txttoolwidth.Text);
-
+          
 
             var result = CommonHelper.InsertDataIntoXML();
             if (result)
@@ -61,10 +57,7 @@ namespace Jackport
                 txtheight.Text = PrintJobSettings.Height.ToString();
                 chkdirectprint.Checked = PrintJobSettings.IsDirectPrint;
                 txtpapersize.Text = PrintJobSettings.PaperSize;
-                txtctrwidth.Text = PrintJobSettings.ControlWidth.ToString();
-                txtxtrheight.Text = PrintJobSettings.ControlHeight.ToString();
-                txttoolheight.Text = PrintJobSettings.ToolHeight.ToString();
-                txttoolwidth.Text = PrintJobSettings.ToolWidth.ToString();
+              
             }
             catch { }
         }

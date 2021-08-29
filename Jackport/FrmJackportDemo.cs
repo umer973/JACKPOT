@@ -697,41 +697,7 @@ namespace Jackport
             }
         }
 
-        private void Print(List<TimeSlotList> list)
-        {
-            //throw new NotImplementedException();
-            ReportDocument cRep = new ReportDocument();
-
-            //cRep.Load(Application.StartupPath + "/Report/DsPurchase/CryPurchaseTicket.rpt");
-            cRep.Load("E:/Live Project/JackPot-master/Jackport/Jackport/Report/DsPurchase/CryPurchaseTicket.rpt");
-            // CRPT.Wholesale.Challan.DsChallan.DsChallan ObjDsPo = new CRPT.Wholesale.Challan.DsChallan.DsChallan();
-            Report.DsPurchase.DsPurchase ObjDsPo = new Report.DsPurchase.DsPurchase();
-            DataTable dt = new DataTable();
-
-            dt.Columns.Add("date_slot");
-            dt.Columns.Add("time_start");
-            dt.Columns.Add("time_end");
-            dt.Columns.Add("win_number");
-            foreach (var item in list)
-            {
-                dt.Rows.Add(item.date_slot, item.time_start, item.time_end, item.slot_id);
-            }
-            cRep.SetDataSource(dt);
-            // crptViwerprintInvoice.ReportSource = cRep;
-            //try
-            //{
-            //    Popup objpop;
-            //    PnlPrintInvoice.Visible = true;
-            //    objpop = new Popup("Purchase Ticket");
-            //    objpop.StartPosition = FormStartPosition.CenterScreen;
-            //    objpop.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            //    objpop.ShowDialog();
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.ToString());
-            //}
-        }
+    
 
         private void button2_Click(object sender, EventArgs e)
         {

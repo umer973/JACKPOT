@@ -189,16 +189,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Report\DsPurchase\DsPurchase.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DsPurchase.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Report\DsReportSummery\DsReportSummery.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DsReportSummery.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Security\Popup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -328,30 +318,6 @@
     <None Include="Resources\navbar21.png" />
     <None Include="Resources\navbar2.png" />
     <None Include="Resources\header.png" />
-    <None Include="Report\DsPurchase\CryPurchaseTicket.rpt" />
-    <None Include="Report\DsPurchase\DsPurchase.xsc">
-      <DependentUpon>DsPurchase.xsd</DependentUpon>
-    </None>
-    <None Include="Report\DsPurchase\DsPurchase.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DsPurchase.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Report\DsPurchase\DsPurchase.xss">
-      <DependentUpon>DsPurchase.xsd</DependentUpon>
-    </None>
-    <None Include="Report\DsReportSummery\CryReportSummery.rpt" />
-    <None Include="Report\DsReportSummery\DsReportSummery.xsc">
-      <DependentUpon>DsReportSummery.xsd</DependentUpon>
-    </None>
-    <None Include="Report\DsReportSummery\DsReportSummery.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DsReportSummery.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Report\DsReportSummery\DsReportSummery.xss">
-      <DependentUpon>DsReportSummery.xsd</DependentUpon>
-    </None>
     <None Include="Resources\1_QiE4-0MPslYPvx2Fit1NIQ.jpeg" />
     <None Include="Resources\images.jpg" />
     <None Include="Resources\84049517-progressive-jackpot-casino-gambling-games-banner-template-big-win.jpg" />
