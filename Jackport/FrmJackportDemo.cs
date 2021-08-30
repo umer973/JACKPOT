@@ -822,7 +822,7 @@ namespace Jackport
                     {
                         LblCountDown1.Text = "00:00:00";
 
-
+                        timer1.Stop();
                         //  MessageBox.Show("Time Slot ");
 
                         var winticket = new WinTicket();
@@ -841,7 +841,7 @@ namespace Jackport
 
                         await loadWinPrizes(timeSlot);  // Update Slots
 
-                        timer1.Stop();
+                      
 
                         FrmShowWinPrize win = new FrmShowWinPrize(winticket.win_number, winticket.time_end);
                         win.ShowDialog();
@@ -1508,11 +1508,10 @@ namespace Jackport
         private void button4_Click_3(object sender, EventArgs e)
         {
             FrmSetting setting = new FrmSetting();
-            //  setting.ShowDialog();
+            setting.ShowDialog();
 
 
-            FrmWinPrice ObjWinPrice = new FrmWinPrice("12", endtime);
-            ObjWinPrice.Show();
+           
         }
 
         private void FrmJackportDemo_FormClosed(object sender, FormClosedEventArgs e)

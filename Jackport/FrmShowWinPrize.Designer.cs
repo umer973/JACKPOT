@@ -53,8 +53,8 @@
             this.lblWinNumber.AutoSize = true;
             this.lblWinNumber.BackColor = System.Drawing.Color.Transparent;
             this.lblWinNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWinNumber.ForeColor = System.Drawing.Color.Green;
-            this.lblWinNumber.Location = new System.Drawing.Point(583, 192);
+            this.lblWinNumber.ForeColor = System.Drawing.Color.White;
+            this.lblWinNumber.Location = new System.Drawing.Point(592, 259);
             this.lblWinNumber.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblWinNumber.Name = "lblWinNumber";
             this.lblWinNumber.Size = new System.Drawing.Size(153, 108);
@@ -64,7 +64,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.BackColor = System.Drawing.Color.PaleGreen;
+            this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(46)))), ((int)(((byte)(81)))));
             this.groupBox3.Controls.Add(this.lblDrawtime);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.lblWinNumber);
@@ -82,8 +82,8 @@
             // 
             this.lblDrawtime.AutoSize = true;
             this.lblDrawtime.Font = new System.Drawing.Font("Consolas", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDrawtime.ForeColor = System.Drawing.Color.Red;
-            this.lblDrawtime.Location = new System.Drawing.Point(674, 50);
+            this.lblDrawtime.ForeColor = System.Drawing.Color.White;
+            this.lblDrawtime.Location = new System.Drawing.Point(696, 50);
             this.lblDrawtime.Name = "lblDrawtime";
             this.lblDrawtime.Size = new System.Drawing.Size(175, 34);
             this.lblDrawtime.TabIndex = 4;
@@ -96,9 +96,9 @@
             this.label1.ForeColor = System.Drawing.Color.Red;
             this.label1.Location = new System.Drawing.Point(477, 50);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(175, 34);
+            this.label1.Size = new System.Drawing.Size(223, 34);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Draw Time ";
+            this.label1.Text = "Draw Time  : ";
             // 
             // FrmShowWinPrize
             // 
@@ -110,6 +110,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmShowWinPrize";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmShowWinPrize_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();

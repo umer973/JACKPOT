@@ -27,7 +27,7 @@ namespace Jackport
             winprize = win;
             lblDrawtime.Text = lblDrawtime.Text = CommonHelper.SetTimeFormat(drawtime);
 
-            
+
         }
 
         private void FrmShowWinPrize_Load(object sender, EventArgs e)
