@@ -1401,10 +1401,12 @@ namespace Jackport
                 if (!string.IsNullOrEmpty(txtTSN.Text.Trim()))
                 {
                     ClaimTicket(txtTSN.Text.Trim());
+                    txtTSN.Text = "";
                 }
                 else
                 {
                     MessageBox.Show("Please eneter ticket barcode..");
+                    txtTSN.Text = "";
                 }
             }
         }
@@ -1417,7 +1419,7 @@ namespace Jackport
             ticket = clsservice.ClaimTicket(UserAgent.AgenToken, barcode);
             if (ticket != null)
             {
-                this.Hide();
+               
                 MessageBox.Show("Ticket Claim Successfully");
                 PrintJobHelper.PrintClaimedTicket(ticket);
             }
@@ -1517,12 +1519,15 @@ namespace Jackport
         private void FrmJackportDemo_FormClosed(object sender, FormClosedEventArgs e)
         {
             timer1.Stop();
+            this.Dispose();
+            
 
         }
 
         private void FrmJackportDemo_FormClosing(object sender, FormClosingEventArgs e)
         {
             timer1.Stop();
+            this.Dispose();
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

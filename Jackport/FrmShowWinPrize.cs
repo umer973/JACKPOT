@@ -64,7 +64,7 @@ namespace Jackport
             {
 
                 timer1.Stop();
-
+                this.Dispose();
                 this.Hide();
             }
 
