@@ -830,8 +830,8 @@ namespace Jackport
                         winticket = clsService.GetWinTickets(Convert.ToInt16(slotdId));
 
 
-                        FrmWinPrice ObjWinPrice = new FrmWinPrice(winticket.win_number, winticket.time_end);
-                        ObjWinPrice.Show();
+                        //FrmWinPrice ObjWinPrice = new FrmWinPrice(winticket.win_number, winticket.time_end);
+                        //ObjWinPrice.Show();
 
                         List<TimeSlot> timeSlot = await RefreshSlots();
 
@@ -840,6 +840,13 @@ namespace Jackport
                         SetCurrentSlot(timeSlot);
 
                         await loadWinPrizes(timeSlot);  // Update Slots
+
+                        timer1.Stop();
+
+                        FrmShowWinPrize win = new FrmShowWinPrize(winticket.win_number, winticket.time_end);
+                        win.ShowDialog();
+
+                        timer1.Start();
 
 
 
