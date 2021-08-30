@@ -22,11 +22,11 @@ namespace Jackport.Helper
         private static PrintDocument printDocument;
         private static TicketDetail _claimedticket;
         private static Graphics graphics;
-        private static Image Logo;
+       
         private static PrintPreviewDialog p = new PrintPreviewDialog();
 
 
-        private static int InitialHeight = 360;
+     
 
         //static PrintJobHelper()
         //{
@@ -128,7 +128,9 @@ namespace Jackport.Helper
             }
             catch (Exception ex)
             {
-
+                p.Hide();
+                p.Dispose();
+               
             }
 
         }
@@ -468,7 +470,7 @@ namespace Jackport.Helper
 
                 Offset = Offset + mediuminc + 5;
 
-                InsertHeaderStyleItem("Qty: " + total + " Rs." + total * 2 + "  " + CommonHelper.SetTimeFormat(_ticket.time_end).ToString(), "", Offset);
+                InsertHeaderStyleItem("Qty: " + total + " Rs." + total * 2 + "  " + CommonHelper.SetTimeFormat(_ticket.purchase_time.Split(' ')[1]), "", Offset);
 
                 Offset = Offset + mediuminc + 10;
 

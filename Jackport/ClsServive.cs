@@ -315,42 +315,41 @@ namespace Jackport
         }
 
 
-        public async Task<List<TimeSlot>> GetUpdatedSlots()
+        public List<TimeSlot> GetUpdatedSlots()
         {
             var slots = new List<TimeSlot>();
-            await Task.Run(() =>
+
+            var client = new RestClient("https://api.welcomejk.com/v1/tickets/refresh-slots");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("APP-KEY", "e76d8c85-979c-411a-89f6-f1dfe0dfa041");
+            request.AddHeader("AGENT-TOKEN", UserAgent.AgenToken);
+            request.AddHeader("MACHINE-ID", deviceId);
+            IRestResponse response = client.Execute(request);
+            var result = JsonConvert.DeserializeObject<UpdatedSlots>(response.Content);
+            if (result.success)
             {
-                var client = new RestClient("https://api.welcomejk.com/v1/tickets/refresh-slots");
-                client.Timeout = -1;
-                var request = new RestRequest(Method.GET);
-                request.AddHeader("APP-KEY", "e76d8c85-979c-411a-89f6-f1dfe0dfa041");
-                request.AddHeader("AGENT-TOKEN", UserAgent.AgenToken);
-                request.AddHeader("MACHINE-ID", deviceId);
-                IRestResponse response = client.Execute(request);
-                var result = JsonConvert.DeserializeObject<UpdatedSlots>(response.Content);
-                if (result.success)
+                return slots = result.data.Select(x => new TimeSlot
                 {
-                    return slots = result.data.Select(x => new TimeSlot
-                    {
-                        date_slot = x.date_slot,
-                        time_end = x.time_end,
-                        slot_over = x.slot_over,
-                        slot_id = x.slot_id,
-                        win_number = x.win_number != null ? x.win_number.ToString() : ""
+                    date_slot = x.date_slot,
+                    time_end = x.time_end,
+                    slot_over = x.slot_over,
+                    slot_id = x.slot_id,
+                    win_number = x.win_number != null ? x.win_number.ToString() : ""
 
 
 
-                    }).ToList();
-                 
+                }).ToList();
 
-                }
-                else
-                {
-                    return null;
-                }
-            });
 
-            return slots;
+            }
+            else
+            {
+                return null;
+            }
+
+
+
 
         }
 

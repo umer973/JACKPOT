@@ -119,7 +119,7 @@
             this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 79.52489F));
             this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.70588F));
             this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.769231F));
-            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 492F));
+            this.tblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 494F));
             this.tblLayout.Controls.Add(this.tblBids, 0, 0);
             this.tblLayout.Controls.Add(this.tblSlots, 3, 0);
             this.tblLayout.Controls.Add(this.panel8, 2, 0);
@@ -173,7 +173,7 @@
             this.tblBids.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tblBids.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tblBids.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tblBids.Size = new System.Drawing.Size(688, 563);
+            this.tblBids.Size = new System.Drawing.Size(687, 563);
             this.tblBids.TabIndex = 549;
             this.tblBids.Paint += new System.Windows.Forms.PaintEventHandler(this.tblBids_Paint);
             // 
@@ -188,11 +188,11 @@
             this.tblSlots.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tblSlots.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tblSlots.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblSlots.Location = new System.Drawing.Point(867, 3);
+            this.tblSlots.Location = new System.Drawing.Point(866, 3);
             this.tblSlots.Name = "tblSlots";
             this.tblSlots.RowCount = 1;
             this.tblSlots.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tblSlots.Size = new System.Drawing.Size(488, 557);
+            this.tblSlots.Size = new System.Drawing.Size(489, 557);
             this.tblSlots.TabIndex = 552;
             this.tblSlots.Scroll += new System.Windows.Forms.ScrollEventHandler(this.tblSlots_Scroll);
             // 
@@ -202,7 +202,7 @@
             this.panel8.Controls.Add(this.button7);
             this.panel8.Controls.Add(this.TxtLpNo);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(818, 3);
+            this.panel8.Location = new System.Drawing.Point(817, 3);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(43, 557);
             this.panel8.TabIndex = 553;
@@ -248,7 +248,7 @@
             this.tblbidsControl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tblbidsControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblbidsControl.ForeColor = System.Drawing.Color.White;
-            this.tblbidsControl.Location = new System.Drawing.Point(691, 3);
+            this.tblbidsControl.Location = new System.Drawing.Point(690, 3);
             this.tblbidsControl.Name = "tblbidsControl";
             this.tblbidsControl.RowCount = 10;
             this.tblbidsControl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.694794F));
@@ -866,7 +866,7 @@
             this.Text = "JACKPORT";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmJackportDemo_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmJackportDemo_FormClosed);
-            this.Load += new System.EventHandler(this.FrmJackport_Load);
+           
             this.ResizeBegin += new System.EventHandler(this.FrmJackportDemo_ResizeBegin);
             this.ResizeEnd += new System.EventHandler(this.FrmJackportDemo_ResizeEnd);
             this.SizeChanged += new System.EventHandler(this.FrmJackportDemo_SizeChanged);

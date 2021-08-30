@@ -294,7 +294,7 @@ namespace Jackport.DataModel
     public class TicketBoxes : Control
     {
         public string TicketNo { get; set; }
-        public string Tag { get; set; }
+      
     }
 
 

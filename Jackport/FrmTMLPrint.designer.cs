@@ -708,7 +708,7 @@
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label37;
-        private CrystalDecisions.Windows.Forms.CrystalReportViewer crptViwerprintInvoice;
+      
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label28;

@@ -67,8 +67,6 @@
       <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -173,12 +171,6 @@
     <Compile Include="FrmWinPrice.Designer.cs">
       <DependentUpon>FrmWinPrice.cs</DependentUpon>
     </Compile>
-    <Compile Include="GameBoardV1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GameBoardV1.Designer.cs">
-      <DependentUpon>GameBoardV1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Helper\CommonHelper.cs" />
     <Compile Include="Helper\PrintJobHelper.cs" />
     <Compile Include="ListValueControl.cs">
@@ -257,9 +249,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmWinPrice.resx">
       <DependentUpon>FrmWinPrice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GameBoardV1.resx">
-      <DependentUpon>GameBoardV1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListValueControl.resx">
       <DependentUpon>ListValueControl.cs</DependentUpon>

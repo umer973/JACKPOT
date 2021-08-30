@@ -44,7 +44,7 @@ namespace Jackport
                     //dataGridView1.Rows[index].Cells[7].Value = "NA";
                 }
             }
-            catch (Exception ex)
+            catch 
             {
 
             }

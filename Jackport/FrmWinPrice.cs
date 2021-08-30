@@ -15,7 +15,7 @@ namespace Jackport
     {
         public string winPrize;
         int count = 60;
-        int val = 0;
+       
         public bool flag = false;
         string win = "00";
         public FrmWinPrice(string _winPrize, string drawtime)

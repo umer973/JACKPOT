@@ -67,91 +67,18 @@ namespace Jackport
 
             LoadData(_data);
 
-            ;
-
             this.Show();
 
-            // this.ResumeLayout();
-
-
-
-            //  SetLayout();
-
-
+            
 
 
         }
 
-        //private void LoadEvents()
-        //{
-        //    TxtE0.KeyPress += ValidateKeyPress;
-        //    TxtE2.KeyPress += ValidateKeyPress;
-        //    TxtE1.KeyPress += ValidateKeyPress;
-        //    TxtE3.KeyPress += ValidateKeyPress;
-        //    TxtE4.KeyPress += ValidateKeyPress;
-        //    TxtE5.KeyPress += ValidateKeyPress;
-        //    TxtE7.KeyPress += ValidateKeyPress;
-        //    TxtE8.KeyPress += ValidateKeyPress;
-        //    TxtE9.KeyPress += ValidateKeyPress;
-        //    Txt0009.KeyPress += ValidateKeyPress;
-        //    Txt1019.KeyPress += ValidateKeyPress;
-        //    Txt2029.KeyPress += ValidateKeyPress;
-        //    Txt3031.KeyPress += ValidateKeyPress;
-        //    Txt4049.KeyPress += ValidateKeyPress;
-        //    Txt5051.KeyPress += ValidateKeyPress;
-        //    Txt5051.KeyPress += ValidateKeyPress;
-        //    Txt7079.KeyPress += ValidateKeyPress;
-        //    Txt8089.KeyPress += ValidateKeyPress;
-        //    TxtLpNo.KeyPress += ValidateKeyPress;
-        //    txttotalvalue.KeyPress += ValidateKeyPress;
-        //    textBox6.KeyPress += ValidateKeyPress;
-        //    textBox5.KeyPress += ValidateKeyPress;
-        //    Txt9099.KeyPress += ValidateKeyPress;
-        //    txttickektsqty.KeyPress += ValidateKeyPress;
-        //    TxtE0.KeyUp += OnKeyUp;
-        //    TxtE0.KeyUp += OnKeyUp;
-        //    TxtE2.KeyUp += OnKeyUp;
-        //    TxtE1.KeyUp += OnKeyUp;
-        //    TxtE3.KeyUp += OnKeyUp;
-        //    TxtE4.KeyUp += OnKeyUp;
-        //    TxtE5.KeyUp += OnKeyUp;
-        //    TxtE7.KeyUp += OnKeyUp;
-        //    TxtE8.KeyUp += OnKeyUp;
-        //    TxtE9.KeyUp += OnKeyUp;
-        //    Txt0009.KeyUp += OnKeyUp;
-        //    Txt1019.KeyUp += OnKeyUp;
-        //    Txt2029.KeyUp += OnKeyUp;
-        //    Txt3031.KeyUp += OnKeyUp;
-        //    Txt4049.KeyUp += OnKeyUp;
-        //    Txt5051.KeyUp += OnKeyUp;
-        //    Txt5051.KeyUp += OnKeyUp;
-        //    Txt7079.KeyUp += OnKeyUp;
-        //    Txt8089.KeyUp += OnKeyUp;
-        //    textBox6.KeyUp += OnKeyUp;
-        //    textBox5.KeyUp += OnKeyUp;
-        //    Txt9099.KeyUp += OnKeyUp;
-
-        //}
+      
 
 
 
-        private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
-        {
-
-        }
-
-        private void backgroundWorker1_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
-        {
-
-        }
-
-        public void FrmJackport_Load(object sender, EventArgs e)
-        {
-
-            // await LoadData();
-
-
-        }
+        
 
 
 
@@ -595,7 +522,7 @@ namespace Jackport
             }
         }
 
-        private async Task loadWinPrizes(List<TimeSlot> timeSlotList)
+        private void loadWinPrizes(List<TimeSlot> timeSlotList)
         {
             int i = 0;
 
@@ -729,7 +656,7 @@ namespace Jackport
         }
 
         bool isNew = false;
-        private async void timer1_Tick(object sender, EventArgs e)
+        private  void timer1_Tick(object sender, EventArgs e)
         {
             try
             {
@@ -805,13 +732,13 @@ namespace Jackport
                         LblCountDown1.Text = "00:00:00";
                         LblCountDown1.Text = "00:00:00";
 
-                        List<TimeSlot> timeSlot = await RefreshSlots();
+                        List<TimeSlot> timeSlot =  RefreshSlots();
 
                         IsSloverOver = IsSlotAvailable(timeSlot);
 
                         SetCurrentSlot(timeSlot);
 
-                        await loadWinPrizes(timeSlot);
+                         loadWinPrizes(timeSlot);
                     }
                     else
                     {
@@ -833,13 +760,13 @@ namespace Jackport
                         //FrmWinPrice ObjWinPrice = new FrmWinPrice(winticket.win_number, winticket.time_end);
                         //ObjWinPrice.Show();
 
-                        List<TimeSlot> timeSlot = await RefreshSlots();
+                        List<TimeSlot> timeSlot =  RefreshSlots();
 
                         IsSloverOver = IsSlotAvailable(timeSlot);
 
                         SetCurrentSlot(timeSlot);
 
-                        await loadWinPrizes(timeSlot);  // Update Slots
+                        loadWinPrizes(timeSlot);  // Update Slots
 
                       
 
@@ -863,13 +790,13 @@ namespace Jackport
                     {
                         if (!isNew)
                         {
-                            List<TimeSlot> timeSlot = await RefreshSlots();
+                            List<TimeSlot> timeSlot =  RefreshSlots();
 
                             IsSloverOver = IsSlotAvailable(timeSlot);
 
                             SetCurrentSlot(timeSlot);
 
-                            await loadWinPrizes(timeSlot);
+                             loadWinPrizes(timeSlot);
                             isNew = true;
                         }
                     }
@@ -878,7 +805,7 @@ namespace Jackport
                 {
                     LblCountDown1.Text = "00:00:00";
 
-                    List<TimeSlot> timeSlot = await RefreshSlots();
+                    List<TimeSlot> timeSlot =  RefreshSlots();
 
                     IsSloverOver = IsSlotAvailable(timeSlot);
 
@@ -887,13 +814,13 @@ namespace Jackport
                     SetCurrentSlot(timeSlot);
 
                     if (IsSloverOver == false)
-                        await loadWinPrizes(timeSlot);
+                         loadWinPrizes(timeSlot);
                 }
 
             }
             catch (Exception ex)
             {
-                List<TimeSlot> timeSlot = await RefreshSlots();
+                List<TimeSlot> timeSlot =  RefreshSlots();
 
                 IsSloverOver = IsSlotAvailable(timeSlot);
 
@@ -942,11 +869,11 @@ namespace Jackport
 
 
 
-        private async Task<List<TimeSlot>> RefreshSlots()
+        private  List<TimeSlot> RefreshSlots()
         {
 
 
-            List<TimeSlot> timeSlots = await clsService.GetUpdatedSlots();
+            List<TimeSlot> timeSlots =  clsService.GetUpdatedSlots();
 
             return timeSlots;
 
@@ -1486,10 +1413,8 @@ namespace Jackport
 
         private void button4_Click_1(object sender, EventArgs e)
         {
-            GameBoardV1 obj = new GameBoardV1();
-            this.Hide();
-            obj.Show();
-
+           
+        
         }
 
         private void panel1_Paint_1(object sender, PaintEventArgs e)

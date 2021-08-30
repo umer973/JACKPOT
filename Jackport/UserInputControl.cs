@@ -14,7 +14,7 @@ namespace Jackport
     public partial class UserInputControl : UserControl
     {
         FrmJackportDemo _frm;
-        Control ctr;
+       
 
         public UserInputControl(FrmJackportDemo frm)
         {

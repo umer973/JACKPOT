@@ -15,9 +15,9 @@ namespace Jackport
 {
     public partial class FrmJackport : Form
     {
-        List<ListValueControl> products;
 
-        ClsService clsService;
+
+        public ClsService clsService;
         public string agentToken;
         public string slotdId;
         public string ticketNo;
@@ -29,7 +29,7 @@ namespace Jackport
 
         public FrmJackport()
         {
-            
+
 
 
         }
@@ -477,9 +477,9 @@ namespace Jackport
         private void button3_Click(object sender, EventArgs e)
         {
             var txt = new TextBox();
-            for(int i=0;i<100;i++)
+            for (int i = 0; i < 100; i++)
             {
-                MessageBox.Show(txt.Text+""+i.ToString());
+                MessageBox.Show(txt.Text + "" + i.ToString());
             }
             var bids = new Bid
             {
@@ -495,7 +495,7 @@ namespace Jackport
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void Txt6_TextChanged(object sender, EventArgs e)

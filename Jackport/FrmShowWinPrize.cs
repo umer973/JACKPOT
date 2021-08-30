@@ -16,7 +16,7 @@ namespace Jackport
         public string winprize = "";
         Timer timer1 = new Timer();
         int count = 60;
-        int val = 0;
+       
         public bool flag = false;
         string win = "00";
         public FrmShowWinPrize(string win, string drawtime)
@@ -25,6 +25,7 @@ namespace Jackport
             InitializeComponent();
 
             winprize = win;
+            lblWinNumber.Text = winprize;
             lblDrawtime.Text = lblDrawtime.Text = CommonHelper.SetTimeFormat(drawtime);
 
 
