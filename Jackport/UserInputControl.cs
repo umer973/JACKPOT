@@ -66,7 +66,11 @@ namespace Jackport
 
         private void TxtQty_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            if (TxtQty.Text.Contains(".") || TxtQty.Text == "0")
+            {
+                TxtQty.Text = "";
+                return;
+            }
 
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
           (e.KeyChar != '.'))
@@ -94,6 +98,13 @@ namespace Jackport
 
         private void TxtQty_KeyUp(object sender, KeyEventArgs e)
         {
+
+            if (TxtQty.Text.Contains(".") || TxtQty.Text == "0")
+            {
+                TxtQty.Text = "";
+                return;
+            }
+
             if (TxtQty.Text != "" && TxtQty.Text != "\r\n")
                 TxtQty.BackColor = Color.Green;
             else

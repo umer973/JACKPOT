@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jackport.Helper;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,12 +16,14 @@ namespace Jackport
         public string winPrize;
         int count = 60;
         int val = 0;
+        public bool flag = false;
         string win = "00";
         public FrmWinPrice(string _winPrize, string drawtime)
         {
             InitializeComponent();
             winPrize = _winPrize;
-            lblDrawtime.Text = drawtime;
+            lblDrawtime.Text =CommonHelper.SetTimeFormat(drawtime);
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -42,7 +45,7 @@ namespace Jackport
         private void timer1_Tick(object sender, EventArgs e)
         {
             count--;
-
+            
             if (count >= 30)
             {
                 win = SpinNumbers();
@@ -60,6 +63,7 @@ namespace Jackport
             {
 
                 timer1.Stop();
+               
                 this.Hide();
             }
 

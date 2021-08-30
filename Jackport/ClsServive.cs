@@ -58,7 +58,7 @@ namespace Jackport
             try
             {
 
-                var client = new RestClient("https://www.api.welcomejk.com/v1/logins/do");
+                var client = new RestClient("https://api.welcomejk.com/v1/logins/do");
                 client.Timeout = -1;
                 var request = new RestRequest(Method.POST);
                 request.AddHeader("APP-KEY", "e76d8c85-979c-411a-89f6-f1dfe0dfa041");
@@ -86,7 +86,7 @@ namespace Jackport
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occured please try again or contact service provider!");
+                MessageBox.Show(ex.Message);
             }
             return null;
 
@@ -341,6 +341,7 @@ namespace Jackport
 
 
                     }).ToList();
+                 
 
                 }
                 else

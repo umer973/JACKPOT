@@ -60,6 +60,12 @@ namespace Jackport
 
         private void textBox1_KeyUp(object sender, KeyEventArgs e)
         {
+            if (textBox1.Text.Contains(".") || textBox1.Text == "")
+            {
+                textBox1.Text = "";
+                return;
+            }
+
             GetValues();
             GetTotalCount();
 

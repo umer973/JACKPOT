@@ -286,7 +286,7 @@ namespace Jackport
 
             loadWinPrizes(timeSlots);
 
-            ScrollDown();
+
 
             RunTimer();
 
@@ -595,7 +595,7 @@ namespace Jackport
             }
         }
 
-        private void loadWinPrizes(List<TimeSlot> timeSlotList)
+        private async Task loadWinPrizes(List<TimeSlot> timeSlotList)
         {
             int i = 0;
 
@@ -627,6 +627,8 @@ namespace Jackport
 
 
             ScrollDown();
+
+
         }
 
 
@@ -782,7 +784,18 @@ namespace Jackport
 
                 string leftTime = string.Format("{0}:{1}:{2}", datediff.Hours.ToString().PadLeft(2, '0'), datediff.Minutes.ToString().PadLeft(2, '0'), datediff.Seconds.ToString().PadLeft(2, '0'));
 
-                var remainintime = DateTime.Compare(Convert.ToDateTime(endtime), appTime);
+
+                var systime = DateTime.Now.Hour + ":" + DateTime.Now.Minute + ":00";
+
+                var remainintime = 1;
+                //var remainintime = DateTime.Compare(Convert.ToDateTime(endtime), Convert.ToDateTime(systime));
+                if (Convert.ToDateTime(endtime).Hour == DateTime.Now.Hour && (Convert.ToDateTime(endtime).Minute == DateTime.Now.Minute) && (Convert.ToDateTime(endtime).Second == DateTime.Now.Second))
+                {
+                    remainintime = 0;
+                }
+
+
+
 
                 if (IsSloverOver == false)
                 {
@@ -798,7 +811,7 @@ namespace Jackport
 
                         SetCurrentSlot(timeSlot);
 
-                        loadWinPrizes(timeSlot);
+                        await loadWinPrizes(timeSlot);
                     }
                     else
                     {
@@ -807,9 +820,18 @@ namespace Jackport
 
                     if (remainintime == 0)
                     {
+                        LblCountDown1.Text = "00:00:00";
+
+
+                        //  MessageBox.Show("Time Slot ");
+
                         var winticket = new WinTicket();
                         ClsService clsService = new ClsService();
                         winticket = clsService.GetWinTickets(Convert.ToInt16(slotdId));
+
+
+                        FrmWinPrice ObjWinPrice = new FrmWinPrice(winticket.win_number, winticket.time_end);
+                        ObjWinPrice.Show();
 
                         List<TimeSlot> timeSlot = await RefreshSlots();
 
@@ -817,10 +839,15 @@ namespace Jackport
 
                         SetCurrentSlot(timeSlot);
 
-                        loadWinPrizes(timeSlot);
+                        await loadWinPrizes(timeSlot);  // Update Slots
 
-                        FrmWinPrice ObjWinPrice = new FrmWinPrice(winticket.win_number, winticket.time_end);
-                        ObjWinPrice.ShowDialog();
+
+
+
+
+
+
+
 
 
 
@@ -835,7 +862,7 @@ namespace Jackport
 
                             SetCurrentSlot(timeSlot);
 
-                            loadWinPrizes(timeSlot);
+                            await loadWinPrizes(timeSlot);
                             isNew = true;
                         }
                     }
@@ -853,7 +880,7 @@ namespace Jackport
                     SetCurrentSlot(timeSlot);
 
                     if (IsSloverOver == false)
-                        loadWinPrizes(timeSlot);
+                        await loadWinPrizes(timeSlot);
                 }
 
             }
@@ -867,6 +894,20 @@ namespace Jackport
             }
         }
 
+        private void ShowWinDialog(string win)
+        {
+            Panel winpanel = new Panel();
+            winpanel.Size = new Size(800, 400);
+
+            Label lblwin = new Label();
+            lblwin.Text = win;
+
+
+
+            this.Controls.Add(winpanel);
+            winpanel.Controls.Add(lblwin);
+
+        }
 
         delegate void SetTextCallback(string text);
 
@@ -1460,7 +1501,11 @@ namespace Jackport
         private void button4_Click_3(object sender, EventArgs e)
         {
             FrmSetting setting = new FrmSetting();
-            setting.ShowDialog();
+            //  setting.ShowDialog();
+
+
+            FrmWinPrice ObjWinPrice = new FrmWinPrice("12", endtime);
+            ObjWinPrice.Show();
         }
 
         private void FrmJackportDemo_FormClosed(object sender, FormClosedEventArgs e)
@@ -1524,11 +1569,13 @@ namespace Jackport
                 e.Handled = true;
             }
 
-            // only allow one decimal point
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+
+            if ((e.KeyChar < 48 || e.KeyChar > 57) && (e.KeyChar != 8 && e.KeyChar != 46))
             {
                 e.Handled = true;
             }
+
+
         }
 
         private void FrmJackportDemo_Resize(object sender, EventArgs e)
@@ -1582,6 +1629,12 @@ namespace Jackport
         {
             if (!string.IsNullOrEmpty(TxtLpNo.Text))
             {
+                if (TxtLpNo.Text.Contains(".") || TxtLpNo.Text == "0")
+                {
+                    TxtLpNo.Text = "";
+                    return;
+                }
+
                 int num = Convert.ToInt16(TxtLpNo.Text);
                 int val = 0;
                 if (e.KeyCode == Keys.Up)

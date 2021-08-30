@@ -31,7 +31,7 @@ namespace Jackport
             PrintJobSettings.Height = Convert.ToInt16(txtheight.Text);
             PrintJobSettings.Width = Convert.ToInt16(txtwidth.Text);
             PrintJobSettings.PaperSize = txtpapersize.Text;
-          
+
 
             var result = CommonHelper.InsertDataIntoXML();
             if (result)
@@ -57,7 +57,7 @@ namespace Jackport
                 txtheight.Text = PrintJobSettings.Height.ToString();
                 chkdirectprint.Checked = PrintJobSettings.IsDirectPrint;
                 txtpapersize.Text = PrintJobSettings.PaperSize;
-              
+
             }
             catch { }
         }
@@ -70,6 +70,53 @@ namespace Jackport
             }
 
 
+        }
+
+        private void txtwidth_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (txtwidth.Text.Contains(".") || txtwidth.Text == "0")
+            {
+                txtwidth.Text = "";
+                return;
+            }
+        }
+
+        private void txtheight_TextChanged(object sender, EventArgs e)
+        {
+            if (txtheight.Text.Contains(".") || txtheight.Text == "0")
+            {
+                txtwidth.Text = "";
+                return;
+            }
+        }
+
+        private void txtwidth_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+       (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        private void txtheight_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+       (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        private void txtpapersize_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (txtpapersize.Text.Contains(".") || txtpapersize.Text == "0")
+            {
+                txtwidth.Text = "";
+                return;
+            }
         }
     }
 }

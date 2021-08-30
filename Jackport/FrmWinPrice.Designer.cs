@@ -47,7 +47,7 @@
             this.lblWinNumber.BackColor = System.Drawing.Color.Transparent;
             this.lblWinNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWinNumber.ForeColor = System.Drawing.Color.Green;
-            this.lblWinNumber.Location = new System.Drawing.Point(555, 193);
+            this.lblWinNumber.Location = new System.Drawing.Point(583, 192);
             this.lblWinNumber.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblWinNumber.Name = "lblWinNumber";
             this.lblWinNumber.Size = new System.Drawing.Size(153, 108);
@@ -67,7 +67,7 @@
             this.groupBox3.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(6);
-            this.groupBox3.Size = new System.Drawing.Size(1230, 520);
+            this.groupBox3.Size = new System.Drawing.Size(1272, 557);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             // 
@@ -102,7 +102,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
-            this.ClientSize = new System.Drawing.Size(1230, 520);
+            this.ClientSize = new System.Drawing.Size(1272, 557);
             this.Controls.Add(this.groupBox3);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
